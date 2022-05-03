@@ -1,7 +1,24 @@
+<%@page import="semi.beans.QaDao"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.QaDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% 
+    	String type = request.getParameter("type");
+		String keyword = request.getParameter("keyword");
+    %>
+    
+    <%
+    	boolean search = type != null && keyword != null;
+    	QaDao qaDao = new QaDao();
+    	List<QaDto> list;
+    	if(search){
+    		list = qaDao.selectList(type, keyword);
+    	}
+    	else{
+    		list = qaDao.selectList();
+    	}
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,15 +46,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!--  <%for(QaDto qaDto : list){ %>
+				<%for(QaDto qaDto : list){ %>
 				<tr>
 					<td><%=qaDto.getQaNo() %></td>
-					<td><%=qaDto.getQaTitle() %></td>
+					<td><a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>"><%=qaDto.getQaTitle() %></a></td>
 					<td><%=qaDto.getQaWriter() %></td>
 					<td><%=qaDto.getQaWritedate() %></td>
 					<td><%=qaDto.getQaReadcount() %></td>
 				</tr>
-				<%} %>-->
+				<%} %>
 			</tbody>
 		</table>
 	</div>
