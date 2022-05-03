@@ -8,7 +8,7 @@ check(regexp_like(member_pw, '[a-z]+') and regexp_like(member_pw, '[A-Z]+')
 member_birth char(10) not null,
 member_name varchar2(10) not null check(regexp_like(member_name, '^[가-힣0-9]{2,10}$')),
 member_phone char(11) not null check(regexp_like(member_phone, '^010[1-9][0-9]{7}$')),
-member_email varchar2(100),
+member_email varchar2(100)  not null,
 member_post char(6),
 member_basic_address varchar2(300),
 member_detail_address varchar2(300),
