@@ -19,10 +19,6 @@ member_logindate date
 -- 멤버 테이블 조회 
 select * from member;
 
--- 멤버 테이블 test_user(1-6) 추가 
-insert into member values('testuser1','Testuser1!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
-insert into member values('testuser2','Testuser2!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
-insert into member values('testuser3','Testuser3!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
-insert into member values('testuser4','Testuser4!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
-insert into member values('testuser5','Testuser5!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
-insert into member values('testuser6','Testuser6!','YYYY-MM-DD','테스트','01041923035','testuser1@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
+-- 멤버 테이블 관리자(testmanager),회원(testuser) 추가 
+insert into member values('testmanager','Testmanager1!','YYYY-MM-DD','관리자','01041923035','manager@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
+insert into member values('testuser','Testuser1!','YYYY-MM-DD','회원','01041923035','user@test.co.kr', '000000','서울시 당산동 이레빌딩', '19층 C강의실', sysdate,sysdate);
