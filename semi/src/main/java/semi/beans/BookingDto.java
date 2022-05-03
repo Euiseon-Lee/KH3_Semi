@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class BookingDto {
 
-	private int booking_room_no;
-	private String booking_member_id;
-	private	int	booking_peoplenum;
-	private String booking_roomtype;
-	private String booking_bedtype;
-	private Date booking_checkin;
-	private Date booking_checkout;
-	private long booking_roomates;
-	private long booking_seasonextra;
-	private int booking_extrabednum;
-	private long booking_extrabedprice;
-	private int booking_poolpeoplenum;
-	private Date booking_poolusedate; 
-	private int booking_restpeoplenum; 
-	private Date booking_restusedate;
-	private String booking_restmealtype; 
-	private String booking_name;
+	private int booking_room_no; // 객실번호
+	private String booking_member_id; // 아이디
+	private	int	booking_peoplenum; // 인원
+	private String booking_roomtype; // 객실타입
+	private String booking_bedtype; // 침대타입
+	private Date booking_checkin; // 체크인
+	private Date booking_checkout; // 체크아웃
+	private long booking_roomates; // 객실기본요금
+	private long booking_seasonextra; // 객실시즌추가요금
+	private int booking_extrabednum; // 침대추가개수
+	private long booking_extrabedprice; // 침대추가요금
+	private int booking_poolpeoplenum; // 개인풀 이용인원
+	private Date booking_poolusedate;  // 개인풀 이용날짜
+	private int booking_restpeoplenum; // 레스토랑이용인원
+	private Date booking_restusedate; // 레스토랑이용날짜
+	private String booking_restmealtype; // 레스토랑식사유형
+	private String booking_name; // 이름
 	
 	public int getBooking_room_no() {
 		return booking_room_no;
