@@ -169,6 +169,32 @@ public class BookingDto {
 				+ booking_poolpeoplenum + ", booking_poolusedate=" + booking_poolusedate + ", booking_restpeoplenum="
 				+ booking_restpeoplenum + ", booking_restusedate=" + booking_restusedate + ", booking_restmealtype="
 				+ booking_restmealtype + ", booking_name=" + booking_name + "]";
+	}
+
+	public BookingDto(int booking_room_no, String booking_member_id, int booking_peoplenum, String booking_roomtype,
+			String booking_bedtype, Date booking_checkin, Date booking_checkout, long booking_roomates,
+			long booking_seasonextra, int booking_extrabednum, long booking_extrabedprice, int booking_poolpeoplenum,
+			Date booking_poolusedate, int booking_restpeoplenum, Date booking_restusedate, String booking_restmealtype,
+			String booking_name) {
+		super();
+		this.booking_room_no = booking_room_no;
+		this.booking_member_id = booking_member_id;
+		this.booking_peoplenum = booking_peoplenum;
+		this.booking_roomtype = booking_roomtype;
+		this.booking_bedtype = booking_bedtype;
+		this.booking_checkin = booking_checkin;
+		this.booking_checkout = booking_checkout;
+		this.booking_roomates = booking_roomates;
+		this.booking_seasonextra = booking_seasonextra;
+		this.booking_extrabednum = booking_extrabednum;
+		this.booking_extrabedprice = booking_extrabedprice;
+		this.booking_poolpeoplenum = booking_poolpeoplenum;
+		this.booking_poolusedate = booking_poolusedate;
+		this.booking_restpeoplenum = booking_restpeoplenum;
+		this.booking_restusedate = booking_restusedate;
+		this.booking_restmealtype = booking_restmealtype;
+		this.booking_name = booking_name;
 	} 
+	
 	
 }
