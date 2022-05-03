@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class PayDto {
 
-	private String pay_member_id;
-	private long pay_room_no;
-	private long pay_peoplenum;
-	private String pay_roomtype;
-	private String pay_bedtype; 
-	private Date pay_checkin;
-	private Date pay_checkout;
-	private long pay_roomrates;
-	private long pay_seasonextra;
-	private int pay_extrabednum;
-	private long pay_extrabedprice;
-	private int pay_poolpeoplenum; 
-	private Date pay_poolusedate;
-	private int pay_restpeoplenum;
-	private Date pay_restusedate;
-	private String pay_restmealtype;
-	private String pay_name;
+	private String pay_member_id; //아이디
+	private long pay_room_no; //객실번호
+	private long pay_peoplenum; //인원
+	private String pay_roomtype; //객실타입
+	private String pay_bedtype; //침대타입
+	private Date pay_checkin; //체크인
+	private Date pay_checkout; //체크아웃
+	private long pay_roomrates; //객실기본요금
+	private long pay_seasonextra; //객실시즌추가요금
+	private int pay_extrabednum; //침대추가개수
+	private long pay_extrabedprice; //침대추가요금
+	private int pay_poolpeoplenum;  //개인풀 이용인원
+	private Date pay_poolusedate; //개인풀이용날짜
+	private int pay_restpeoplenum; //레스토랑 이용인원
+	private Date pay_restusedate; // 레스토랑날짜
+	private String pay_restmealtype; //레스토랑식사유형
+	private String pay_name; // 이름 
 	
 	public String getPay_member_id() {
 		return pay_member_id;
