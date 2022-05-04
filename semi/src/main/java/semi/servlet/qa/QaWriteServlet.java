@@ -18,12 +18,14 @@ public class QaWriteServlet extends HttpServlet{
 		try {
 			QaDto qaDto = new QaDto();
 			qaDto.setQaTitle(req.getParameter("qaTitle"));
-			qaDto.setQaContent("qaContent");
+			qaDto.setQaContent(req.getParameter("qaContent"));
 			
 			QaDao qaDao = new QaDao();
 			qaDto.setQaNo(qaDao.getSequence());
 			
-			if(req.getParameter("superNo") == null) {
+			qaDto.setQaWriter("test111"); // 테스트용 작성자 세선에서 불러와야함
+			
+			if(req.getParameter("superNo") == null ) {
 				qaDto.setGroupNo(qaDto.getQaNo());
 				qaDto.setSuperNo(0);
 				qaDto.setDepth(0);
@@ -32,9 +34,14 @@ public class QaWriteServlet extends HttpServlet{
 				int superNo = Integer.parseInt(req.getParameter("superNo"));
 				QaDto originDto = qaDao.selectOne(superNo);
 				qaDto.setGroupNo(originDto.getGroupNo());
-				qaDto.setSuperNo(originDto.getQaNo());//==superNo
-				qaDto.setDepth(originDto.getDepth() + 1);
+				qaDto.setSuperNo(originDto.getQaNo());
+				qaDto.setDepth(originDto.getDepth()+1);
 			}
+			
+			qaDao.insert(qaDto);
+			
+			resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo());
+			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
