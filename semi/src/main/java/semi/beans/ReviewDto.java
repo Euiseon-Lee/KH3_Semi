@@ -13,33 +13,19 @@ public class ReviewDto {
 	private int reviewReadcount;
 	private int reviewStar;
 	private int reviewReplycount;
-
-
-	public ReviewDto() {
-		super();
-	}
 	
 	
-	public int getReviewOrderNo() {
-		return reviewOrderNo;
-	}
-
-	public void setReviewOrderNo(int reviewOrderNo) {
-		this.reviewOrderNo = reviewOrderNo;
-	}
-
-	public int getReviewReplycount() {
-		return reviewReplycount;
-	}
-	public void setReviewReplycount(int reviewReplycount) {
-		this.reviewReplycount = reviewReplycount;
-	}
-	
-	public long getReviewNo() {
+	public int getReviewNo() {
 		return reviewNo;
 	}
 	public void setReviewNo(int reviewNo) {
 		this.reviewNo = reviewNo;
+	}
+	public int getReviewOrderNo() {
+		return reviewOrderNo;
+	}
+	public void setReviewOrderNo(int reviewOrderNo) {
+		this.reviewOrderNo = reviewOrderNo;
 	}
 	public String getReviewMemberId() {
 		return reviewMemberId;
@@ -65,7 +51,7 @@ public class ReviewDto {
 	public void setReviewWritedate(Date reviewWritedate) {
 		this.reviewWritedate = reviewWritedate;
 	}
-	public long getReviewReadcount() {
+	public int getReviewReadcount() {
 		return reviewReadcount;
 	}
 	public void setReviewReadcount(int reviewReadcount) {
@@ -77,6 +63,13 @@ public class ReviewDto {
 	public void setReviewStar(int reviewStar) {
 		this.reviewStar = reviewStar;
 	}
+	public int getReviewReplycount() {
+		return reviewReplycount;
+	}
+	public void setReviewReplycount(int reviewReplycount) {
+		this.reviewReplycount = reviewReplycount;
+	}
+
 
 	
 
