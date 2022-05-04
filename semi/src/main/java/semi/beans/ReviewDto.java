@@ -4,13 +4,13 @@ import java.sql.Date;
 
 
 public class ReviewDto {
-	private long reviewNo;
+	private int reviewNo;
 	private String reviewMemberId;
 	private int reviewRoomNo;
 	private String reviewTitle;
 	private String reviewContent;
 	private Date reviewWritedate;
-	private long reviewReadcount;
+	private int reviewReadcount;
 	private int reviewStar;
 	private int reviewReplycount;
 
@@ -31,7 +31,7 @@ public class ReviewDto {
 	public long getReviewNo() {
 		return reviewNo;
 	}
-	public void setReviewNo(long reviewNo) {
+	public void setReviewNo(int reviewNo) {
 		this.reviewNo = reviewNo;
 	}
 	public String getReviewMemberId() {
@@ -67,7 +67,7 @@ public class ReviewDto {
 	public long getReviewReadcount() {
 		return reviewReadcount;
 	}
-	public void setReviewReadcount(long reviewReadcount) {
+	public void setReviewReadcount(int reviewReadcount) {
 		this.reviewReadcount = reviewReadcount;
 	}
 	public int getReviewStar() {
