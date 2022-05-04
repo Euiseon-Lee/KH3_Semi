@@ -11,19 +11,21 @@ public class MemberDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql="insert into member(member_id, member_pw, member_birth,"
-				+"member_name, member_phone, member_email, member_post"
+				+"member_name, member_fname, member_lname, member_phone, member_email, member_post"
 				+"member_basic_address, member_detail_address)"
-				+"values(?,?,?,?,?,?,?,?,?)";
+				+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, memberDto.getMemberId());
 		ps.setString(2, memberDto.getMemberPw());
 		ps.setString(3, memberDto.getMemberBirth());
 		ps.setString(4, memberDto.getMemberName());
-		ps.setString(5, memberDto.getMemberPhone());
-		ps.setString(6, memberDto.getMemberEmail());
-		ps.setString(7, memberDto.getMemberPost());
-		ps.setString(8, memberDto.getMemberBasicAddress());
-		ps.setString(9, memberDto.getMemberDetailAddress());
+		ps.setString(5, memberDto.getMemberFname());
+		ps.setString(6, memberDto.getMemberLname());
+		ps.setString(7, memberDto.getMemberPhone());
+		ps.setString(8, memberDto.getMemberEmail());
+		ps.setString(9, memberDto.getMemberPost());
+		ps.setString(10, memberDto.getMemberBasicAddress());
+		ps.setString(11, memberDto.getMemberDetailAddress());
 		ps.execute();
 		
 		con.close();
@@ -47,6 +49,8 @@ public class MemberDao {
 			memberDto.setMemberPw(rs.getString("member_pw"));
 			memberDto.setMemberBirth(rs.getString("member_birth"));
 			memberDto .setMemberName(rs.getString("member_name"));
+			memberDto .setMemberFname(rs.getString("member_fname"));
+			memberDto .setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
 			memberDto.setMemberPost(rs.getString("member_post"));
@@ -63,13 +67,14 @@ public class MemberDao {
 		}
 	
 	
-		//이름 단일조회(select)
-		public MemberDto selectOneName(String memberName) throws Exception {
+		//이름(영문-성,이름) 조회(select)
+		public MemberDto selectOneName(String memberFname, String memberLname) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "select * from member where member_name = ?";
+		String sql = "select * from member where member_fname = ? and member_lname =?";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, memberName);
+		ps.setString(1, memberFname);
+		ps.setString(2, memberLname);
 		ResultSet rs = ps.executeQuery();
 		
 		MemberDto memberDto;
@@ -80,6 +85,8 @@ public class MemberDao {
 			memberDto.setMemberPw(rs.getString("member_pw"));
 			memberDto.setMemberBirth(rs.getString("member_birth"));
 			memberDto.setMemberName(rs.getString("member_name"));
+			memberDto.setMemberFname(rs.getString("member_fname"));
+			memberDto.setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
 			memberDto.setMemberPost(rs.getString("member_post"));
@@ -97,14 +104,15 @@ public class MemberDao {
 		
 		
 		//아이디 찾기(select)
-				//-> 이름, 이메일로 아이디 찾기
+				//-> 이름(영문-성,이름), 이메일로 아이디 찾기
 		public String findId(MemberDto memberDto) throws Exception {
 			Connection con = JdbcUtils.getConnection();
 			
-			String sql = "select member_id from member where member_name=? and member_email=?";
+			String sql = "select member_id from member where member_fname=? and member_lname=? and member_email=?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, memberDto.getMemberName());
-			ps.setString(2, memberDto.getMemberEmail());
+			ps.setString(1, memberDto.getMemberFname());
+			ps.setString(2, memberDto.getMemberLname());
+			ps.setString(3, memberDto.getMemberEmail());
 			ResultSet rs = ps.executeQuery();
 			
 			String memberId;
@@ -120,18 +128,19 @@ public class MemberDao {
 		
 		
 		//비밀번호 찾기(select)
-					//-> 아이디, 이름, 이메일, 핸드폰번호로 비밀번호 찾기
+					//-> 아이디, 이름(영문-성,이름), 이메일, 핸드폰번호로 비밀번호 찾기
 		public MemberDto findPw(MemberDto memberDto) throws Exception {
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "select * from member "
 								+ "where "
-								+ "member_id = ? and member_name = ? and member_email = ? and member_phone = ?";
+								+ "member_id = ? and member_fname = ? and member_Lname = ? and member_email = ? and member_phone = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, memberDto.getMemberId());
-			ps.setString(2, memberDto.getMemberName());
-			ps.setString(3, memberDto.getMemberEmail());
-			ps.setString(4, memberDto.getMemberPhone());
+			ps.setString(2, memberDto.getMemberFname());
+			ps.setString(3, memberDto.getMemberLname());
+			ps.setString(4, memberDto.getMemberEmail());
+			ps.setString(5, memberDto.getMemberPhone());
 			ResultSet rs = ps.executeQuery();
 			
 			MemberDto findDto;
@@ -142,6 +151,8 @@ public class MemberDao {
 				memberDto.setMemberPw(rs.getString("member_pw"));
 				memberDto.setMemberBirth(rs.getString("member_birth"));
 				memberDto.setMemberName(rs.getString("member_name"));
+				memberDto.setMemberFname(rs.getString("member_fname"));
+				memberDto.setMemberLname(rs.getString("member_lname"));
 				memberDto.setMemberPhone(rs.getString("member_phone"));
 				memberDto.setMemberEmail(rs.getString("member_email"));
 				memberDto.setMemberPost(rs.getString("member_post"));
@@ -180,18 +191,20 @@ public class MemberDao {
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "update member set "
-										+ "member_name = ? , member_birth = ? , member_phone = ?, member_email = ? , "
+										+ "member_name = ? , member_fname = ? , member_lname = ?, member_birth = ? , member_phone = ?, member_email = ? , "
 										+ "member_post = ? , member_basic_address = ?, member_detail_address = ? "
 										+ "where member_id = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, memberDto.getMemberName());
-			ps.setString(2, memberDto.getMemberBirth());
-			ps.setString(3, memberDto.getMemberPhone());
-			ps.setString(4, memberDto.getMemberEmail());
-			ps.setString(5, memberDto.getMemberPost());
-			ps.setString(6, memberDto.getMemberBasicAddress());
-			ps.setString(7, memberDto.getMemberDetailAddress());
-			ps.setString(8, memberDto.getMemberId());
+			ps.setString(2, memberDto.getMemberFname());
+			ps.setString(3, memberDto.getMemberLname());
+			ps.setString(4, memberDto.getMemberBirth());
+			ps.setString(5, memberDto.getMemberPhone());
+			ps.setString(6, memberDto.getMemberEmail());
+			ps.setString(7, memberDto.getMemberPost());
+			ps.setString(8, memberDto.getMemberBasicAddress());
+			ps.setString(9, memberDto.getMemberDetailAddress());
+			ps.setString(10, memberDto.getMemberId());
 			int count = ps.executeUpdate();
 			
 			con.close();

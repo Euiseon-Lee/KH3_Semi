@@ -7,6 +7,8 @@ public class MemberDto {
 	private String memberPw;
 	private String memberBirth;
 	private String memberName;
+	private String memberFname;
+	private String memberLname;
 	private String memberPhone;
 	private String memberEmail;
 	private String memberPost;
@@ -18,15 +20,17 @@ public class MemberDto {
 	public MemberDto() {
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "MemberDto [memberId=" + memberId + ", memberPw=" + memberPw + ", memberBirth=" + memberBirth
-				+ ", memberName=" + memberName + ", memberPhone=" + memberPhone + ", memberEmail=" + memberEmail
-				+ ", memberPost=" + memberPost + ", memberBasicAddress=" + memberBasicAddress + ", memberDetailAddress="
-				+ memberDetailAddress + ", memberJoindate=" + memberJoindate + ", memberLogindate=" + memberLogindate
-				+ "]";
+				+ ", memberName=" + memberName + ", memberFname=" + memberFname + ", memberLname=" + memberLname
+				+ ", memberPhone=" + memberPhone + ", memberEmail=" + memberEmail + ", memberPost=" + memberPost
+				+ ", memberBasicAddress=" + memberBasicAddress + ", memberDetailAddress=" + memberDetailAddress
+				+ ", memberJoindate=" + memberJoindate + ", memberLogindate=" + memberLogindate + "]";
 	}
-	
+
+
 	//member : getter + setter 
 	public String getMemberId() {
 		return memberId;
@@ -94,8 +98,26 @@ public class MemberDto {
 	public void setMemberLogindate(Date memberLogindate) {
 		this.memberLogindate = memberLogindate;
 	}
+	public String getMemberFname() {
+		return memberFname;
+	}
+	public void setMemberFname(String memberFname) {
+		this.memberFname = memberFname;
+	}
+	public String getMemberLname() {
+		return memberLname;
+	}
+	public void setMemberLname(String memberLname) {
+		this.memberLname = memberLname;
+	}
+
+
+	//member : getter(이름(국,우편번호,기본주소,상세주소 null 처리)
+	public String getMemberNameString() {
+		if(this.memberName==null) return "";
+		else return this.memberName;
+	}
 	
-	//member : getter(우편번호,기본주소,상세주소 null 처리)
 	public String getMemberPostString() {
 		if(this.memberPost==null) return "";
 		else return this.memberPost;
