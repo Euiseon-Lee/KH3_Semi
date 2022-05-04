@@ -5,8 +5,8 @@ import java.sql.Date;
 
 public class ReviewDto {
 	private int reviewNo;
+	private int reviewRoomoccupiedNo;
 	private String reviewMemberId;
-	private int reviewRoomNo;
 	private String reviewTitle;
 	private String reviewContent;
 	private Date reviewWritedate;
@@ -18,6 +18,15 @@ public class ReviewDto {
 	public ReviewDto() {
 		super();
 	}
+	
+	public int getReviewRoomoccupiedNo() {
+		return reviewRoomoccupiedNo;
+	}
+
+	public void setReviewRoomoccupiedNo(int reviewRoomoccupiedNo) {
+		this.reviewRoomoccupiedNo = reviewRoomoccupiedNo;
+	}
+	
 	
 	public int getReviewReplycount() {
 		return reviewReplycount;
@@ -39,12 +48,6 @@ public class ReviewDto {
 	}
 	public void setReviewMemberId(String reviewMemberId) {
 		this.reviewMemberId = reviewMemberId;
-	}
-	public int getReviewRoomNo() {
-		return reviewRoomNo;
-	}
-	public void setReviewRoomNo(int reviewRoomNo) {
-		this.reviewRoomNo = reviewRoomNo;
 	}
 	public String getReviewTitle() {
 		return reviewTitle;
@@ -78,13 +81,6 @@ public class ReviewDto {
 	}
 
 	
-	@Override
-	public String toString() {
-		return "ReviewDto [reviewNo=" + reviewNo + ", reviewMemberId=" + reviewMemberId + ", reviewRoomNo="
-				+ reviewRoomNo + ", reviewTitle=" + reviewTitle + ", reviewContent=" + reviewContent
-				+ ", reviewWritedate=" + reviewWritedate + ", reviewReadcount=" + reviewReadcount + ", reviewStar="
-				+ reviewStar + "]";
-	}
 
 
 	
