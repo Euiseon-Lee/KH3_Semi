@@ -57,5 +57,20 @@ public class HotelIntroduceDao {
 		con.close();
 		return hotelIntroduceDto;
 	}
-	
+		
+	//수정
+	public boolean update(HotelIntroduceDto hotelIntroduceDto) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		String sql = "update hotel_introduce " 
+								+ "set hotel_introduce_head = ?, hotel_introduce_content = ? "
+								+ "where hotel_introduce_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, hotelIntroduceDto.getHotelIntroduceHead());
+		ps.setString(2, hotelIntroduceDto.getHotelIntroduceContent());
+		ps.setInt(3, hotelIntroduceDto.getHotelIntroduceNo());
+		int count = ps.executeUpdate();
+		
+		con.close();
+		return count>0;
+	}
 }
