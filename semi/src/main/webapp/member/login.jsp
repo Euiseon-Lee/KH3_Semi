@@ -29,12 +29,7 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-				<a href="find_id.jsp">아이디 찾기</a>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" colspan="2">
-				<a href="find_pw.jsp">비밀번호 찾기</a>
+				<a href="find_id.jsp">아이디/비밀번호 찾기</a>
 			</td>
 		</tr>
 	</table>
