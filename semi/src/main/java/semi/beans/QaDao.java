@@ -137,19 +137,20 @@ public class QaDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "insert into qaboard("
-				+ "qa_no, qa_title, qa_content, qa_writer,"
+				+ "qa_no, qa_public, qa_title, qa_content, qa_writer,"
 				+ "group_no, super_no, depth"
 				+ ")"
-				+ "values(?,?,?,?,?,?,?)";
+				+ "values(?,?,?,?,?,?,?,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, qaDto.getQaNo());
-		ps.setString(2, qaDto.getQaTitle());
-		ps.setString(3, qaDto.getQaContent());
-		ps.setString(4, qaDto.getQaWriter());
-		ps.setInt(5, qaDto.getGroupNo());
-		ps.setInt(6, qaDto.getSuperNo());
-		ps.setInt(7, qaDto.getDepth());
+		ps.setString(2, qaDto.getQaPublic());
+		ps.setString(3, qaDto.getQaTitle());
+		ps.setString(4, qaDto.getQaContent());
+		ps.setString(5, qaDto.getQaWriter());
+		ps.setInt(6, qaDto.getGroupNo());
+		ps.setInt(7, qaDto.getSuperNo());
+		ps.setInt(8, qaDto.getDepth());
 		ps.execute();
 		
 		con.close();
@@ -160,12 +161,13 @@ public class QaDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "update qaboard "
-				+ "set qa_title=?, qa_content=? "
+				+ "set qa_title=?, qa_content=?, qa_public=? "
 				+ "where qa_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, qaDto.getQaTitle());
 		ps.setString(2, qaDto.getQaContent());
-		ps.setInt(3, qaDto.getQaNo());
+		ps.setString(3, qaDto.getQaPublic());
+		ps.setInt(4, qaDto.getQaNo());
 		int count = ps.executeUpdate();
 		
 		con.close();

@@ -102,7 +102,12 @@
 							<%} %>
 						<img src="<%=request.getContextPath()%>/image/reply.png" width="20" height="20">
 						<%} %>
+						<%if(qaDto.getQaPublic()==null){ %>
 					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>"><%=qaDto.getQaTitle() %></a>
+					<%}else{ %>
+					<img src="<%=request.getContextPath() %>/image/locked.png" width="20" height="20">
+					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>"><%=qaDto.getQaTitle() %></a>
+					<%} %>
 					</td>
 					<td><%=qaDto.getQaWriter() %></td>
 					<td><%=qaDto.getQaWritedate() %></td>

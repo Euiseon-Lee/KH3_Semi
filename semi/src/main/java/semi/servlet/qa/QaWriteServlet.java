@@ -18,12 +18,13 @@ public class QaWriteServlet extends HttpServlet{
 		try {
 			QaDto qaDto = new QaDto();
 			qaDto.setQaTitle(req.getParameter("qaTitle"));
+			qaDto.setQaPublic(req.getParameter("qaPublic"));
 			qaDto.setQaContent(req.getParameter("qaContent"));
 			
 			QaDao qaDao = new QaDao();
 			qaDto.setQaNo(qaDao.getSequence());
 			
-			qaDto.setQaWriter("test111"); // 테스트용 작성자 세선에서 불러와야함
+			qaDto.setQaWriter("test111"); // 테스트용 작성자 세선에서 불러와야 함
 			
 			if(req.getParameter("superNo") == null ) {
 				qaDto.setGroupNo(qaDto.getQaNo());

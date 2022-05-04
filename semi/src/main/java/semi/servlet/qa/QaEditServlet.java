@@ -19,6 +19,7 @@ public class QaEditServlet extends HttpServlet{
 			QaDto qaDto = new QaDto();
 			qaDto.setQaNo(Integer.parseInt(req.getParameter("qaNo")));
 			qaDto.setQaTitle(req.getParameter("qaTitle"));
+			qaDto.setQaPublic(req.getParameter("qaPublic"));
 			qaDto.setQaContent(req.getParameter("qaContent"));
 			
 			QaDao qaDao = new QaDao();

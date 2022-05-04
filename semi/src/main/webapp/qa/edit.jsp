@@ -25,6 +25,14 @@
 						<input type="text" name="qaTitle" value="<%=qaDto.getQaTitle() %>">
 					</div>
 					<div>
+						<label>비공개</label>
+						<%if(qaDto.getQaPublic() != null){ %>
+  	  					<input type="checkbox" value="<%=qaDto.getQaPublic() %>" name="qaPublic" checked>
+  	  					<%} else{%>
+  	  					<input type="checkbox" value="<%=qaDto.getQaPublic() %>" name="qaPublic">
+  	  					<%} %>
+					</div>
+					<div>
 						<label>내용</label>
 						<textarea name="qaContent"><%=qaDto.getQaContent() %></textarea>
 					</div>

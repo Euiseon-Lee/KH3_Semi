@@ -21,6 +21,10 @@
 	<input type="text" name="qaTitle">
 </div>
 <div>
+	<label>비공개</label>
+    <input type="checkbox" value="Y" name="qaPublic" >
+</div>
+<div>
 	<label>내용</label>
 	<textarea name="qaContent"></textarea>
 </div>
