@@ -24,7 +24,7 @@ public class HotelIntroduceDao {
 			hotelIntroduceDto.setHotelIntroduceWriter(rs.getString("hotel_introduce_writer"));
 			hotelIntroduceDto.setHotelIntroduceHead(rs.getString("hotel_introduce_head"));
 			hotelIntroduceDto.setHotelIntroduceContent(rs.getString("hotel_introduce_content"));
-			
+			hotelIntroduceDto.setHotelIntroduceNo(rs.getInt("hotel_introduce_no"));
 			list.add(hotelIntroduceDto);
 		}
 	
@@ -32,4 +32,30 @@ public class HotelIntroduceDao {
 			
 			return list;
 	}
+
+	//상세보기 
+	public HotelIntroduceDto selectOne(int hotelIntroduceNo) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from hotel_introduce where hotel_introduce_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, hotelIntroduceNo);
+		ResultSet rs = ps.executeQuery();
+		
+		HotelIntroduceDto hotelIntroduceDto;
+		if(rs.next()) {
+			hotelIntroduceDto = new HotelIntroduceDto();
+			
+			hotelIntroduceDto.setHotelIntroduceWriter(rs.getString("hotel_introduce_writer"));
+			hotelIntroduceDto.setHotelIntroduceHead(rs.getString("hotel_introduce_head"));
+			hotelIntroduceDto.setHotelIntroduceContent(rs.getString("hotel_introduce_content"));
+			hotelIntroduceDto.setHotelIntroduceNo(rs.getInt("hotel_introduce_no"));
+		}
+		else {
+			hotelIntroduceDto = null;
+		}
+		con.close();
+		return hotelIntroduceDto;
+	}
+	
 }

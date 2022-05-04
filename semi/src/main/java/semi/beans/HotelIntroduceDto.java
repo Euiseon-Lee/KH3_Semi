@@ -4,6 +4,8 @@ public class HotelIntroduceDto {
 	private String hotelIntroduceWriter;
 	private String hotelIntroduceHead;
 	private String hotelIntroduceContent;
+	private int hotelIntroduceNo;
+	
 	public String getHotelIntroduceWriter() {
 		return hotelIntroduceWriter;
 	}
@@ -22,9 +24,16 @@ public class HotelIntroduceDto {
 	public void setHotelIntroduceContent(String hotelIntroduceContent) {
 		this.hotelIntroduceContent = hotelIntroduceContent;
 	}
+	public int getHotelIntroduceNo() {
+		return hotelIntroduceNo;
+	}
+	public void setHotelIntroduceNo(int hotelIntroduceNo) {
+		this.hotelIntroduceNo = hotelIntroduceNo;
+	}
 	public HotelIntroduceDto() {
 		super();
 	}
+	
 	
 	
 }
