@@ -8,6 +8,7 @@
 </head>
 <body>
 <form action="join.semi" method="post">
+	<h1>회원가입</h1>
 <table>
 	<tr>
 		<th>아이디</th>
@@ -22,16 +23,23 @@
 		</td>
 	</tr>
 	<tr>
+		<th>이름(영문)</th>
+		<td>
+			<input type="text" name="memberFname" required placeholder="First Name(이름)">
+			<input type="text" name="memberLname" required placeholder="Last Name(성)">
+		</td>	
+	</tr>
+	<tr>
+		<th>이름(국문)</th>
+		<td>
+			<input type="text" name="memberName" required placeholder="한글 10자 이내">
+		</td>	
+	</tr>
+	<tr>
 		<th>생년월일</th>
 		<td>
 			<input type="date" name="memberBirth" required placeholder="YYYY-MM-DD">
 		</td>
-	</tr>
-	<tr>
-		<th>이름</th>
-		<td>
-			<input type="text" name="memberName" required placeholder="한글 10자 이내">
-		</td>	
 	</tr>
 	<tr>
 		<th>전화번호</th>
