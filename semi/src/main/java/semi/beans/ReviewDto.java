@@ -4,38 +4,34 @@ import java.sql.Date;
 
 
 public class ReviewDto {
-	private long reviewNo;
+	private int reviewNo;
+	private int reviewOrderNo;
 	private String reviewMemberId;
-	private int reviewRoomNo;
 	private String reviewTitle;
 	private String reviewContent;
 	private Date reviewWritedate;
-	private long reviewReadcount;
-	private int reviewRate;
-	private long reviewLikes;
-	
-	public ReviewDto() {
-		super();
-	}
+	private int reviewReadcount;
+	private int reviewStar;
+	private int reviewReplycount;
 	
 	
-	public long getReviewNo() {
+	public int getReviewNo() {
 		return reviewNo;
 	}
-	public void setReviewNo(long reviewNo) {
+	public void setReviewNo(int reviewNo) {
 		this.reviewNo = reviewNo;
+	}
+	public int getReviewOrderNo() {
+		return reviewOrderNo;
+	}
+	public void setReviewOrderNo(int reviewOrderNo) {
+		this.reviewOrderNo = reviewOrderNo;
 	}
 	public String getReviewMemberId() {
 		return reviewMemberId;
 	}
 	public void setReviewMemberId(String reviewMemberId) {
 		this.reviewMemberId = reviewMemberId;
-	}
-	public int getReviewRoomNo() {
-		return reviewRoomNo;
-	}
-	public void setReviewRoomNo(int reviewRoomNo) {
-		this.reviewRoomNo = reviewRoomNo;
 	}
 	public String getReviewTitle() {
 		return reviewTitle;
@@ -55,32 +51,27 @@ public class ReviewDto {
 	public void setReviewWritedate(Date reviewWritedate) {
 		this.reviewWritedate = reviewWritedate;
 	}
-	public long getReviewReadcount() {
+	public int getReviewReadcount() {
 		return reviewReadcount;
 	}
-	public void setReviewReadcount(long reviewReadcount) {
+	public void setReviewReadcount(int reviewReadcount) {
 		this.reviewReadcount = reviewReadcount;
 	}
-	public int getReviewRate() {
-		return reviewRate;
+	public int getReviewStar() {
+		return reviewStar;
 	}
-	public void setReviewRate(int reviewRate) {
-		this.reviewRate = reviewRate;
+	public void setReviewStar(int reviewStar) {
+		this.reviewStar = reviewStar;
 	}
-	public long getReviewLikes() {
-		return reviewLikes;
+	public int getReviewReplycount() {
+		return reviewReplycount;
 	}
-	public void setReviewLikes(long reviewLikes) {
-		this.reviewLikes = reviewLikes;
+	public void setReviewReplycount(int reviewReplycount) {
+		this.reviewReplycount = reviewReplycount;
 	}
+
+
 	
-	@Override
-	public String toString() {
-		return "ReviewDto [reviewNo=" + reviewNo + ", reviewMemberId=" + reviewMemberId + ", reviewRoomNo="
-				+ reviewRoomNo + ", reviewTitle=" + reviewTitle + ", reviewContent=" + reviewContent
-				+ ", reviewWritedate=" + reviewWritedate + ", reviewReadcount=" + reviewReadcount + ", reviewRate="
-				+ reviewRate + ", reviewLikes=" + reviewLikes + "]";
-	}
 
 
 	
