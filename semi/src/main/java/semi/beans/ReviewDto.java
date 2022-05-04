@@ -11,13 +11,22 @@ public class ReviewDto {
 	private String reviewContent;
 	private Date reviewWritedate;
 	private long reviewReadcount;
-	private int reviewRate;
-	private long reviewLikes;
-	
+	private int reviewStar;
+	private int reviewReplycount;
+
+
 	public ReviewDto() {
 		super();
 	}
 	
+	public int getReviewReplycount() {
+		return reviewReplycount;
+	}
+
+
+	public void setReviewReplycount(int reviewReplycount) {
+		this.reviewReplycount = reviewReplycount;
+	}
 	
 	public long getReviewNo() {
 		return reviewNo;
@@ -61,25 +70,20 @@ public class ReviewDto {
 	public void setReviewReadcount(long reviewReadcount) {
 		this.reviewReadcount = reviewReadcount;
 	}
-	public int getReviewRate() {
-		return reviewRate;
+	public int getReviewStar() {
+		return reviewStar;
 	}
-	public void setReviewRate(int reviewRate) {
-		this.reviewRate = reviewRate;
+	public void setReviewStar(int reviewStar) {
+		this.reviewStar = reviewStar;
 	}
-	public long getReviewLikes() {
-		return reviewLikes;
-	}
-	public void setReviewLikes(long reviewLikes) {
-		this.reviewLikes = reviewLikes;
-	}
+
 	
 	@Override
 	public String toString() {
 		return "ReviewDto [reviewNo=" + reviewNo + ", reviewMemberId=" + reviewMemberId + ", reviewRoomNo="
 				+ reviewRoomNo + ", reviewTitle=" + reviewTitle + ", reviewContent=" + reviewContent
-				+ ", reviewWritedate=" + reviewWritedate + ", reviewReadcount=" + reviewReadcount + ", reviewRate="
-				+ reviewRate + ", reviewLikes=" + reviewLikes + "]";
+				+ ", reviewWritedate=" + reviewWritedate + ", reviewReadcount=" + reviewReadcount + ", reviewStar="
+				+ reviewStar + "]";
 	}
 
 
