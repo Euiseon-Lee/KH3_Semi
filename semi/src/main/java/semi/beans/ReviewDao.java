@@ -136,8 +136,82 @@ public class ReviewDao {
 	}
 	
 
+	// 2) 등록
+	//게시글번호, 주문번호와 멤버아이디는 프로그래밍으로 넣어줄 것
+	//나머지는 사용자가 직접 입력
+	public void write(ReviewDto reviewDto) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "insert into review("
+						+ "review_no, review_order_no, review_member_id, "
+						+ "review_title, review_content, review_writedate, "
+						+ "review_readcount, review_star, review_replycount"
+					+ ") "
+						+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, reviewDto.getReviewNo());
+		ps.setInt(2, reviewDto.getReviewOrderNo());
+		ps.setString(3, reviewDto.getReviewMemberId());
+		ps.setString(4, reviewDto.getReviewTitle());
+		ps.setString(5, reviewDto.getReviewContent());
+		ps.setDate(6, reviewDto.getReviewWritedate());
+		ps.setInt(7, reviewDto.getReviewReadcount());
+		ps.setInt(8, reviewDto.getReviewStar());
+		ps.setInt(9, reviewDto.getReviewReplycount());
+		ps.execute();
+		
+		con.close();
+	}
 	
 	
+	
+	//글 수정 => edit.jsp
+	public boolean edit(ReviewDto reviewDto) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "update review "
+						+ "review_title = ?, review_content = ?, review_star = ? "
+						+ "where review_no = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, reviewDto.getReviewTitle());
+		ps.setString(2, reviewDto.getReviewContent());
+		ps.setInt(3, reviewDto.getReviewStar());
+		ps.setInt(4, reviewDto.getReviewNo());
+		
+		int count = ps.executeUpdate();
+		
+		con.close();
+		
+		return count > 0;
+		
+	}
+	
+	
+	//글 삭제 => delete.jsp
+	public boolean delete(int reviewNo) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "delete review where review_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, reviewNo);
+		int count = ps.executeUpdate();
+		
+		con.close();
+		
+		return count > 0;
+	}
+	
+	
+	
+	
+	//댓글 수 갱신 => 한석님 구상 후 추가 예정
+
+
+	
+	
+	//페이지네이션 => 나중에 구현 예정
+		
 	
 
 	
