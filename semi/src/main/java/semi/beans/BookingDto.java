@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BookingDto {
 
-	private int booking_room_no; // 객실번호
+	private int booking_room_no; // 객실번호.
 	private String booking_member_id; // 아이디
 	private	int	booking_peoplenum; // 인원
 	private String booking_roomtype; // 객실타입
