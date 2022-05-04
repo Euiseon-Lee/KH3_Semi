@@ -36,7 +36,7 @@ public class RoomIntroduceDao {
 		public RoomIntroduceDto selectOne(int roomIntroduceNo) throws Exception{
 			Connection con = JdbcUtils.getConnection();
 			
-			String sql = "select * from room_introduce where room_introdcue_no = ?";
+			String sql = "select * from room_introduce where room_introduce_no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, roomIntroduceNo);
 			ResultSet rs = ps.executeQuery();
@@ -54,6 +54,22 @@ public class RoomIntroduceDao {
 			}
 			con.close();
 			return roomIntroduceDto;
+		}
+		//객실 소개 수정
+		public boolean update(RoomIntroduceDto roomIntroduceDto) throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "update room_introduce "
+							+ "set room_introduce_head = ?, room_introduce_content = ? "
+							+ "where room_introduce_no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, roomIntroduceDto.getRoomIntroduceHead());
+			ps.setString(2, roomIntroduceDto.getRoomIntroduceContent());
+			ps.setInt(3, roomIntroduceDto.getRoomIntroduceNo());
+			int count = ps.executeUpdate();
+			
+			con.close();
+			return count >0;		
 		}
 		
 }
