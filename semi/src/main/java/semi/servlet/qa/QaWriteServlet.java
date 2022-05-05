@@ -31,12 +31,12 @@ public class QaWriteServlet extends HttpServlet{
 //			qaDto.setQaWriter(memberId);
 			
 			
-			if(req.getParameter("superNo") == null ) {
+			if(req.getParameter("superNo") == null ) {//새글
 				qaDto.setGroupNo(qaDto.getQaNo());
 				qaDto.setSuperNo(0);
 				qaDto.setDepth(0);
 			}
-			else {
+			else {//답글
 				int superNo = Integer.parseInt(req.getParameter("superNo"));
 				QaDto originDto = qaDao.selectOne(superNo);
 				qaDto.setGroupNo(originDto.getGroupNo());
