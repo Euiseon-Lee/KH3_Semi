@@ -29,12 +29,21 @@ public class QaBoardFilter implements Filter{
 				if(qaDto.getQaPublic() == null) {
 					chain.doFilter(request, response);
 				}
-				else {//비공개글일 경우 //세션에서 아이디 불러와서 수정 필요
-					resp.sendError(403);
-				}
+//				else {//비공개글일 경우 //세션에서 아이디 불러와서 수정 필요
+//					//관리자 확인구문 필요
+//					//작성자 본인 확인
+//					String memberId= (String)req.getSession().getAttribute("login");
+//					if(memberId.equals(qaDto.getQaWriter())) {
+//						chain.doFilter(request, response);
+//					}
+					else {//관리자 혹은 본인이 아닌경우
+						resp.sendRedirect("check.jsp");					
+					}
+//				}
 	}
 	catch(Exception e) {
-		
+		e.printStackTrace();
+		resp.sendError(500);
 	}
 }
 }
