@@ -8,4 +8,4 @@ reply_content varchar(1800) not null,
 reply_time date default sysdate
 );
 
-
+   
