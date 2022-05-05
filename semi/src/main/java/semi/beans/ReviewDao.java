@@ -38,7 +38,7 @@ public class ReviewDao {
 	
 	
 	//검색 => list.jsp
-	//제목검색 / 별점검색 / 내용검색
+	//제목검색 / 내용검색 / 작성자검색
 	public List<ReviewDto> searchList(String type, String keyword) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
