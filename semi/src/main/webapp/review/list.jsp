@@ -3,14 +3,7 @@
 <%@page import="semi.beans.ReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>후기게시판 글목록 및 검색 (디자인 전)</title>
-</head>
-<body>
-
+    
 <%
 	//검색을 위한 type, keyword 설정
 	String type = request.getParameter("type");
@@ -33,9 +26,16 @@
  		list = reviewDao.showList();	//페이징 이후 수정 필요
 
 	}
-%>  
-
-
+%>      
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>후기게시판 글목록 및 검색 (디자인 전)</title>
+</head>
+<body>
 	<div>
 		<div>
 			<h1>후기게시판 글목록</h1>
