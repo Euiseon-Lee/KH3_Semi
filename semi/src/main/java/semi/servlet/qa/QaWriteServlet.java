@@ -26,6 +26,11 @@ public class QaWriteServlet extends HttpServlet{
 			
 			qaDto.setQaWriter("testuser"); // 테스트용 작성자 세선에서 불러와야 함
 			
+//			세션 구문
+//			String memberId = (String)req.getSession().getAttribute("login");
+//			qaDto.setQaWriter(memberId);
+			
+			
 			if(req.getParameter("superNo") == null ) {
 				qaDto.setGroupNo(qaDto.getQaNo());
 				qaDto.setSuperNo(0);
