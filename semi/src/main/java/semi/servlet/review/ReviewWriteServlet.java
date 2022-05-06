@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.ReviewDao;
 import semi.beans.ReviewDto;
 
-@WebServlet(urlPatterns="/review/write.azure")
+@WebServlet(urlPatterns="/review/write.kh")
 public class ReviewWriteServlet extends HttpServlet {
 
 	@Override
