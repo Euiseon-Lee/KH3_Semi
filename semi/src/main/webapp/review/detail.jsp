@@ -17,6 +17,9 @@
 	//작성자 정보 조회 코드
 	MemberDao memberDao = new MemberDao();
 	MemberDto memberDto = memberDao.selectOneId(reviewDto.getReviewMemberId());
+	
+	
+	//작성자 주문 내역 조회 코드 => 객실타입 출력
 
 	
 	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
@@ -50,6 +53,7 @@
 		<tr>
 			<td>
 				<%=reviewDto.getReviewMemberId() %>
+				<%-- (<%=memberDto.getMemberGrade()%>) memberDto 갱신 필요--%>
 			</td>
 		</tr>
 
@@ -61,7 +65,11 @@
 		</tr>
 		
 		
-		<!-- 여기부터는 별점 및 글내용 출력 -->
+		<!-- 여기부터는 방 타입, 별점 및 글내용 출력 -->
+		<tr>
+			<td>객실타입 [<%= %>]</td>
+		</tr>
+		
 		<tr>
 			<td>별점 <%=reviewDto.getReviewStar() %>점</td>
 		</tr>
