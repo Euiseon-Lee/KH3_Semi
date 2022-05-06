@@ -3,6 +3,8 @@ package semi.beans;
 import java.sql.Date;
 
 public class BookingDto {
+	
+	//push test
 
 	private int booking_room_no; // 객실번호
 	private String booking_member_id; // 아이디
