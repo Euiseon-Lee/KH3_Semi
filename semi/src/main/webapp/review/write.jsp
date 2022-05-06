@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>후기 게시판 글작성(디자인 전)</title>
 </head>
 <body>
-	<form action = "write.azure" method ="post">
+	<form action = "write.kh" method ="post">
 		<div>
 		
 			<div>
-				<h1>후기 게시판 (디자인 전)</h1>
+				<h1>후기 게시판 글작성(디자인 전)</h1>
 			</div>
 			
 			<div>
