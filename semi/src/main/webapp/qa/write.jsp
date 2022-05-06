@@ -21,8 +21,9 @@
 	<input type="text" name="qaTitle">
 </div>
 <div>
-	<label>비공개</label>
+	<label>비공개
     <input type="checkbox" value="Y" name="qaPublic" >
+    </label>
 </div>
 <div>
 	<label>내용</label>
