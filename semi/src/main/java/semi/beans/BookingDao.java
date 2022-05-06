@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BookingDao {
 	
-	//일단 등록만 먼저 하고 시간 남으면 나머지 적용
+	////일단 등록만 먼저 하고 시간 남으면 나머지 적용
 	
 	// 등록 Booking 
 	public void add(BookingDto bookingDto) throws Exception {
