@@ -30,14 +30,15 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2">
+		<td>
 			<button type="submit">비밀번호 찾기</button>
 		</td>
 	</tr>
 </table>
-	    <div>
-	    <!-- 에러표시 메시지 출력 예정 -->
-	</div>
 </form>
+	    	   <!-- 에러표시 메시지 출력 -->
+	  	    <%if(request.getParameter("error") != null){ %>
+			<h3>정보가 일치하는 데이터가 존재하지 않습니다</h3>
+			<%} %>
 </body>
 </html>
