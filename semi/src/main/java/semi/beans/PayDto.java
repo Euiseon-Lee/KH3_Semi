@@ -3,7 +3,7 @@ package semi.beans;
 import java.sql.Date;
 
 public class PayDto {
-	
+	  
 	  private int pay_order_no; // 주문번호 
 	  private String pay_member_id; // 아이디
 	  private int pay_room_no; // 객실번호
