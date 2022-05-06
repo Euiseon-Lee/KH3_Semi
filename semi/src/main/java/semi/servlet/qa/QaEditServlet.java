@@ -22,11 +22,9 @@ public class QaEditServlet extends HttpServlet{
 			qaDto.setQaPublic(req.getParameter("qaPublic"));
 			qaDto.setQaContent(req.getParameter("qaContent"));
 			
-			
-			
 			QaDao qaDao = new QaDao();
 			boolean success = qaDao.update(qaDto);
-			//
+			
 			if(success) {
 				resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo());
 			}
