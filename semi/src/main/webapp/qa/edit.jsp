@@ -32,7 +32,7 @@
   	  					<input type="checkbox" value="Y" name="qaPublic">
   	  					<%} %>
 					</div>
-					<div>
+					<div> 
 						<label>내용</label>
 						<textarea name="qaContent"><%=qaDto.getQaContent() %></textarea>
 					</div>
