@@ -38,8 +38,8 @@ public class ReviewDao {
 	
 	
 	//검색 => list.jsp
-	//제목검색 / 내용검색 / 제목+내용검색
-	public List<ReviewDto> searchList(String type, String keyword) throws Exception {
+	//제목검색 / 내용검색 / 작성자검색
+	public List<ReviewDto> showList(String type, String keyword) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "select * from review where instr(#1, ?) > 0 order by review_no desc";
