@@ -23,6 +23,7 @@ public class QaEditServlet extends HttpServlet{
 			qaDto.setQaContent(req.getParameter("qaContent"));
 			
 			
+			
 			QaDao qaDao = new QaDao();
 			boolean success = qaDao.update(qaDto);
 			//
