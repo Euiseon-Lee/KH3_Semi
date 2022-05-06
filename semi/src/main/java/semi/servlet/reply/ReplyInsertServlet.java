@@ -16,6 +16,7 @@ public class ReplyInsertServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
 			//리뷰 댓글 객체에 데이터 넣기(나머지 두개는 시퀀스,default값이라 안넣어도됨)
 			ReviewReplyDto reviewReplyDto = new ReviewReplyDto();
 			reviewReplyDto.setReplyContent(req.getParameter("replyContent"));
@@ -24,7 +25,7 @@ public class ReplyInsertServlet extends HttpServlet {
 			//세션 설정 된걸로 가정해서 만듬(관리자만 들어갈수 있게 필터도 만들어야함)
 			reviewReplyDto.setReplyWriter((String)req.getSession().getAttribute("login"));
 			
-			//처리
+			//처리  
 			ReviewReplyDao reviewReplyDao = new ReviewReplyDao();
 			reviewReplyDao.insert(reviewReplyDto);
 			
