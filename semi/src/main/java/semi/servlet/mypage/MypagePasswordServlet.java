@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
 @WebServlet(urlPatterns = "/mypage/password.semi")
-public class MemberPasswordServlet extends HttpServlet{
+public class MypagePasswordServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
