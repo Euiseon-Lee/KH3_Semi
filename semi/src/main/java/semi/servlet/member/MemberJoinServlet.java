@@ -38,7 +38,7 @@ public class MemberJoinServlet extends HttpServlet {
 			// 출력
 			resp.sendRedirect("join_finish.jsp");
 
-		} catch (Exception e) {
+		} catch (Exception e) {  
 			e.printStackTrace();
 			resp.sendError(500);
 		}
