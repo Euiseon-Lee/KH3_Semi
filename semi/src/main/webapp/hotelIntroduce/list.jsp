@@ -27,7 +27,16 @@
 </head>
 <body>
 	<div>
-		<%-- 메뉴바 --%>
+	<%-- for each 써서 쓰는법 --%>
+	<%for(HotelIntroduceDto hotelIntroduceDto : list){ %>
+		<h3>
+		<a href = "detail.jsp?hotelIntroduceNo=<%=hotelIntroduceDto.getHotelIntroduceNo()%>">
+		<%=hotelIntroduceDto.getHotelIntroduceHead() %>
+		</a>
+		</h3>
+	<%} %>
+		
+		<%--  for each 안쓰고 하나하나 붙어서 메뉴바 만든거 
 		<h3>소개</h3>
 		<h3>
 		<a href = "detail.jsp?hotelIntroduceNo=1">호텔 소개</a>
@@ -43,13 +52,9 @@
 		</h3>
 		<h3>
 		<a href = "detail.jsp?hotelIntroduceNo=5">오시는 길</a>		</h3>
+		 --%>
 	
 	
-	<%-- for each 써서 쓰는법
-	<%for(HotelIntroduceDto hotelIntroduceDto : list){ %>
-		<h3><%=hotelIntroduceDto.getHotelIntroduceHead() %></h3>
-	<%} %>
-	--%>
 	
 	</div>
 </body>

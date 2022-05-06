@@ -21,6 +21,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%-- 제목 내용 수정하기 틀 만듬 --%>
 	<h1>제목 : <%=hotelIntroduceDto.getHotelIntroduceHead()%></h1>
 	<h1>내용 : <%=hotelIntroduceDto.getHotelIntroduceContent() %></h1>
 	
