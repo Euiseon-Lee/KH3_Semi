@@ -28,7 +28,7 @@ public class QaBoardFilter implements Filter {
 			String memberId = (String) req.getSession().getAttribute("login");
 			String memberCheckPw = (String)req.getSession().getAttribute("password");
 
-			QaDao qaDao = new QaDao();
+			QaDao qaDao = new QaDao(); 
 			QaDto qaDto = qaDao.selectOne(qaNo);
 			
 			MemberDao memberDao = new MemberDao();
