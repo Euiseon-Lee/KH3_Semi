@@ -14,6 +14,7 @@ public class MemberLogoutServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			req.getSession().removeAttribute("login"); // 로그아웃 시 session 정보삭제
+			//로그아웃 시 권한 관련 정보 삭제 예정(grade)
 		
 			resp.sendRedirect(req.getContextPath()); //메인으로 이동
 			
