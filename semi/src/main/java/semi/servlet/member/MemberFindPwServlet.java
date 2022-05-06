@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDto;
 import semi.beans.MemberDao;
-@WebServlet(urlPatterns = "/member/find_pw.kh")
+@WebServlet(urlPatterns = "/member/find_pw.semi")
 public class MemberFindPwServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
