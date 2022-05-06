@@ -1,5 +1,24 @@
+<%@page import="semi.beans.ReviewDto"%>
+<%@page import="semi.beans.ReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+
+	ReviewDto reviewDto = new ReviewDto();
+	
+	
+	//작성자 주문 내역 조회 코드 => 주문번호 및 객실타입 출력 목적
+	//PayDao payDao = new PayDao();
+	//PayDto payDto = payDao.조회명(주문번호)
+	
+	
+
+
+%>        
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +34,11 @@
 			</div>
 			
 			<div>
+				주문번호 띄우기
+				선택한 객실타입 띄우기 (보여주기용)
+			</div>
+			
+			<div>
 				<input type="text" name="reviewTitle" 
 					placeholder="제목을 입력해주세요"
 					autocomplete="off" required>	
@@ -22,7 +46,7 @@
 			
 			<div>
 				<label> 별점
-					<select>
+					<select name = "reviewStar">
 						<option value="">선택해주세요</option>
 						<option value="1">1점</option>
 						<option value="2">2점</option>

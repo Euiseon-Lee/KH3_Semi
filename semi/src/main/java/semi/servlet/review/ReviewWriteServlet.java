@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.beans.MemberDao;
+import semi.beans.MemberDto;
 import semi.beans.ReviewDao;
 import semi.beans.ReviewDto;
 
@@ -17,18 +19,23 @@ public class ReviewWriteServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			ReviewDto reviewDto = new ReviewDto();
+			
+			ReviewDto reviewDto = new ReviewDto();			
+			
+			//추후 세션을 만들면 reviewMemberId 가져올 코드
+			String memberId = (String) req.getSession().getAttribute("login");
+			reviewDto.setReviewMemberId(memberId);
+			
+
 			reviewDto.setReviewTitle(req.getParameter("reviewTitle"));
 			reviewDto.setReviewContent(req.getParameter("reviewContent"));
 			reviewDto.setReviewStar(Integer.parseInt(req.getParameter("reviewStar")));
 			
-			reviewDto.setReviewOrderNo(Integer.parseInt(req.getParameter("reviewOrderNo")));	//수정필요
-			reviewDto.setReviewMemberId(req.getParameter("reviewMemberId"));	//수정필요
 			
+			//수정필요
+			reviewDto.setReviewOrderNo(Integer.parseInt(req.getParameter("reviewOrderNo")));	
+
 			
-			//추후 세션을 만들면 reviewMemberId 가져올 코드
-			//String memberId = (String) req.getSession().getAttribute("login");
-			//reviewDto.setReviewMemberId(memberId);
 			
 			
 			ReviewDao reviewDao = new ReviewDao();
