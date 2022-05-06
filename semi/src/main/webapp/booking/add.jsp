@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ 
 
 <h1>예약정보(입력)</h1>
 <form action="add.kh" method="post">
-	<table>
+<body>
+
+		<center>
 		<tr>
 			<th>주문번호</th>  //주문번호 seq 어떻게 가져오는지 
 			<td>
@@ -99,5 +103,9 @@
 				<a href="pay.jsp">목록</a>
 			</td>
 		</tr>
-	</table>
-</form>
+			
+		</form>
+	</center>
+</body>
+
+
