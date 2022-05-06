@@ -1,5 +1,5 @@
 package semi.beans;
-  
+
 import java.sql.Date;
 
 public class PayDto {
