@@ -11,6 +11,7 @@ public class MemberDto {
 	private String memberLname;
 	private String memberPhone;
 	private String memberEmail;
+	private String memberGrade;
 	private String memberPost;
 	private String memberBasicAddress;
 	private String memberDetailAddress;
@@ -21,14 +22,19 @@ public class MemberDto {
 	}
 	
 	
+
+
 	@Override
 	public String toString() {
 		return "MemberDto [memberId=" + memberId + ", memberPw=" + memberPw + ", memberBirth=" + memberBirth
 				+ ", memberName=" + memberName + ", memberFname=" + memberFname + ", memberLname=" + memberLname
-				+ ", memberPhone=" + memberPhone + ", memberEmail=" + memberEmail + ", memberPost=" + memberPost
-				+ ", memberBasicAddress=" + memberBasicAddress + ", memberDetailAddress=" + memberDetailAddress
-				+ ", memberJoindate=" + memberJoindate + ", memberLogindate=" + memberLogindate + "]";
+				+ ", memberPhone=" + memberPhone + ", memberEmail=" + memberEmail + ", memberGrade=" + memberGrade
+				+ ", memberPost=" + memberPost + ", memberBasicAddress=" + memberBasicAddress + ", memberDetailAddress="
+				+ memberDetailAddress + ", memberJoindate=" + memberJoindate + ", memberLogindate=" + memberLogindate
+				+ "]";
 	}
+
+
 
 
 	//member : getter + setter 
@@ -110,6 +116,15 @@ public class MemberDto {
 	public void setMemberLname(String memberLname) {
 		this.memberLname = memberLname;
 	}
+	
+	public String getMemberGrade() {
+		return memberGrade;
+	}
+	public void setMemberGrade(String memberGrade) {
+		this.memberGrade = memberGrade;
+	}
+
+
 
 
 	//member : getter(이름(국,우편번호,기본주소,상세주소 null 처리)

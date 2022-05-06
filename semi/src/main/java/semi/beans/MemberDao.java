@@ -11,7 +11,7 @@ public class MemberDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql="insert into member(member_id, member_pw, member_birth,"
-				+"member_name, member_fname, member_lname, member_phone, member_email, member_post"
+				+"member_name, member_fname, member_lname, member_phone, member_email, member_grade, member_post"
 				+"member_basic_address, member_detail_address)"
 				+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -23,9 +23,10 @@ public class MemberDao {
 		ps.setString(6, memberDto.getMemberLname());
 		ps.setString(7, memberDto.getMemberPhone());
 		ps.setString(8, memberDto.getMemberEmail());
-		ps.setString(9, memberDto.getMemberPost());
-		ps.setString(10, memberDto.getMemberBasicAddress());
-		ps.setString(11, memberDto.getMemberDetailAddress());
+		ps.setString(9, memberDto.getMemberGrade());
+		ps.setString(10, memberDto.getMemberPost());
+		ps.setString(11, memberDto.getMemberBasicAddress());
+		ps.setString(12, memberDto.getMemberDetailAddress());
 		ps.execute();
 		
 		con.close();
@@ -53,6 +54,7 @@ public class MemberDao {
 			memberDto .setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
+			memberDto.setMemberEmail(rs.getString("member_grade"));
 			memberDto.setMemberPost(rs.getString("member_post"));
 			memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 			memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
@@ -89,6 +91,7 @@ public class MemberDao {
 			memberDto.setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
+			memberDto.setMemberEmail(rs.getString("member_grade"));
 			memberDto.setMemberPost(rs.getString("member_post"));
 			memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 			memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
@@ -155,6 +158,7 @@ public class MemberDao {
 				memberDto.setMemberLname(rs.getString("member_lname"));
 				memberDto.setMemberPhone(rs.getString("member_phone"));
 				memberDto.setMemberEmail(rs.getString("member_email"));
+				memberDto.setMemberEmail(rs.getString("member_grade"));
 				memberDto.setMemberPost(rs.getString("member_post"));
 				memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 				memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
