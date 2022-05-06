@@ -66,10 +66,11 @@ public class MemberDao {
 		return memberDto;
 		}
 	
-	
+
 		//이름(영문-성,이름) 조회(select)
 		public MemberDto selectOneName(String memberFname, String memberLname) throws Exception {
 		Connection con = JdbcUtils.getConnection();
+		
 		
 		String sql = "select * from member where member_fname = ? and member_lname =?";
 		PreparedStatement ps = con.prepareStatement(sql);
