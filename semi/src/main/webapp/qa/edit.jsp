@@ -27,9 +27,9 @@
 					<div>
 						<label>비공개</label>
 						<%if(qaDto.getQaPublic() != null){ %>
-  	  					<input type="checkbox" value="<%=qaDto.getQaPublic() %>" name="qaPublic" checked>
+  	  					<input type="checkbox"  name="qaPublic" checked>
   	  					<%} else{%>
-  	  					<input type="checkbox" value="<%=qaDto.getQaPublic() %>" name="qaPublic">
+  	  					<input type="checkbox" value="Y" name="qaPublic">
   	  					<%} %>
 					</div>
 					<div>
@@ -41,7 +41,7 @@
 					</div>
 					<div>
 						<a href="list.jsp">목록</a>
-					</div>
+					</div> 
 			</div>
 	</form>
 </body>
