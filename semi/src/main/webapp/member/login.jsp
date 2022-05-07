@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<form action="login.semi" method="post">
+<form action="login.kh" method="post">
 	<h1>로그인</h1>
 	<table>
 		<tr>

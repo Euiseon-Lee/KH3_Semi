@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
-@WebServlet(urlPatterns = "/mypage/exit.semi")
+@WebServlet(urlPatterns = "/mypage/exit.kh")
 public class MypageExitServlet extends HttpServlet{
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

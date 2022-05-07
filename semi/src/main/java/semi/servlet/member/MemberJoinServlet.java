@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.MemberDto;
 import semi.beans.MemberDao;
 
-@WebServlet(urlPatterns = "/member/join.semi")
+@WebServlet(urlPatterns = "/member/join.kh")
 public class MemberJoinServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

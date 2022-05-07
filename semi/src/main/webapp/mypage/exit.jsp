@@ -17,7 +17,7 @@
 	
 	<hr>
 	<h3>비밀번호 입력 후 탈퇴하기</h3>
-	<form action="exit.semi" method="post">
+	<form action="exit.kh" method="post">
 	<input type="password" name="memberPw" required>
 	
 	<input type="submit" value="탈퇴하기">

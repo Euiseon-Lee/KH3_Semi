@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>아이디 찾기</h1>
-<form action="find_id.semi" method="post">
+<form action="find_id.kh" method="post">
 <table>
 	<tr>
 		<th>이름(영문)</th>

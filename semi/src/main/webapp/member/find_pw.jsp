@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>비밀번호 찾기</h1>
-<form action="find_pw.semi" method="post">
+<form action="find_pw.kh" method="post">
 <table>
 	<tr>
 		<th>아이디</th>

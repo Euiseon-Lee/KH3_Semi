@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
-@WebServlet(urlPatterns = "/member/login.semi")
+@WebServlet(urlPatterns = "/member/login.kh")
 public class MemberLoginServlet extends HttpServlet{
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

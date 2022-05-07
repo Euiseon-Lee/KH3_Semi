@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.MemberDto;
 import semi.beans.MemberDao;
 
-@WebServlet(urlPatterns = "/member/find_id.semi")
+@WebServlet(urlPatterns = "/member/find_id.kh")
 public class MemberFindIdServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
