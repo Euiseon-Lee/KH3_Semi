@@ -32,7 +32,7 @@
 	String memberId = (String)session.getAttribute("login");
 	boolean isLogin = memberId != null;
 	
-	//현재 상세게시글이 로그인된 아이디의 게시글인지 판단하기위한 코드
+	//현재 상세게시글이 로그인된 아이디의 게시글인지 판단하기위한 코드(이코드는 필요하신대로 변경하셔도 돼요)
 	boolean isOwner = isLogin && memberId.equals(reviewDto.getReviewMemberId());
 	
 	//관리자인지 판정하기 위한 코드 (이걸로 댓글 수정을 관리자만 가능하게 구현)
