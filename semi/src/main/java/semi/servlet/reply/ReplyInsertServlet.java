@@ -23,9 +23,9 @@ public class ReplyInsertServlet extends HttpServlet {
 			reviewReplyDto.setReplyContent(req.getParameter("replyContent"));
 			reviewReplyDto.setReplyTarget(Integer.parseInt(req.getParameter("replyTarget")));
 //			세션 설정 되면 이 코드로 바꾸기(관리자만 들어갈수 있게 필터도 만들어야함)
-//			reviewReplyDto.setReplyWriter((String)req.getSession().getAttribute("login"));
-//			우선 그냥 testuser로 작성자에 넣어서 해봄
-			reviewReplyDto.setReplyWriter("testuser");
+			reviewReplyDto.setReplyWriter((String)req.getSession().getAttribute("login"));
+//			테스트용으로 그냥 testuser로 작성자에 넣어서 해봄
+//			reviewReplyDto.setReplyWriter("testuser");
 			
 			//처리  
 			ReviewReplyDao reviewReplyDao = new ReviewReplyDao();
