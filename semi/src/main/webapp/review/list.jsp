@@ -77,7 +77,7 @@
 						<td><%=reviewDto.getReviewStar() %></td>
 						<td><%=reviewDto.getReviewMemberId() %></td>
 						<td><%=reviewDto.getReviewWritedate() %></td>
-						<td><%=reviewDto.getReviewReplycount() %></td>
+						<td><%=reviewDto.getReviewReadcount() %></td>
 					</tr>
 					<%} %>	
 				</tbody>
