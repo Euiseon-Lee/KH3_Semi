@@ -147,17 +147,16 @@ public class ReviewDao {
 						+ "review_title, review_content, review_writedate, "
 						+ "review_readcount, review_star, review_replycount"
 					+ ") "
-						+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						+ "values(?, ?, ?, ?, ?, sysdate, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, reviewDto.getReviewNo());
 		ps.setInt(2, reviewDto.getReviewOrderNo());
 		ps.setString(3, reviewDto.getReviewMemberId());
 		ps.setString(4, reviewDto.getReviewTitle());
 		ps.setString(5, reviewDto.getReviewContent());
-		ps.setDate(6, reviewDto.getReviewWritedate());
-		ps.setInt(7, reviewDto.getReviewReadcount());
-		ps.setInt(8, reviewDto.getReviewStar());
-		ps.setInt(9, reviewDto.getReviewReplycount());
+		ps.setInt(6, reviewDto.getReviewReadcount());
+		ps.setInt(7, reviewDto.getReviewStar());
+		ps.setInt(8, reviewDto.getReviewReplycount());
 		ps.execute();
 		
 		con.close();
