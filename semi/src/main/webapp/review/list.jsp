@@ -27,6 +27,13 @@
 
 	}
 %>      
+
+<%
+	//필터 만들면 삭제할 인코딩 코드
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=utf-8");
+%>  
     
     
 <!DOCTYPE html>
@@ -42,7 +49,7 @@
 		</div>
 		
 		<div>
-			<a href = "write.jsp">글 작성</a>
+			<a href ="write.jsp">글 작성</a>
 		</div>
 		
 		<div>
@@ -77,7 +84,7 @@
 						<td><%=reviewDto.getReviewStar() %></td>
 						<td><%=reviewDto.getReviewMemberId() %></td>
 						<td><%=reviewDto.getReviewWritedate() %></td>
-						<td><%=reviewDto.getReviewReplycount() %></td>
+						<td><%=reviewDto.getReviewReadcount() %></td>
 					</tr>
 					<%} %>	
 				</tbody>
