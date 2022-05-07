@@ -67,6 +67,7 @@
 	</tr>
 </table>
 
+<h2><a href="/pay/list.jsp">결제내역 목록보기</a></h2>
 <h2><a href="password.jsp">비밀번호 변경</a></h2>
 <h2><a href="information.jsp">개인정보 변경</a></h2>
 <h2><a href="exit.jsp">탈퇴하기</a></h2>

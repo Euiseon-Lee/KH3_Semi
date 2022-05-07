@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>비밀번호 찾기</h1>
-<form action="find_pw.semi" method="post">
+<form action="find_pw.kh" method="post">
 <table>
 	<tr>
 		<th>아이디</th>
@@ -30,14 +30,15 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2">
+		<td>
 			<button type="submit">비밀번호 찾기</button>
 		</td>
 	</tr>
 </table>
-	    <div>
-	    <!-- 에러표시 메시지 출력 예정 -->
-	</div>
 </form>
+	    	   <!-- 에러표시 메시지 출력 -->
+	  	    <%if(request.getParameter("error") != null){ %>
+			<h3>일치하는 데이터가 존재하지 않습니다</h3>
+			<%} %>
 </body>
 </html>

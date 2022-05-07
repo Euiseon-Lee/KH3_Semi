@@ -29,7 +29,7 @@ public class MemberDao {
 		ps.execute();  
 		
 		con.close();
-		}
+		}  
 	
 		
 	//	아이디 단일조회(select)
