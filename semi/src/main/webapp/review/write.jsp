@@ -4,9 +4,8 @@
     pageEncoding="UTF-8"%>
     
 <%
-	int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
-
-	ReviewDto reviewDto = new ReviewDto();
+	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+	//ReviewDto reviewDto = new ReviewDto();
 	
 	
 	//작성자 주문 내역 조회 코드 => 주문번호 및 객실타입 출력 목적
@@ -34,8 +33,8 @@
 			</div>
 			
 			<div>
-				주문번호 띄우기
-				선택한 객실타입 띄우기 (보여주기용)
+				<div>주문번호 띄우기</div>
+				<div>선택한 객실타입 띄우기 (보여주기용)</div>
 			</div>
 			
 			<div>
