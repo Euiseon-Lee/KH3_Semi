@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="semi.beans.ReviewReplyDao"%>
+<%@page import="semi.beans.ReviewReplyDto"%>
 <%@page import="semi.beans.MemberDto"%>
 <%@page import="semi.beans.MemberDao"%>
 <%@page import="semi.beans.ReviewDto"%>
@@ -26,7 +29,10 @@
 	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
 	
 				
-	//댓글 목록 조회 코드 => 구현 예정		
+	//댓글 목록 조회 코드(한석) 
+	ReviewReplyDao reviewReplyDao = new ReviewReplyDao();
+	// reviewDto에서 현제 jsp에 넣어져있는 reviewNo가져와서 사용함
+	List<ReviewReplyDto> replylist = reviewReplyDao.selectList(reviewDto.getReviewNo());
 
 %>    
     
@@ -107,7 +113,7 @@
 			<%--if(관리자만 보이게할까? 아니면 다른사람도 보이지만 쓸수는없게할까?){ --%>
 			<form action = "reply_insert.kh" method = "post">
 				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
-				<textarea name = "replyContent" rows ="4" cols = "70"></textarea><br>
+				<textarea name = "replyContent" rows ="4" cols = "95"></textarea><br>
 				<input type = "submit" value = "댓글 작성">
 			</form>
 			<%--}else{ --%>
@@ -121,7 +127,34 @@
 		
 		<!-- 댓글 목록 영역: 추후 작성 예정 -->
 		<tr>
-			<td>댓글 목록 뿅</td>
+			<td>
+				<table  width = "95%">
+					<%for(ReviewReplyDto reviewReplyDto : replylist){ %>
+					
+					<tr>
+						<%--댓글 작성자 --%>
+						<td width = "25%">
+							<%=reviewReplyDto.getReplyWriter() %>
+						</td>
+						<%--댓글 작성시간 --%>
+						<td width = "20%" >
+							<%=reviewReplyDto.getReplyTime() %>
+						</td>
+						<%--댓글 내용 --%>
+						<td width = "50%" align = "left">
+							<%=reviewReplyDto.getReplyContent() %>
+						<!-- 댓글 수정 이미지 -->
+						<img src = "<%=request.getContextPath() %>/image/edit.png" width = "20">
+						
+						<!-- 댓글 삭제 이미지-->
+						<a href = "reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
+						<img src = "<%=request.getContextPath() %>/image/delete.png" width = "20">
+						</a>
+						</td>
+					</tr>
+					<% } %>
+				</table>
+			</td>
 		</tr>				
 	</table>
 
