@@ -12,11 +12,15 @@
 	//PayDao payDao = new PayDao();
 	//PayDto payDto = payDao.조회명(주문번호)
 	
-	
-
-
 %>        
-    
+
+
+<%
+	//필터 만들면 삭제할 인코딩 코드
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=utf-8");
+%>      
     
 <!DOCTYPE html>
 <html>
