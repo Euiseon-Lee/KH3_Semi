@@ -34,8 +34,8 @@ public class MypageInformationServlet extends HttpServlet {
 		MemberDto findDto = memberDao.selectOneId(memberDto.getMemberId());
 		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto);
 		
-		if(!isPasswordCorrect) {
-			resp.sendRedirect("information.jsp?error");
+		if(!isPasswordCorrect) {  
+			resp.sendRedirect("information.jsp?error");  
 					return;
 		}
 		memberDao.changeInformation(memberDto); //정보변경Dao 호출
