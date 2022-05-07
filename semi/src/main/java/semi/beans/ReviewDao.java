@@ -168,7 +168,7 @@ public class ReviewDao {
 	public boolean edit(ReviewDto reviewDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "update review "
+		String sql = "update review set "
 						+ "review_title = ?, review_content = ?, review_star = ? "
 						+ "where review_no = ?";
 		
