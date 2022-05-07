@@ -8,6 +8,7 @@ import java.util.List;
 
 import oracle.jdbc.proxy.annotation.Pre;
 
+
 public class QaDao {
 	//목록
 	public List<QaDto> selectList() throws Exception {
