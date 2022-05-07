@@ -17,29 +17,25 @@
  
 <h1>비밀번호 변경</h1>
 
-		<form action="password.kh" method="post">
+	<form action="password.kh" method="post">
 		<table>
 			<tr>
 				<th>현재 비밀번호</th>
-				<td>
-					<input type="password" name="currentPw" required>
-				</td>
+				<td><input type="password" name="currentPw" required></td>
 			</tr>
 			<tr>
 				<th>바꿀 비밀번호</th>
-				<td>
-					<input type="password" name="changePw" required>
-				</td>	
+				<td><input type="password" name="changePw" required></td>
 			</tr>
 			<tr>
-				<td>
-					<input type="submit" value="비밀번호 변경하기">
-				</td>
+				<td><input type="submit" value="비밀번호 바꾸기"></td>
 			</tr>
 		</table>
-		</form>
-		
-		<%if(case1){ %>
+	</form>
+
+	<%
+	if (case1) {
+	%>
 		<h3>현재와 같은 비밀번호로 변경할 수 없습니다</h3>
 		<%} %>
 		
