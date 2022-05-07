@@ -45,16 +45,14 @@
 			</div>
 			
 			<div>
-				<label> 별점
+				<label>별점</label>
 					<select name = "reviewStar">
-						<option value="">선택해주세요</option>
-						<option value="1">1점</option>
-						<option value="2">2점</option>
-						<option value="3">3점</option>
-						<option value="4">4점</option>
 						<option value="5">5점</option>
+						<option value="4">4점</option>
+						<option value="3">3점</option>
+						<option value="2">2점</option>
+						<option value="1">1점</option>
 					</select>
-				</label>	
 			</div>
 			
 			<div>
