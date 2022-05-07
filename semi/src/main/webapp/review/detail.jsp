@@ -14,10 +14,14 @@
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
 	
 	
-	//작성자 정보 조회 코드
+	//작성자 정보 조회 코드 추후 수정 필요 => 아이디는 세션에서 가져올 것
 	MemberDao memberDao = new MemberDao();
-	MemberDto memberDto = memberDao.selectOneId(reviewDto.getReviewMemberId());
-
+	MemberDto memberDto = memberDao.selectOneId("testmanager");
+	
+	
+	//작성자 주문 내역 조회 코드 => 객실타입 출력
+	//PayDao payDao = new PayDao();
+	//PayDto payDto = payDao.select???
 	
 	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
 			
@@ -26,7 +30,12 @@
 
 %>    
     
-    
+<%
+	//필터 만들면 삭제할 인코딩 코드
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=utf-8");
+%>    
     
 <!DOCTYPE html>
 <html>
@@ -49,7 +58,8 @@
 	
 		<tr>
 			<td>
-				<%=reviewDto.getReviewMemberId() %>
+				<%=memberDto.getMemberId() %>
+				(<%=memberDto.getMemberGrade()%>)
 			</td>
 		</tr>
 
@@ -61,7 +71,11 @@
 		</tr>
 		
 		
-		<!-- 여기부터는 별점 및 글내용 출력 -->
+		<!-- 여기부터는 방 타입, 별점 및 글내용 출력 -->
+		<tr>
+			<td>객실타입 [payDto.getPayRoomtype()]</td>
+		</tr>
+		
 		<tr>
 			<td>별점 <%=reviewDto.getReviewStar() %>점</td>
 		</tr>
@@ -78,7 +92,6 @@
 		<tr>
 			<td>
 				<a href="list.jsp">글목록</a>
-				<a href="write.jsp">글작성</a>
 
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
