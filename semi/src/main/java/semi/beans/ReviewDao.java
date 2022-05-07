@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class ReviewDao {
 	
 	//목록 => list.jsp
@@ -221,7 +223,7 @@ public class ReviewDao {
 			
 			return count>0;
 		}
-
+	
 	
 	
 	//페이지네이션 => 나중에 구현 예정
