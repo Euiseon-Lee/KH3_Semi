@@ -24,8 +24,8 @@
 	//PayDto payDto = payDao.select???
 	
 	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
-			
-			
+	
+				
 	//댓글 목록 조회 코드 => 구현 예정		
 
 %>    
@@ -103,7 +103,20 @@
 		
 		<!-- 댓글 작성 영역: 추후 작성 예정 -->
 		<tr>
-			<td>댓글 작성창 뿅</td>
+			<td align = "right">
+			<%--if(관리자만 보이게할까? 아니면 다른사람도 보이지만 쓸수는없게할까?){ --%>
+			<form action = "reply_insert.kh" method = "post">
+				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
+				<textarea name = "replyContent" rows ="4" cols = "70"></textarea><br>
+				<input type = "submit" value = "댓글 작성">
+			</form>
+			<%--}else{ --%>
+				<!-- 
+					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 안했잖아 임마"></textarea>
+					<input type = "submit" value = "댓글 작성" disabled>
+ 				 -->
+			<%--} --%>
+			</td>
 		</tr>		
 		
 		<!-- 댓글 목록 영역: 추후 작성 예정 -->
