@@ -84,7 +84,7 @@ Asure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 
 
 		<div>
-      <button type="button">메인으로</button>
+      <button type="button" >메인으로</button>
       <button type="button">다음</button>
 </div>
 
