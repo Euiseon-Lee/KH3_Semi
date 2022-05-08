@@ -23,7 +23,7 @@ public class PayDao {
 		return number;
 	}
 	
-	// 등록
+	// 등록 = > pay.jsp
 	public void add(PayDto payDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
@@ -58,13 +58,13 @@ public class PayDao {
 		con.close();
 	}
 	
-	// 삭제
-	public boolean delete(int PayOrderNo) throws Exception{
+	// 삭제 => delete.jsp
+	public boolean delete(int payOrderNo) throws Exception{
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "delete pay where PAY_ORDER_NO = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, PayOrderNo);
+			ps.setInt(1, payOrderNo);
 			int count = ps.executeUpdate();
 			
 			con.close();
@@ -73,19 +73,19 @@ public class PayDao {
 	
 		}
 		
-	
-	//상세
-	public PayDto getOneSelect(int PayOrderNo) throws Exception {
+	//상세 => detail.jsp
+	public PayDto showDetail(int payOrderNo) throws Exception {
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "select * from pay where PAY_ORDER_NO = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, PayOrderNo);
+			ps.setInt(1, payOrderNo);
 			ResultSet rs = ps.executeQuery();
 			
-			PayDto payDto;
+			PayDto payDto = new PayDto();
+			
 			if(rs.next()) {
-				payDto = new PayDto();
+				
 				payDto.setPayOrderNo(rs.getInt("PAY_ORDER_NO"));
 				payDto.setPayRoomNo(rs.getInt("PAY_ROOM_NO"));
 				payDto.setPayMemberId(rs.getString("PAY_MEMBER_ID"));
@@ -102,8 +102,7 @@ public class PayDao {
 				payDto.setPayPoolUseDate(rs.getDate("PAY_POOLUSEDATE"));
 				payDto.setPayRestPeopleNum(rs.getInt("PAY_RESTPEOPLENUM"));
 				payDto.setPayRestUseDate(rs.getDate("PAY_RESTUSEDATE"));
-				payDto.setPayRestMealType(rs.getString("PAY_RESTMEALTYPE"));
-				
+				payDto.setPayRestMealType(rs.getString("PAY_RESTMEALTYPE"));	
 	
 			}
 			else {
@@ -113,44 +112,6 @@ public class PayDao {
 			con.close();
 			
 			return payDto;
-	}
-	
-	//조회 
-	public List<PayDto> selectList() throws Exception{
-		Connection con = JdbcUtils.getConnection();
-		
-		String sql = "select * from Pay order by no asc";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		
-		List<PayDto> list = new ArrayList<>();
-		while(rs.next()) {
-			PayDto payDto = new PayDto();
-			payDto.setPayOrderNo(rs.getInt("PAY_ORDER_NO"));
-			payDto.setPayRoomNo(rs.getInt("PAY_ROOM_NO"));
-			payDto.setPayPeopleNum(rs.getInt("PAY_PEOPLENUM"));
-			payDto.setPayRoomType(rs.getString("PAY_ROOMTYPE"));
-			payDto.setPayBedType(rs.getString("PAY_BEDTYPE"));
-			payDto.setPayCheckIn(rs.getDate("PAY_CHECKIN"));
-			payDto.setPayCheckOut(rs.getDate("PAY_CHECKOUT"));
-			payDto.setPayRoomRates(rs.getLong("PAY_ROOMRATES"));
-			payDto.setPaySeasonExtra(rs.getLong("PAY_SEASONEXTRA"));
-			payDto.setPayExtraBedNum(rs.getInt("PAY_EXTRABEDNUM"));
-			payDto.setPayExtraBedPrice(rs.getLong("PAY_EXTRABEDPRICE"));
-			payDto.setPayPoolPeopleNum(rs.getInt("PAY_POOLPEOPLENUM"));
-			payDto.setPayPoolUseDate(rs.getDate("PAY_POOLUSEDATE"));
-			payDto.setPayRestPeopleNum(rs.getInt("PAY_RESTPEOPLENUM"));
-			payDto.setPayRestUseDate(rs.getDate("PAY_RESTUSEDATE"));
-			payDto.setPayRestMealType(rs.getString("PAY_RESTMEALTYPE"));
-			
-			
-			list.add(payDto);
-		}
-		
-		con.close();
-		
-		return list;
-	
 	}
 	
 }
