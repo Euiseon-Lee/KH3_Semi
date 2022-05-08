@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.MemberDto;
 import semi.beans.MemberDao;
 
-@WebServlet(urlPatterns = "/member/join.semi")
+@WebServlet(urlPatterns = "/member/join.kh")
 public class MemberJoinServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,9 +22,9 @@ public class MemberJoinServlet extends HttpServlet {
 			memberDto.setMemberId(req.getParameter("memberId"));
 			memberDto.setMemberPw(req.getParameter("memberPw"));
 			memberDto.setMemberBirth(req.getParameter("memberBirth"));
-			memberDto.setMemberName(req.getParameter("memberName"));
 			memberDto.setMemberName(req.getParameter("memberFname"));
 			memberDto.setMemberName(req.getParameter("memberLname"));
+			memberDto.setMemberName(req.getParameter("memberName"));
 			memberDto.setMemberPhone(req.getParameter("memberPhone"));
 			memberDto.setMemberEmail(req.getParameter("memberEmail"));
 			memberDto.setMemberPost(req.getParameter("memberPost"));
@@ -38,7 +38,7 @@ public class MemberJoinServlet extends HttpServlet {
 			// 출력
 			resp.sendRedirect("join_finish.jsp");
 
-		} catch (Exception e) {
+		} catch (Exception e) {  
 			e.printStackTrace();
 			resp.sendError(500);
 		}

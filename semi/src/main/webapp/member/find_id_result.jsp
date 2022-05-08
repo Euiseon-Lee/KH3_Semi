@@ -16,7 +16,7 @@
 
 <h2><a href="login.jsp">로그인 하러가기</a></h2>
 
-<!-- context 메인페이지 이동 필요 -->
+<!-- 메인페이지 이동 -->
 <h2><a href="<%=request.getContextPath()%>">메인 페이지로 이동</a></h2>
 
 </body>

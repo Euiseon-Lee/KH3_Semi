@@ -7,7 +7,7 @@
 <title>회원가입 화면</title>
 </head>
 <body>
-<form action="join.semi" method="post">
+<form action="join.kh" method="post">
 	<h1>회원가입</h1>
 <table>
 	<tr>

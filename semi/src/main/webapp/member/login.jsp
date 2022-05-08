@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 </head>
+
 <body>
-<form action="login.semi" method="post">
+<form action="login.kh" method="post">
 	<h1>로그인</h1>
 	<table>
 		<tr>

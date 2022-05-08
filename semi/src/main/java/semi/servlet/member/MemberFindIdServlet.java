@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.MemberDto;
 import semi.beans.MemberDao;
 
-@WebServlet(urlPatterns = "/member/find_id.semi")
+@WebServlet(urlPatterns = "/member/find_id.kh")
 public class MemberFindIdServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,6 +28,12 @@ public class MemberFindIdServlet extends HttpServlet {
 			String memberId = memberDao.findId(memberDto);
 
 			// 출력
+			if(memberId != null) {
+				resp.sendRedirect("find_id_result.jsp?memberId="+memberId);
+			}
+			else {
+				resp.sendRedirect("find_id.jsp?error");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

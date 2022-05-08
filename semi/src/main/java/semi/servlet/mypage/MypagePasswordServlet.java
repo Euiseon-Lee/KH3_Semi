@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
-@WebServlet(urlPatterns = "/member/password.semi")
-public class MemberPasswordServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/mypage/password.kh")
+public class MypagePasswordServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
