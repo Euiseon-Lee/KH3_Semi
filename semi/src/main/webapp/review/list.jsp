@@ -49,7 +49,7 @@
 		</div>
 		
 		<div>
-			<a href ="write.jsp">글 작성</a>
+			<a href ="write.jsp">글 작성</a>	<!-- 추후 주문내역 상세페이지에 붙일 예정 -->
 		</div>
 		
 		<div>
