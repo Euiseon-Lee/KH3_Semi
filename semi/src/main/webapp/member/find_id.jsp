@@ -4,31 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기</title>
 </head>
 <body>
-<h1>아이디 찾기</h1>
+
+<div>
+	<h1>아이디를 잊으셨나요?</h1>
+	<h5>가입하신 정보를 입력하면 아이디를 확인할 수 있습니다.</h5>
+</div>
+
 <form action="find_id.kh" method="post">
-<table>
-	<tr>
-		<th>이름(영문)</th>
-		<td>
-			<input type="text" name="memberFname" required placeholder="First Name(이름)">
-			<input type="text" name="memberLname" required placeholder="Last Name(성)">
-		</td>
-	</tr>
-	<tr>
-		<th>이메일</th>
-		<td>
-			<input type="email" name="memberEmail" required>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<button type="submit">아이디 찾기</button>
-		</td>
-	</tr>
-</table>
+<!-- 이름(영문) 입력창 -->
+<div>
+	<input type="text" name="memberFname" required placeholder="영문이름(이름) 입력">
+	<input type="text" name="memberLname" required placeholder="영문이름(성) 입력">
+</div>
+
+<!--이메일 입력창 -->
+<div>
+	<input type="email" name="memberEmail" required placeholder="이메일 입력">
+</div>
+
+<!--아이디찾기 버튼 -->
+<div>
+	<button type="submit">아이디 찾기</button>
+</div>
+
 </form>
 	   <!-- 에러표시 메시지 출력 -->
 	    <%if(request.getParameter("error") != null){ %>
