@@ -70,29 +70,29 @@ public class RestaurantDao {
 	}
 	
 	//조회 
-	public List<RestaurantDto> selectList() throws Exception{
-		Connection con = JdbcUtils.getConnection();
-		
-		// ? String sql = "select * from Pay order by no asc";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, RestaurantDto);
-		ResultSet rs = ps.executeQuery();
-		
-		List<RestaurantDto> list = new ArrayList<>();
-		while(rs.next()) {
-			RestaurantDto restaurantDto = new RestaurantDto();
-			restaurantDto.setRestTableno(rs.getInt("REST_TABLENO"));
-			restaurantDto.setRestPeopleNum(rs.getInt("REST_PEOPLENUM"));
-			restaurantDto.setRestMealType(rs.getLong("REST_MEALTYPE"));
-			restaurantDto.setRestMealPrice(rs.getDate("REST_MEALPRICE"));
-					
-			list.add(restaurantDto);
-		}
-		
-		con.close();
-		
-		return list;
-	
-	}
+//	public List<RestaurantDto> selectList() throws Exception{
+//		Connection con = JdbcUtils.getConnection();
+//		
+//		// ? String sql = "select * from Pay order by no asc";
+//		PreparedStatement ps = con.prepareStatement(sql);
+//		ps.setInt(1, RestaurantDto);
+//		ResultSet rs = ps.executeQuery();
+//		
+//		List<RestaurantDto> list = new ArrayList<>();
+//		while(rs.next()) {
+//			RestaurantDto restaurantDto = new RestaurantDto();
+//			restaurantDto.setRestTableno(rs.getInt("REST_TABLENO"));
+//			restaurantDto.setRestPeopleNum(rs.getInt("REST_PEOPLENUM"));
+//			restaurantDto.setRestMealType(rs.getLong("REST_MEALTYPE"));
+//			restaurantDto.setRestMealPrice(rs.getDate("REST_MEALPRICE"));
+//					
+//			list.add(restaurantDto);
+//		}
+//		
+//		con.close();
+//		
+//		return list;
+//	
+//	}
 	
 }
