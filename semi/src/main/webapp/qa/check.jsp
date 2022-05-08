@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
- <h1>본인 게시글이 아닙니다</h1>
+ <h1>비밀번호를 입력해주세요</h1>
+ <form action="checkpw.kh">
+ <input type="password" name="memberPwCheck">
+ <button type="submit">확인</button>
+ </form>
  <div>
  	<a href="list.jsp">목록</a>
  </div>
