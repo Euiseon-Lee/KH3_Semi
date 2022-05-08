@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class ReviewDao {
 	
 	//목록 => list.jsp
@@ -204,9 +206,23 @@ public class ReviewDao {
 	
 	
 	
-	//댓글 수 갱신 => 한석님 구상 후 추가 예정
-
-
+	//댓글 수 갱신 메소드 추가 (한석)
+		public boolean updateReplycount(int reviewNo) throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "update review set review_replycount = ("
+						 + "select count(*) from review_reply where reply_target = ?"
+						 + ") where review_no =?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, reviewNo);
+			ps.setInt(2, reviewNo);
+			int count = ps.executeUpdate();
+			
+			con.close();
+			
+			return count>0;
+		}
+	
 	
 	
 	//페이지네이션 => 나중에 구현 예정
