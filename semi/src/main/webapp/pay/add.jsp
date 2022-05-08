@@ -5,12 +5,6 @@
 <form action="add.kh" method="post">
 	<table>
 		<tr>
-			<th>주문번호</th>
-			<td>
-				<input type="number" name="pay_order_no" required>
-			</td>
-		</tr>
-		<tr>
 			<th>객실번호</th> 
 			<td>
 				<input type="number" name="name" required>
@@ -75,7 +69,7 @@
 		</tr>
 		<th>레스토랑 이용인원</th>
 			<td>
-				<input type="date" name="pay_restpeoplenum" required>
+				<input type="number" name="pay_restpeoplenum" required>
 			</td>
 		</tr>
 		<th>레스토랑 이용날짜</th>
