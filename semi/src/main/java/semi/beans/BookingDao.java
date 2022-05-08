@@ -9,20 +9,36 @@ import java.util.List;
 
 public class BookingDao {
 	
-	////일단 등록만 먼저 하고 시간 남으면 나머지 적용
+	//// 시퀀스 번호 생성 
 	
-	// 등록 Booking 
+	public int getSequence() throws Exception { 
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select booking_seq.nextval from dual";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int number = rs.getInt("nextval");
+		
+		con.close();
+		
+		return number; 
+	
+	}
+	
+	
 	public void add(BookingDto bookingDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "insert into booking(BOOKING_ORDER_NO, BOOKING_ROOM_NO, BOOKING_MEMBER_ID,"
-				+"BOOKING_PEOPLENUM, BOOKING_ROOMTYPE, BOOKING_BEDTYPE, BOOKING_CHECKIN, BOOKING_CHECKOUT"
-				+"BOOKING_ROOMRATES, BOOKING_SEASONEXTRA, BOOKING_EXTRABEDNUM, BOOKING_EXTRABEDPRICE, BOOKING_POOLPEOPLENUM"
-				+"BOOKING_POOLUSEDATE, BOOKING_RESTPEOPLENUM, BOOKING_RESTUSEDATE, BOOKING_RESTMEALTYPE)"
-				+"values(booking_seq.nextval,?,?,?,?,?,to_date(?, 'YYYY-MM-DD'), to_date(?, 'YYYY-MM-DD'),?,?,?,?,?,to_date(?, 'YYYY-MM-DD'),?,to_date(?, 'YYYY-MM-DD'),?";
+		String sql = "insert into booking("
+				+ "Booking_Order_NO, BOOKING_ROOM_NO, BOOKING_MEMBER_ID,"
+				+ "BOOKING_PEOPLENUM, BOOKING_ROOMTYPE, BOOKING_BEDTYPE, BOOKING_CHECKIN, BOOKING_CHECKOUT,"
+				+ "BOOKING_ROOMRATES, BOOKING_SEASONEXTRA, BOOKING_EXTRABEDNUM, BOOKING_EXTRABEDPRICE, BOOKING_POOLPEOPLENUM,"
+				+ "BOOKING_POOLUSEDATE, BOOKING_RESTPEOPLENUM, BOOKING_RESTUSEDATE, BOOKING_RESTMEALTYPE"
+				+ ")"
+				+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
-		
 		ps.setInt(1, bookingDto.getBookingOrderNo());
 		ps.setInt(2, bookingDto.getBookingRoomNo());
 		ps.setString(3, bookingDto.getBookingMemberId());
@@ -40,12 +56,10 @@ public class BookingDao {
 		ps.setInt(15, bookingDto.getBookingRestPeopleNum());
 		ps.setDate(16, bookingDto.getBookingRestUseDate());
 		ps.setString(17, bookingDto.getBookingRestMealType());
-		
 		ps.execute();
-	
+		
 		con.close();
 	}
-	
 	// 수정 // 폐기 할 수 있음 
 	public boolean edit(BookingDto bookingDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
@@ -79,7 +93,7 @@ public class BookingDao {
 	
 	}
 	
-	// 삭제
+	// 예약 삭제
 	public boolean delete(int BookingOrderNo) throws Exception{
 			Connection con = JdbcUtils.getConnection();
 			
@@ -96,7 +110,7 @@ public class BookingDao {
 		
 	
 	//상세
-	public BookingDto getOneSelect(int BookingOrderNo) throws Exception {
+	public BookingDto selectOne(int BookingOrderNo) throws Exception {
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "select * from booking where BOOKING_ORDER_NO = ?";
@@ -172,6 +186,9 @@ public class BookingDao {
 		con.close();
 		
 		return list;
+		
+		
+	
 	
 	}
 	
