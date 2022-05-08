@@ -20,29 +20,34 @@ public class BookingAddServlet extends HttpServlet{
 		try {
 			
 			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			
 			BookingDto bookingDto = new BookingDto();
 			
-			bookingDto.setBookingOrderNo(Integer.parseInt(req.getParameter("booking_order_no")));
-			bookingDto.setBookingRoomNo(Integer.parseInt(req.getParameter("booking_room_no")));
-			bookingDto.setBookingPeopleNum(Integer.parseInt(req.getParameter("booking_peoplenum")));
-			bookingDto.setBookingRoomType(req.getParameter("booking_roomtype"));
-			bookingDto.setBookingBedType(req.getParameter("booking_bedtype"));
-			bookingDto.setBookingCheckIn(Date.valueOf(req.getParameter("booking_checkin")));
-			bookingDto.setBookingCheckOut(Date.valueOf(req.getParameter("booking_checkout")));
-			bookingDto.setBookingExtrabedNum(Integer.parseInt(req.getParameter("booking_extrabednum")));
-			bookingDto.setBookingPoolPeopleNum(Integer.parseInt(req.getParameter("booking_poolpeoplenum")));
-			bookingDto.setBookingPoolUseDate(Date.valueOf(req.getParameter("booking_poolusedate")));
-			bookingDto.setBookingRestPeopleNum(Integer.parseInt(req.getParameter("booking_restpeoplenum")));
-			bookingDto.setBookingRestUseDate(Date.valueOf(req.getParameter("Booking_restusedate")));
-			bookingDto.setBookingRestMealType(req.getParameter("Booking_restmealtype"));
+		//	bookingDto.setBookingOrderNo(Integer.parseInt(req.getParameter("bookingOrderNo")));
+		//	bookingDto.setBookingRoomNo(Integer.parseInt(req.getParameter("bookingRoomNo")));
+			bookingDto.setBookingRoomNo(202);
+			bookingDto.setBookingPeopleNum(Integer.parseInt(req.getParameter("bookingPeopleNum")));
+			bookingDto.setBookingRoomType(req.getParameter("bookingRoomType"));
+			bookingDto.setBookingBedType(req.getParameter("bookingBedType"));
+			bookingDto.setBookingCheckIn(Date.valueOf(req.getParameter("bookingCheckIn")));
+			bookingDto.setBookingCheckOut(Date.valueOf(req.getParameter("bookingCheckOut")));
+			bookingDto.setBookingExtrabedNum(Integer.parseInt(req.getParameter("bookingExtrabedNum")));
+			bookingDto.setBookingPoolPeopleNum(Integer.parseInt(req.getParameter("bookingPoolPeopleNum")));
+			bookingDto.setBookingPoolUseDate(Date.valueOf(req.getParameter("bookingPoolUseDate")));
+			bookingDto.setBookingRestPeopleNum(Integer.parseInt(req.getParameter("bookingRestPeopleNum")));
+			bookingDto.setBookingRestUseDate(Date.valueOf(req.getParameter("bookingRestUseDate")));
+			bookingDto.setBookingRestMealType(req.getParameter("bookingRestMealType"));
 		
 			
 			BookingDao bookingDao = new BookingDao();
+			
+			bookingDto.setBookingOrderNo(bookingDao.getSequence());
 			bookingDao.add(bookingDto);
 			
-			resp.sendRedirect("add_finish.jsp");
 			
-	
+			resp.sendRedirect("pay.jsp"); // 
+			
 		}
 		
 		catch(Exception e) {

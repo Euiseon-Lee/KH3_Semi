@@ -30,13 +30,11 @@ public class BookingDao {
 	public void add(BookingDto bookingDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "insert into booking("
-				+ "Booking_Order_NO, BOOKING_ROOM_NO, BOOKING_MEMBER_ID,"
-				+ "BOOKING_PEOPLENUM, BOOKING_ROOMTYPE, BOOKING_BEDTYPE, BOOKING_CHECKIN, BOOKING_CHECKOUT,"
-				+ "BOOKING_ROOMRATES, BOOKING_SEASONEXTRA, BOOKING_EXTRABEDNUM, BOOKING_EXTRABEDPRICE, BOOKING_POOLPEOPLENUM,"
-				+ "BOOKING_POOLUSEDATE, BOOKING_RESTPEOPLENUM, BOOKING_RESTUSEDATE, BOOKING_RESTMEALTYPE"
-				+ ")"
-				+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into booking( "
+				+ "booking_order_no, booking_room_no, booking_member_id, booking_peoplenum, "
+				+ "booking_roomtype, booking_bedtype, booking_checkin, booking_checkout, booking_roomrates, booking_seasonextra, booking_extrabednum, booking_extrabedprice, booking_poolpeoplenum, booking_poolusedate, booking_restpeoplenum, booking_restusedate, booking_restmealtype) "
+				+ "values(?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, bookingDto.getBookingOrderNo());
