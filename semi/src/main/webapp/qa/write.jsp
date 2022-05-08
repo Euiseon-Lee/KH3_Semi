@@ -21,9 +21,15 @@
 	<input type="text" name="qaTitle">
 </div>
 <div>
+	<%if(request.getParameter("qaPublic") == "Y") {//게시글이 비공개일 경우%>
 	<label>비공개
-    <input type="checkbox" value="Y" name="qaPublic" >
+    <input type="checkbox" value="Y" name="qaPublic" checked>
     </label>
+    <%} else{%>
+    <label>비공개
+    <input type="checkbox" value="Y" name="qaPublic">
+    </label>
+    <%} %>
 </div>
 <div>
 	<label>내용</label>
