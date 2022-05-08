@@ -124,8 +124,8 @@
 		<!-- 댓글 작성 영역: 한석 -->
 		<tr>
 			<td align = "right">
-			<%--if(관리자만 보이게할까?(관리자상태일떄) 아니면 다른사람도 보이지만 쓸수는없게할까(로그인상태일떄)?){ --%>
-			<%if(isAdmin){ %>
+			<%--작성할 때 공개or비공개 선택해서 나오게끔 구현(시간남으면) --%>
+			<%if(isLogin){ %>
 			<form action = "reply_insert.kh" method = "post">
 				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
 				<textarea name = "replyContent" rows ="4" cols = "95"></textarea><br>
@@ -133,7 +133,7 @@
 			</form>
 			<%}else{ %>
 				
-					<textarea rows = "4" cols = "70" disabled placeholder = "관리자만 작성할 수 있습니다"></textarea>
+					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능"></textarea>
 					<input type = "submit" value = "댓글 작성" disabled>
  				
 			<%}%>
@@ -147,7 +147,7 @@
 					<%for(ReviewReplyDto reviewReplyDto : replylist){ %>
 					<%
 						//현재 로그인한 아이디본인이면서 관리자가 작성한 댓글인지 판단위한 코드
-						boolean isReplyAdmin = memberId != null && memberId.equals(reviewReplyDto.getReplyWriter()) && isAdmin;
+						boolean isMyReply = memberId != null && memberId.equals(reviewReplyDto.getReplyWriter());
 					%>
 					
 					
@@ -169,14 +169,14 @@
 						</td>	
 
 						<td>
-						<%--댓글 수정 이미지(본인이 관리자일때만 나오게)  --%>
-						<%if(isReplyAdmin){ %>											
+						<%--댓글 수정 이미지(본인이 쓴 댓글일때만 나오게)  --%>
+						<%if(isMyReply){ %>											
 						<a href = "#" class = "edit-btn">
 						<img src = "<%=request.getContextPath() %>/image/edit.png" width = "20">
 						</a>
 						<%} %>
-						<%-- 댓글 삭제 이미지(본인이 관리자일때만 나오게)--%>
-						<%if(isReplyAdmin){ %>
+						<%-- 댓글 삭제 이미지(본인이 쓴 댓글일때만 나오게)--%>
+						<%if(isMyReply){ %>
 						<a href = "reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
 						<img src = "<%=request.getContextPath() %>/image/delete.png" width = "20">
 						</a>
@@ -184,7 +184,7 @@
 						</td>
 					</tr>
 					<!--수정 할 수있도록 입력가능한 줄  -->
-					<%if(isReplyAdmin){ %>
+					<%if(isMyReply){ %>
 					<tr align = "right" class = "edit">
 						<td colspan = "3">
 						<form action = "reply_edit.kh" method = "post">
