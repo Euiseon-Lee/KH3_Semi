@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- web.xml은 프로젝트가 Tomcat에서 어떤 원칙으로 운영되는지를 정의할 수 있는 설정파일 -->
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<!-- 에러페이지 설정-->
+	<error-page>
+	<error-code>404</error-code>
+	<location>/error/404.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
+
+	<!-- 세선 유지시간 설정 -->
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+
+
+	<!—  사용자가 처음 마주하게 될 홈페이지 —>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
