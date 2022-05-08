@@ -21,18 +21,22 @@ public class MypageInformationServlet extends HttpServlet {
 		memberDto.setMemberId((String)req.getAttribute("login")); //로그인 정보 가져오기 
 		
 		//파라미터 가져오기;
+		memberDto.setMemberName(req.getParameter("memberName"));
+		memberDto.setMemberFname(req.getParameter("memberFname"));
+		memberDto.setMemberLname(req.getParameter("memberLname"));
 		memberDto.setMemberBirth(req.getParameter("memberBirth"));
 		memberDto.setMemberPhone(req.getParameter("memberPhone"));
 		memberDto.setMemberEmail(req.getParameter("memberEmail"));
 		memberDto.setMemberPost(req.getParameter("memberPost"));
 		memberDto.setMemberBasicAddress(req.getParameter("memberBasicAddress"));
 		memberDto.setMemberDetailAddress(req.getParameter("memberDetailAddress"));
+		memberDto.setMemberPw(req.getParameter("memberPw"));
 		
 		//처리
 		MemberDao memberDao = new MemberDao();
 		
 		MemberDto findDto = memberDao.selectOneId(memberDto.getMemberId());
-		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto);
+		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto.getMemberPw());
 		
 		if(!isPasswordCorrect) {  
 			resp.sendRedirect("information.jsp?error");  

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지 메인페이지</title>
 </head>
 <body>
 <%-- 준비 --%>
@@ -21,7 +21,9 @@
 %>
 
 <%-- 출력 --%>
+<div>
 <h1>회원 정보</h1>
+</div>
 
 <table border="1" width="400">
 	<tr>
