@@ -26,10 +26,10 @@ public class MemberDao {
 		ps.setString(9, memberDto.getMemberPost());
 		ps.setString(10, memberDto.getMemberBasicAddress());
 		ps.setString(11, memberDto.getMemberDetailAddress());
-		ps.execute();
+		ps.execute();  
 		
 		con.close();
-		}
+		}  
 	
 		
 	//	아이디 단일조회(select)
@@ -53,6 +53,8 @@ public class MemberDao {
 			memberDto .setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
+			//setMemberGrade로 되있어야하는데 setMemberEmail이또있어서 수정함(한석) 
+			memberDto.setMemberGrade(rs.getString("member_grade"));
 			memberDto.setMemberPost(rs.getString("member_post"));
 			memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 			memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
@@ -91,6 +93,7 @@ public class MemberDao {
 			memberDto.setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
+			memberDto.setMemberEmail(rs.getString("member_grade"));
 			memberDto.setMemberPost(rs.getString("member_post"));
 			memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 			memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
@@ -157,6 +160,7 @@ public class MemberDao {
 				memberDto.setMemberLname(rs.getString("member_lname"));
 				memberDto.setMemberPhone(rs.getString("member_phone"));
 				memberDto.setMemberEmail(rs.getString("member_email"));
+				memberDto.setMemberEmail(rs.getString("member_grade"));
 				memberDto.setMemberPost(rs.getString("member_post"));
 				memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 				memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
-@WebServlet(urlPatterns = "/member/set_pw.semi")
+@WebServlet(urlPatterns = "/member/set_pw.kh")
 public class MemberSetPwServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
