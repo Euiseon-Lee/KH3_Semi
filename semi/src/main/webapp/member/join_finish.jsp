@@ -8,10 +8,18 @@
 </head>
 <body>
 
-<h1>회원 가입이 완료되었습니다.</h1>
+<div>
+<h3>회원 가입이 완료되었습니다.</h3>
+</div>
 
-<h2><a href="<%=request.getContextPath()%>">메인으로 이동</a></h2>
-<h2><a href="login.jsp">로그인 하러가기</a></h2>
+<div>
+<a href="<%=request.getContextPath()%>">메인으로 이동</a>
+</div>
+
+<div>
+<a href="login.jsp">로그인페이지 이동</a>
+</div>
+
 
 </body>
 </html>
