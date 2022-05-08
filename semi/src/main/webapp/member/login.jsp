@@ -42,7 +42,8 @@
  
  <!-- 아이디/비밀번호 찾기 링크 -->
  <div>
-     <a href="find_id.jsp">아이디/비밀번호 찾기</a>
+     <a href="find_id.jsp">아이디 찾기</a>
+     <a href="find_pw.jsp">비밀번호 찾기</a>
  </div>
  
  </form>
