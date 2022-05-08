@@ -51,7 +51,7 @@
 			<tr>
 			<td align="right">
 			<a href="write.jsp">글쓰기</a>
-			<!-- 관리자라면 추가 -->
+
 			<a href="write.jsp?superNo=<%=qaNo%>">답글</a>
 			<a href="edit.jsp?qaNo=<%=qaNo%>">수정</a>
 			<a href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
