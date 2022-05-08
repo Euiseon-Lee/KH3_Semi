@@ -20,12 +20,12 @@
 
 <!-- 로그인페이지 이동 -->
 <div>
-	<h4><a href="login.jsp">로그인 하러가기</a></h4>
+	<a href="login.jsp">로그인 하러가기</a>
 </div>
 
 <!-- 메인페이지 이동 -->
 <div>
-	<h4><a href="<%=request.getContextPath()%>">메인 페이지로 이동</a></h4>
+	<a href="<%=request.getContextPath()%>">메인 페이지로 이동</a>
 </div>
 
 </body>

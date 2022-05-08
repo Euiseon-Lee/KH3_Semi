@@ -8,12 +8,14 @@
 </head>
 <body>
 
+
+<form action="find_id.kh" method="post">
+
 <div>
 	<h1>아이디를 잊으셨나요?</h1>
 	<h5>가입하신 정보를 입력하면 아이디를 확인할 수 있습니다.</h5>
 </div>
 
-<form action="find_id.kh" method="post">
 <!-- 이름(영문) 입력창 -->
 <div>
 	<input type="text" name="memberFname" required placeholder="영문이름(이름) 입력">
