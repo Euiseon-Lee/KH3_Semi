@@ -53,7 +53,8 @@ public class MemberDao {
 			memberDto .setMemberLname(rs.getString("member_lname"));
 			memberDto.setMemberPhone(rs.getString("member_phone"));
 			memberDto.setMemberEmail(rs.getString("member_email"));
-			memberDto.setMemberEmail(rs.getString("member_grade"));
+			//setMemberGrade로 되있어야하는데 setMemberEmail이또있어서 수정함(한석) 
+			memberDto.setMemberGrade(rs.getString("member_grade"));
 			memberDto.setMemberPost(rs.getString("member_post"));
 			memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
 			memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));

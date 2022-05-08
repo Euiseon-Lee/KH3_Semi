@@ -8,5 +8,4 @@ reply_content varchar(1800) not null,
 reply_time date default sysdate
 );
 
-
---아직 테이블 등록 하지 않은 상태입니다
+   
