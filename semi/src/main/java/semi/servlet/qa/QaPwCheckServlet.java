@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
+import semi.beans.QaDao;
 import semi.beans.QaDto;
 
 @WebServlet(urlPatterns = "/qa/checkpw.kh")
@@ -33,12 +34,10 @@ public class QaPwCheckServlet extends HttpServlet{
 			if(isPasswordCorrect) {//일치할 경우
 				//세션에 비밀번호 저장
 				req.getSession().setAttribute("password", memberDto.getMemberPw());
-				resp.sendRedirect("datail.jsp");
-				System.out.print("성공");
+				resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo());//수정필요
 			}
 			else {
 				resp.sendRedirect("check.jsp");
-				System.out.print("실패");
 			}
 		}
 		catch(Exception e) {

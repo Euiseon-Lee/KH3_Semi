@@ -5,6 +5,7 @@
 <%
 	int qaNo = Integer.parseInt(request.getParameter("qaNo"));
 	QaDao qaDao = new QaDao();
+	
 
 	qaDao.plusReadcount(qaNo);//조회수 증가
 	QaDto qaDto = qaDao.selectOne(qaNo);
@@ -25,7 +26,7 @@
 	<div>
 		<h1><%=qaDto.getQaNo() %>번 게시글</h1>
 	</div>
-	
+	<h1>groupNo = <%=qaDto.getGroupNo() %></h1>
 	<div>
 		<table>
 			<tr>

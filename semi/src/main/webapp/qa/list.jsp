@@ -64,6 +64,23 @@
     		endBlock = lastPage;
     	}
     %>
+    <%
+    	//목록으로 돌아올 경우 비밀번호 세션 삭제
+    	//req.getSession().removeAttribute("password");
+    %>
+       <%
+	//로그인 상태 확인 코드
+	
+	String memberId = (String)session.getAttribute("login");
+
+	boolean login = memberId != null;
+	
+	//관리자 검사
+	String auth = (String)session.getAttribute("auth");
+	boolean admin = auth != null && auth.equals("관리자");
+	
+	String password = (String)session.getAttribute("password");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,6 +88,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>
+	memberId =<%=login %>
+	password = <%=password %>
+</h1>
 	<div>
 		<h1>Q/A 게시판</h1>
 	</div>
