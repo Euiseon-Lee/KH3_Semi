@@ -1,4 +1,4 @@
-package semi.beans.roomintroduce;
+package semi.servlet.roomintroduce;
 
 import java.io.IOException;
 
