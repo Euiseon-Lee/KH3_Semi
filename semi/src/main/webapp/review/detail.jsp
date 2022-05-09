@@ -1,3 +1,5 @@
+<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDao"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.ReviewReplyDao"%>
 <%@page import="semi.beans.ReviewReplyDto"%>
@@ -15,16 +17,7 @@
 	ReviewDao reviewDao = new ReviewDao();
 	reviewDao.plusReadcount(reviewNo);
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
-	
-	
-	//작성자 정보 조회 코드 추후 수정 필요 => 아이디는 세션에서 가져올 것
-	MemberDao memberDao = new MemberDao();
-	MemberDto memberDto = memberDao.selectOneId("testmanager");
-	
-	
-	//작성자 주문 내역 조회 코드 => 객실타입 출력
-	//PayDao payDao = new PayDao();
-	//PayDto payDto = payDao.select???
+
 	
 	
 	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
@@ -32,8 +25,28 @@
 	String memberId = (String)session.getAttribute("login");
 	boolean isLogin = memberId != null;
 	
-	//현재 상세게시글이 로그인된 아이디의 게시글인지 판단하기위한 코드(이코드는 필요하신대로 변경하셔도 돼요)
-	boolean isOwner = isLogin && memberId.equals(reviewDto.getReviewMemberId());
+	
+	
+	
+	//작성자 아이디 및 등급 조회 코드
+	String reviewWriter = reviewDto.getReviewMemberId();
+	
+	MemberDao memberDao = new MemberDao();
+	MemberDto memberDto = memberDao.selectOneId(reviewWriter);
+	
+
+	String reviewWriterGrade = memberDto.getMemberGrade();
+	
+	
+	//작성자 주문 조회 코드 => 객실타입 출력
+	PayDto payDto = new PayDto();
+	PayDao payDao = new PayDao();
+	//PayDto = get.
+	
+	
+
+	
+
 	
 	//관리자인지 판정하기 위한 코드 (이걸로 댓글 수정을 관리자만 가능하게 구현)
 	String memberGrade = (String)session.getAttribute("auth");
@@ -77,8 +90,8 @@
 	
 		<tr>
 			<td>
-				<%=memberDto.getMemberId() %>
-				(<%=memberDto.getMemberGrade()%>)
+				<%=reviewWriter %>
+				(<%= reviewWriterGrade %>)
 			</td>
 		</tr>
 
@@ -198,8 +211,13 @@
 					</tr>
 					<%} %>
 					<% } %>
+					<tr>
+						<a href = "<%=request.getContextPath()%>/index.jsp">인덱스화면으로 돌아가기</a>
+					</tr>
 				</table>
 			</td>
+			
+
 		</tr>				
 	</table>
 		<!-- jquery이용해서 수정,취소버튼 누를시 화면 변경되게 구현 -->
