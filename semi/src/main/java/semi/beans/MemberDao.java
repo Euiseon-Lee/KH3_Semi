@@ -11,7 +11,7 @@ public class MemberDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql="insert into member(member_id, member_pw, member_birth,"
-				+"member_name, member_fname, member_lname, member_phone, member_email, member_post"
+				+"member_name, member_fname, member_lname, member_phone, member_email, member_post,"
 				+"member_basic_address, member_detail_address)"
 				+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
