@@ -31,6 +31,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 			req.getSession().setAttribute("login", memberId); //session에 Id 정보 추가
 			//세션에 사용자의 권한 추가(auth)
 			req.getSession().setAttribute("auth", memberDto.getMemberGrade());
+			req.getSession().setAttribute("id", memberDto.getMemberId());
 			
 			
 			resp.sendRedirect(req.getContextPath()); //메인페이지 이동
