@@ -107,7 +107,7 @@ public class MemberDao {
 		}
 		
 		
-		//아이디 찾기(select)
+				//아이디 찾기(select)
 				//-> 이름(영문-성,이름), 이메일로 아이디 찾기
 		public String findId(MemberDto memberDto) throws Exception {
 			Connection con = JdbcUtils.getConnection();
@@ -129,6 +129,7 @@ public class MemberDao {
 			con.close();
 			return memberId;
 		}
+		
 		
 		
 		//비밀번호 찾기(select)

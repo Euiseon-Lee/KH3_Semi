@@ -8,5 +8,6 @@
 </head>
 <body>
   <a href="<%=request.getContextPath() %>/review/list.jsp" >리뷰 게시판목록</a>
+  <a href="<%=request.getContextPath() %>/mypage/mypage.jsp" >마이페이지</a>
 </body>
 </html>
