@@ -194,20 +194,17 @@ public class MemberDao {
 			Connection con = JdbcUtils.getConnection();
 			
 			String sql = "update member set "
-										+ "member_name = ? , member_fname = ? , member_lname = ?, member_birth = ? , member_phone = ?, member_email = ? , "
+										+ "member_birth = ? , member_phone = ?, member_email = ? , "
 										+ "member_post = ? , member_basic_address = ?, member_detail_address = ? "
 										+ "where member_id = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, memberDto.getMemberName());
-			ps.setString(2, memberDto.getMemberFname());
-			ps.setString(3, memberDto.getMemberLname());
-			ps.setString(4, memberDto.getMemberBirth());
-			ps.setString(5, memberDto.getMemberPhone());
-			ps.setString(6, memberDto.getMemberEmail());
-			ps.setString(7, memberDto.getMemberPost());
-			ps.setString(8, memberDto.getMemberBasicAddress());
-			ps.setString(9, memberDto.getMemberDetailAddress());
-			ps.setString(10, memberDto.getMemberId());
+			ps.setString(1, memberDto.getMemberBirth());
+			ps.setString(2, memberDto.getMemberPhone());
+			ps.setString(3, memberDto.getMemberEmail());
+			ps.setString(4, memberDto.getMemberPost());
+			ps.setString(5, memberDto.getMemberBasicAddress());
+			ps.setString(6, memberDto.getMemberDetailAddress());
+			ps.setString(7, memberDto.getMemberId());
 			int count = ps.executeUpdate();
 			
 			con.close();

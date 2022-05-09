@@ -54,11 +54,6 @@
      <input type="text" name="memberDetailAddress" placeholder="상세주소" value="<%=memberDto.getMemberDetailAddressString()%>">
 </div>
 
-<div>
-	<label>주소</label>
-	<input type="text" name="memberPost" placeholder="우편번호" value="<%=memberDto.getMemberPostString()%>">
-	<button>검색</button>
-</div>
  
  <div>
  	<label>비밀번호 확인</label>

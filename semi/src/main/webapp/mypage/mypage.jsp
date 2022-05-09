@@ -25,9 +25,9 @@
 <h1>회원 정보</h1>
 </div>
 
-<table border="1" width="400">
+<table>
 	<tr>
-		<th width="30%">아이디</th>
+		<th>아이디</th>
 		<td><%=memberDto.getMemberId()%></td>
 	</tr>
 	<tr>

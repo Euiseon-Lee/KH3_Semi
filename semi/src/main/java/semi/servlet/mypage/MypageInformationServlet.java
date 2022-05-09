@@ -21,9 +21,6 @@ public class MypageInformationServlet extends HttpServlet {
 		memberDto.setMemberId((String)req.getAttribute("login")); //로그인 정보 가져오기 
 		
 		//파라미터 가져오기;
-		memberDto.setMemberName(req.getParameter("memberName"));
-		memberDto.setMemberFname(req.getParameter("memberFname"));
-		memberDto.setMemberLname(req.getParameter("memberLname"));
 		memberDto.setMemberBirth(req.getParameter("memberBirth"));
 		memberDto.setMemberPhone(req.getParameter("memberPhone"));
 		memberDto.setMemberEmail(req.getParameter("memberEmail"));
