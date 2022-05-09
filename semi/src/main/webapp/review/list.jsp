@@ -89,6 +89,10 @@
 					<%} %>	
 				</tbody>
 			</table>
+		</div>
+		
+		<div>
+			<a href = "<%=request.getContextPath()%>/index.jsp" >인덱스화면으로 돌아가기</a>
 		</div>	
 
 		<div>
