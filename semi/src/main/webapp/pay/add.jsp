@@ -1,7 +1,15 @@
+<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<h1>예약정보(입력)</h1>
+<title>결제 확인 페이지</title>
+<%-- 준비 --%>
+<%
+	String memberId = (String)session.getAttribute("login");
+%>    
+    
+<h1>결제 확인 페이지</h1>
 <form action="add.kh" method="post">
 	<table>
 		<tr>
@@ -90,7 +98,7 @@
 		<tr>
 			<td align="center" colspan="2">
 				<input type="submit" value="저장">
-				<a href="pay.jsp">목록</a>
+				<a href="add.jsp">예약 목록</a>
 			</td>
 		</tr>
 		</table>
