@@ -130,14 +130,13 @@ public class MemberDao {
 			return memberId;
 		}
 		
-		
+
 		
 		//비밀번호 찾기(select)
 					//-> 아이디, 이름(영문-성,이름), 이메일, 핸드폰번호로 비밀번호 찾기
 		public MemberDto findPw(MemberDto memberDto) throws Exception {
-			Connection con = JdbcUtils.getConnection();
-			
-			String sql = "select * from member "
+			Connection con = JdbcUtils.getConnection();		
+		String sql = "select * from member "
 								+ "where "
 								+ "member_id = ? and member_fname = ? and member_Lname = ? and member_email = ? and member_phone = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -169,9 +168,8 @@ public class MemberDao {
 			}
 			else {
 				findDto = null;
-			}
-			con.close();
-			
+			}		con.close();
+		
 			return findDto;
 		}
 		
