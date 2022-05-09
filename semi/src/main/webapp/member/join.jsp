@@ -143,7 +143,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 	<label>이메일</label>
 	<span>*</span> 
 	<input type="email" name="memberEmail" required >
-	<input type="button" value="중복확인">
+	<input type="button" value="중복확인">  
 </div>
 
 <div>
