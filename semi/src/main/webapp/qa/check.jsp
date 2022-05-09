@@ -8,7 +8,7 @@
 </head>
 <body>
  <h1>비밀번호를 입력해주세요</h1>
- <form action="checkpw.kh">
+ <form action="checkpw.kh" method="post">
  <input type="password" name="memberPwCheck">
  <button type="submit">확인</button>
  </form>

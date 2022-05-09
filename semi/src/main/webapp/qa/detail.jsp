@@ -9,6 +9,12 @@
 	qaDao.plusReadcount(qaNo);//조회수 증가
 	QaDto qaDto = qaDao.selectOne(qaNo);
 %>
+
+<%
+	//관리자인지
+	String memberGrade = (String)session.getAttribute("auth");
+	boolean isAdmin = memberGrade != null && memberGrade.equals("관리자");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,8 +57,9 @@
 			<tr>
 			<td align="right">
 			<a href="write.jsp">글쓰기</a>
-
+			<%if(isAdmin){ %>
 			<a href="write.jsp?superNo=<%=qaNo%>">답글</a>
+			<%} %>
 			<a href="edit.jsp?qaNo=<%=qaNo%>">수정</a>
 			<a href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
 			<a href="list.jsp">목록</a>

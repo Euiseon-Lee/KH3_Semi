@@ -1,5 +1,12 @@
+<%@page import="semi.beans.QaDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	QaDto qaDto = new QaDto();
+
+	String qaPublic = request.getParameter("qaPublic");
+
+%>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +19,6 @@
 <%if(request.getParameter("superNo") != null){ %>   
 <input type="hidden" name="superNo" value="<%=request.getParameter("superNo")%>">
 <%} %>
-
 <div>
 	<h1>Q/A작성</h1>
 </div>
@@ -21,7 +27,7 @@
 	<input type="text" name="qaTitle">
 </div>
 <div>
-	<%if(request.getParameter("qaPublic") == "Y") {//게시글이 비공개일 경우%>
+	<%if(qaPublic == "Y"){//비공개 게시글일 경우 답글도 비공개 %>
 	<label>비공개
     <input type="checkbox" value="Y" name="qaPublic" checked>
     </label>
