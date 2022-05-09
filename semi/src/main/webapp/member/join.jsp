@@ -106,7 +106,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 	<label>비밀번호</label>
 	<span>*</span> 
 	<input type="password" name="memberPw" required>
-	<span>8자 이상 영문, 숫자, 특수 문자중 3가지 이상 조합</span>
+	<span>8자 이상 영문, 숫자, 특수 문자중 3가지 이상 조합</span>  
 </div>
 
 <div>
