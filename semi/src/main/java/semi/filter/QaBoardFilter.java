@@ -41,7 +41,7 @@ public class QaBoardFilter implements Filter {
 				//관리자 확인
 				String memberGrade = (String) req.getSession().getAttribute("auth");
 				if (memberGrade != null && memberGrade.equals("관리자")) {
-					chain.doFilter(request, response);
+					chain.doFilter(request, response); 
 				}
 				// 작성자 본인 확인
 				else if (memberDto != null && memberId.equals(qaDto.getQaWriter()) && memberCheckPw != null && memberCheckPw.equals(memberDto.getMemberPw())) {
