@@ -18,7 +18,7 @@ public class QaPwCheckServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			QaDto qaDto = new QaDto();
-			String memberId = (String) req.getSession().getAttribute("memberId");
+			String memberId = (String) req.getSession().getAttribute("login");
 			//세션 아이디의 비밀번호와 입력된 비밀번호 비교
 			//비밀번호가 일치할 경우 통과
 			
