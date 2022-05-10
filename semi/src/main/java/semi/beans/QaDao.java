@@ -302,4 +302,30 @@ public class QaDao {
 		
 		return count;
 	}
+	// 관리자의 비공개 답글 확인 테스트
+	public String firstWriter (int groupNo) throws Exception {
+	      Connection con = JdbcUtils.getConnection();
+	      
+	      String sql = "select qa_writer from qaboard where group_no = ? and super_no= 0";
+	      
+	      PreparedStatement ps = con.prepareStatement(sql);
+	      ps.setInt(1, groupNo);
+	      
+	      String firstOne; 
+	      
+	      ResultSet rs = ps.executeQuery();
+	      
+	      if(rs.next()) {
+	         firstOne = rs.getString("qa_writer");         
+	      }
+
+	      else {
+	         firstOne = null;
+	      }
+	      
+	      con.close();
+	      
+	      return firstOne;
+	      
+	   }
 }
