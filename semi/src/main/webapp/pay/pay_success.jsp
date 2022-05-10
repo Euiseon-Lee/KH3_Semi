@@ -18,11 +18,10 @@
 </div>
 
 <div>
-<a href="<%=request.getContextPath()%>">메인으로 이동</a>
+<a href="pay.jsp">결제 내역 페이지 이동</a>
 </div>
-
 <div>
-<a href="pay.jsp">결제 확인 페이지 이동</a>
+	<a href="detail.jsp?payOrderNo="<%=request.getContextPath()%>">메인으로 이동</a>
 </div>
 
 </body>
