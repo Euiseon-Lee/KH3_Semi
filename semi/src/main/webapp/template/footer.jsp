@@ -3,7 +3,7 @@
 </article>
 </section>
 
-<footer>
+<footer> 
 
 	<div>
 	<img src="logo">
