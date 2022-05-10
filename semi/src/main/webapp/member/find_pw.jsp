@@ -33,6 +33,11 @@
 	<input type="text" name="memberEmail" required placeholder="이메일 입력" >
 </div>
 
+<!-- 핸드폰 입력창 -->
+<div>
+	<input type="tel" name="memberPhone" required placeholder="전화번호 입력" >
+</div>
+
 <!-- 비밀번호 재설정 버튼 -->
 <div>
 	<button type="submit">비밀번호 재설정</button>

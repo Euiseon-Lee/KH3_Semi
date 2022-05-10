@@ -22,6 +22,7 @@ public class MemberFindPwServlet extends HttpServlet{
 		memberDto.setMemberFname(req.getParameter("memberFname"));
 		memberDto.setMemberLname(req.getParameter("memberLname"));
 		memberDto.setMemberEmail(req.getParameter("memberEmail"));
+		memberDto.setMemberPhone(req.getParameter("memberPhone"));
 		
 		//처리
 		MemberDao memberDao = new MemberDao();
