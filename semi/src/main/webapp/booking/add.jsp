@@ -6,10 +6,7 @@
 <div class="container w400 m30">
 	    <div class="row center">
 	        <h1>예약 정보 등록</h1>
-	    </div>
-	     <div class="row">
-	        <label>객실번호</label>
-	        <input type="number" name="bookingRoomNo" autocomplete="off" required >
+	    
 	    </div>
 	    <div class="row">
 	        <label>인원</label>
