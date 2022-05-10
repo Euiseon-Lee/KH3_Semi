@@ -27,12 +27,13 @@ public class MypageInformationServlet extends HttpServlet {
 		memberDto.setMemberPost(req.getParameter("memberPost"));
 		memberDto.setMemberBasicAddress(req.getParameter("memberBasicAddress"));
 		memberDto.setMemberDetailAddress(req.getParameter("memberDetailAddress"));
+		memberDto.setMemberPw(req.getParameter("memberPw"));
 		
 		//처리
 		MemberDao memberDao = new MemberDao();
 		
 		MemberDto findDto = memberDao.selectOneId(memberDto.getMemberId());
-		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto);
+		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto.getMemberPw());
 		
 		if(!isPasswordCorrect) {  
 			resp.sendRedirect("information.jsp?error");  

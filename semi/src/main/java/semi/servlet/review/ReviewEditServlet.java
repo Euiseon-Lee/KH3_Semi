@@ -24,17 +24,19 @@ public class ReviewEditServlet extends HttpServlet {
 			
 			
 			ReviewDto reviewDto = new ReviewDto();
+			reviewDto.setReviewNo(Integer.parseInt(req.getParameter("reviewNo")));
 			reviewDto.setReviewTitle(req.getParameter("reviewTitle"));
 			reviewDto.setReviewContent(req.getParameter("reviewContent"));
 			reviewDto.setReviewStar(Integer.parseInt(req.getParameter("reviewStar")));
-			reviewDto.setReviewNo(Integer.parseInt(req.getParameter("reviewNo")));
+			
+			
 
 			ReviewDao reviewDao = new ReviewDao();
 			boolean success = reviewDao.edit(reviewDto);
 			
 			
 			if(success) {
-				resp.sendRedirect("detail.jsp?board="+reviewDto.getReviewNo());
+				resp.sendRedirect("detail.jsp?reviewNo="+reviewDto.getReviewNo());
 			}
 			else {
 				resp.sendError(404);
