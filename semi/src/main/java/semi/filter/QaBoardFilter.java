@@ -63,7 +63,7 @@ public class QaBoardFilter implements Filter {
 					resp.sendRedirect("block.jsp");
 				}
 				
-			}
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
