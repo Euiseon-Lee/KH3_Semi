@@ -89,14 +89,14 @@ public class PayDao {
 				
 				payDto.setPayOrderNo(rs.getInt("pay_order_no"));
 				payDto.setPayMemberId(rs.getString("pay_member_id"));
-				payDto.setPayRoomNo(rs.getInt("pay_room-no"));
-				payDto.setPayPeopleNum(rs.getInt("pay_people_num"));
+				payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+				payDto.setPayPeopleNum(rs.getInt("pay_peoplenum"));
 				payDto.setPayRoomType(rs.getString("pay_roomtype"));
 				payDto.setPayBedType(rs.getString("pay_bedtype"));
 				payDto.setPayCheckIn(rs.getDate("pay_checkin"));
 				payDto.setPayCheckOut(rs.getDate("pay_checkout"));
 				payDto.setPayRoomRates(rs.getLong("pay_roomrates"));
-				payDto.setPaySeasonExtra(rs.getLong("pay_seasonextra"));
+				// payDto.setPaySeasonExtra(rs.getLong("pay_seasonextra"));
 				payDto.setPayExtraBedNum(rs.getInt("pay_extrabednum"));
 				payDto.setPayExtraBedPrice(rs.getLong("pay_extrabedprice"));
 				payDto.setPayPoolPeopleNum(rs.getInt("pay_poolpeoplenum"));
@@ -113,6 +113,7 @@ public class PayDao {
 			return list;	
 			
 		}	
+
 	//상세 => detail.jsp
 	public PayDto showDetail(int payOrderNo) throws Exception {
 			Connection con = JdbcUtils.getConnection();
@@ -154,7 +155,159 @@ public class PayDao {
 			
 			return payDto;
 	}
-	
-}
-	
 
+	// 검색	
+	public List<PayDto> selectList(String type, String keyword) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay where instr(#1,?)>0 order by pay_order_no desc";
+		sql = sql.replace("#1", type);
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ResultSet rs =ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeopleNum(rs.getInt("pay_peoplenum"));
+			payDto.setPayRoomType(rs.getString("pay_roomtype"));
+			payDto.setPayBedType(rs.getString("pay_bedtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayRoomRates(rs.getLong("pay_roomrates"));
+			// payDto.setPaySeasonExtra(rs.getLong("pay_seasonextra"));
+			payDto.setPayExtraBedNum(rs.getInt("pay_extrabednum"));
+			payDto.setPayExtraBedPrice(rs.getLong("pay_extrabedprice"));
+			payDto.setPayPoolPeopleNum(rs.getInt("pay_poolpeoplenum"));
+			payDto.setPayPoolUseDate(rs.getDate("pay_poolusedate"));
+			payDto.setPayRestPeopleNum(rs.getInt("pay_restpeoplenum"));
+			payDto.setPayRestUseDate(rs.getDate("pay_restusedate"));
+			payDto.setPayRestMealType(rs.getString("pay_restmealtype"));
+			
+			list.add(payDto);
+		}
+		con.close();
+		
+		return list;
+	}	
+	
+	//페이징 구현된 리스트
+	public List<PayDto> selectListByPaging(int p, int s) throws Exception{
+		int end = p * s;
+		int begin = end - ( s - 1 ); 
+		
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from (select rownum rn, TMP.* from (select * from pay) TMP) where rn between ? and ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, begin);
+		ps.setInt(2, end);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeopleNum(rs.getInt("pay_peoplenum"));
+			payDto.setPayRoomType(rs.getString("pay_roomtype"));
+			payDto.setPayBedType(rs.getString("pay_bedtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayRoomRates(rs.getLong("pay_roomrates"));
+			// payDto.setPaySeasonExtra(rs.getLong("pay_seasonextra"));
+			payDto.setPayExtraBedNum(rs.getInt("pay_extrabednum"));
+			payDto.setPayExtraBedPrice(rs.getLong("pay_extrabedprice"));
+			payDto.setPayPoolPeopleNum(rs.getInt("pay_poolpeoplenum"));
+			payDto.setPayPoolUseDate(rs.getDate("pay_poolusedate"));
+			payDto.setPayRestPeopleNum(rs.getInt("pay_restpeoplenum"));
+			payDto.setPayRestUseDate(rs.getDate("pay_restusedate"));
+			payDto.setPayRestMealType(rs.getString("pay_restmealtype"));
+			
+			
+			list.add(payDto);
+		}
+		con.close();
+		
+		return list;
+	}
+	
+	//검색 + 페이징 리스트
+	
+	public List<PayDto> selectListByPaging(int p, int s, String type, String keyword) throws Exception{
+		int end = p * s;
+		int begin = end - ( s - 1 ); 
+		
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from (select rownum rn, TMP.* from (select * from pay) TMP) where rn between ? and ?";
+		sql = sql.replace("#1", type);
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ps.setInt(2, begin);
+		ps.setInt(3, end);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeopleNum(rs.getInt("pay_people_num"));
+			payDto.setPayRoomType(rs.getString("pay_roomtype"));
+			payDto.setPayBedType(rs.getString("pay_bedtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayRoomRates(rs.getLong("pay_roomrates"));
+			// payDto.setPaySeasonExtra(rs.getLong("pay_seasonextra"));
+			payDto.setPayExtraBedNum(rs.getInt("pay_extrabednum"));
+			payDto.setPayExtraBedPrice(rs.getLong("pay_extrabedprice"));
+			payDto.setPayPoolPeopleNum(rs.getInt("pay_poolpeoplenum"));
+			payDto.setPayPoolUseDate(rs.getDate("pay_poolusedate"));
+			payDto.setPayRestPeopleNum(rs.getInt("pay_restpeoplenum"));
+			payDto.setPayRestUseDate(rs.getDate("pay_restusedate"));
+			payDto.setPayRestMealType(rs.getString("pay_restmealtype"));
+			
+			list.add(payDto);
+		}
+		con.close();
+		
+		return list;
+	}
+	public int countByPaging() throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select count(*) from pay";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		con.close();
+		
+		return count;
+	}
+	public int countByPaging(String type, String keyword) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select count(*) from pay where instr(#1, ?) > 0";
+		sql = sql.replace("#1", type);
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		con.close();
+		
+		return count;
+	}
+}
