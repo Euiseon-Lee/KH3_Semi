@@ -80,6 +80,8 @@
 	boolean admin = auth != null && auth.equals("관리자");
 	
 	String password = (String)session.getAttribute("password");
+	
+	String id = (String)session.getAttribute("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -91,6 +93,7 @@
 <h1>
 	memberId =<%=login %>
 	password = <%=password %>
+	id = <%=id %>
 </h1>
 	<div>
 		<h1>Q/A 게시판</h1>
