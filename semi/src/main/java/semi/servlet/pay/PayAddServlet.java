@@ -20,16 +20,24 @@ public class PayAddServlet extends HttpServlet{
 		try {
 			
 			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			resp.setContentType("text/html; charset=utf-8");
+			
+			// ID 불러오기
+			String memberId = (String) req.getSession().getAttribute("login");
+			
 			PayDto payDto = new PayDto();
 			
-			payDto.setPayOrderNo(Integer.parseInt(req.getParameter("pay_order_no")));
-			payDto.setPayRoomNo(Integer.parseInt(req.getParameter("pay_room_no")));
-			payDto.setPayPeopleNum(Integer.parseInt(req.getParameter("pay_peoplenum")));
-			payDto.setPayRoomType(req.getParameter("pay_roomtype"));
-			payDto.setPayBedType(req.getParameter("pay_bedtype"));
-			payDto.setPayCheckIn(Date.valueOf(req.getParameter("pay_checkin")));
-			payDto.setPayCheckOut(Date.valueOf(req.getParameter("pay_checkout")));
-			payDto.setPayExtraBedNum(Integer.parseInt(req.getParameter("pay_extrabednum")));
+			// payDto.setPayOrderNo(Integer.parseInt(req.getParameter("payOrderNo")));
+			// payDto.setPayMemberId(req.getParameter("payMemberId"));
+			payDto.setPayRoomNo(Integer.parseInt(req.getParameter("payRoomNo")));
+			payDto.setPayPeopleNum(Integer.parseInt(req.getParameter("payPeopleNum")));
+			payDto.setPayRoomType(req.getParameter("payRoomType"));
+			payDto.setPayBedType(req.getParameter("payBedtType"));
+			payDto.setPayCheckIn(Date.valueOf(req.getParameter("payCheckIn")));
+			payDto.setPayCheckOut(Date.valueOf(req.getParameter("payCheckOut")));
+			//payDto.setPayRoomRates(Integer.parseInt(req.getParameter("payRoomRates")));
+			payDto.setPayExtraBedNum(Integer.parseInt(req.getParameter("payExtrabedNum")));
 			payDto.setPayPoolPeopleNum(Integer.parseInt(req.getParameter("pay_poolpeoplenum")));
 			payDto.setPayPoolUseDate(Date.valueOf(req.getParameter("pay_poolusedate")));
 			payDto.setPayRestPeopleNum(Integer.parseInt(req.getParameter("pay_restpeoplenum")));
@@ -37,10 +45,13 @@ public class PayAddServlet extends HttpServlet{
 			payDto.setPayRestMealType(req.getParameter("pay_restmealtype"));
 			
 			PayDao payDao = new PayDao();
+			payDto.setPayOrderNo(payDao.getSequence());
+			
 			payDao.add(payDto);
 			
-			resp.sendRedirect("add_finish.jsp");
-	
+			// 주문번호 받을 시 사용
+//			resp.sendRedirect("pay_success.jsp?PayOrderNo="+payDto.getPayOrderNo());
+			resp.sendRedirect("pay_success.jsp");
 		}
 		
 		catch(Exception e) {
