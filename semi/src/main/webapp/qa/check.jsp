@@ -1,7 +1,12 @@
+<%@page import="semi.beans.QaDao"%>
+<%@page import="semi.beans.QaDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-
+    int qaNo = Integer.parseInt(request.getParameter("qaNo"));
+    
+    QaDao qaDao = new QaDao(); 
+	QaDto qaDto = qaDao.selectOne(qaNo);
     %>
 <!DOCTYPE html>
 <html>
@@ -11,7 +16,7 @@
 </head>
 <body>
  <h1>비밀번호를 입력해주세요</h1>
- <form action="checkpw.kh" method="post">
+ <form action="checkpw.kh?qaNo=<%=qaNo %>" method="post">
  <input type="password" name="memberPwCheck">
  <button type="submit">확인</button>
  </form>

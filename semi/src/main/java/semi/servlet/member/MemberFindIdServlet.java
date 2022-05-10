@@ -26,10 +26,12 @@ public class MemberFindIdServlet extends HttpServlet {
 			// 처리
 			MemberDao memberDao = new MemberDao();
 			String memberId = memberDao.findId(memberDto);
+			String memberFname = req.getParameter("memberFname");
+			String memberLname = req.getParameter("memberLname");
 
 			// 출력
 			if(memberId != null) {
-				resp.sendRedirect("find_id_result.jsp?memberId="+memberId);
+				resp.sendRedirect("find_id_result.jsp?memberFname="+memberFname+"&memberLname="+memberLname +"&memberId="+memberId);
 			}
 			else {
 				resp.sendRedirect("find_id.jsp?error");

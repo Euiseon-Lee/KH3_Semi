@@ -110,9 +110,21 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 </div>
 
 <div>
-	<label>비밀번호 확인</label>
+	<label>생년월일</label>
 	<span>*</span> 
-	<input type="password" name="memberPw-check" required>
+	<input type="text" name="memberBirth" required placeholder="YYYY-MM-DD">
+</div>
+
+
+<!-- <div> -->
+<!-- 	<label>비밀번호 확인</label> -->
+<!-- 	<span>*</span>  -->
+<!-- 	<input type="password" name="memberPw-check" required> -->
+<!-- </div> -->
+
+<div>
+	<label>이름(국문)</label>
+		<input type="text" name="memberName">
 </div>
 
 <div>
@@ -122,16 +134,6 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 	<input type="text" name="memberLname" required placeholder="Last Name(성)">
 </div>
 
-<div>
-	<label>이름(국문)</label>
-		<input type="text" name="memberName">
-</div>
-
-<div>
-	<label>생년월일</label>
-	<span>*</span> 
-	<input type="date" name="memberBirth" required placeholder="YYYY-MM-DD">
-</div>
 
 <div>
 	<label>연락처</label>
@@ -143,7 +145,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 	<label>이메일</label>
 	<span>*</span> 
 	<input type="email" name="memberEmail" required >
-	<input type="button" value="중복확인">
+	<input type="button" value="중복확인">  
 </div>
 
 <div>

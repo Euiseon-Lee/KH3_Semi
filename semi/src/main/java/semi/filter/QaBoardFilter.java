@@ -35,13 +35,18 @@ public class QaBoardFilter implements Filter {
 			MemberDao memberDao = new MemberDao();
 			MemberDto memberDto = memberDao.selectOneId(memberId);
 			
+			int groupNo = qaDto.getSuperNo();
+	         String firstOne = qaDao.firstWriter(groupNo);
+	         
+	         boolean isCorrect = memberId.equals(firstOne);
+			
 			if (qaDto.getQaPublic() == null) {// 공개글이라면 통과
 				chain.doFilter(request, response);
 			} else {// 비공개글일 경우
 				//관리자 확인
 				String memberGrade = (String) req.getSession().getAttribute("auth");
 				if (memberGrade != null && memberGrade.equals("관리자")) {
-					chain.doFilter(request, response);
+					chain.doFilter(request, response); 
 				}
 				// 작성자 본인 확인
 				else if (memberDto != null && memberId.equals(qaDto.getQaWriter()) && memberCheckPw != null && memberCheckPw.equals(memberDto.getMemberPw())) {
@@ -49,14 +54,16 @@ public class QaBoardFilter implements Filter {
 					chain.doFilter(request, response);
 //				else if(memberId != null){
 //					qaDto.getQaWriter()
-				} else if(memberId != null && memberId.equals(qaDto.getQaWriter())){
+				} else if (isCorrect){//관리자의 비공개 답글 오픈 미완성
+					chain.doFilter(request, response);
+				}else if(memberId != null && memberId.equals(qaDto.getQaWriter())){
 					// 비밀번호 입력 페이지로 이동 -> 세션에 비밀번호를 저장
-					resp.sendRedirect("check.jsp");
+					resp.sendRedirect("check.jsp?qaNo="+qaNo);
 				} else {
 					resp.sendRedirect("block.jsp");
 				}
 				
-			}
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
