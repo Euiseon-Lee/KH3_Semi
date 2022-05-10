@@ -1,8 +1,9 @@
-<%@page import="semi.beans.QaDao"%>
+<%@page import="semi.beans.PayDto"%>
 <%@page import="java.util.List"%>
-<%@page import="semi.beans.QaDto"%>
+<%@page import="semi.beans.PayDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
     <% 
     	String type = request.getParameter("type");
 		String keyword = request.getParameter("keyword");
@@ -29,15 +30,15 @@
     
     <%
     	boolean search = type != null && keyword != null;
-    	QaDao qaDao = new QaDao();
-    	List<QaDto> list;
+    	PayDao payDao = new PayDao();
+    	List<PayDto> list;
     	if(search){
     		//list = qaDao.selectList(type, keyword);
-    		list = qaDao.selectListByPaging(p, s, type, keyword);
+    		list = payDao.selectListByPaging(p, s, type, keyword);
     	}
     	else{
     		//list = qaDao.selectList();
-    		list = qaDao.selectListByPaging(p, s);
+    		list = payDao.selectListByPaging(p, s);
     	}
     %>
     
@@ -45,10 +46,10 @@
     <%
     	int count;
     	if(search){//검색 결과 수 
-    		count = qaDao.countByPaging(type, keyword);
+    		count = payDao.countByPaging(type, keyword);
     	}
     	else{//목록 결과 수
-    		count = qaDao.countByPaging();
+    		count = payDao.countByPaging();
     	}
     	
     	//블록 크기
@@ -64,81 +65,45 @@
     		endBlock = lastPage;
     	}
     %>
-    <%
-    	//목록으로 돌아올 경우 비밀번호 세션 삭제
-    	//req.getSession().removeAttribute("password");
-    %>
-       <%
-	//로그인 상태 확인 코드
-	
-	String memberId = (String)session.getAttribute("login");
-
-	boolean login = memberId != null;
-	
-	//관리자 검사
-	String auth = (String)session.getAttribute("auth");
-	boolean admin = auth != null && auth.equals("관리자");
-	
-	String password = (String)session.getAttribute("password");
-	
-	String id = (String)session.getAttribute("id");
-%>
+	 	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결제내역 목록 페이지</title>
 </head>
 <body>
-<h1>
-	memberId =<%=login %>
-	password = <%=password %>
-	id = <%=id %>
-</h1>
-	<div>
-		<h1>Q/A 게시판</h1>
-	</div>
-	
-	<div>
-		<a href="write.jsp">글작성</a>
-	</div>
-	
-	<div>
-		<table>
-			<thead>
+<div>
+<h1>결제 내역</h1>
+</div>
+
+<div>	
+	<table>
+		<thead>
+			<tr>
+				<th>주문번호</th>
+				<th>체크인</th>
+				<th>체크아웃</th>
+				<th>객실타입</th>
+				<th>객실번호</th>
+				<th>인원</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<%for(PayDto payDto: list){ %>
 				<tr>
-					<th>번호</th>
-					<th width="40%">제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%for(QaDto qaDto : list){ %>
-				<tr>
-					<td><%=qaDto.getQaNo() %></td>
+					<td><%=payDto.getPayOrderNo() %></td>
 					<td>
-					<%-- 답글 depth 띄어쓰기 처리 --%>
-					<%if(qaDto.getDepth()>0) {%>
-						<%for(int i=0; i<qaDto.getDepth(); i++){ %>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-							<%} %>
-						<img src="<%=request.getContextPath()%>/image/reply.png" width="20" height="20">
-						<%} %>
-						<%if(qaDto.getQaPublic()==null){ %>
-					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>"><%=qaDto.getQaTitle() %></a>
-					<%}else{ %>
-					<img src="<%=request.getContextPath() %>/image/locked.png" width="20" height="20">
-					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>"><%=qaDto.getQaTitle() %></a>
-					<%} %>
+					<a href="detail.jsp?payOrderNo=<%=payDto.getPayCheckIn() %>"><%=payDto.getPayCheckIn() %></a>
 					</td>
-					<td><%=qaDto.getQaWriter() %></td>
-					<td><%=qaDto.getQaWritedate() %></td>
-					<td><%=qaDto.getQaReadcount() %></td>
+					<td><%=payDto.getPayCheckOut() %></td>
+					<td><%=payDto.getPayRoomType() %></td>
+					<td><%=payDto.getPayRoomNo() %></td>
+					<td><%=payDto.getPayPeopleNum() %></td>
 				</tr>
-				<%} %>
-			</tbody>
+			<%} %>
+		</tbody>
 		</table>
 	</div>
 	
@@ -192,17 +157,10 @@
 			<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
 			<%} %>
 		<%} %>
-		
 	</div>
-	<!-- 검색창 -->
+
 	<div>
-		<form action="list.jsp" method="get">
-			<select name ="type">
-				<option value ="qa_title">제목</option>
-			</select>
-			<input type ="search" name="keyword">
-			<button type =submit">검색</button>
-		</form>
-	</div>
+	<a href="detail.jsp?payOrderNo="<%=request.getContextPath()%>">메인으로 이동</a>
+</div>
 </body>
 </html>

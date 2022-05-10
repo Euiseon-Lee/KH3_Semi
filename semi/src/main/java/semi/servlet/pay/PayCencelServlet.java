@@ -10,28 +10,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.PayDao;
 
-
-@WebServlet(urlPatterns = "/pay/delete.kh")
-public class PayDeleteServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/pay/cencel.kh")
+public class PayCencelServlet extends HttpServlet{
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
 			//준비 
-			int PayOrderNo = Integer.parseInt(req.getParameter("pay_order_no"));
+			int payOrderNo = Integer.parseInt(req.getParameter("payOrderNo"));
 			
 			//처리
 			PayDao payDao = new PayDao();
-			boolean result = payDao.delete(PayOrderNo);
+			boolean success = payDao.delete(payOrderNo);
 			
 			//출력
-			if(result) {
-				resp.sendRedirect("mypage.jsp");
-				
+			if(success) {
+				resp.sendRedirect("list.jsp");	
 			}
 			else {
 				resp.sendError(404);
-			
 			}
 		}
 		catch(Exception e) {

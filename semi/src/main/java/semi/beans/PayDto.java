@@ -20,7 +20,7 @@ public class PayDto {
 	  private Date payPoolUseDate;  // 개인풀이용날짜
 	  private int payRestPeopleNum ; // 레스토랑이용인원
 	  private Date payRestUseDate; // 레스토랑이용날짜
-	  private String payRestMealType; // 레스토랑식사유형
+	  private String payRestMealType;	// 레스토랑 식사 유형
 	  
 	public int getPayOrderNo() {
 		return payOrderNo;
@@ -124,7 +124,6 @@ public class PayDto {
 	public void setPayRestMealType(String payRestMealType) {
 		this.payRestMealType = payRestMealType;
 	}
-	
 	@Override
 	public String toString() {
 		return "PayDto [payOrderNo=" + payOrderNo + ", payMemberId=" + payMemberId + ", payRoomNo=" + payRoomNo
@@ -135,6 +134,7 @@ public class PayDto {
 				+ ", payRestPeopleNum=" + payRestPeopleNum + ", payRestUseDate=" + payRestUseDate + ", payRestMealType="
 				+ payRestMealType + "]";
 	}
+
+}
 	  
-	  
-}	
+	
