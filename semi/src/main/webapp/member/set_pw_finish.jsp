@@ -4,13 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 재설정 완료</title>
 </head>
 <body>
-<h1>비밀번호 재설정이 완료되었습니다</h1>
 
-<h2><a href="login.jsp">로그인 하러가기</a></h2>
-<h2><a href="<%=request.getContextPath()%>">메인 페이지 가기</a></h2>
+<!-- 비밀번호 변경완료 문구-->
+<div>
+<h2>비밀번호 변경이 완료되었습니다</h2>
+<h5>변경된 비밀번호로 로그인해주세요.</h5>
+</div>
+
+<!-- 로그인 페이지 이동 -->
+<div>
+<a href="login.jsp">로그인 하러가기</a>
+</div>
+
+<!-- 메인 페이지 이동 -->
+<div>
+<a href="<%=request.getContextPath()%>">메인으로 이동</a>
+</div>
 
 </body>
 </html>
