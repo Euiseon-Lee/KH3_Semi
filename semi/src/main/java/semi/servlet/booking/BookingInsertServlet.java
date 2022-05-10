@@ -19,7 +19,7 @@ public class BookingInsertServlet extends HttpServlet{
 		
 		try {
 			
-			req.setCharacterEncoding("UTF-8");
+			 req.setCharacterEncoding("UTF-8");
 			resp.setCharacterEncoding("UTF-8");
 			
 			BookingDto bookingDto = new BookingDto();
