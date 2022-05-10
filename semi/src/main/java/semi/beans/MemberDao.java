@@ -27,9 +27,8 @@ public class MemberDao {
 		ps.setString(10, memberDto.getMemberBasicAddress());
 		ps.setString(11, memberDto.getMemberDetailAddress());
 		ps.execute();  
-		
 		con.close();
-		}  
+	}
 	
 		
 	//	아이디 단일조회(select)
