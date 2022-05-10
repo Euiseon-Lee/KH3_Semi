@@ -58,7 +58,7 @@ public class QaBoardFilter implements Filter {
 					chain.doFilter(request, response);
 				}else if(memberId != null && memberId.equals(qaDto.getQaWriter())){
 					// 비밀번호 입력 페이지로 이동 -> 세션에 비밀번호를 저장
-					resp.sendRedirect("check.jsp");
+					resp.sendRedirect("check.jsp?qaNo="+qaNo);
 				} else {
 					resp.sendRedirect("block.jsp");
 				}
