@@ -7,5 +7,5 @@
 <div>
 	<h1>메인화면</h1>
 </div>
-
+ 
 <jsp:include page="/template/footer.jsp"></jsp:include>
