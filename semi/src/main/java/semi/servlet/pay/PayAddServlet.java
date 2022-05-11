@@ -28,26 +28,19 @@ public class PayAddServlet extends HttpServlet{
 			
 			PayDto payDto = new PayDto();
 			
-			// payDto.setPayOrderNo(Integer.parseInt(req.getParameter("payOrderNo")));
-			// payDto.setPayMemberId(req.getParameter("payMemberId"));
+			payDto.setPayOrderNo(Integer.parseInt(req.getParameter("payOrderNo")));
+			payDto.setPayMemberId(req.getParameter("payMemberId"));
 			payDto.setPayRoomNo(Integer.parseInt(req.getParameter("payRoomNo")));
-			payDto.setPayPeopleNum(Integer.parseInt(req.getParameter("payPeopleNum")));
-			payDto.setPayRoomType(req.getParameter("payRoomType"));
-			payDto.setPayBedType(req.getParameter("payBedtType"));
+			payDto.setPayPeople(Integer.parseInt(req.getParameter("payPeopleNum")));
+			payDto.setPayRoomtype(req.getParameter("payRoomType"));
 			payDto.setPayCheckIn(Date.valueOf(req.getParameter("payCheckIn")));
 			payDto.setPayCheckOut(Date.valueOf(req.getParameter("payCheckOut")));
-			//payDto.setPayRoomRates(Integer.parseInt(req.getParameter("payRoomRates")));
-			payDto.setPayExtraBedNum(Integer.parseInt(req.getParameter("payExtrabedNum")));
-			payDto.setPayPoolPeopleNum(Integer.parseInt(req.getParameter("pay_poolpeoplenum")));
-			payDto.setPayPoolUseDate(Date.valueOf(req.getParameter("pay_poolusedate")));
-			payDto.setPayRestPeopleNum(Integer.parseInt(req.getParameter("pay_restpeoplenum")));
-			payDto.setPayRestUseDate(Date.valueOf(req.getParameter("pay_restusedate")));
-			payDto.setPayRestMealType(req.getParameter("pay_restmealtype"));
+			//더 추가 필요
 			
 			PayDao payDao = new PayDao();
 			payDto.setPayOrderNo(payDao.getSequence());
 			
-			payDao.add(payDto);
+			payDao.addPaymentHistory(payDto);
 			
 			// 주문번호 받을 시 사용
 //			resp.sendRedirect("pay_success.jsp?PayOrderNo="+payDto.getPayOrderNo());

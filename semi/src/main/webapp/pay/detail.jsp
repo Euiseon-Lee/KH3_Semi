@@ -9,7 +9,7 @@
 	int payOrderNo = Integer.parseInt(request.getParameter("payOrderNo"));
 
 	PayDao payDao = new PayDao();
-	PayDto payDto = payDao.showDetail(payOrderNo);
+	PayDto payDto = payDao.showPayDetail(payOrderNo);
 	
 	%>   
 	
@@ -32,15 +32,11 @@
 	</tr>
 		<tr>
 		<th>인원</th>
-		<td><%=payDto.getPayPeopleNum()%></td>
+		<td><%=payDto.getPayPeople()%></td>
 	</tr>
 	<tr>
 		<th>객실타입</th>
-		<td><%=payDto.getPayRoomType()%></td>
-	</tr>
-	<tr>
-		<th>침대타입</th>
-		<td><%=payDto.getPayBedType()%></td>
+		<td><%=payDto.getPayRoomtype()%></td>
 	</tr>
     <tr>
 		<th>체크인</th>
@@ -49,30 +45,6 @@
 	<tr>
 		<th>체크아웃</th>
 		<td><%=payDto.getPayCheckOut()%></td>
-	</tr>
-		<tr>
-		<th>침대 추가개수</th>
-		<td><%=payDto.getPayExtraBedNum()%></td>
-	</tr>
-	<tr>
-		<th>개인풀 이용인원</th>
-		<td><%=payDto.getPayPoolPeopleNum()%></td>
-	</tr>
-    <tr>
-		<th>개인풀 이용날짜</th>
-		<td><%=payDto.getPayPoolUseDate()%></td>
-	</tr>
-	<tr>
-		<th>레스토랑 이용인원</th>
-		<td><%=payDto.getPayRestPeopleNum()%></td>
-	</tr>
-		<tr>
-		<th>레스토랑 이용날짜</th>
-		<td><%=payDto.getPayRestUseDate()%></td>
-	</tr>
-		<tr>
-		<th>레스토랑 식사유형</th>
-		<td><%=payDto.getPayRestMealType()%></td>
 	</tr>
 	<tr>
 		<td>
