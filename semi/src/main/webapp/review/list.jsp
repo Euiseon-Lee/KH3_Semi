@@ -10,7 +10,24 @@
 	String keyword = request.getParameter("keyword");
 	
 	
-	//페이징 파라미터 구현 예정
+	//페이징 파라미터 구현
+	int p;
+	try{
+		p= Integer.parseInt(request.getParameter("p"));
+		if(p <= 0) throw new Exception();
+	}
+	catch(Exception e){
+		p = 1;
+	}
+	
+	int s;
+	try{
+		s = Integer.parseInt(request.getParameter("s"));
+		if(s <= 0) throw new Exception();
+	}
+	catch(Exception e){
+		s = 10;
+	}
 %>
 
 
@@ -35,6 +52,29 @@
 	response.setContentType("text/html; charset=utf-8");
 %>  
     
+    <!-- 숫자(페이지네이션) 링크 -->
+    <%
+    	int count;
+    	if(search){//검색 결과 수 
+    		count = reviewDao.countByPaging(type, keyword);
+    	}
+    	else{//목록 결과 수
+    		count = reviewDao.countByPaging();
+    	}
+    	
+    	//블록 크기
+    	int lastPage = (count + s - 1) / s;
+    	
+    	//페이지 당 게시글 수
+    	int blockSize = 10;
+    	
+    	int endBlock = (p + blockSize - 1) / blockSize * blockSize;
+    	int startBlock = endBlock - (blockSize - 1);
+    	
+    	if(endBlock > lastPage){
+    		endBlock = lastPage;
+    	}
+    %>    
     
 <!DOCTYPE html>
 <html>
@@ -89,10 +129,64 @@
 					<%} %>	
 				</tbody>
 			</table>
+		</div>
+		
+		<div>
+			<a href = "<%=request.getContextPath()%>/index.jsp" >인덱스화면으로 돌아가기</a>
 		</div>	
 
 		<div>
-			<!--  페이지네이션 구현 예정 -->
+			<!--  페이지네이션 구현 완료 -->
+			<%if(p > 1){ %> 	<!-- 첫번째 페이지가 아닌 경우 -->
+				<%if(search){ %>
+					<a href="list.jsp?p=1&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&laquo;</a>
+				<%} else { %>
+					<a href="list.jsp?p=1&s=<%=s%>">&laquo;</a>
+				<%} %>
+			<%} %>
+			
+			<%if(startBlock > 1){ %> <!-- 첫번째 블록 구간이 아닌 경우 -->
+				<%if(search){ %>
+					<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&lt;</a>
+				<%} else { %>
+					<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
+				<%} %>
+			<%} %>
+			
+			<!-- 숫자 링크 영역 -->
+			<%for(int i=startBlock; i <= endBlock; i++){ %>
+				<%if(search){ %>
+					<%if(i == p){ %>
+					<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
+					<%} else { %>
+					<a href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
+					<%} %>
+				<%} else { %>
+					<%if(i == p){ %>
+					<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
+					<%} else { %>
+					<a href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
+					<%} %>
+				<%} %>
+			<%} %>
+			
+			<!-- 다음 버튼 영역 -->
+			<%if(endBlock < lastPage){ %>
+				<%if(search){ %>
+					<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&gt;</a>
+				<%} else { %>
+					<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
+				<%} %>
+			<%} %>
+		
+			<%if(p < lastPage){ %>
+				<%if(search){ %>
+					<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&raquo;</a>
+				<%} else { %>
+					<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
+				<%} %>
+			<%} %>
+			
 		</div>
 		
 		<div>	<!-- 검색창 구현 -->
@@ -109,6 +203,6 @@
 		</div>
 	
 	</div>
-
+	
 </body>
 </html>

@@ -22,6 +22,9 @@ public class ReviewEditServlet extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			resp.setContentType("text/html; charset=utf-8");
 			
+			String memberId = (String)req.getSession().getAttribute("login");
+			
+			int reviewNo = Integer.parseInt(req.getParameter("reviewNo"));
 			
 			ReviewDto reviewDto = new ReviewDto();
 			reviewDto.setReviewNo(Integer.parseInt(req.getParameter("reviewNo")));
@@ -29,7 +32,12 @@ public class ReviewEditServlet extends HttpServlet {
 			reviewDto.setReviewContent(req.getParameter("reviewContent"));
 			reviewDto.setReviewStar(Integer.parseInt(req.getParameter("reviewStar")));
 			
+			boolean isOwner = memberId != null && memberId.equals(reviewDto.getReviewMemberId());
 			
+			if(!isOwner) {
+				resp.sendRedirect("detail.jsp?reviewNo="+reviewNo);
+				return;
+			}
 
 			ReviewDao reviewDao = new ReviewDao();
 			boolean success = reviewDao.edit(reviewDto);

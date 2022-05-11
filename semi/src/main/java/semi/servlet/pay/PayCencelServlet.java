@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.PayDao;
 
-@WebServlet(urlPatterns = "/pay/cencel.kh")
+@WebServlet(urlPatterns = "/pay/cancel.kh")
 public class PayCencelServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
