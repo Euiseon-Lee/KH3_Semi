@@ -20,7 +20,7 @@ public class QaDeleteServlet extends HttpServlet{
 			QaDao qaDao = new QaDao();
 			boolean success = qaDao.delete(qaNo);
 			
-			if(success) {
+			if(success) { 
 				resp.sendRedirect("list.jsp");
 			}
 			else {

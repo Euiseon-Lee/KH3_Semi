@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
     <%
     int qaNo = Integer.parseInt(request.getParameter("qaNo"));
-    
+    int groupNo= Integer.parseInt(request.getParameter("groupNo"));
     QaDao qaDao = new QaDao(); 
 	QaDto qaDto = qaDao.selectOne(qaNo);
     %>
@@ -16,7 +16,7 @@
 </head>
 <body>
  <h1>비밀번호를 입력해주세요</h1>
- <form action="checkpw.kh?qaNo=<%=qaNo %>" method="post">
+ <form action="checkpw.kh?qaNo=<%=qaNo %>&groupNo=<%=groupNo %>" method="post">
  <input type="password" name="memberPwCheck">
  <button type="submit">확인</button>
  </form>
