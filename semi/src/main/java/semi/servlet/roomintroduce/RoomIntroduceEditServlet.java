@@ -1,4 +1,4 @@
-package semi.beans.roomintroduce;
+package semi.servlet.roomintroduce;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class RoomIntroduceEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 				req.setCharacterEncoding("UTF-8");
-				//호텔 객체 생성후  데이터 넣기
+				//호텔 객체 생성후  데이터 넣기  
 				RoomIntroduceDto roomIntroduceDto = new RoomIntroduceDto();
 				roomIntroduceDto.setRoomIntroduceNo(Integer.parseInt(req.getParameter("roomIntroduceNo")));
 				roomIntroduceDto.setRoomIntroduceHead(req.getParameter("roomIntroduceHead"));
