@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 	int qaNo = Integer.parseInt(request.getParameter("qaNo"));
+	int groupNo = Integer.parseInt(request.getParameter("groupNo"));
 	QaDao qaDao = new QaDao();
 	
 

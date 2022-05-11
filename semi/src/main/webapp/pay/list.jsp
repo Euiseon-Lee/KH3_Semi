@@ -87,7 +87,6 @@
 				<th>객실타입</th>
 				<th>객실번호</th>
 				<th>인원</th>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -95,7 +94,7 @@
 				<tr>
 					<td><%=payDto.getPayOrderNo() %></td>
 					<td>
-					<a href="detail.jsp?payOrderNo=<%=payDto.getPayCheckIn() %>"><%=payDto.getPayCheckIn() %></a>
+					<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>"><%=payDto.getPayCheckIn() %></a>
 					</td>
 					<td><%=payDto.getPayCheckOut() %></td>
 					<td><%=payDto.getPayRoomType() %></td>

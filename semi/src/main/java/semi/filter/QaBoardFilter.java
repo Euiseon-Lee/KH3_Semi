@@ -26,6 +26,7 @@ public class QaBoardFilter implements Filter {
 		try {
 			//req.getSession().removeAttribute("password");
 			int qaNo = Integer.parseInt(req.getParameter("qaNo"));
+			int groupNo = Integer.parseInt(req.getParameter("groupNo"));
 			String memberId = (String) req.getSession().getAttribute("id");
 			String memberCheckPw = (String)req.getSession().getAttribute("password");
 
@@ -35,10 +36,8 @@ public class QaBoardFilter implements Filter {
 			MemberDao memberDao = new MemberDao();
 			MemberDto memberDto = memberDao.selectOneId(memberId);
 			
-			int groupNo = qaDto.getSuperNo();
-	         String firstOne = qaDao.firstWriter(groupNo);
+	        String firstWriter = qaDao.firstWriter(groupNo);
 	         
-	         boolean isCorrect = memberId.equals(firstOne);
 			
 			if (qaDto.getQaPublic() == null) {// 공개글이라면 통과
 				chain.doFilter(request, response);
@@ -49,16 +48,14 @@ public class QaBoardFilter implements Filter {
 					chain.doFilter(request, response); 
 				}
 				// 작성자 본인 확인
-				else if (memberDto != null && memberId.equals(qaDto.getQaWriter()) && memberCheckPw != null && memberCheckPw.equals(memberDto.getMemberPw())) {
+				else if (memberDto != null && memberId.equals(firstWriter) && memberCheckPw != null && memberCheckPw.equals(memberDto.getMemberPw())) {
 					// 세션에 저장한 비밀번호가 일치할 경우 통과
 					chain.doFilter(request, response);
 //				else if(memberId != null){
 //					qaDto.getQaWriter()
-				} else if (isCorrect){//관리자의 비공개 답글 오픈 미완성
-					chain.doFilter(request, response);
-				}else if(memberId != null && memberId.equals(qaDto.getQaWriter())){
+				}else if(memberId != null && memberId.equals(firstWriter)){
 					// 비밀번호 입력 페이지로 이동 -> 세션에 비밀번호를 저장
-					resp.sendRedirect("check.jsp?qaNo="+qaNo);
+					resp.sendRedirect("check.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
 				} else {
 					resp.sendRedirect("block.jsp");
 				}
