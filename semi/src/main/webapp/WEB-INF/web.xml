@@ -25,5 +25,57 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
+    <filter>
+    	<filter-name>UTF8Filter</filter-name>
+    	<filter-class>semi.filter.UTF8Filter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+    	<filter-name>UTF8Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+     <filter>
+    	<filter-name>LoginFilter</filter-name>
+    	<filter-class>semi.filter.LoginFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+    	<filter-name>LoginFilter</filter-name>
+		<url-pattern>/qa/write.jsp</url-pattern>
+		<url-pattern>/qa/write.kh</url-pattern>
+		<url-pattern>/qa/edit.jsp</url-pattern>
+		<url-pattern>/qa/edit.kh</url-pattern>
+		<url-pattern>/qa/delete.kh</url-pattern>
+		<url-pattern>/qa/check.jsp</url-pattern>
+		<url-pattern>/qa/checkpw.kh</url-pattern>
+		<url-pattern>/review/edit.jsp</url-pattern>
+		<url-pattern>/review/write.jsp</url-pattern>
+		<url-pattern>/review/write.kh</url-pattern>
+		<url-pattern>/review/edit.kh</url-pattern>
+		<url-pattern>/review/delete.kh</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+    	<filter-name>boardOwnerFilter</filter-name>
+    	<filter-class>semi.filter.BoardOwnerFilter</filter-class>
+    </filter>
 
+	<filter-mapping>
+		<filter-name>boardOwnerFilter</filter-name>
+		<url-pattern>/qa/edit.jsp</url-pattern>
+		<url-pattern>/qa/edit.kh</url-pattern>
+		<url-pattern>/qa/delete.kh</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+    	<filter-name>qaBoardFilter</filter-name>
+    	<filter-class>semi.filter.QaBoardFilter</filter-class>
+    </filter>
+
+	<filter-mapping>
+		<filter-name>qaBoardFilter</filter-name>
+		<url-pattern>/qa/detail.jsp</url-pattern>
+	</filter-mapping>
 </web-app>

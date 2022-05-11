@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.QaDao;
 import semi.beans.QaDto;
 
-@WebFilter(urlPatterns = {
-		
-})
+//@WebFilter(filterName = "f4",urlPatterns = {
+//		"/qa/edit.jsp", "/qa/edit.kh",
+//		"/qa/delete.kh"
+//})
 public class BoardOwnerFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -26,7 +27,7 @@ public class BoardOwnerFilter implements Filter{
 		try {
 			//관리자는 모든 기능 가능
 			String memberGrade = (String) req.getSession().getAttribute("auth");
-			if(memberGrade.equals("관리자")) {
+			if(memberGrade != null &&memberGrade.equals("관리자")) {
 				chain.doFilter(request, response);
 				return;
 			}
@@ -37,12 +38,11 @@ public class BoardOwnerFilter implements Filter{
 			
 			QaDao qaDao = new QaDao();
 			QaDto qaDto = qaDao.selectOne(qaNo);
-			if(memberId.equals(qaDto.getQaWriter())) {
+			if(memberId != null &&memberId.equals(qaDto.getQaWriter())) {
 				chain.doFilter(request, response);
 			}
 			else {
-				
-			}
+				resp.sendRedirect("block.jsp");}
 		}
 		catch(Exception e) {
 			e.printStackTrace();

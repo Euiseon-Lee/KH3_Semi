@@ -11,14 +11,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns = {
-		"/qa/write.jsp", "/qa/write.kh",
-		"/qa/edit.jsp", "/qa/edit.kh",
-		"/qa/delete.kh",
-		"/qa/check.jsp", "/qa/checkpw.kh",
-		"/review/edit.jsp", "/review/write.jsp",
-		"/review/write.kh", "/review/edit.kh", "/review/delete.kh"
-})
+//@WebFilter(filterName = "f2",urlPatterns = {
+//		"/qa/write.jsp", "/qa/write.kh",
+//		"/qa/edit.jsp", "/qa/edit.kh",
+//		"/qa/delete.kh",
+//		"/qa/check.jsp", "/qa/checkpw.kh",
+//		"/review/edit.jsp", "/review/write.jsp",
+//		"/review/write.kh", "/review/edit.kh", "/review/delete.kh"
+//})
 public class LoginFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
