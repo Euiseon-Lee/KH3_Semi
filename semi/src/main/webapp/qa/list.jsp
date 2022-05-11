@@ -88,23 +88,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/reset.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
 </head>
 <body>
-<h1>
-	memberId =<%=login %>
-	password = <%=password %>
-	id = <%=id %>
-</h1>
-	<div>
+
+<div class="container w850 m10">
+	<div class="row center">
 		<h1>Q/A 게시판</h1>
 	</div>
 	
 	<div>
-		<a href="write.jsp">글작성</a>
+		<a class="link link-btn" href="write.jsp">글작성</a>
 	</div>
 	
 	<div>
-		<table>
+		<table class="table table-border">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -118,7 +119,7 @@
 				<%for(QaDto qaDto : list){ %>
 				<tr>
 					<td><%=qaDto.getQaNo() %></td>
-					<td>
+					<td class="left">
 					<%-- 답글 depth 띄어쓰기 처리 --%>
 					<%if(qaDto.getDepth()>0) {%>
 						<%for(int i=0; i<qaDto.getDepth(); i++){ %>
@@ -127,10 +128,10 @@
 						<img src="<%=request.getContextPath()%>/image/reply.png" width="20" height="20">
 						<%} %>
 						<%if(qaDto.getQaPublic()==null){ %>
-					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
+					<a class="link link-hover" href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
 					<%}else{ %>
 					<img src="<%=request.getContextPath() %>/image/locked.png" width="20" height="20">
-					<a href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
+					<a class="link link-hover" href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
 					<%} %>
 					</td>
 					<td><%=qaDto.getQaWriter() %></td>
@@ -143,7 +144,7 @@
 	</div>
 	
 	<!-- 페이지 -->
-	<div>
+	<div class="row center pagination">
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
 			<%if(search){ %>
@@ -163,13 +164,13 @@
 		<%for(int i=startBlock; i <= endBlock; i++){ %>
 			<%if(search){ %>
 				<%if(i == p){ %>
-				<a href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
+				<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
 				<%} else { %>
 				<a href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
 				<%} %>
 			<%} else { %>
 				<%if(i == p){ %>
-				<a href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
+				<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
 				<%} else { %>
 				<a href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
 				<%} %>
@@ -195,7 +196,7 @@
 		
 	</div>
 	<!-- 검색창 -->
-	<div>
+	<div class="row center">
 		<form action="list.jsp" method="get">
 			<select name ="type">
 				<option value ="qa_title">제목</option>
@@ -204,5 +205,6 @@
 			<button type =submit">검색</button>
 		</form>
 	</div>
+</div>
 </body>
 </html>
