@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 		"/qa/write.jsp", "/qa/write.kh",
 		"/qa/edit.jsp", "/qa/edit.kh",
 		"/qa/delete.kh",
-		"/qa/check.jsp", "/qa/checkpw.kh"
-		
+		"/qa/check.jsp", "/qa/checkpw.kh",
+		"/review/edit.jsp", "/review/write.jsp",
+		"/review/write.kh", "/review/edit.kh", "/review/delete.kh"
 })
 public class LoginFilter implements Filter{
 	@Override
