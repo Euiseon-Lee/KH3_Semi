@@ -19,13 +19,14 @@
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
 
 	
-	
-	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
+			
 	//댓글 관리자만 수정가능한지 테스트위해 memberId 먼저 구현해놓음(한석)
 	String memberId = (String)session.getAttribute("login");
 	boolean isLogin = memberId != null;
 	
 	
+	//세션이용해서 내 글인지 판단하는 코드 => 구현 완료
+	boolean isOwner = memberId != null && memberId.equals(reviewDto.getReviewMemberId());	
 	
 	
 	//작성자 아이디 및 등급 조회 코드
@@ -39,9 +40,7 @@
 	
 	
 	//작성자 주문 조회 코드 => 객실타입 출력
-	PayDto payDto = new PayDto();
-	PayDao payDao = new PayDao();
-	//PayDto = get.
+	
 	
 	
 
@@ -127,8 +126,10 @@
 
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
+				<%if(isAdmin || isOwner){ %>
 				<a href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
 				<a href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				<%} %>
 			</td>
 		</tr>
 		
