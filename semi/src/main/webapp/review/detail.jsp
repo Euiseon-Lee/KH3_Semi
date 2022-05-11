@@ -1,3 +1,5 @@
+<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDao"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.ReviewReplyDao"%>
 <%@page import="semi.beans.ReviewReplyDto"%>
@@ -15,25 +17,35 @@
 	ReviewDao reviewDao = new ReviewDao();
 	reviewDao.plusReadcount(reviewNo);
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
+
 	
-	
-	//작성자 정보 조회 코드 추후 수정 필요 => 아이디는 세션에서 가져올 것
-	MemberDao memberDao = new MemberDao();
-	MemberDto memberDto = memberDao.selectOneId("testmanager");
-	
-	
-	//작성자 주문 내역 조회 코드 => 객실타입 출력
-	//PayDao payDao = new PayDao();
-	//PayDto payDto = payDao.select???
-	
-	
-	//세션이용해서 내 글인지 판단하는 코드 => 구현 예정
+			
 	//댓글 관리자만 수정가능한지 테스트위해 memberId 먼저 구현해놓음(한석)
 	String memberId = (String)session.getAttribute("login");
 	boolean isLogin = memberId != null;
 	
-	//현재 상세게시글이 로그인된 아이디의 게시글인지 판단하기위한 코드(이코드는 필요하신대로 변경하셔도 돼요)
-	boolean isOwner = isLogin && memberId.equals(reviewDto.getReviewMemberId());
+	
+	//세션이용해서 내 글인지 판단하는 코드 => 구현 완료
+	boolean isOwner = memberId != null && memberId.equals(reviewDto.getReviewMemberId());	
+	
+	
+	//작성자 아이디 및 등급 조회 코드
+	String reviewWriter = reviewDto.getReviewMemberId();
+	
+	MemberDao memberDao = new MemberDao();
+	MemberDto memberDto = memberDao.selectOneId(reviewWriter);
+	
+
+	String reviewWriterGrade = memberDto.getMemberGrade();
+	
+	
+	//작성자 주문 조회 코드 => 객실타입 출력
+	
+	
+	
+
+	
+
 	
 	//관리자인지 판정하기 위한 코드 (이걸로 댓글 수정을 관리자만 가능하게 구현)
 	String memberGrade = (String)session.getAttribute("auth");
@@ -77,8 +89,8 @@
 	
 		<tr>
 			<td>
-				<%=memberDto.getMemberId() %>
-				(<%=memberDto.getMemberGrade()%>)
+				<%=reviewWriter %>
+				(<%= reviewWriterGrade %>)
 			</td>
 		</tr>
 
@@ -114,8 +126,10 @@
 
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
+				<%if(isAdmin || isOwner){ %>
 				<a href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
 				<a href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				<%} %>
 			</td>
 		</tr>
 		
@@ -124,8 +138,8 @@
 		<!-- 댓글 작성 영역: 한석 -->
 		<tr>
 			<td align = "right">
-			<%--if(관리자만 보이게할까?(관리자상태일떄) 아니면 다른사람도 보이지만 쓸수는없게할까(로그인상태일떄)?){ --%>
-			<%if(isAdmin){ %>
+			<%--작성할 때 공개or비공개 선택해서 나오게끔 구현(시간남으면) --%>
+			<%if(isLogin){ %>
 			<form action = "reply_insert.kh" method = "post">
 				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
 				<textarea name = "replyContent" rows ="4" cols = "95"></textarea><br>
@@ -133,7 +147,7 @@
 			</form>
 			<%}else{ %>
 				
-					<textarea rows = "4" cols = "70" disabled placeholder = "관리자만 작성할 수 있습니다"></textarea>
+					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능"></textarea>
 					<input type = "submit" value = "댓글 작성" disabled>
  				
 			<%}%>
@@ -147,7 +161,7 @@
 					<%for(ReviewReplyDto reviewReplyDto : replylist){ %>
 					<%
 						//현재 로그인한 아이디본인이면서 관리자가 작성한 댓글인지 판단위한 코드
-						boolean isReplyAdmin = memberId != null && memberId.equals(reviewReplyDto.getReplyWriter()) && isAdmin;
+						boolean isMyReply = memberId != null && memberId.equals(reviewReplyDto.getReplyWriter());
 					%>
 					
 					
@@ -169,14 +183,14 @@
 						</td>	
 
 						<td>
-						<%--댓글 수정 이미지(본인이 관리자일때만 나오게)  --%>
-						<%if(isReplyAdmin){ %>											
+						<%--댓글 수정 이미지(본인이 쓴 댓글일때만 나오게)  --%>
+						<%if(isMyReply){ %>											
 						<a href = "#" class = "edit-btn">
 						<img src = "<%=request.getContextPath() %>/image/edit.png" width = "20">
 						</a>
 						<%} %>
-						<%-- 댓글 삭제 이미지(본인이 관리자일때만 나오게)--%>
-						<%if(isReplyAdmin){ %>
+						<%-- 댓글 삭제 이미지(본인이 쓴 댓글일때만 나오게)--%>
+						<%if(isMyReply){ %>
 						<a href = "reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
 						<img src = "<%=request.getContextPath() %>/image/delete.png" width = "20">
 						</a>
@@ -184,7 +198,7 @@
 						</td>
 					</tr>
 					<!--수정 할 수있도록 입력가능한 줄  -->
-					<%if(isReplyAdmin){ %>
+					<%if(isMyReply){ %>
 					<tr align = "right" class = "edit">
 						<td colspan = "3">
 						<form action = "reply_edit.kh" method = "post">
@@ -198,8 +212,13 @@
 					</tr>
 					<%} %>
 					<% } %>
+					<tr>
+						<a href = "<%=request.getContextPath()%>/index.jsp">인덱스화면으로 돌아가기</a>
+					</tr>
 				</table>
 			</td>
+			
+
 		</tr>				
 	</table>
 		<!-- jquery이용해서 수정,취소버튼 누를시 화면 변경되게 구현 -->
