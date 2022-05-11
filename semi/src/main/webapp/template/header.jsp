@@ -80,7 +80,7 @@
                             <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔정보</a></li>
                             <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔소개</a></li>
                             <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">오시는길</a></li>
-                        </ul>
+                        </ul>  
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp">객실소개</a>
