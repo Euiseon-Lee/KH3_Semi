@@ -26,7 +26,7 @@ public class PayDao {
 	
 	
 	// 2. 입력 sql
-	public void add(PayDto payDto) throws Exception {
+	public void addPaymentHistory(PayDto payDto) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "insert into pay(pay_order_no, pay_member_id, pay_room_no,"
@@ -53,7 +53,7 @@ public class PayDao {
 	
 	
 	// 결제 취소 => delete.jsp
-	public boolean cancel(int payOrderNo) throws Exception{
+	public boolean paymentCancel(int payOrderNo) throws Exception{
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "delete where pay_order_no = ?";
@@ -69,12 +69,12 @@ public class PayDao {
 
 	
 	// 결제 목록 => list.jsp (본인 아이디로 결제내역 검색하는 형태, 아이디는 세션에서 가져온다)
-	public List<PayDto> showList(String memberId) throws Exception {
+	public List<PayDto> showPayList(String payMemberId) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "select * from pay where pay_member_id = ? order by pay_order_no desc";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, memberId);
+		ps.setString(1, payMemberId);
 		ResultSet rs = ps.executeQuery();
 		
 		
@@ -84,8 +84,8 @@ public class PayDao {
 		if(rs.next()) {			
 			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
 			//payDto.setPayMemberId(rs.getString("pay_member_id"));
-			//payDto.setPayRoomNo(rs.getInt("pay_room_no"));
-			payDto.setPayPeople(rs.getInt("pay_peoplenum"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
 			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
 			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
 			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
@@ -105,7 +105,7 @@ public class PayDao {
 	}	
 
 	//상세 => detail.jsp (pk인 글 번호로 조회하므로 추가 조건구문 필요 없음)
-	public PayDto showDetail(int payOrderNo) throws Exception {
+	public PayDto showPayDetail(int payOrderNo) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "select * from pay where pay_order_no = ?";
@@ -121,7 +121,7 @@ public class PayDao {
 			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
 			payDto.setPayMemberId(rs.getString("pay_member_id"));
 			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
-			payDto.setPayPeople(rs.getInt("pay_peoplenum"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
 			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
 			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
 			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
@@ -142,17 +142,21 @@ public class PayDao {
 	// 검색	기능 제거
 	
 	
-	//페이징 구현된 리스트
-	public List<PayDto> selectListByPaging(int p, int s) throws Exception{
+	//페이징 구현된 리스트 (본인 아이디로 결제내역 검색하는 형태, 아이디는 세션에서 가져온다)
+	public List<PayDto> selectPayListByPaging(String payMemberId, int p, int s) throws Exception{
 		int end = p * s;
 		int begin = end - ( s - 1 ); 
 		
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "select * from (select rownum rn, TMP.* from (select * from pay) TMP) where rn between ? and ?";
+		String sql = "select * from "
+				+"(select rownum rn, TMP.* from "
+					+"(select * from pay where pay_member_id = ?) TMP) "
+						+"where rn between ? and ? order by pay_order_no desc";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, begin);
-		ps.setInt(2, end);
+		ps.setString(1, payMemberId);
+		ps.setInt(2, begin);
+		ps.setInt(3, end);
 		ResultSet rs = ps.executeQuery();
 		
 		List<PayDto> list = new ArrayList<>();
@@ -161,8 +165,8 @@ public class PayDao {
 			
 			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
 			//payDto.setPayMemberId(rs.getString("pay_member_id"));
-			//payDto.setPayRoomNo(rs.getInt("pay_room_no"));
-			payDto.setPayPeople(rs.getInt("pay_peoplenum"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
 			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
 			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
 			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
