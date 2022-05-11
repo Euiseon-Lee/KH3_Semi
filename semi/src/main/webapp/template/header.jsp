@@ -35,7 +35,7 @@
                 <a href="<%=request.getContextPath()%>"> <!--헤더 로고 클릭 시 메인으로 이동-->
                     <img src="<%=request.getContextPath()%>/image/logo_003.png" width="300" height="100">
                 </a>
-
+  
         <!--header link(회원가입/로그인) 영역
             1. 비회원 : 회원가입, 로그인
             2. 회원 : 로그인, 로그아웃
