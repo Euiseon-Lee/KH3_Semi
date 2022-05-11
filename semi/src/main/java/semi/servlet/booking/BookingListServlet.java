@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.BookingDao;
 import semi.beans.BookingDto;
 
-	@WebServlet(urlPatterns = "/booking/list.kh")
-	public class BookingListServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/booking/list.kh")
+public class BookingListServlet extends HttpServlet{
 		@Override
 		protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			try {
