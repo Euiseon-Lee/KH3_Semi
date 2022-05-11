@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>예약 정보 받는 jsp(타입,체크인아웃)</title>
 </head>  
-<body>
+<body>  
 	<h1>원하시는 객실 타입, 체크in-out날짜를 입력해주세요</h1>
 	<form action = "add.kh">
 	<div>
