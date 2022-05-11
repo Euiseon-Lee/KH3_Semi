@@ -11,7 +11,7 @@ public class MemberDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql="insert into member(member_id, member_pw, member_birth,"
-				+"member_name, member_fname, member_lname, member_phone, member_email, member_post"
+				+"member_name, member_fname, member_lname, member_phone, member_email, member_post,"
 				+"member_basic_address, member_detail_address)"
 				+"values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -27,9 +27,8 @@ public class MemberDao {
 		ps.setString(10, memberDto.getMemberBasicAddress());
 		ps.setString(11, memberDto.getMemberDetailAddress());
 		ps.execute();  
-		
 		con.close();
-		}  
+	}
 	
 		
 	//	아이디 단일조회(select)
@@ -107,7 +106,7 @@ public class MemberDao {
 		}
 		
 		
-		//아이디 찾기(select)
+				//아이디 찾기(select)
 				//-> 이름(영문-성,이름), 이메일로 아이디 찾기
 		public String findId(MemberDto memberDto) throws Exception {
 			Connection con = JdbcUtils.getConnection();
@@ -130,13 +129,13 @@ public class MemberDao {
 			return memberId;
 		}
 		
+
 		
 		//비밀번호 찾기(select)
 					//-> 아이디, 이름(영문-성,이름), 이메일, 핸드폰번호로 비밀번호 찾기
 		public MemberDto findPw(MemberDto memberDto) throws Exception {
-			Connection con = JdbcUtils.getConnection();
-			
-			String sql = "select * from member "
+			Connection con = JdbcUtils.getConnection();		
+		String sql = "select * from member "
 								+ "where "
 								+ "member_id = ? and member_fname = ? and member_Lname = ? and member_email = ? and member_phone = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -168,9 +167,8 @@ public class MemberDao {
 			}
 			else {
 				findDto = null;
-			}
-			con.close();
-			
+			}		con.close();
+		
 			return findDto;
 		}
 		

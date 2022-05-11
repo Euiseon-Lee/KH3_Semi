@@ -16,15 +16,17 @@ public class MemberJoinServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
+			req.setCharacterEncoding("UTF-8");
 
 			// 준비
 			MemberDto memberDto = new MemberDto();
 			memberDto.setMemberId(req.getParameter("memberId"));
 			memberDto.setMemberPw(req.getParameter("memberPw"));
 			memberDto.setMemberBirth(req.getParameter("memberBirth"));
-			memberDto.setMemberName(req.getParameter("memberFname"));
-			memberDto.setMemberName(req.getParameter("memberLname"));
 			memberDto.setMemberName(req.getParameter("memberName"));
+			memberDto.setMemberFname(req.getParameter("memberFname"));
+			memberDto.setMemberLname(req.getParameter("memberLname"));
 			memberDto.setMemberPhone(req.getParameter("memberPhone"));
 			memberDto.setMemberEmail(req.getParameter("memberEmail"));
 			memberDto.setMemberPost(req.getParameter("memberPost"));

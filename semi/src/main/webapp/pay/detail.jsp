@@ -12,7 +12,7 @@
 	PayDto payDto = payDao.showDetail(payOrderNo);
 	
 	%>   
-	]
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,10 @@
 <body>
 
 <table>
+	<tr>
+		<th>주문번호</th>
+		<td><%=payDto.getPayOrderNo() %>
+	</tr>
 	<tr>
 		<th>객실번호</th>
 		<td><%=payDto.getPayRoomNo()%></td>
@@ -69,6 +73,12 @@
 		<tr>
 		<th>레스토랑 식사유형</th>
 		<td><%=payDto.getPayRestMealType()%></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="<%=request.getContextPath()%>/review/write.jsp">리뷰작성</a>
+			<a href="cancel.kh?payOrderNo=<%=payOrderNo%>">삭제</a>
+		</td>
 	</tr>
 </table>
 </body>

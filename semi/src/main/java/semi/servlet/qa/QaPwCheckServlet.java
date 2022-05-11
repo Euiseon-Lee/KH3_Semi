@@ -19,6 +19,7 @@ public class QaPwCheckServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int qaNo = Integer.parseInt(req.getParameter("qaNo"));
+			int groupNo = Integer.parseInt(req.getParameter("groupNo"));
 			
 		    QaDao qaDao = new QaDao(); 
 			QaDto qaDto = qaDao.selectOne(qaNo);
@@ -38,7 +39,7 @@ public class QaPwCheckServlet extends HttpServlet{
 			if(isPasswordCorrect) {//일치할 경우
 				//세션에 비밀번호 저장
 				req.getSession().setAttribute("password", memberDto.getMemberPw());
-				resp.sendRedirect("detail.jsp?qaNo="+qaNo);
+				resp.sendRedirect("detail.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
 			}
 			else {
 				resp.sendRedirect("check.jsp");
