@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.beans.BookingDao;
 import semi.beans.BookingDto;
 
-@WebServlet(urlPatterns = "/booking/add.kd")
+@WebServlet(urlPatterns = "/booking/add.kh")
 public class BookingInsertServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
