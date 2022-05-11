@@ -8,7 +8,7 @@
 </head>  
 <body>  
 	<h1>원하시는 객실 타입, 체크in-out날짜를 입력해주세요</h1>
-	<form action = "add.kh">
+	<form action = "possibleRooms.jsp" method = "get">
 	<div>
 		<label>객실 타입</label>
 		<select name = "bookingRoomType">
