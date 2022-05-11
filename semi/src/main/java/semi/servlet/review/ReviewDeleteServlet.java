@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.ReviewDao;
+import semi.beans.ReviewDto;
 
 @WebServlet(urlPatterns="/review/delete.kh")
 public class ReviewDeleteServlet extends HttpServlet {
@@ -16,9 +17,16 @@ public class ReviewDeleteServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			req.setCharacterEncoding("UTF-8");
+			
 			int reviewNo = Integer.parseInt(req.getParameter("reviewNo"));
 			
 			ReviewDao reviewDao = new ReviewDao();
+			ReviewDto reviewDto = new ReviewDto();
+			reviewDto = reviewDao.showDetail(reviewNo);
+			
+
+			
 			boolean success = reviewDao.delete(reviewNo);
 			
 			if(success) {

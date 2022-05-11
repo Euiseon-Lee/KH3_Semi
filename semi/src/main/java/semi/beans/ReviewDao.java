@@ -225,11 +225,113 @@ public class ReviewDao {
 	
 	
 	
-	//페이지네이션 => 나중에 구현 예정
+		//페이징 구현된 리스트
+		public List<ReviewDto> selectListByPaging(int p, int s) throws Exception{
+			int end = p * s;
+			int begin = end - ( s - 1 ); 
+			
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select * from ("
+									+ "select rownum rn, TMP.* from ("
+										+ "select * from review "
+										+ "order by review_no desc "
+									+ ") TMP"
+							+ ") where rn between ? and ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, begin);
+			ps.setInt(2, end);
+			ResultSet rs = ps.executeQuery();
+			
+			List<ReviewDto> list = new ArrayList<>();
+			while(rs.next()) {
+				ReviewDto reviewDto = new ReviewDto();
+				
+				reviewDto.setReviewNo(rs.getInt("review_no"));
+				reviewDto.setReviewMemberId(rs.getString("review_member_id"));
+				reviewDto.setReviewTitle(rs.getString("review_title"));
+				reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
+				reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
+				reviewDto.setReviewStar(rs.getInt("review_star"));
+				
+				list.add(reviewDto);
+			}
+			
+			con.close();
+			
+			return list;
+		}
 		
-	
-
-	
+		//검색 + 페이징 리스트 구현 예정		
+		public List<ReviewDto> selectListByPaging(int p, int s, String type, String keyword) throws Exception{
+			int end = p * s;
+			int begin = end - ( s - 1 ); 
+			
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select * from ("
+						+ "select rownum rn, TMP.* from ("
+						+ "select * from review where instr(#1, ?) > 0 "
+						+ "order by review_no desc "
+					+ ") TMP"
+			+ ") where rn between ? and ?";
+					
+					
+			sql = sql.replace("#1", type);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, keyword);
+			ps.setInt(2, begin);
+			ps.setInt(3, end);
+			ResultSet rs = ps.executeQuery();
+			
+			List<ReviewDto> list = new ArrayList<>();
+			while(rs.next()) {
+				ReviewDto reviewDto = new ReviewDto();
+				
+				reviewDto.setReviewNo(rs.getInt("review_no"));
+				reviewDto.setReviewMemberId(rs.getString("review_member_id"));
+				reviewDto.setReviewTitle(rs.getString("review_title"));
+				reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
+				reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
+				reviewDto.setReviewStar(rs.getInt("review_star"));
+				
+				list.add(reviewDto);
+			}
+			con.close();
+			
+			return list;
+		}
+		
+		
+//		페이지 네비게이터의 마지막 번호 계산을 위한 카운트 기능을 검색, 목록 각각 구현
+		public int countByPaging() throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select count(*) from review";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			int count = rs.getInt(1);
+			
+			con.close();
+			
+			return count;
+		}
+		public int countByPaging(String type, String keyword) throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select count(*) from review where instr(#1, ?) > 0";
+			sql = sql.replace("#1", type);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, keyword);		
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			int count = rs.getInt(1);
+			
+			con.close();
+			
+			return count;
+		}
 	
 
 }
