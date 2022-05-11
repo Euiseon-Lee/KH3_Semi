@@ -84,7 +84,7 @@
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp">객실소개</a>
-                    </li>
+                    </li>  
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
