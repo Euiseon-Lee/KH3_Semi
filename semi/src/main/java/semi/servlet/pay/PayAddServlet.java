@@ -31,10 +31,12 @@ public class PayAddServlet extends HttpServlet{
 			payDto.setPayOrderNo(Integer.parseInt(req.getParameter("payOrderNo")));
 			payDto.setPayMemberId(req.getParameter("payMemberId"));
 			payDto.setPayRoomNo(Integer.parseInt(req.getParameter("payRoomNo")));
-			payDto.setPayPeople(Integer.parseInt(req.getParameter("payPeopleNum")));
-			payDto.setPayRoomtype(req.getParameter("payRoomType"));
+			payDto.setPayPeople(Integer.parseInt(req.getParameter("payPeople")));
+			payDto.setPayRoomtype(req.getParameter("payRoomtype"));
 			payDto.setPayCheckIn(Date.valueOf(req.getParameter("payCheckIn")));
 			payDto.setPayCheckOut(Date.valueOf(req.getParameter("payCheckOut")));
+			payDto.setPayDate(Date.valueOf(req.getParameter("payDate")));
+			payDto.setPayTotalPrice(Integer.parseInt(req.getParameter("payTotalPrice")));
 			//더 추가 필요
 			
 			PayDao payDao = new PayDao();
