@@ -75,11 +75,11 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp">호텔소개</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/olympic/list.jsp">주변관광지</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">층별안내도</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔정보</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔소개</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">오시는길</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=1">호텔소개</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=2">호텔정보</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=3">층별안내도</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=4">주변관광지</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=5">오시는길</a></li>
                         </ul>
                     </li>
                     <li>
