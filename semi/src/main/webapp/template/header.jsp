@@ -88,7 +88,7 @@
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>
+                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>  
                             <li><a href="<%=request.getContextPath()%>#">헬스센터</a></li>
                         </ul>
                     </li>
