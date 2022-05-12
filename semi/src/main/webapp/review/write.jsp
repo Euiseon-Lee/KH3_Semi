@@ -6,15 +6,13 @@
     pageEncoding="UTF-8"%>
     
 <%
-	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
-	//ReviewDto reviewDto = new ReviewDto();
+	int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+	ReviewDto reviewDto = new ReviewDto();
 	
 	
 	//작성자 주문 내역 조회 코드 => 주문번호 및 객실타입 출력 목적
-	//임시 코드 reviewNo => 결제 상세페이지에서 아직 reviewNo를 보내는 것 구현하지 않아서 이렇게 작성함
-	int reviewNo = 1;
-	PayDao payDao = new PayDao();
-	PayDto payDto = payDao.showPayDetail(reviewNo);
+	//PayDao payDao = new PayDao();
+	//PayDto payDto = payDao.showPayDetail(reviewNo);
 	
 %>        
 
@@ -42,7 +40,7 @@
 			
 			<div>
 				<div>주문번호: <%=reviewNo %></div>
-				<div>객실타입: <%=payDto.getPayRoomtype() %></div>
+				<div>객실타입:</div>
 			</div>
 			
 			<div>
@@ -73,7 +71,7 @@
 			</div>
 			
 			<div>
-				<a href="list.jsp">목록</a>
+				<a href="<%=request.getContextPath()%>/review/list.jsp">목록</a>
 			</div>
 					
 		</div>
