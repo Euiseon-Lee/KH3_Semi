@@ -69,5 +69,60 @@ public class BookingsDao {
 			ps.execute();
 			con.close();
 		}
+		
+		/// 예약 전체목록메소드(관리자용)
+		public List<BookingsDto> selectList() throws Exception {
+			Connection con = JdbcUtils.getConnection();
 			
+			String sql = "select * from bookings order by booking_order_no asc";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			List<BookingsDto> list = new ArrayList<>();
+			while(rs.next()) {
+				BookingsDto bookingsDto = new BookingsDto();
+				
+				bookingsDto.setBookingOrderNo(rs.getInt("booking_order_no"));
+				bookingsDto.setBookingMemberId(rs.getString("booking_member_id"));
+				bookingsDto.setBookingRoomNo(rs.getInt("booking_room_no"));
+				bookingsDto.setBookingPeople(rs.getInt("booking_people"));
+				bookingsDto.setBookingRoomType(rs.getString("booking_room_type"));
+				bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
+				bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
+				bookingsDto.setBookingDate(rs.getString("booking_date"));
+				
+				list.add(bookingsDto);
+			}
+			con.close();
+			return list;
+		}
+// 자기(로그인 아이디필요) 예약목록
+		public List<BookingsDto> selectList(String memberId) throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select * from bookings where booking_member_id = ? order by booking_order_no asc";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, memberId);
+			ResultSet rs = ps.executeQuery();
+			
+			List<BookingsDto> list = new ArrayList<>();
+			while(rs.next()) {
+				BookingsDto bookingsDto = new BookingsDto();
+				
+				bookingsDto.setBookingOrderNo(rs.getInt("booking_order_no"));
+				bookingsDto.setBookingMemberId(rs.getString("booking_member_id"));
+				bookingsDto.setBookingRoomNo(rs.getInt("booking_room_no"));
+				bookingsDto.setBookingPeople(rs.getInt("booking_people"));
+				bookingsDto.setBookingRoomType(rs.getString("booking_room_type"));
+				bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
+				bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
+				bookingsDto.setBookingDate(rs.getString("booking_date"));
+				
+				list.add(bookingsDto);
+			}
+			con.close();
+			return list;
+		}
 }
