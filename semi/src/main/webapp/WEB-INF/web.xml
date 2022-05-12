@@ -55,6 +55,7 @@
 		<url-pattern>/review/write.kh</url-pattern>
 		<url-pattern>/review/edit.kh</url-pattern>
 		<url-pattern>/review/delete.kh</url-pattern>
+		<url-pattern>/mypage/*</url-pattern>
     </filter-mapping>
     
     <filter>
