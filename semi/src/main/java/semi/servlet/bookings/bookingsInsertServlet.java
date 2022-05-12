@@ -29,8 +29,8 @@ public class bookingsInsertServlet extends HttpServlet {
 			BookingsDao bookingsDao = new BookingsDao();
 			bookingsDao.insert(bookingsDto);
 			
-			
-			
+			//예약 등록과 동시에 결제페이지로 객실번호주면서 이동
+			resp.sendRedirect("/pay/pay.jsp?bookingOrderNo="+bookingsDto.getBookingOrderNo());
 		}catch(Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
