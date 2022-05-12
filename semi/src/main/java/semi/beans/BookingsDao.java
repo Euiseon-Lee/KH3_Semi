@@ -125,4 +125,22 @@ public class BookingsDao {
 			con.close();
 			return list;
 		}
+		//가장 최근 예약 주문번호 조회하는 기능
+		public int selectSequence() throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "select * from ("
+					+ "    select rownum rn, TMP.* from ("
+					+ "        select booking_order_no from bookings order by booking_order_no desc"
+					+ "    )TMP"
+					+ ") where rn =1";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			int number = rs.getInt("booking_order_no");
+			
+			con.close();
+			
+			return number;
+		}
 }
