@@ -16,7 +16,7 @@ import semi.beans.MemberDto;
 import semi.beans.QaDao;
 import semi.beans.QaDto;
 
-@WebFilter(urlPatterns = "/qa/detail.jsp")
+//@WebFilter(filterName = "f3", urlPatterns = "/qa/detail.jsp")
 public class QaBoardFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

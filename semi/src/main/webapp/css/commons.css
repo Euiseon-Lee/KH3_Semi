@@ -384,7 +384,12 @@
         2. 줄무늬 테이블    -.table-stripe
         3. 마우스를 감지하는 테이블 -.table-hover
         */
-
+		.table.table-underline{
+            border: 1px solid rgb(139, 140, 137);
+            border-left: none;
+            border-right:none;
+        }
+        
         .table.table-border{ /*1번 스타일*/
             border: 1px solid rgb(139, 140, 137);
         }
@@ -420,12 +425,9 @@
             background-color: rgb(231, 236, 239);
         }
 
-        .table.table-hover>thead>tr>th:hover,
-        .table.table-hover>thead>tr>td:hover,
-        .table.table-hover>tbody>tr>th:hover,
-        .table.table-hover>tbody>tr>td:hover,
-        .table.table-hover>tfoot>tr>th:hover,
-        .table.table-hover>tfoot>tr>td:hover{
+        .table.table-hover>thead>tr:hover,
+        .table.table-hover>tbody>tr:hover,
+        .table.table-hover>tfoot>tr:hover{
             background-color: rgb(231, 236, 239);
         }
 
