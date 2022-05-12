@@ -21,7 +21,7 @@ public class PayCencelServlet extends HttpServlet{
 			
 			//처리
 			PayDao payDao = new PayDao();
-			boolean success = payDao.delete(payOrderNo);
+			boolean success = payDao.paymentCancel(payOrderNo);
 			
 			//출력
 			if(success) {

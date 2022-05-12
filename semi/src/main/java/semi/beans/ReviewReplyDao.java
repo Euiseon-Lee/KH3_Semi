@@ -21,7 +21,7 @@ public class ReviewReplyDao {
 		ps.setString(3, reviewReplyDto.getReplyContent());
 		ps.execute();
 		
-		con.close();
+		con.close();  
 		
 	}
 	// 댓글 목록 보여주는 메소드
