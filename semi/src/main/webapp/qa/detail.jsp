@@ -1,3 +1,5 @@
+<%@page import="semi.beans.MemberDto"%>
+<%@page import="semi.beans.MemberDao"%>
 <%@page import="semi.beans.QaDto"%>
 <%@page import="semi.beans.QaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,6 +12,9 @@
 
 	qaDao.plusReadcount(qaNo);//조회수 증가
 	QaDto qaDto = qaDao.selectOne(qaNo);
+	
+	MemberDao memberDao = new MemberDao();
+	MemberDto memberDto = memberDao.selectOneId(qaDto.getQaWriter());
 %>
 
 <%
@@ -31,6 +36,7 @@
 				<td>
 			<div align="right">
 					작성자 <%=qaDto.getQaWriter() %>
+					(<%=memberDto.getMemberGrade() %>)
 			</div>
 				</td>
 			</tr>
