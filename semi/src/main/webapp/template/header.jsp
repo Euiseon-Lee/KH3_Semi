@@ -47,14 +47,14 @@
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
 			<div>
-                <a href="<%=request.getContextPath()%>/mypage/mypage.kh" class="link link-header link2">마이페이지</a>
+                <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
 		<%}else{ %>
 			<div>
                 <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link2">로그인</a>
             </div>
             <div>
-                <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link3">회원가입</a>
+                <a href="<%=request.getContextPath()%>/member/join.jsp" class="link link-header link3">회원가입</a>
             </div>
 		<%} %>
 		<!-- 관리자페이지 만들경우 링크 추가  -->
@@ -100,6 +100,9 @@
                     </li>
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/pay/list.jsp">결제목록</a></li>
+                          </ul>
                     </li>
                 </ul> 
             </nav>
