@@ -18,6 +18,7 @@ public class QaEditServlet extends HttpServlet{
 		try {
 			QaDto qaDto = new QaDto();
 			qaDto.setQaNo(Integer.parseInt(req.getParameter("qaNo")));
+			qaDto.setGroupNo(Integer.parseInt(req.getParameter("groupNo")));		
 			qaDto.setQaTitle(req.getParameter("qaTitle"));
 			qaDto.setQaPublic(req.getParameter("qaPublic"));
 			qaDto.setQaContent(req.getParameter("qaContent"));
@@ -26,7 +27,7 @@ public class QaEditServlet extends HttpServlet{
 			boolean success = qaDao.update(qaDto);
 			
 			if(success) {
-				resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo());
+				resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo()+"&groupNo="+qaDto.getGroupNo());
 			}
 			else {
 				resp.sendError(404);
