@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
-	//로그인 상태 확인 코드
-	String memberId = (String) session.getAttribute("login");
-	boolean login = memberId != null;
-	
-	//관리자 확인 코드
-	String auth =(String)session.getAttribute("auth");
-	boolean admin = auth != null && auth.equals("관리자");
-	
-	//Q/A 비밀번호 세션
-	String password = (String)session.getAttribute("password");
-	//Q/A 아이디 세션
-	String id = (String)session.getAttribute("id");
+   //로그인 상태 확인 코드
+   String memberId = (String) session.getAttribute("login");
+   boolean login = memberId != null;
+   
+   //관리자 확인 코드
+   String auth =(String)session.getAttribute("auth");
+   boolean admin = auth != null && auth.equals("관리자");
+   
+   //Q/A 비밀번호 세션
+   String password = (String)session.getAttribute("password");
+   //Q/A 아이디 세션
+   String id = (String)session.getAttribute("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -51,34 +51,34 @@
             2. 회원 : 로그인, 로그아웃
             3. 관리자 : 관리자, 로그아웃
         -->
-		<!-- 상위 메뉴 -->
-		<%if(login) {%>
-			<div>
+      <!-- 상위 메뉴 -->
+      <%if(login) {%>
+         <div>
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
-			<div>
+         <div>
                 <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
-		<%}else{ %>
-			<div>
+      <%}else{ %>
+         <div>
                 <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link2">로그인</a>
             </div>
             <div>
                 <a href="<%=request.getContextPath()%>/member/join.jsp" class="link link-header link3">회원가입</a>
             </div>
-		<%} %>
-		<!-- 관리자페이지 만들경우 링크 추가  -->
-		<%if(admin){ %>
-			<div>
+      <%} %>
+      <!-- 관리자페이지 만들경우 링크 추가  -->
+      <%if(admin){ %>
+         <div>
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
             <div>
                 <a href="<%=request.getContextPath()%>##" class="link link-header link2">관리자</a>
             </div>
-		<%} %>
-	</header>
-	
-	<!-- 메뉴 영역 --> <!--메뉴 위치 및 링크 수정 예정-->
+      <%} %>
+   </header>
+   
+   <!-- 메뉴 영역 --> <!--메뉴 위치 및 링크 수정 예정-->
             <nav>
                 <!-- 디자인이 이루어지도록 ul로 메뉴를 구현 -->
                 <ul class="menu">
