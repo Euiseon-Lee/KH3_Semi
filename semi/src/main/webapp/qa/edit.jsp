@@ -2,13 +2,9 @@
 <%@page import="semi.beans.QaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
+<jsp:include page="/template/header.jsp"></jsp:include>
+
 	<%
 		int qaNo = Integer.parseInt(request.getParameter("qaNo"));
 		int groupNo = Integer.parseInt(request.getParameter("groupNo"));
@@ -19,32 +15,32 @@
 	<form action="edit.kh" method="post">
 		<input type="hidden" name="qaNo" value="<%= qaDto.getQaNo() %>">
 		<input type="hidden" name="groupNo" value="<%=qaDto.getGroupNo() %>">
-			<div>
+			<div class="container w850 m10 center">
 				<h1>게시글 수정</h1>
-					<div>
+					<div class="row">
 						<label>제목</label>
-						<input type="text" name="qaTitle" value="<%=qaDto.getQaTitle() %>">
+						<input type="text" name="qaTitle" class="form-input fill input-round" value="<%=qaDto.getQaTitle() %>">
 					</div>
-					<div>
-						<label>비공개
+					<div class="row">
 						<%if(qaDto.getQaPublic() != null){ %>
   	  					<input type="checkbox"  name="qaPublic" checked>
+  	  					<label>비공개</label>
   	  					<%} else{%>
   	  					<input type="checkbox" value="Y" name="qaPublic">
+  	  					<label>비공개</label>
   	  					<%} %>
-  	  					</label>
+  	  					
 					</div>
-					<div> 
+					<div class="row"> 
 						<label>내용</label>
-						<textarea name="qaContent"><%=qaDto.getQaContent() %></textarea>
+						<textarea class="textarea form-input fill input-round"name="qaContent" rows="12"><%=qaDto.getQaContent() %></textarea>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-primary fill">등록</button>
 					</div>
 					<div>
-						<button type="submit">등록</button>
-					</div>
-					<div>
-						<a href="list.jsp">목록</a>
+						<a href="list.jsp" class="link link-btn center fill">목록</a>
 					</div> 
 			</div>
 	</form>
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

@@ -66,46 +66,21 @@
     %>
     <%
     	//목록으로 돌아올 경우 비밀번호 세션 삭제
-    	//req.getSession().removeAttribute("password");
+    	request.getSession().removeAttribute("password");
     %>
-       <%
-	//로그인 상태 확인 코드
-	
-	String memberId = (String)session.getAttribute("login");
-
-	boolean login = memberId != null;
-	
-	//관리자 검사
-	String auth = (String)session.getAttribute("auth");
-	boolean admin = auth != null && auth.equals("관리자");
-	
-	String password = (String)session.getAttribute("password");
-	
-	String id = (String)session.getAttribute("id");
-%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/reset.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
-</head>
-<body>
-
+ 
+<jsp:include page="/template/header.jsp"></jsp:include>
 <div class="container w850 m10">
 	<div class="row center">
 		<h1>Q/A 게시판</h1>
 	</div>
 	
-	<div>
+	<div align="right" >
 		<a class="link link-btn" href="write.jsp">글작성</a>
 	</div>
 	
 	<div>
-		<table class="table table-border">
+		<table class="table table-underline table-hover">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -119,8 +94,9 @@
 				<%for(QaDto qaDto : list){ %>
 				<tr>
 					<td><%=qaDto.getQaNo() %></td>
-					<td class="left">
+					<td>
 					<%-- 답글 depth 띄어쓰기 처리 --%>
+					<div align="left">
 					<%if(qaDto.getDepth()>0) {%>
 						<%for(int i=0; i<qaDto.getDepth(); i++){ %>
 						&nbsp;&nbsp;&nbsp;&nbsp;
@@ -134,6 +110,7 @@
 					<a class="link link-hover" href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
 					<%} %>
 					</td>
+					</div>
 					<td><%=qaDto.getQaWriter() %></td>
 					<td><%=qaDto.getQaWritedate() %></td>
 					<td><%=qaDto.getQaReadcount() %></td>
@@ -198,13 +175,13 @@
 	<!-- 검색창 -->
 	<div class="row center">
 		<form action="list.jsp" method="get">
-			<select name ="type">
+			<select name ="type" class="form-input input-round">
 				<option value ="qa_title">제목</option>
 			</select>
-			<input type ="search" name="keyword">
-			<button type =submit">검색</button>
+			<input type ="search" name="keyword" required autocomplete="off">
+			<button type ="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>
 </div>
-</body>
-</html>
+
+<jsp:include page="/template/footer.jsp"></jsp:include>
