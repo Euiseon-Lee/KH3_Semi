@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
 
-</article>
 </section>
 
              
