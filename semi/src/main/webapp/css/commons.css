@@ -757,7 +757,7 @@
       .box { width: 500px; height: 300px; border: 8px solid rgb(163, 206, 241) ;  /* 부드럽게 움직이는 효과 */ transition: 1s; } 
       .box:hover { transform: translate(20px, 50px); }
 
-      .back-box { width: 500px; height: 300px; border: 8px solid rgb(163, 206, 241)}; 
+      .back-box { width:500px; height: 300px; border: 8px solid rgb(163, 206, 241)}; 
 
       /* 이미지를 div 안에 꽉 채워서 보여줄거에요*/
       .image-box{

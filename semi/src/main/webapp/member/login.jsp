@@ -4,10 +4,12 @@
 <!-- header -->
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+
+<sesion>
 <form action="login.kh" method="post">
 
 <!-- 아이디 저장기능 구현 예정 (idSave) -->
-<div class="container w500 m30">
+
 <div class="row center">
 	<h1 class="title-text">로그인</h1>
 </div>
@@ -51,6 +53,8 @@
 </div>
  
  </form>
+ 
+ </sesion>
     
     <%--에러표시가 있는 경우 메시지 출력 --%>
 	<% if (request.getParameter("error") != null) {%>
