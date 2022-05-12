@@ -7,7 +7,7 @@
   
     <style>
     
-    /*.hotel {
+     /*.hotel {
         background-color:  	#F5DEB3;
     }
     
