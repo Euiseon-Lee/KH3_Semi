@@ -17,7 +17,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<!-- 뒤로가기 안되게 해주는 자바스크립트 기능(유진님과 body떄문에 헤더관련으로 얘기해봐야함 
+<script type="text/javascript">
+ 			window.history.forward();
+ 	function noBack(){window.history.forward();}
+</script>
+
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+-->
 <body>
+		
 		<div align = "center">
 		<h1>예약 정보 확인</h1>
 		<form action = "add.kh" method = "post">
