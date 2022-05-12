@@ -10,7 +10,7 @@
 	String bookingCheckOut = request.getParameter("bookingCheckOut"); 
 	BookingsDao bookingsDao = new BookingsDao();
 	List<RoomsDto> list = bookingsDao.selectPossibleRooms(bookingRoomType, bookingCheckIn, bookingCheckOut);
-
+	
 %>
 
 
@@ -22,7 +22,10 @@
 </head>
 <body>
 		<form action = "finalBookings.jsp">
-	
+		<input type = "hidden" name = "bookingRoomType" value = "<%=bookingRoomType%>">
+		<input type = "hidden" name = "bookingCheckIn" value = "<%=bookingCheckIn%>">
+		<input type = "hidden" name = "bookingCheckOut" value = "<%=bookingCheckOut%>">
+		
 		
 		<select name = "bookingRoomNo">
 		<%for(RoomsDto roomsDto : list){ %>
@@ -32,10 +35,16 @@
 		<%} %>
 		</select>
 		
-		<input type = "number" name = "bookingPeople">
+		<%if(bookingRoomType.equals("스위트")){ %>
+		<input type = "number"  name = "bookingPeople" min="1" max="10" required>
+		<input type = "submit" value = "입력">
+		<h3>스위트룸은 10명까지 가능합니다.</h3>
+		<%} else { %>
+	 	<input type = "number"  name = "bookingPeople" min="1" max="4" required>
+		<input type = "submit" value = "입력">
+		<h3>스탠다드룸은 4명까지 가능합니다.</h3>
+		<%} %>
 		
-	
-	<h3>(추가)스위트일때는 6~10명만 스탠다드일때는 2~4명만 가능하게 만들기 </h3>
 		</form>
 </body>
 </html>
