@@ -1,5 +1,11 @@
+<%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+//현재 날짜 구하기
+	LocalDate today = LocalDate.now();
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,17 +27,17 @@
 	
 	<div>
 			<label>체크인</label>
-		<input type = "date" name = "bookingCheckIn">		 
+		<input type = "date" name = "bookingCheckIn" required min = "<%=today%>">		 
 	</div>
 	
 	<div>
 		<label>체크아웃</label>
-		<input type = "date" name = "bookingCheckOut">		 
+		<input type = "date" name = "bookingCheckOut" required min = "<%=today%>">		 
 	</div>
 	<div>
 		<input type ="submit" value = "다음">
 	</div>
 	</form>
-	<h3>지난 날짜는 입력안되게 하는 기능 해야한다</h3>
+	
 </body>
 </html>
