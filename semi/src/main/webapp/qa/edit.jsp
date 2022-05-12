@@ -11,13 +11,14 @@
 <body>
 	<%
 		int qaNo = Integer.parseInt(request.getParameter("qaNo"));
+		int groupNo = Integer.parseInt(request.getParameter("groupNo"));
 	
 		QaDao qaDao = new QaDao();
 		QaDto qaDto = qaDao.selectOne(qaNo);
 	%>
 	<form action="edit.kh" method="post">
 		<input type="hidden" name="qaNo" value="<%= qaDto.getQaNo() %>">
-		
+		<input type="hidden" name="groupNo" value="<%=qaDto.getGroupNo() %>">
 			<div>
 				<h1>게시글 수정</h1>
 					<div>

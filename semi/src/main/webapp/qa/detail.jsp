@@ -62,7 +62,7 @@
 			<%if(isAdmin){ %>
 			<a href="write.jsp?superNo=<%=qaNo%>">답글</a>
 			<%} %>
-			<a href="edit.jsp?qaNo=<%=qaNo%>">수정</a>
+			<a href="edit.jsp?qaNo=<%=qaNo%>&groupNo=<%=groupNo%>">수정</a>
 			<a href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
 			<a href="list.jsp">목록</a>
 			</td>
