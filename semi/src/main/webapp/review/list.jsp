@@ -3,7 +3,7 @@
 <%@page import="semi.beans.ReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+     
 <%
 	//검색을 위한 type, keyword 설정
 	String type = request.getParameter("type");
