@@ -1,3 +1,5 @@
+<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDao"%>
 <%@page import="semi.beans.ReviewDto"%>
 <%@page import="semi.beans.ReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,8 +11,10 @@
 	
 	
 	//작성자 주문 내역 조회 코드 => 주문번호 및 객실타입 출력 목적
-	//PayDao payDao = new PayDao();
-	//PayDto payDto = payDao.조회명(주문번호)
+	//임시 코드 reviewNo => 결제 상세페이지에서 아직 reviewNo를 보내는 것 구현하지 않아서 이렇게 작성함
+	int reviewNo = 1;
+	PayDao payDao = new PayDao();
+	PayDto payDto = payDao.showPayDetail(reviewNo);
 	
 %>        
 
@@ -37,8 +41,8 @@
 			</div>
 			
 			<div>
-				<div>주문번호 띄우기</div>
-				<div>선택한 객실타입 띄우기 (보여주기용)</div>
+				<div>주문번호: <%=reviewNo %></div>
+				<div>객실타입: <%=payDto.getPayRoomtype() %></div>
 			</div>
 			
 			<div>
