@@ -21,14 +21,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border ="1">
-		<tbody>
+		<form action = "finalBookings.jsp">
+	
+		
+		<select name = "bookingRoomNo">
 		<%for(RoomsDto roomsDto : list){ %>
-		<tr>
-			<td><%=roomsDto.getRoomNo() %></td>
-		</tr>
+		
+			<option><%=roomsDto.getRoomNo() %></option>
+								
 		<%} %>
-		</tbody>
-	</table>
+		</select>
+		
+		<input type = "number" name = "bookingPeople">
+		
+	
+	<h3>(추가)스위트일때는 6~10명만 스탠다드일때는 2~4명만 가능하게 만들기 </h3>
+		</form>
 </body>
 </html>
