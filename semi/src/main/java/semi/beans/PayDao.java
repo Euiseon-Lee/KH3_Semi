@@ -228,7 +228,30 @@ public class PayDao {
 	
 	
 	
-
+	//체크아웃 날짜 비교해서 후기 쓸수있게 하는 구문
+	public boolean reviewCheck (String payMemberId, int payOrderNo) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay where pay_member_id = ? and pay_order_no = ? and pay_checkout - sysdate < 0";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, payMemberId);
+		ps.setInt(2, payOrderNo);
+		ResultSet rs = ps.executeQuery();
+		
+		boolean reviewCheck;
+		
+		if (rs.next()) {
+			reviewCheck = true;
+		}
+		else {
+			reviewCheck = false;
+		}
+		
+		con.close();
+		
+		return reviewCheck;
+		
+	}
 	
 	
 }
