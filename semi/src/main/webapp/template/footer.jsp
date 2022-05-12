@@ -13,7 +13,7 @@
 </article>
 </section>
 
-           
+             
                 <!--footer 영역-->
                 <!--footer에 가로배치로 sns 이동 이미지링크 추가예정임-->
             <footer>
