@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>비공개 게시글</h1>
-	<div>작성자와 관리자만 확인이 가능합니다</div>
+	<h1>권한이 없습니다</h1>
+	<div>관리자 또는 작성자의 권한입니다</div>
 	<a href="list.jsp">목록</a>
 </body>
 </html>

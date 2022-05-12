@@ -8,6 +8,11 @@
 	//관리자 확인 코드
 	String auth =(String)session.getAttribute("auth");
 	boolean admin = auth != null && auth.equals("관리자");
+	
+	//Q/A 비밀번호 세션
+	String password = (String)session.getAttribute("password");
+	//Q/A 아이디 세션
+	String id = (String)session.getAttribute("id");
 %>
 <!DOCTYPE html>
 <html>

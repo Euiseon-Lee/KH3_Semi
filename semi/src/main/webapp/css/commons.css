@@ -420,7 +420,12 @@
         2. 줄무늬 테이블    -.table-stripe
         3. 마우스를 감지하는 테이블 -.table-hover
         */
-
+		.table.table-underline{
+            border: 1px solid rgb(139, 140, 137);
+            border-left: none;
+            border-right:none;
+        }
+        
         .table.table-border{ /*1번 스타일*/
             border: 1px solid rgb(139, 140, 137);
         }
