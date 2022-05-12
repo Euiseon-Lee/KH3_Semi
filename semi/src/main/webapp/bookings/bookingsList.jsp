@@ -43,11 +43,12 @@
 					<td><%=bookingsDto.getBookingRoomType() %></td>
 					<td><%=bookingsDto.getBookingRoomNo() %></td>
 					<td><%=bookingsDto.getBookingPeople() %></td>
-					<td><a href = "/pay/pay.jsp?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>결제</button></a></td>
+					<td><a href = "<%=request.getContextPath()%>/pay/pay.jsp?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>결제</button></a></td>
 				</tr>
 			<%} %>
 			</tbody>	
 				
 		</table>
+		<h3>테스트용으로 아이디 testuser로 넣어놈(수정해야함)</h3>
 </body>
 </html>

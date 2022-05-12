@@ -21,6 +21,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+		
 		<form action = "finalBookings.jsp">
 		<input type = "hidden" name = "bookingRoomType" value = "<%=bookingRoomType%>">
 		<input type = "hidden" name = "bookingCheckIn" value = "<%=bookingCheckIn%>">
@@ -36,13 +37,13 @@
 		</select>
 		
 		<%if(bookingRoomType.equals("스위트")){ %>
-		<input type = "number"  name = "bookingPeople" min="1" max="10" required>
+		<input type = "number"  name = "bookingPeople" min="1" max="10" required value = "1">
 		<input type = "submit" value = "입력">
-		<h3>스위트룸은 10명까지 가능합니다.</h3>
+		<h3>스위트룸은 10명까지 예약 가능합니다.</h3>
 		<%} else { %>
-	 	<input type = "number"  name = "bookingPeople" min="1" max="4" required>
+	 	<input type = "number"  name = "bookingPeople" min="1" max="4" required value ="1">
 		<input type = "submit" value = "입력">
-		<h3>스탠다드룸은 4명까지 가능합니다.</h3>
+		<h3><%=bookingRoomType%>룸은 4명까지 예약 가능합니다.</h3>
 		<%} %>
 		
 		</form>
