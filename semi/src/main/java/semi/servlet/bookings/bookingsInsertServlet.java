@@ -28,9 +28,10 @@ public class bookingsInsertServlet extends HttpServlet {
 //			예약 테이블 등록
 			BookingsDao bookingsDao = new BookingsDao();
 			bookingsDao.insert(bookingsDto);
-			
+//			가장 최근 등록된 예약주문번호 불러오기
+			int TopSequence = bookingsDao.selectSequence();
 			//예약 등록과 동시에 결제페이지로 객실번호주면서 이동
-			resp.sendRedirect("/pay/pay.jsp?bookingOrderNo="+bookingsDto.getBookingOrderNo());
+			resp.sendRedirect(req.getContextPath()+"/pay/pay.jsp?bookingOrderNo="+TopSequence);
 		}catch(Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
