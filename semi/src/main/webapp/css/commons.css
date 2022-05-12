@@ -679,7 +679,7 @@
        }
 
       /*메인 swiper class (메인페이지 swiper 크기입니다. 클래스 추가하여 사용하세요)*/
-      .swiper{
+      .swiper{  
         width: 100%;
         height: 500px;
       }
