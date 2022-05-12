@@ -752,7 +752,7 @@
           color: rgb(39, 76, 119);
       }
       
-      /*메인 event 영역 이미지 구현 코드*/
+      /*메인 event 영역 이미지 구현 코드*/  
       .box-container { display: flex; }
       .box { width: 500px; height: 300px; border: 8px solid rgb(163, 206, 241) ;  /* 부드럽게 움직이는 효과 */ transition: 1s; } 
       .box:hover { transform: translate(20px, 50px); }
