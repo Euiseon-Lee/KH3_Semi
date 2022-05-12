@@ -17,58 +17,59 @@
 	String memberGrade = (String)session.getAttribute("auth");
 	boolean isAdmin = memberGrade != null && memberGrade.equals("관리자");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<div>
-		<h1><%=qaDto.getQaNo() %>번 게시글</h1>
-	</div>
-	<h1>groupNo = <%=qaDto.getGroupNo() %></h1>
-	<div>
-		<table>
+<jsp:include page="/template/header.jsp"></jsp:include>
+<div class="container w850 m10 center">
+		<table class="table table-underline">
 			<tr>
 				<td>
+			<div align="left">
 					<h2>제목 : <%=qaDto.getQaTitle() %></h2>
+			</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
+			<div align="right">
 					작성자 <%=qaDto.getQaWriter() %>
+			</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
+				<div align="right">
 					작성일 <%=qaDto.getQaWritedate() %>
+				</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
+				<div align="right">
 					조회수 <%=qaDto.getQaReadcount() %>
+				</div>
 				</td>
 			</tr>
+		</table>
+		<table class="table">
 			<tr height="250">
 				<td>
+				<div align="left">
 					<pre><%=qaDto.getQaContent() %></pre>
+				</div>
 				<td>
 			</tr>
-			
-			<tr>
-			<td align="right">
-			<a href="write.jsp">글쓰기</a>
-			<%if(isAdmin){ %>
-			<a href="write.jsp?superNo=<%=qaNo%>">답글</a>
-			<%} %>
-			<a href="edit.jsp?qaNo=<%=qaNo%>">수정</a>
-			<a href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
-			<a href="list.jsp">목록</a>
-			</td>
-			</tr>
-	
 		</table>
+
+			
+			<div class="right">
+			<a  class="link link-btn" href="write.jsp">글쓰기</a>
+			<%if(isAdmin){ %>
+			<a class="link link-btn" href="write.jsp?superNo=<%=qaNo%>">답글</a>
+			<%} %>
+			<a class="link link-btn" href="edit.jsp?qaNo=<%=qaNo%>&groupNo=<%=groupNo%>">수정</a>
+			<a class="link link-btn" href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
+			<a class="link link-btn" href="list.jsp">목록</a>
+			</div>
+	
+
 	</div>
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
