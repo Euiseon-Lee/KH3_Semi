@@ -8,13 +8,14 @@
 	String memberId = (String)session.getAttribute("login");
 	boolean login = memberId != null;
 	
-	String bookingsMemberId = (String)request.getSession().getAttribute("id");
+	String bookingMemberId = (String)request.getSession().getAttribute("id");
 %>    
     
 <% 
 	int bookingOrderNo = Integer.parseInt(request.getParameter("bookingOrderNo"));
 	BookingsDto bookingsDto = new BookingsDto();
-	//bookingsDto = BookingsDao.
+	BookingsDao bookingsDao = new BookingsDao();
+	bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingMemberId);
 	
 %>    
     
@@ -33,31 +34,31 @@
 <table border ="1">
 	<tr>
 		<th>예약번호</th>
-		<td><%=bookingsDto.getBookingsOrderNo() %>번</td>
+		<td><%=bookingsDto.getBookingOrderNo() %>번</td>
 	</tr>
 	<tr>
 		<th>고객 아이디</th>
-		<td><%=bookingsDto.getBookingsMemberId() %></td>
+		<td><%=bookingsDto.getBookingMemberId() %></td>
 	</tr>
 	<tr>
 		<th>객실타입 [객실번호]</th>
-		<td><%=bookingsDto.getBookingsRoomtype()%> [<%=bookingsDto.getBookingsRoomNo()%>호]</td>
+		<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
 	</tr>
     <tr>
 		<th>체크인</th>
-		<td><%=bookingsDto.getBookingsCheckIn()%></td>
+		<td><%=bookingsDto.getBookingCheckin()%></td>
 	</tr>
 	<tr>
 		<th>체크아웃</th>
-		<td><%=bookingsDto.getBookingsCheckOut()%></td>
+		<td><%=bookingsDto.getBookingCheckout()%></td>
 	</tr>
 	<tr>
 		<th>인원</th>
-		<td><%=bookingsDto.getBookingsPeople()%>명</td>
+		<td><%=bookingsDto.getBookingPeople()%>명</td>
 	</tr>
 	<tr>
 		<th>결제될 금액</th>
-		<td><%=bookingsDto.getBookingsTotalPrice()%>원</td>
+		<td>????원</td>
 	</tr>
 </table>
 
