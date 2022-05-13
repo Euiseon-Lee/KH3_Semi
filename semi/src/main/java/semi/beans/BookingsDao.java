@@ -180,7 +180,7 @@ public class BookingsDao {
                bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
                bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
                bookingsDto.setBookingDate(rs.getString("booking_date"));
-      
+        
             }
             else {
                bookingsDto = null;
