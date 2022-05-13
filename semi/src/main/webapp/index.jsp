@@ -82,8 +82,8 @@ $(function(){
             </section>
 
             <!--예약/검색 바 영역-->
-            <section>
-            <div class="container w800">
+           
+            <div class="container w800 m30">
                 <div class="row float-container">
                     <div class="float-left layer-4">
                         <select name="roomtype" class="form-input fill">
@@ -107,7 +107,7 @@ $(function(){
                     </div>
                 </div>
                 </div>
-            </section>
+     
 
             <!--객실 이미지 소개 영역-->
             <setion>
