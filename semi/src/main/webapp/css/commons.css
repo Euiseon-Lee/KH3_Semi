@@ -6,7 +6,7 @@
 @charset "UTF-8";
 
 *{
-    box-sizing: border-box;  
+    box-sizing: border-box;
 }
 
 /*
@@ -169,10 +169,10 @@
         position: absolute;
         font-size: 22px;
         color: rgb(139, 140, 137);
-        text-align: right;
+        text-align: left;
     }
     .link.link-footer:hover{
-        border-bottom: 3px solid rgb(139, 140, 137);
+        border-bottom: 3px solid rgb(139, 140, 137);;
 
     }
     .footer-text{
@@ -229,17 +229,7 @@
         border-color: transparent;
     }
 
-    /*
-    :focus는 해당 태그에 포커스가 맞춰진 경우
-    = 입력창일 시 커서가 위치하면 포커스라고 봄
-    */
-    .form-input:focus{
-        border-color: rgb(148, 168, 184);
-        border-width: 0.1em;
-    }
-    
-    /*밑줄 입력창 구현*/
-        input.underline {
+    input.underline {
         outline: none;
         padding: 0.5em;
         border-left-width:0;
@@ -254,6 +244,15 @@
         border-color: rgb(148, 168, 184);
         border-width: 0.1em;
         }
+
+    /*
+    :focus는 해당 태그에 포커스가 맞춰진 경우
+    = 입력창일 시 커서가 위치하면 포커스라고 봄
+    */
+    .form-input:focus{
+        border-color: rgb(148, 168, 184);
+        border-width: 0.1em;
+    }
     
 
     .fill{
@@ -270,30 +269,27 @@
     input[type=checkbox]+label{
         color: rgb(139, 140, 137);
     }
-    
-       input[type=checkbox]+span{
+
+    input[type=checkbox]+span{
         color: rgb(139, 140, 137);
     }
-    
-        input[type=date]{
+    input[type=date]{
         color: rgb(139, 140, 137);
     }
-    
-    
+
     .float-left.layer-4+lable{
         color: rgb(139, 140, 137);
     }
-    
 
     /*:checked는 체크가 된 상태를 선택하는 조건부 선택자*/
     input[type=checkbox]:checked+label{
         color:rgb(39, 76, 119)
     }
-	
-	    input[type=checkbox]:checked+span{
+
+    input[type=checkbox]:checked+span{
         color:rgb(39, 76, 119)
     }
-    
+
     /*모서리가 둥근 입력창*/
     .form-input.input-round{
         border-radius: 0.25em;
@@ -420,12 +416,7 @@
         2. 줄무늬 테이블    -.table-stripe
         3. 마우스를 감지하는 테이블 -.table-hover
         */
-		.table.table-underline{
-            border: 1px solid rgb(139, 140, 137);
-            border-left: none;
-            border-right:none;
-        }
-        
+
         .table.table-border{ /*1번 스타일*/
             border: 1px solid rgb(139, 140, 137);
         }
@@ -466,7 +457,6 @@
         .table.table-hover>tfoot>tr:hover{
             background-color: rgb(231, 236, 239);
         }
-
 
 
         /* 다단 레이아웃(2단 이상의 가로배치) 구현하기
@@ -584,7 +574,7 @@
         ul.menu,
         ul.menu ul
         {
-        	 z-index: 2;
+            z-index: 2;
             list-style: none; /* (1) */
 
             /* (2) */
@@ -603,8 +593,8 @@
             width: 150px; /*(4)*/
             float: left;
         }
-        
-         ul.menu>li.reserve{ /*예약메뉴 크게*/
+
+        ul.menu>li.reserve{ /*예약메뉴 크게*/
             width: 200px; /*(4)*/
             float: left;
         }
@@ -649,7 +639,6 @@
         }
 
         ul.menu a:hover{
-            text-decoration: none;
             font-weight: bold;
             color: rgb(125, 125, 125);
         }
@@ -724,12 +713,6 @@
        }
 
       /*메인 swiper class (메인페이지 swiper 크기입니다. 클래스 추가하여 사용하세요)*/
-      .swiper{  
-        width: 100%;
-        height: 500px;
-      }
-
-/*메인 swiper class (메인페이지 swiper 크기입니다. 클래스 추가하여 사용하세요)*/
       .swiper{
         width: 100%;
         height: 600px;
@@ -752,12 +735,12 @@
           color: rgb(39, 76, 119);
       }
       
-      /*메인 event 영역 이미지 구현 코드*/  
+      /*메인 event 영역 이미지 구현 코드*/
       .box-container { display: flex; }
       .box { width: 500px; height: 300px; border: 8px solid rgb(163, 206, 241) ;  /* 부드럽게 움직이는 효과 */ transition: 1s; } 
       .box:hover { transform: translate(20px, 50px); }
 
-      .back-box { width:500px; height: 300px; border: 8px solid rgb(163, 206, 241)}; 
+      .back-box { width: 500px; height: 300px; border: 8px solid rgb(163, 206, 241)}; 
 
       /* 이미지를 div 안에 꽉 채워서 보여줄거에요*/
       .image-box{
