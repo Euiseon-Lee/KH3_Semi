@@ -14,7 +14,7 @@ header {
     text-align: center;
     z-index: 1;
 }
-.section {
+section {
     min-height: 450px;
 }
 
@@ -25,7 +25,7 @@ footer {
     min-height: 100px;
     padding: 20px;
 }
-  
+
 section::after {
     content:"";
     display: block;
