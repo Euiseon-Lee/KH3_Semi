@@ -7,7 +7,7 @@
  <form action="find_pw.kh" method="post">
         <!-- 비밀번호 확인문구 -->
 
-            <div class="container center w350 m50">
+            <div class="center w350 m50">
         <div class="row center m40">
             <h1 class="title-text">비밀번호를 잊으셨나요?</h1>
         </div>
