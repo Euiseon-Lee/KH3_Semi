@@ -16,6 +16,8 @@
 	//조회수 증가 코드
 	ReviewDao reviewDao = new ReviewDao();
 	reviewDao.plusReadcount(reviewNo);
+	
+	
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
 
 	
