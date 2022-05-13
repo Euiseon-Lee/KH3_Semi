@@ -30,6 +30,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
 
+<!--swiper-->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
 </head>
 <body>
 
@@ -40,7 +45,7 @@
                 <a href="<%=request.getContextPath()%>"> <!--헤더 로고 클릭 시 메인으로 이동-->
                     <img src="<%=request.getContextPath()%>/image/logo_003.png" width="300" height="100">
                 </a>
-
+  
         <!--header link(회원가입/로그인) 영역
             1. 비회원 : 회원가입, 로그인
             2. 회원 : 로그인, 로그아웃
@@ -52,14 +57,14 @@
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
 			<div>
-                <a href="<%=request.getContextPath()%>/mypage/mypage.kh" class="link link-header link2">마이페이지</a>
+                <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
 		<%}else{ %>
 			<div>
                 <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link2">로그인</a>
             </div>
             <div>
-                <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link3">회원가입</a>
+                <a href="<%=request.getContextPath()%>/member/join.jsp" class="link link-header link3">회원가입</a>
             </div>
 		<%} %>
 		<!-- 관리자페이지 만들경우 링크 추가  -->
@@ -80,12 +85,12 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp">호텔소개</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/olympic/list.jsp">주변관광지</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">층별안내도</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔정보</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">호텔소개</a></li>
-                            <li><a href="<%=request.getContextPath()%>/olympic/insert.jsp">오시는길</a></li>
-                        </ul>  
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=1">호텔소개</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=2">호텔정보</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=3">층별안내도</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=4">주변관광지</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=5">오시는길</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp">객실소개</a>
@@ -93,7 +98,7 @@
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>
+                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>  
                             <li><a href="<%=request.getContextPath()%>#">헬스센터</a></li>
                         </ul>
                     </li>
@@ -105,8 +110,10 @@
                     </li>
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/pay/list.jsp">결제목록</a></li>
+                          </ul>
                     </li>
                 </ul> 
             </nav>
 <section>
-<article>
