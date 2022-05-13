@@ -790,3 +790,25 @@
         height:100%;
         object-fit:cover;
     }
+    
+    /* 타이틀글씨*/
+	.title-text{
+	text-align: center;
+	font-weight: bold;
+	color: rgb(96, 150, 186);
+	}
+	
+	/*얇은글씨*/
+	.text-thin{
+	    font-weight: thin;
+	}
+    
+	
+	.image{
+	
+	}
+	
+	.max-image{
+	    max-width: 100%;
+	}
+	
