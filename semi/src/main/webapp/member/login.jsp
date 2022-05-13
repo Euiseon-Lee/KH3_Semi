@@ -50,14 +50,16 @@
  </div>
 </div>
 </div>
-</div>
- 
+ 	<%-- 에러 표시가 있는 경우 메세지를 출력 --%>
+ 	<%--alter로 변경예정 --%>
+		<% if(request.getParameter("error") != null) { %>
+		<div class="row center m20">
+			<h4 style="color:red;">로그인 정보가 일치하지 않습니다</h4>	
+		</div>
+		<% } %>        
+    </div>
  </form>
  </sesion>
     
-    <%--에러표시가 있는 경우 메시지 출력 --%>
-	<% if (request.getParameter("error") != null) {%>
-		<h3>로그인 정보가 일치하지않습니다</h3>
-	<%}%>
 	
  <jsp:include page="/template/footer.jsp"></jsp:include>
