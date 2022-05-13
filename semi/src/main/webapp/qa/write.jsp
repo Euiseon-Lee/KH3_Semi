@@ -51,7 +51,7 @@
 </div>
 <div class="row">
 	<label>내용</label>
-	<textarea name="qaContent" class="form-input fill input-round" rows="12" oninput="lengthCount();"></textarea>
+	<textarea name="qaContent" class="form-input fill input-round" rows="12" oninput="lengthCount();" required></textarea>
 	<div class="row"><span class="len">0</span>/1000</div>
 </div>
 <div class="row">
