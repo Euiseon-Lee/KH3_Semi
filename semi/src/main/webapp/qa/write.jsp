@@ -18,7 +18,6 @@
                 var count = text.length;
 
                 while(count>1000){
-                    //textarea의 value를 1글자씩 없애시고
                     textarea.value = textarea.value.substring(0, count-1);
                     count --;
                 }
