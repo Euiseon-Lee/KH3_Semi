@@ -31,36 +31,43 @@
 
 	<h1>예약내역 확인</h1>
 	
-<table border ="1">
-	<tr>
-		<th>예약번호</th>
-		<td><%=bookingsDto.getBookingOrderNo() %>번</td>
-	</tr>
-	<tr>
-		<th>고객 아이디</th>
-		<td><%=bookingsDto.getBookingMemberId() %></td>
-	</tr>
-	<tr>
-		<th>객실타입 [객실번호]</th>
-		<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
-	</tr>
-    <tr>
-		<th>체크인</th>
-		<td><%=bookingsDto.getBookingCheckin()%></td>
-	</tr>
-	<tr>
-		<th>체크아웃</th>
-		<td><%=bookingsDto.getBookingCheckout()%></td>
-	</tr>
-	<tr>
-		<th>인원</th>
-		<td><%=bookingsDto.getBookingPeople()%>명</td>
-	</tr>
-	<tr>
-		<th>결제될 금액</th>
-		<td>????원</td>
-	</tr>
-</table>
+<form action ="add.kh" method="post">
+	<table border ="1">
+		<tr>
+			<th>예약번호</th>
+			<td><%=bookingsDto.getBookingOrderNo() %>번</td>
+		</tr>
+		<tr>
+			<th>고객 아이디</th>
+			<td><%=bookingsDto.getBookingMemberId() %></td>
+		</tr>
+		<tr>
+			<th>객실타입 [객실번호]</th>
+			<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
+		</tr>
+	    <tr>
+			<th>체크인</th>
+			<td><%=bookingsDto.getBookingCheckin()%></td>
+		</tr>
+		<tr>
+			<th>체크아웃</th>
+			<td><%=bookingsDto.getBookingCheckout()%></td>
+		</tr>
+		<tr>
+			<th>인원</th>
+			<td><%=bookingsDto.getBookingPeople()%>명</td>
+		</tr>
+		<tr>
+			<th>결제될 금액</th>
+			<td>????원</td>
+		</tr>
+		
+	</table>
+	
+		<div>
+			<a href = "<%=request.getContextPath()%>/pay/add.kh">결제하기</a>
+		</div>
+</form>	
 
 </body>
 </html>
