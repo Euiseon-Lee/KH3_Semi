@@ -59,7 +59,7 @@
 			<tr height="250">
 				<td>
 				<div align="left">
-					<pre><%=qaDto.getQaContent() %></pre>
+					<%=qaDto.getQaContent() %>
 				</div>
 				<td>
 			</tr>
