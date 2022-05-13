@@ -143,4 +143,18 @@ public class BookingsDao {
 			
 			return number;
 		}
+			
+			//삭제
+		public boolean delete(int bookingOrderNo) throws Exception {
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "delete bookings where booking_order_no = ?";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, bookingOrderNo);
+			int count = ps.executeUpdate();
+			con.close();
+			return count>0;
+					
+		}
 }
