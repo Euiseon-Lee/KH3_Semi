@@ -31,7 +31,8 @@
 					<th>객실 타입</th>
 					<th>객실 번호</th>
 					<th>인원수</th>
-					<th></th>
+					<th>결제</th>
+					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,11 +45,13 @@
 					<td><%=bookingsDto.getBookingRoomNo() %></td>
 					<td><%=bookingsDto.getBookingPeople() %></td>
 					<td><a href = "<%=request.getContextPath()%>/pay/pay.jsp?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>결제</button></a></td>
-				</tr>
+					<td><a href = "<%=request.getContextPath() %>/bookings/delete.kh?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>예약 취소</button></a></td>
+					</tr>
 			<%} %>
 			</tbody>	
 				
 		</table>
 		<h3>테스트용으로 아이디 testuser로 넣어놈(수정해야함)</h3>
+		<h3>예약취소는 확인창 띄워줄까?</h3>
 </body>
 </html>
