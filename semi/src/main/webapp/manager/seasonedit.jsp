@@ -10,7 +10,7 @@
 	SeasonDto seasonDto = seasonDao.selectOne(seasonNo);
 %>
 
-<form action="edit.kh" method="post">
+<form action="seasonedit.kh" method="post">
 	<input type="hidden" name="seasonNo" value="<%=seasonDto.getSeasonNo() %>">
 	<div class="container center w700 m20">
 	<h1>시즌 기간 수정 페이지</h1>

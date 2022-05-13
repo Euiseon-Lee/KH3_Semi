@@ -8,24 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import semi.beans.SeasonDao;
-import semi.beans.SeasonDto;
+import semi.beans.RoomsDao;
+import semi.beans.RoomsDto;
 
-@WebServlet(urlPatterns = "/manager/seasonedit.kh")
-public class ManagerSeasonEditServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/manager/roomedit.kh")
+public class ManagerRoomPriceServlet extends HttpServlet{
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	try {
-		SeasonDto seasonDto = new SeasonDto();
-		seasonDto.setSeasonNo(Integer.parseInt(req.getParameter("seasonNo")));
-		seasonDto.setSeasonStartString(req.getParameter("seasonStart"));
-		seasonDto.setSeasonEndString(req.getParameter("seasonEnd"));
+		RoomsDto roomsDto = new RoomsDto();
+		roomsDto.setRoomType(req.getParameter("roomType"));
+		roomsDto.setPeakSeason(Integer.parseInt(req.getParameter("peakSeason")));
+		roomsDto.setOffSeason(Integer.parseInt(req.getParameter("offSeason")));
 		
-		SeasonDao seasonDao = new SeasonDao();
-		boolean success = seasonDao.update(seasonDto);
+		RoomsDao roomsDao = new RoomsDao();
+		boolean success = roomsDao.update(roomsDto);
 		
 		if(success) {
-			resp.sendRedirect("season.jsp");
+			resp.sendRedirect("rooms.jsp");
 		}
 		else {
 			resp.sendError(404);
