@@ -36,7 +36,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+				  
 				<%for(BookingsDto bookingsDto: list){ %>
 				<tr>
 					<td><%=bookingsDto.getBookingCheckin().substring(0, 10) %></td>
