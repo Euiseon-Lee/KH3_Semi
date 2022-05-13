@@ -27,7 +27,7 @@
 	
 	<div>
 			<label>체크인</label>
-		<input type = "date" name = "bookingCheckIn" required min = "<%=today%>">		 
+		<input type = "date" name = "bookingCheckIn" required min = "<%=today%>" placeholder = "0000-00-00">		 
 	</div>
 	
 	<div>
@@ -38,6 +38,7 @@
 		<input type ="submit" value = "다음">
 	</div>
 	</form>
-	
+	<h1>0000-00-00으로해보기</h1>
+	<h1>객실타입을 선택하면 객실소개에있는 객실이미지와소개글 가져오기</h1>
 </body>
 </html>
