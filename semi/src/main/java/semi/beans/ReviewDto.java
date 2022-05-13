@@ -13,6 +13,7 @@ public class ReviewDto {
 	private int reviewReadcount;
 	private int reviewStar;
 	private int reviewReplycount;
+	private String reviewRoomtype;
 	
 	
 	public int getReviewNo() {
@@ -68,6 +69,12 @@ public class ReviewDto {
 	}
 	public void setReviewReplycount(int reviewReplycount) {
 		this.reviewReplycount = reviewReplycount;
+	}
+	public String getReviewRoomtype() {
+		return reviewRoomtype;
+	}
+	public void setReviewRoomtype(String reviewRoomtype) {
+		this.reviewRoomtype = reviewRoomtype;
 	}
 
 
