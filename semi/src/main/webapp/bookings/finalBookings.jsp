@@ -1,13 +1,25 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<% 
 	String bookingRoomType = request.getParameter("bookingRoomType"); 
 	String bookingCheckIn = request.getParameter("bookingCheckIn"); 
 	String bookingCheckOut = request.getParameter("bookingCheckOut"); 
-	int bookingPeople = Integer.parseInt(request.getParameter("bookingPeople"));
+	int bookingPeople;
+	if(request.getParameter("bookingPeople").equals("10명")){
+	bookingPeople = Integer.parseInt(request.getParameter("bookingPeople").substring(0, 2));
+	}else{
+	bookingPeople = Integer.parseInt(request.getParameter("bookingPeople").substring(0, 1));
+	}
+	
 	int bookingRoomNo = Integer.parseInt(request.getParameter("bookingRoomNo"));
 	
-	
+	//String -> Date 
+
+
+
+
 	%>
 
 
@@ -27,7 +39,6 @@
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 -->
 <body>
-		
 		<div align = "center">
 		<h1>예약 정보 확인</h1>
 		<form action = "add.kh" method = "post">
@@ -37,24 +48,26 @@
 		<input type = "hidden" name = "bookingPeople" value = "<%=bookingPeople %>">
 		<input type = "hidden" name = "bookingRoomNo" value = "<%=bookingRoomNo %>">
 		
-		<table border = "1" width = "600" height = "100" align = "center">
+		<table border = "1" width = "700" height = "100" align = "center">
 		
 			<thead>
 				<tr>
-					<th>체크인</th>
-					<th>체크아웃</th>
+					<th colspan="2" height =>체크인
+					~ 체크아웃
+					</th>
 					<th>객실 타입</th>
 					<th>객실 번호</th>
-					<th>인원수</th>
+					<th>인원</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody  align = "center">
 				<tr>
-					<td><%=bookingCheckIn %></td>
-					<td><%=bookingCheckOut %></td>
-					<td><%=bookingRoomType %></td>
-					<td><%=bookingRoomNo %></td>
-					<td><%=bookingPeople %></td>
+					<td colspan = "2" align = "center"><%=bookingCheckIn %> ~
+					<%=bookingCheckOut %>
+					</td>
+					<td><%=bookingRoomType %>룸</td>
+					<td><%=bookingRoomNo %>호</td>
+					<td><%=bookingPeople %>명</td>
 				</tr>
 			</tbody>	
 				
@@ -65,8 +78,8 @@
 				</h2>
 			
 			
-			
 				</form>
 		</div>
+
 </body>
 </html>
