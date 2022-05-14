@@ -111,7 +111,7 @@
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/pay/list.jsp">결제목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a></li>
                           </ul>
                     </li>
                 </ul> 

@@ -7,7 +7,7 @@
    
    
     <%
- 	 //결제페이지 특성상 특정 아이디가 결제내역만이 나와야한다
+ 	//결제페이지 특성상 특정 아이디가 결제내역만이 나와야한다
 	//어떻게 특정할것인가? payMemberId를 검색하는 조회구문이 필요하다
 	//조회구문에서 사용할 String PayMemberId 부터 만들자
 	//어디서 회원정보를 가져올까? = 세션에서 가져오자
@@ -88,8 +88,9 @@
 				<th>객실유형</th>
 				<th>체크인</th>
 				<th>체크아웃</th>
-				<th>총 금액</th>
 				<th>인원</th>
+				<th>결제 금액</th>
+				<th>리뷰 작성하러가기</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -97,15 +98,17 @@
 				<tr>
 					<td>
 						<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>">
-							<%=payDto.getPayOrderNo() %>
+							<%=payDto.getPayOrderNo() %>번
 						</a>
 					</td>
 					<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo() %>호]</td>
 					<td><%=payDto.getPayCheckIn() %></td>
 					<td><%=payDto.getPayCheckOut() %></td>
-					
-					<td><%=payDto.getPayTotalPrice() %></td>
 					<td><%=payDto.getPayPeople() %></td>
+					<td><%=payDto.getPayTotalPrice() %></td>
+					<td>
+						<a href = "<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payDto.getPayOrderNo()%>" >리뷰 작성하러가기</a>	
+					</td>
 				</tr>
 			<%} %>
 		</tbody>

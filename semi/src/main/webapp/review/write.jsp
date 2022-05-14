@@ -1,16 +1,15 @@
-<%@page import="semi.beans.ReviewDto"%>
-<%@page import="semi.beans.ReviewDao"%>
+<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
-	//ReviewDto reviewDto = new ReviewDto();
-	
+	int payOrderNo = Integer.parseInt(request.getParameter("payOrderNo"));
+	PayDto payDto = new PayDto();
+	PayDao payDao = new PayDao();
 	
 	//작성자 주문 내역 조회 코드 => 주문번호 및 객실타입 출력 목적
-	//PayDao payDao = new PayDao();
-	//PayDto payDto = payDao.조회명(주문번호)
+	payDto = payDao.showPayDetail(payOrderNo);
 	
 %>        
 <script type="text/javascript">
@@ -35,6 +34,8 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 	<form action = "write.kh" method ="post">
+	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
+	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
 		<div class="container w850 m10 center">
 		
 			<div>
@@ -42,8 +43,8 @@
 			</div>
 			
 			<div>
-				<div>주문번호 띄우기</div>
-				<div>선택한 객실타입 띄우기 (보여주기용)</div>
+				<div>주문번호: <%=payOrderNo %>번</div>
+				<div>객실타입: <%=payDto.getPayRoomtype()%></div>
 			</div>
 			
 			<div>
@@ -75,7 +76,7 @@
 			</div>
 			
 			<div>
-				<a href="list.jsp" class="link link-btn fill center">목록</a>
+				<a href="<%=request.getContextPath()%>/review/list.jsp" class="link link-btn fill center">목록</a>
 			</div>
 					
 		</div>
