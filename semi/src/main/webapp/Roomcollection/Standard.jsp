@@ -375,7 +375,7 @@ footer {
 	
 		<div class="roomImgj">
 			<div class="Imgj">
-				<img src="<%=request.getContextPath()%>/image/deluxe.jpg">
+				<img src="<%=request.getContextPath()%>/image/standard.jpg">
 			
 				
 			</div>
@@ -384,12 +384,12 @@ footer {
 		<div class="contentInfoj">
 			<div class="roomContentj">
 				<h1 style="color:black;">&nbsp;Standard</h1><br>
-				<div class ="roomcentent1"> &nbsp;&nbsp; - 제주의 푸른 하늘과 안락한 풍경을 제공하 &nbsp;&nbsp;는&nbsp;스탠다드 룸 <br>
-				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - Azure호텔의 가장 기본 객실로 1~5층에 &nbsp;&nbsp;위치하고 있습니다
+				<div class ="roomcentent1"> &nbsp;&nbsp; - 제주의 푸른 하늘과 안락한 풍경을 제공하는 &nbsp;&nbsp;&nbsp;&nbsp;스탠다드 룸 <br>
+				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - Azure호텔의 가장 기본 객실로 2~3층에 <br>&nbsp;&nbsp;&nbsp;&nbsp;위치하고 있습니다
 				</div>
 				
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br> &nbsp;&nbsp;기본 타입 룸
-				<div><br>&nbsp;&nbsp; - 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 &nbsp;&nbsp;테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
+				<div><br>&nbsp;&nbsp; - 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
 				</div>
 		
 					
