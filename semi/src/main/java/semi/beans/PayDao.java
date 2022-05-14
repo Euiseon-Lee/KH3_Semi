@@ -253,5 +253,32 @@ public class PayDao {
 		
 	}
 	
-	
+	// 관리자가 볼 전체 리스트
+	public List<PayDto> totalPayList() throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay order by pay_order_no desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
+			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayDate(rs.getDate("pay_date"));
+			payDto.setPayTotalPrice(rs.getInt("pay_total_price"));
+			
+			list.add(payDto);
+		}
+		con.close();
+		
+		return list;
+	}
 }
