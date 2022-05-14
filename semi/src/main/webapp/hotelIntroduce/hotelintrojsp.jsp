@@ -2,16 +2,14 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<html>
+
 <head>
 	<title> Hotel Intro</title>
   
-
   <style>
 
  
-
-   /*roomInfo.jsp*/
+    /*roomInfo.jsp*/
 .roomListj {
 	width: 230px;
 	height: 300px;
@@ -68,13 +66,27 @@
 .selectj { /*글씨 눌렀을때 hover 배경 */
 	background-color: none;
 }
-    
+
+.nextj {
+	right: 30px;
+	position: absolute;
+	border: none;
+	background-color: black;
+	color: black;;
+	font-weight: 900;
+	font-size: 14px;
+	
+}
+
+
     .azure_intro{
     position: relative;
     top: 33px;
     left: 47px;
 
     }
+    
+    
 
     h1.azure_intro:after {
       content: "";
@@ -185,7 +197,7 @@
 
 
 </body>
-</html>
+
 
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
