@@ -90,11 +90,17 @@
 		<td><%=payDto.getPayDate()%></td>
 	</tr>
 	<tr>
-		<td colspan = "2">
+		<td>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">목록으로 돌아가기</a>
+		</td>
+		
+		<td>
 			<%if(paymentCheck){ %>
-				<a href="<%=request.getContextPath()%>/cancel.kh?payOrderNo=<%=payOrderNo%>">결제취소</a>
+				<a href="<%=request.getContextPath()%>/mypage/pay/cancel.jsp?payOrderNo=<%=payOrderNo%>">결제취소</a>
 			<%} else if (reviewCheck) {%>
 				<a href="<%=request.getContextPath()%>/review.write.jsp">리뷰작성</a>
+			<%} else {%>
+				<a href="#">현재 투숙 중입니다</a>
 			<%} %>
 		</td>
 	</tr>
