@@ -65,7 +65,7 @@ public class ReviewWriteServlet extends HttpServlet {
 			
 			reviewDao.write(reviewDto);
 			
-			resp.sendRedirect("detail.jsp?reviewNo="+reviewDto.getReviewNo());
+			resp.sendRedirect(req.getContextPath()+"detail.jsp?reviewNo="+reviewDto.getReviewNo());
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
