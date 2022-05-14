@@ -26,13 +26,13 @@ public class PayAddServlet extends HttpServlet{
 			resp.setContentType("text/html; charset=utf-8");
 			
 			// ID 불러오기
-			String bookingMemberId = (String)req.getSession().getAttribute("id");
+			String bookingsMemberId = (String)req.getSession().getAttribute("id");
 			
 			//예약내역 불러오기
 			int bookingOrderNo = Integer.parseInt(req.getParameter("bookingOrderNo"));
 			BookingsDto bookingsDto = new BookingsDto();
 			BookingsDao bookingsDao = new BookingsDao();
-			bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingMemberId);
+			bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingsMemberId);
 			
 
 			
@@ -46,7 +46,7 @@ public class PayAddServlet extends HttpServlet{
 			payDto.setPayRoomtype(bookingsDto.getBookingRoomType());
 			payDto.setPayCheckIn(Date.valueOf(bookingsDto.getBookingCheckin()));
 			payDto.setPayCheckOut(Date.valueOf(bookingsDto.getBookingCheckout()));
-			payDto.setPayDate(Date.valueOf(req.getParameter("payDate")));
+			payDto.setPayDate(null);
 			payDto.setPayTotalPrice(Integer.parseInt(req.getParameter("payTotalPrice")));
 			
 			
@@ -56,7 +56,7 @@ public class PayAddServlet extends HttpServlet{
 			payDao.addPaymentHistory(payDto);
 			
 			// 주문번호 받을 시 사용
-			resp.sendRedirect("pay_success.jsp");
+			resp.sendRedirect(req.getContextPath()+"pay_success.jsp?payOrderNo="+payDto.getPayOrderNo());
 		}
 		
 		catch(Exception e) {
