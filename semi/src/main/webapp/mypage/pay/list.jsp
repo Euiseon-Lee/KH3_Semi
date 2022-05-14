@@ -144,7 +144,7 @@
 	</div>
 
 	<div>
-	<a href="<%=request.getContextPath()%>/index.jsp">메인으로 이동</a>
-</div>
+		<a href="<%=request.getContextPath()%>/index.jsp">메인으로 이동</a>
+	</div>
 </body>
 </html>
