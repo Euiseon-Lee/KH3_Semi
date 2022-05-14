@@ -39,7 +39,7 @@
 		
 		<div>
 			<label>제목</label>
-			<input type="text" name="reviewTitle" autocomplete="off" required value = <%=reviewDto.getReviewTitle()%>>
+			<input type="text" name="reviewTitle" autocomplete="off" required value = "<%=reviewDto.getReviewTitle()%>">
 		</div>
 				
 		<div>

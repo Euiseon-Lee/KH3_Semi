@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import semi.beans.MemberDao;
 import semi.beans.MemberDto;
+import semi.beans.PayDao;
+import semi.beans.PayDto;
 import semi.beans.ReviewDao;
 import semi.beans.ReviewDto;
 
@@ -25,25 +27,36 @@ public class ReviewWriteServlet extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			resp.setContentType("text/html; charset=utf-8");
 			
+			//준비
+			ReviewDto reviewDto = new ReviewDto();	
 			
 			
-			ReviewDto reviewDto = new ReviewDto();			
+			//payDto 불러서 주문번호와 객실유형 넣도록하자
+			int payOrderNo = Integer.parseInt(req.getParameter("payOrderNo"));
+			PayDto payDto = new PayDto();
+			PayDao payDao = new PayDao();
+			payDto = payDao.showPayDetail(payOrderNo);
+			String payRoomtype = payDto.getPayRoomtype();
+			int reviewOrderNo = payDto.getPayOrderNo();
+			
+			
+			//세션에서 reviewMemberId 가져올 코드
+			String memberId = (String) req.getSession().getAttribute("login");
+			reviewDto.setReviewMemberId(memberId);	
+			
+			
+					
 			
 			reviewDto.setReviewTitle(req.getParameter("reviewTitle"));
 			reviewDto.setReviewContent(req.getParameter("reviewContent"));
 			reviewDto.setReviewStar(Integer.parseInt(req.getParameter("reviewStar")));
 			
-			//추후 세션을 만들면 reviewMemberId 가져올 코드
-			//String memberId = (String) req.getSession().getAttribute("login");
-			//reviewDto.setReviewMemberId(memberId);
+
 			
 			
-			//주문번호 불러오는 코드
-			//reviewDto.setReviewOrderNo(Integer.parseInt(req.getParameter("reviewOrderNo")));	
-			
-			//세션과 PayDto 불러올수 있을 때 삭제할 코드
-			reviewDto.setReviewOrderNo(2);
-			reviewDto.setReviewMemberId("testmanager");
+			//주문번호와 객실유형 넣는 코드
+			reviewDto.setReviewOrderNo(reviewOrderNo);
+			reviewDto.setReviewRoomtype(payRoomtype);
 			
 			
 			

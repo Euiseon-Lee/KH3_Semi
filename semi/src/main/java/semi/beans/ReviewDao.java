@@ -28,6 +28,7 @@ public class ReviewDao {
 			reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
 			reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
 			reviewDto.setReviewStar(rs.getInt("review_star"));
+			reviewDto.setReviewRoomtype(rs.getString("review_roomtype"));
 			
 			list.add(reviewDto);
 		}
@@ -60,6 +61,7 @@ public class ReviewDao {
 			reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
 			reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
 			reviewDto.setReviewStar(rs.getInt("review_star"));
+			reviewDto.setReviewRoomtype(rs.getString("review_roomtype"));
 			
 			list.add(reviewDto);
 		}
@@ -93,6 +95,7 @@ public class ReviewDao {
 			reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
 			reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
 			reviewDto.setReviewStar(rs.getInt("review_star"));
+			reviewDto.setReviewRoomtype(rs.getString("review_roomtype"));
 		}
 		
 		else {
@@ -145,20 +148,21 @@ public class ReviewDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "insert into review("
-						+ "review_no, review_order_no, review_member_id, "
+						+ "review_no, review_order_no, review_member_id, review_roomtype, "
 						+ "review_title, review_content, review_writedate, "
 						+ "review_readcount, review_star, review_replycount"
 					+ ") "
-						+ "values(?, ?, ?, ?, ?, sysdate, ?, ?, ?)";
+						+ "values(?, ?, ?, ?, ?, ?, sysdate, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, reviewDto.getReviewNo());
 		ps.setInt(2, reviewDto.getReviewOrderNo());
 		ps.setString(3, reviewDto.getReviewMemberId());
-		ps.setString(4, reviewDto.getReviewTitle());
-		ps.setString(5, reviewDto.getReviewContent());
-		ps.setInt(6, reviewDto.getReviewReadcount());
-		ps.setInt(7, reviewDto.getReviewStar());
-		ps.setInt(8, reviewDto.getReviewReplycount());
+		ps.setString(4, reviewDto.getReviewRoomtype());
+		ps.setString(5, reviewDto.getReviewTitle());
+		ps.setString(6, reviewDto.getReviewContent());
+		ps.setInt(7, reviewDto.getReviewReadcount());
+		ps.setInt(8, reviewDto.getReviewStar());
+		ps.setInt(9, reviewDto.getReviewReplycount());
 		ps.execute();
 		
 		con.close();
@@ -253,6 +257,7 @@ public class ReviewDao {
 				reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
 				reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
 				reviewDto.setReviewStar(rs.getInt("review_star"));
+				reviewDto.setReviewRoomtype(rs.getString("review_roomtype"));
 				
 				list.add(reviewDto);
 			}
@@ -294,6 +299,7 @@ public class ReviewDao {
 				reviewDto.setReviewWritedate(rs.getDate("review_writedate"));
 				reviewDto.setReviewReadcount(rs.getInt("review_readcount"));
 				reviewDto.setReviewStar(rs.getInt("review_star"));
+				reviewDto.setReviewRoomtype(rs.getString("review_roomtype"));
 				
 				list.add(reviewDto);
 			}

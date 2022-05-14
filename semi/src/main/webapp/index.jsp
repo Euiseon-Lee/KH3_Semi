@@ -53,12 +53,12 @@ $(function(){
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                               <div class="image-box image-thumbnail">
+                            	<div class="image-box image-thumbnail">
                                 <img src="<%=request.getContextPath()%>/image/main_image1.jpg" width="100%" height="100%">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                               <div class="image-box image-thumbnail">
+                            	<div class="image-box image-thumbnail">
                               <img src="<%=request.getContextPath()%>/image/main_image2.jpg" width="100%" height="100%">
                                    </div>
                             </div>

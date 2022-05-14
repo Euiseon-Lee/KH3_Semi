@@ -157,6 +157,8 @@ public class BookingsDao {
 			return count>0;
 					
 		}
+		
+		
         //의선: 예약번호와 아이디로 해당 예약 정보를 추출하는 코드
         public BookingsDto showDetail(int bookingOrderNo, String bookingMemberId) throws Exception {
             Connection con = JdbcUtils.getConnection();
@@ -180,7 +182,7 @@ public class BookingsDao {
                bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
                bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
                bookingsDto.setBookingDate(rs.getString("booking_date"));
-        
+    
             }
             else {
                bookingsDto = null;
