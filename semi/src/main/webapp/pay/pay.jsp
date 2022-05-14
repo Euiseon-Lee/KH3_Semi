@@ -1,4 +1,5 @@
 
+<%@page import="semi.beans.SeasonDao"%>
 <%@page import="semi.beans.BookingsDao"%>
 <%@page import="semi.beans.BookingsDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,12 +12,40 @@
 	String bookingMemberId = (String)request.getSession().getAttribute("id");
 %>    
     
-<% 
+<%
+	//준비
+	//예약번호를 기반으로 방 번호 뽑기
 	int bookingOrderNo = Integer.parseInt(request.getParameter("bookingOrderNo"));
+	//int bookingOrderNo = 8;
 	BookingsDto bookingsDto = new BookingsDto();
 	BookingsDao bookingsDao = new BookingsDao();
-	bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingMemberId);
+	bookingsDto = bookingsDao.showDetail(bookingOrderNo);
+	int bookingRoomNo = bookingsDto.getBookingRoomNo();
 	
+	
+	//체크인&체크아웃날짜 기반으로 성수기/비성수기 찾기
+	SeasonDao seasonDao = new SeasonDao();
+	String checkinSeasonType = seasonDao.CheckinSeasonType(bookingOrderNo);
+	String checkoutSeasonType = seasonDao.CheckoutSeasonType(bookingOrderNo);
+	
+	
+	//1일 금액 산정 = 체크인 또는 체크아웃 중 하나라도 성수기에 포함되면
+	//해당 객실의 성수기 가격을 받는다
+	int price;
+	if (checkinSeasonType == "peak" || checkoutSeasonType == "peak") {
+		price = seasonDao.PeakSeasonPrice(bookingRoomNo);
+	}
+	else {
+		price = seasonDao.OffSeasonPrice(bookingRoomNo);
+	}
+	
+	
+	//총 이용하는 날짜 알아내기
+	int stayPeriod = seasonDao.stayPeriod(bookingOrderNo);
+	
+	
+	//총 금액처리
+	int payTotalPrice = price * stayPeriod;
 %>    
     
 <!DOCTYPE html>
@@ -32,6 +61,14 @@
 	<h1>예약내역 확인</h1>
 	
 <form action ="add.kh" method="post">
+		<input type = "hidden" name = "payOrderNo" value = "<%=bookingsDto.getBookingMemberId() %>">
+		<input type = "hidden" name = "payRoomtype" value = "<%=bookingsDto.getBookingRoomType() %>">
+		<input type = "hidden" name = "payRoomNo" value = "<%=bookingsDto.getBookingRoomNo() %>">
+		<input type = "hidden" name = "payCheckIn" value = "<%=bookingsDto.getBookingCheckin()%>">
+		<input type = "hidden" name = "payCheckOut" value = "<%=bookingsDto.getBookingCheckout() %>">
+		<input type = "hidden" name = "payPeople" value = "<%=bookingsDto.getBookingPeople()%>">
+		<input type = "hidden" name = "payTotalPrice" value = "<%=payTotalPrice %>">
+		
 	<table border ="1">
 		<tr>
 			<th>예약번호</th>
@@ -59,7 +96,7 @@
 		</tr>
 		<tr>
 			<th>결제될 금액</th>
-			<td>????원</td>
+			<td><%=payTotalPrice %>원</td>
 		</tr>
 		
 	</table>
