@@ -187,7 +187,7 @@ public class PayDao {
 	public boolean paymentCancel(int payOrderNo) throws Exception{
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "delete where pay_order_no = ?";
+		String sql = "delete pay where pay_order_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, payOrderNo);
 		int count = ps.executeUpdate();
