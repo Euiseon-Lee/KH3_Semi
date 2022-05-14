@@ -356,7 +356,7 @@ footer {
 				<th>객실</th>
 			</tr>
 			<tr>
-				<td class="selectj"><a href="#">Standard<button class="nextj"></button></a></td>
+				<td><a href="#">Standard</a></td>
 			</tr>
 			<tr>
 				<td><a href="#">Deluxe</a></td>
