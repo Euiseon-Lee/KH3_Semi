@@ -136,51 +136,7 @@ footer {
 	float: left;
 }
 
-.imgPrevj {
-	position: absolute;
-	height: 100%;
-	top: 0;
-	border: none;
-	padding: 20px;
-	background-color: transparent;
-	color: #4a4a4a;
-	font-weight: 400;
-	font-size: 50px;
-	opacity: 0.8;
-	left: 0;
-}
 
-.imgPrevj:hover {
-	cursor: pointer;
-	color: black;
-}
-
-.imgPrevj:focus {
-	outline: 0;
-}
-
-.imgNextj {
-	position: absolute;
-	height: 100%;
-	top: 0;
-	border: none;
-	padding: 20px;
-	background-color: transparent;
-	color: #4a4a4a;
-	font-weight: 400;
-	font-size: 50px;
-	opacity: 0.8;
-	right: 0;
-}
-
-.imgNextj:hover {
-	cursor: pointer;
-	color: #ffffff;
-}
-
-.imgNextj:focus {
-	outline: 0;
-}
 
 .contentInfoj {
 	float: left;
@@ -382,10 +338,13 @@ footer {
     width: 945px;
     height: 857px;
   
- }
 
 
 </style>
+
+
+   
+
 </head>
 
 
@@ -418,8 +377,7 @@ footer {
 			<div class="Imgj">
 				<img src="<%=request.getContextPath()%>/image/deluxe.jpg">
 			
-				<button class="imgPrevj">&#10094;</button>
-				<button class="imgNextj">&#10095;</button>
+				
 			</div>
 		</div >
 		
@@ -513,13 +471,11 @@ footer {
 		<div class="rooms__button">예약하기 </div>
 		<div class="rooms__button1">문의하기 </div>
 		<div class="rooms__button2">객실 어매니티 보기</div>
-		
-
 	
 
 </div>
 
-
+   
 </body>
 
  <!-- footer -->
