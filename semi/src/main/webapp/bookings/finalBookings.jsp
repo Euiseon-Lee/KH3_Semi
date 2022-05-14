@@ -16,8 +16,12 @@
 	int bookingRoomNo = Integer.parseInt(request.getParameter("bookingRoomNo"));
 	
 	//String -> Date 
-
-
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	//체크인-아웃 날짜를 date로 변환해서 뽑음
+	Date checkIn = new Date(sdf.parse(bookingCheckIn).getTime());
+	Date checkOut = new Date(sdf.parse(bookingCheckOut).getTime());
+	//머무는 일자를 구하는 코드
+	long roomDay = ((checkOut.getTime()-checkIn.getTime())/1000)/(24*60*60);
 
 
 	%>
@@ -39,6 +43,7 @@
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 -->
 <body>
+	
 		<div align = "center">
 		<h1>예약 정보 확인</h1>
 		<form action = "add.kh" method = "post">
@@ -63,7 +68,7 @@
 			<tbody  align = "center">
 				<tr>
 					<td colspan = "2" align = "center"><%=bookingCheckIn %> ~
-					<%=bookingCheckOut %>
+					<%=bookingCheckOut %> (<%=roomDay-1 %>박/ <%=roomDay %>일)
 					</td>
 					<td><%=bookingRoomType %>룸</td>
 					<td><%=bookingRoomNo %>호</td>
