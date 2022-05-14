@@ -59,6 +59,7 @@
       float:left;
       margin: 2%;
       background:azure;
+      border: 1px solid grey;
     }
     
     .tablej{
@@ -182,8 +183,7 @@
       outline:0;
     }
     
-   
-    .contentInfoj {
+ .contentInfoj {
     float: left;
     width: 377px;
     height: 600px;
@@ -192,6 +192,7 @@
     left: 330px;
     margin-bottom: 300px;
     font-size: large;
+    
     }
     
     .roomContentj{
@@ -200,18 +201,20 @@
     height: 17%;
     top: 49px;
     left: 59px;
+   
   
     }
     
     .infoContentj{
-   position: absolute;
-    top: 272px;
+    position: absolute;
+    top: 239px;
     width: 403px;
     left: 20px;
     font-size: small;
     line-height: 30px;
+    
 }
-}
+
     }
     
     #amenityContentj{
@@ -225,13 +228,15 @@
     
     .hotelInfoj{
 
-    width: 396px;
-    height: 383px;
+      width: 436px;
+    height: 430px;
     position: relative;
-    bottom: -98px;
-    left: 163%;
-    background-color: azure;
-    
+    bottom: -111px;
+    left: 152%;
+    background-color: mintcream;
+    box-shadow: 1px 2px 1px #000;
+    border: 1px solid grey;
+
     }
     
     .hotelTablej{
@@ -240,6 +245,7 @@
     height: 10px;
     position: absolute;
     margin-left: 4px;
+
 
     }
     
@@ -255,17 +261,23 @@
     
     
     .rooms__button {
-            height: 2.0rem;
-            width: 40px;
-            padding: 0.3rem;
-            font-size: 0.5rem;
-            font-weight: bold;
-            background:  azure;
-            border: 1px solid black;
-            box-shadow: 1px 2px 2px #000;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.12s ease-in-out;
+    top: 42px;
+    height: 3rem;
+    width: 97px;
+    padding: 13px;
+    font-size: 17px;
+    font-weight: bold;
+    background: azure;
+    border: 1px solid black;
+    box-shadow: 1px 2px 2px #000;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.12s ease-in-out;
+    text-align: center;
+    position: absolute;
+    left: 100p;
+    left: 910px;
+}
            
           }
           
@@ -280,6 +292,71 @@
             
             }
             
+            
+               
+   .rooms__button1 {
+    top: 42px;
+    height: 3rem;
+    width: 100px;
+    padding: 13px;
+    font-size: 17px;
+    font-weight: bold;
+    background: azure;
+    border: 1px solid black;
+    box-shadow: 1px 2px 2px #000;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.12s ease-in-out;
+    text-align: center;
+    position: absolute;
+    left: 100p;
+    left: 785px;
+}
+           
+          }
+          
+          .rooms__button1:hover {
+            background-color: white;
+          }
+          
+          .rooms__button1:active {
+            background-color: gray;
+            box-shadow: 1px 3px 4px #000;
+            transform: translate(3px);
+            
+            }
+            
+             .rooms__button2 {
+       top: 42px;
+    height: 3rem;
+    width: 187px;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    background: azure;
+    border: 1px solid black;
+    box-shadow: 1px 2px 2px #000;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.12s ease-in-out;
+    text-align: center;
+    position: absolute;
+    left: 100p;
+    left: 574px;
+}
+           
+          }
+          
+          .rooms__button2:hover {
+            background-color: white;
+          }
+          
+          .rooms__button2:active {
+            background-color: gray;
+            box-shadow: 1px 3px 4px #000;
+            transform: translate(3px);
+            
+            }
            .standard_des {
             
            	width: 405px;
@@ -288,11 +365,19 @@
     		top: 170px;
     		left: 24px;
     		color: black;
+    		border: 1px solid black;
+    	
            }
   			
   			.use_room{
-  				
+  				border-top: 2px solid #100b0b;
+  			}
   			
+  			.roomcentent1 {
+  				border: 1px solid black;
+  				background: azure;
+  				margin: 10px;
+  				padding: 10px;
   			}
   </style>
 </head>
@@ -334,18 +419,20 @@
 		<div class="contentInfoj">
 			<div class="roomContentj">
 				<h1 style="color:black;">&nbsp;Standard</h1><br>
-				&nbsp;&nbsp;&nbsp;  제주의 푸른 하늘과 안락한 풍경을 제공하는 &nbsp; &nbsp; &nbsp; &nbsp; 스탠다드 룸 <br>
-				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp;&nbsp; Azure호텔의 가장 기본 객실로 1~5층에 위치하 &nbsp; &nbsp; 고 있습니다
+				<div class ="roomcentent1"> &nbsp;&nbsp;제주의 푸른 하늘과 안락한 풍경을 제공하 &nbsp;&nbsp;는&nbsp;스탠다드 룸 <br>
+				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp;Azure호텔의 가장 기본 객실로 1~5층에 &nbsp;&nbsp;위치하고 있습니다
+				</div>
 				
-				
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> 기본 타입 룸
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br>기본 타입 룸
 				<div><br> 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
 				</div>
 		
 					
 				<div class="infoContentj">
 					
-					<td class = "use_room">객실이용</td>
+					<br><br>
+					<div class = "use_room">
+					<td>객실이용</td>
 					<ul> 
 					<li>유·무선 인터넷(wi-fi)</li>
 					<li>위성 TV 무료 – 32개 채널</li>
@@ -368,9 +455,7 @@
 					<li> 양식 및 음료: 24시간</li>
 					<li> (룸서비스 메뉴는 객실 내에 준비되어 있습니다.)</li>
 					</ul>
-					
-
-
+					</div>
 					
 				</div>
 				
@@ -418,9 +503,10 @@
 			</table>
 		</div >
 		
-		<div class="rooms__button">예약
-		<input type="button" name = "예약">
-		</div>
+		<div class="rooms__button">예약하기 </div>
+		<div class="rooms__button1">문의하기 </div>
+		<div class="rooms__button2">객실 어매니티 보기</div>
+		
 	
 	
 
