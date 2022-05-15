@@ -60,14 +60,6 @@
 
 	<h1>예약내역 확인</h1>
 	
-<form action ="add.kh" method="post">
-		<input type = "hidden" name = "payOrderNo" value = "<%=bookingsDto.getBookingMemberId() %>">
-		<input type = "hidden" name = "payRoomtype" value = "<%=bookingsDto.getBookingRoomType() %>">
-		<input type = "hidden" name = "payRoomNo" value = "<%=bookingsDto.getBookingRoomNo() %>">
-		<input type = "hidden" name = "payCheckIn" value = "<%=bookingsDto.getBookingCheckin()%>">
-		<input type = "hidden" name = "payCheckOut" value = "<%=bookingsDto.getBookingCheckout() %>">
-		<input type = "hidden" name = "payPeople" value = "<%=bookingsDto.getBookingPeople()%>">
-		<input type = "hidden" name = "payTotalPrice" value = "<%=payTotalPrice %>">
 		
 	<table border ="1">
 		<tr>
@@ -102,9 +94,8 @@
 	</table>
 	
 		<div>
-			<a href = "<%=request.getContextPath()%>/pay/add.kh">결제하기</a>
+			<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>">결제하기</a>
 		</div>
-</form>	
 
 </body>
 </html>
