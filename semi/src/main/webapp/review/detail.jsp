@@ -64,8 +64,8 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div class="container w850 m10 center">	
-	<div class="row center">
-		<h1><%=reviewDto.getReviewNo()%>번 게시글</h1>
+	<div class="row center m40">
+		<h2>[<%=reviewDto.getReviewNo()%>번 게시글]</h2>
 	</div>
 	
 	<table class="table table-underline">

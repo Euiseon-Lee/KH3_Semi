@@ -39,7 +39,9 @@
 	<input type="hidden" name="reviewNo" value="<%=reviewDto.getReviewNo() %>">
 	
 	<div class="container w850 m10 center">
-		<div>게시글 수정</div>
+		<div class="row center m40">
+			<h1>게시글 수정</h1>
+		</div>
 		
 		<div class="row">
 			<label>제목</label>
