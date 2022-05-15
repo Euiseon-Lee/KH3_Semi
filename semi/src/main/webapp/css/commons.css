@@ -458,6 +458,34 @@
         .table.table-hover>tfoot>tr:hover{
             background-color: rgb(231, 236, 239);
         }
+        
+        
+		/*테이블 언더라인*/
+		    .table.table-underline{ 
+		        border-left:0;
+		        border-right:0;
+		        border-top:0;
+		        border-bottom:3px solid rgb(231, 236, 239);
+		    }
+		    
+		     .table.table-underline>thead>tr,
+   	 		.table.table-underline>tfoot>tr{ 
+    		/*제목 배경색상 칠해줌*/
+  	      background-color: rgb(231, 236, 239);
+   			 }
+		
+		    .table.table-underline>thead>tr>th,
+		    .table.table-underline>thead>tr>td,
+		    .table.table-underline>tbody>tr>th,
+		    .table.table-underline>tbody>tr>td,
+		    .table.table-underline>tfoot>tr>th,
+		    .table.table-underline>tfoot>tr>td
+		    {
+		        border-left:0;
+		        border-right:0;
+		        border-top:0;
+		        border-bottom:3px solid rgb(231, 236, 239);
+		    }
 
 
         /* 다단 레이아웃(2단 이상의 가로배치) 구현하기
