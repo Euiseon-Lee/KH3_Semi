@@ -72,8 +72,12 @@
 			<div>
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
+			<div>
+                <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
+            </div>
             <div>
-                <a href="<%=request.getContextPath()%>##" class="link link-header link2">관리자</a>
+                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
+                
             </div>
 		<%} %>
 	</header>
@@ -114,6 +118,18 @@
                             <li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a></li>
                           </ul>
                     </li>
+                    	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
+                    		<%if(admin){ %> 
+                        <li>
+                        <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">시즌수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">가격수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">매출목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">회원목록</a></li>
+                        </ul>
+                    </li>
+                    		<%} %>
                 </ul> 
             </nav>
 <section>
