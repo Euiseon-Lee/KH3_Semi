@@ -5,10 +5,6 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 
-
-<head>
-	<title> Hotel Intro</title>
-  
   <style>
 
  

@@ -128,7 +128,7 @@
     }
 
     .hotelintro_img{
-     position: relative;
+    position: relative;
     top: -231px;
     left: 971px;
     text-align: center;
