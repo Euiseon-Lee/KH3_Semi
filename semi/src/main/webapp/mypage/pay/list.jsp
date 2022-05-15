@@ -65,25 +65,22 @@
 	 	
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-	<!-- 확인용 세션찍기 -->
-	<h3>login = <%= login %></h3>
-	<h3>memberId = <%= payMemberId %></h3>
 
 <div class="container w850 m10 center">
-	<div>
+	<div class="row center">
 		<h1>결제 내역</h1>
 	</div>
 
-	<div>	
-		<table border ="1">
+	<div class="row center m50">	
+		<table class="table table-underline">
 			<thead>
 				<tr>
-					<th>주문번호</th>
-					<th>객실유형</th>
-					<th>체크인</th>
-					<th>체크아웃</th>
-					<th>인원</th>
-					<th>결제 금액</th>
+					<th width="10%" class="middle-text-center" style="font-weight: bold">주문번호</th>
+					<th width="20%" class="middle-text-center" style="font-weight: bold">객실유형</th>
+					<th width="20%" class="middle-text-center" style="font-weight: bold">체크인</th>
+					<th width="20%" class="middle-text-center" style="font-weight: bold">체크아웃</th>
+					<th width="10%" class="middle-text-center" style="font-weight: bold">인원</th>
+					<th width="20%" class="middle-text-center" style="font-weight: bold">결제 금액</th>
 				</tr>
 			</thead>
 			<tbody>
