@@ -11,27 +11,132 @@
 <script type="text/javascript">
 	$(function() {
 		var index = 0;
+        move(index);
 
-		//처음페이지를 제외하고 모두 숨김 처리
-		$(".page:gt(0)").hide();
 
-		//다음버튼을 누르면 다음 페이지가 나오도록 구현
-		$(".btn-next").not(":last").click(function() {
-			index++;
-			$(".page").hide();
-			$(".page").eq(index).show();
+        $(".btn-next").click(function(){
+        	
+            move(++index);
 
-		});
+        });
 
 		//이전버튼을 누르면 이전 페이지가 나오도록 구현
-		$(".btn-prev").not(":first").click(function() {
-			index--;
-			$(".page").hide();
-			$(".page").eq(index).show();
+        $(".btn-prev").click(function(){
+            move(--index);
+        });
+		
 
-		});
+        function move(index){
+            $(".page").hide();
+            $(".page").eq(index).show();
+        }
 
 	});
+	
+    //아이디 검사
+    //1. 형식 검사 --> 2.중복검사
+ $(function(){
+    //상태를 일일이 관리하기 힘드니 각각의 입력창의 상태를 저장하는 객체를 구현
+    //-> form 전송 시 status의 모든 항목이 true라면 전송, 아니면 차단
+    var status={ //-> 안쪽에 만드는게 좋다, 밖에 만들면 조작이 가능하게 됨
+        id:false,
+        nickname:false
+    };
+
+    //아이디 형식검사 
+    $("input[name=memberId").blur(function(){
+    var regex = /[a-z][a-z0-9]{7,19}/;
+    var memberId=$(this).val();
+
+    var judge = regex.test(memberId);
+    if(!judge){
+        $(this).next("span").text("아이디를 형식에 맞게 작성하세요");
+        status.id=false;
+    }
+
+    var that=this;
+
+    //아이디 중복검사 
+    $.ajax({
+        url:"<%=request.getContextPath()%>/semi/ajax/id.kh?memberId=?"+memberId,
+        type:"get",
+        success:function(resp){
+            if(resp=="NNNNN"){
+                $(that).next("span").text("이미 사용중인 아이디입니다.");
+                status.id=false;
+            }
+            else if(resp=="NNNNY"){
+                $(that).next("span").text("사용 가능한 아이디입니다.");
+                status.id=true;
+            }
+        }
+
+    });
+});
+});
+    
+    
+    
+</script>
+
+<script>
+    function findAddress() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                   // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    } 
+                
+                
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    //document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                   // document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                //document.getElementById('sample6_postcode').value = data.zonecode;
+                $("input[name=memberPost]").val(data.zonecode);
+                //document.getElementById("sample6_address").value = addr;
+                $("input[name=memberBasicAddress]").val(addr);
+                // 커서를 상세주소 필드로 이동한다.
+                //document.getElementById("sample6_detailAddress").focus();
+                $("input[name=memberDetailAddress]").foicus();
+            }
+        }).open();
+    }
+</script>
+ <script type="text/javascript">
+     $(function(){
+         $(".address-find-btn").click(findAddress);
+     });
 </script>
 
 
@@ -42,7 +147,7 @@
 <!-- jquery 약관동의 전체 동의 체크박스 선택 시 모두 선택되게 구현 예정 : .select-all -->
 <!-- jquery 아이디, 이메일 중복검사, 형식검사 예정 : 아이디는 "영문소문자, 숫자 8~20자" -->
 <!-- 비밀번호 확인 기능 추가 예정 -->  
-<!-- 주소 우편번호 검색 API 사용 예정 -->
+<!-- 주소 우편번호 검색 API 사용 -->
 <!-- 1. 약관동의 -> 2. 회원정보입력 -> 3. 회원가입 완료 페이지 이동-->
 
 
@@ -52,7 +157,7 @@
 	<h1 class="title-text">Azure에 오신 것을 환영합니다</h1>
 </div>
 <div class="row center">
-	<h5 class="middle-text-left">* 회원가입을 위해 약관 및 개인정보 수집/이용 사항 동의여부에 체크해주시기 바랍니다.</h5>
+	<h6 class="middle-text-center">* 회원가입을 위해 약관 및 개인정보 수집/이용 사항 동의여부에 체크해주시기 바랍니다.</h6>
 </div>
 
 
@@ -129,7 +234,6 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 개인정보를 수집 및 이용하는 것에 동의합니다.    </textarea>
 				</li>
 			</ul>
-		</div>
 		<!-- 약관 end -->
 
 
@@ -138,6 +242,8 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
       <button type="button"  class="btn btn-next">다음</button>
     </div>
 </div>
+</div>
+		</div>
 
 
 
@@ -214,14 +320,14 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 
 <div class="row m20">
 	<label>주소</label>
-    <input type="button" value="주소 찾기">
+    <input type="button" class="address-find-btn" value="주소 찾기">
     <br>
-	<input type="text" name="memberPost" size="6" maxlength="6" class="underline" autocomplete="off">
+	<input type="text" name="memberPost" size="6" maxlength="6" class="underline" autocomplete="off"  placeholder="우편번호">
 </div>
 
 <div class="row m20">
-    <input type="text" name="memberBasicAddress" class="underline fill" autocomplete="off" > 
-    &nbsp;&nbsp;<input type="text" class="underline fill" name="memberDetailAddress">
+    <input type="text" name="memberBasicAddress" class="underline fill" autocomplete="off"  placeholder="주소"> 
+    &nbsp;&nbsp;<input type="text" class="underline fill" name="memberDetailAddress" placeholder="상세주소">
  </div>
  
  <div class="row center m20">

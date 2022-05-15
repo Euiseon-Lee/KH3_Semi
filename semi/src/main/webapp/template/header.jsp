@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>세미 프로젝트</title>
+<title>AZURE HOTEL</title>
 
 <!-- 구글 폰트 CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,9 @@
 <!--swiper-->
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!--카카오 우편 API-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
 </head>
