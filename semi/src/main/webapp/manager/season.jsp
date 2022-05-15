@@ -9,7 +9,7 @@
 	List<SeasonDto> list = seasonDao.selectList();
 %>
 <div class="container center">
-	<table class="table table-border center w700 m20">
+	<table class="table table-border center w700 m20 table-hover">
 		<thead>
 			<tr>
 				<th>시즌명</th>
