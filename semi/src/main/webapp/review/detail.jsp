@@ -16,6 +16,8 @@
 	//조회수 증가 코드
 	ReviewDao reviewDao = new ReviewDao();
 	reviewDao.plusReadcount(reviewNo);
+	
+	
 	ReviewDto reviewDto = reviewDao.showDetail(reviewNo);
 
 	
@@ -59,45 +61,39 @@
 
 %>    
     
-<%
-	//필터 만들면 삭제할 인코딩 코드
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=utf-8");
-%>    
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>후기게시판 상세페이지 (디자인 전)</title>
-</head>
-<body>
+<jsp:include page="/template/header.jsp"></jsp:include>
+
 	
 	<h1>memberId = <%=memberId %></h1><!-- (한석)세션id확인해보려고 만들어놓은 코드입니다. 추후에 삭제할게요~ -->
 	
 	<h1><%=reviewDto.getReviewNo()%>번 게시글</h1>
-	
-	<table border = "1">	<!-- 추후 디자인에서 제거할것 -->
+<div class="container w850 m10 center">
+	<table class="table table-underline">
 	
 		<!-- 글제목, 작성자, 작성일시 및 조회수 출력 -->
 		<tr>
 			<td>
-				<h1><%=reviewDto.getReviewTitle() %></h1>
+					<div align="left">
+						<h1><%=reviewDto.getReviewTitle() %></h1>
+					</div>
 			</td>
 		</tr>
 	
 		<tr>
 			<td>
+				<div align="right">
 				<%=reviewWriter %>
 				(<%= reviewWriterGrade %>)
+				</div>
 			</td>
 		</tr>
 
 		<tr>
 			<td>
+				<div align="right">
 				<%=reviewDto.getReviewWritedate() %>
 				조회수 <%=reviewDto.getReviewReadcount() %>
+				</div>
 			</td>
 		</tr>
 		
@@ -110,28 +106,29 @@
 		<tr>
 			<td>별점 <%=reviewDto.getReviewStar() %>점</td>
 		</tr>
-		
-		
-		<tr>
+		</table>
+		<table class="table">
+		<tr height="250">
 			<td>
-				<pre><%=reviewDto.getReviewContent() %></pre>
+				<%=reviewDto.getReviewContent() %>
 			</td>
 		</tr>						
-
+		</table>
 
 		<!-- 기능 버튼 출력 -->
-		<tr>
-			<td>
-				<a href="list.jsp">글목록</a>
 
+
+			<div class="right">
+				<a class="link link-btn" href="list.jsp">글목록</a>
+			
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
 				<%if(isAdmin || isOwner){ %>
-				<a href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
-				<a href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				<a class="link link-btn" href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
+				<a class="link link-btn" href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				</div>
 				<%} %>
-			</td>
-		</tr>
+
 		
 		
 		<!-- 여기부터(댓글관련 코드-한석) 뒤에 코드끝지점 표시해놓음-->
@@ -142,12 +139,14 @@
 			<%if(isLogin){ %>
 			<form action = "reply_insert.kh" method = "post">
 				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
-				<textarea name = "replyContent" rows ="4" cols = "95"></textarea><br>
-				<input type = "submit" value = "댓글 작성">
+				<textarea class="form-input fill input-round" name = "replyContent" rows ="4" cols = "95"></textarea><br>
+				<div 	align="right">
+				<button type = "submit"  class="btn btn-primary">댓글 작성</button>
+				</div>
 			</form>
 			<%}else{ %>
 				
-					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능"></textarea>
+					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능" l></textarea>
 					<input type = "submit" value = "댓글 작성" disabled>
  				
 			<%}%>
@@ -212,18 +211,14 @@
 					</tr>
 					<%} %>
 					<% } %>
-					<tr>
-						<a href = "<%=request.getContextPath()%>/index.jsp">인덱스화면으로 돌아가기</a>
-					</tr>
 				</table>
 			</td>
 			
 
 		</tr>				
-	</table>
+</div>
 		<!-- jquery이용해서 수정,취소버튼 누를시 화면 변경되게 구현 -->
 
 
 		<!-- 여기까지(댓글관련 코드-한석) -->
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

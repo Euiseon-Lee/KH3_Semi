@@ -6,10 +6,11 @@ public class BookingsDto {
 	private int bookingOrderNo;
 	private String bookingMemberId;
 	private int bookingRoomNo;
-	private int bookingRoomType;
-	private Date bookingCheckin;
-	private Date bookingCheckout;
-	private Date bookingDate;
+	private String bookingRoomType;
+	private String bookingCheckin;
+	private String bookingCheckout;
+	private String bookingDate;
+	private int bookingPeople;
 	public int getBookingOrderNo() {
 		return bookingOrderNo;
 	}
@@ -28,32 +29,40 @@ public class BookingsDto {
 	public void setBookingRoomNo(int bookingRoomNo) {
 		this.bookingRoomNo = bookingRoomNo;
 	}
-	public int getBookingRoomType() {
+	public String getBookingRoomType() {
 		return bookingRoomType;
 	}
-	public void setBookingRoomType(int bookingRoomType) {
+	public void setBookingRoomType(String bookingRoomType) {
 		this.bookingRoomType = bookingRoomType;
 	}
-	public Date getBookingCheckin() {
+	public String getBookingCheckin() {
 		return bookingCheckin;
 	}
-	public void setBookingCheckin(Date bookingCheckin) {
+	public void setBookingCheckin(String bookingCheckin) {
 		this.bookingCheckin = bookingCheckin;
 	}
-	public Date getBookingCheckout() {
+	public String getBookingCheckout() {
 		return bookingCheckout;
 	}
-	public void setBookingCheckout(Date bookingCheckout) {
+	public void setBookingCheckout(String bookingCheckout) {
 		this.bookingCheckout = bookingCheckout;
 	}
-	public Date getBookingDate() {
+	public String getBookingDate() {
 		return bookingDate;
 	}
-	public void setBookingDate(Date bookingDate) {
+	public void setBookingDate(String bookingDate) {
 		this.bookingDate = bookingDate;
+	}
+	public int getBookingPeople() {
+		return bookingPeople;
+	}
+	public void setBookingPeople(int bookingPeople) {
+		this.bookingPeople = bookingPeople;
 	}
 	public BookingsDto() {
 		super();
 	}
-	
+
+
+
 }

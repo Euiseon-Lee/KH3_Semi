@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>세미 프로젝트</title>
+<title>AZURE HOTEL</title>
 
 <!-- 구글 폰트 CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,9 @@
 <!--swiper-->
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!--카카오 우편 API-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
 </head>
@@ -72,8 +75,12 @@
 			<div>
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
+			<div>
+                <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
+            </div>
             <div>
-                <a href="<%=request.getContextPath()%>##" class="link link-header link2">관리자</a>
+                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
+                
             </div>
 		<%} %>
 	</header>
@@ -111,9 +118,21 @@
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/pay/list.jsp">결제목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a></li>
                           </ul>
                     </li>
+                    	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
+                    		<%if(admin){ %> 
+                        <li>
+                        <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/manager/season.jsp">시즌수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/rooms.jsp">가격수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/paylist.jsp">매출목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/memberlist.jsp">회원목록</a></li>
+                        </ul>
+                    </li>
+                    		<%} %>
                 </ul> 
             </nav>
 <section>

@@ -2,13 +2,9 @@
 <%@page import="semi.beans.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>마이페이지 메인페이지</title>
-</head>
-<body>
+
+<!-- header -->
+<jsp:include page="/template/header.jsp"></jsp:include>
 <%-- 준비 --%>
 <%
 	String memberId = (String)session.getAttribute("login");
@@ -20,58 +16,63 @@
 	MemberDto memberDto = memberDao.selectOneId(memberId);
 %>
 
-<%-- 출력 --%>
-<div>
-<h1>회원 정보</h1>
+    <div class="container w800 m40 ">
+        <div class="row center">
+    <h1 class="title-text">회원 정보</h1>
+    </div>
+
+    <div class="row center m50">
+    <table class="table table-underline">
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">아이디</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberId()%></td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">이름(영문)</th>
+            <td  style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberFname()%><%=memberDto.getMemberLname()%></td>
+        </tr>
+            <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">이름(국문)</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberName()%></td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">생년월일</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberBirth()%></td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">전화번호</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberPhone()%></td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">이메일</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberEmail()%></td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold" ><br>주소</th>
+            <td style=" color: rgb(39, 76, 119)">
+                <%=memberDto.getMemberPostString()%>
+                <%=memberDto.getMemberBasicAddressString()%>
+                <%=memberDto.getMemberDetailAddressString()%>
+            </td>
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">가입일</th>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberJoindate()%></td>  
+        </tr>
+        <tr>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">최종 접속일</th>  
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberLogindate()%></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="row center">  
+    <a href="<%=request.getContextPath()%>/pay/list.jsp" class="link link-btn" >결제내역 목록보기</a>
+    <a href="<%=request.getContextPath()%>/mypage/password.jsp" class="link link-btn" >비밀번호 변경</a>
+    <a href="<%=request.getContextPath()%>/mypage/information.jsp" class="link link-btn" >개인정보 변경</a>
+    <a href="<%=request.getContextPath()%>/mypage/exit.jsp" class="link link-btn" >탈퇴하기</a>
+    </div>
 </div>
 
-<table>
-	<tr>
-		<th>아이디</th>
-		<td><%=memberDto.getMemberId()%></td>
-	</tr>
-	<tr>
-		<th>이름(영문)</th>
-		<td><%=memberDto.getMemberFname()%></td>
-		<td><%=memberDto.getMemberLname()%></td>
-	</tr>
-		<tr>
-		<th>이름(국문)</th>
-		<td><%=memberDto.getMemberName()%></td>
-	</tr>
-	<tr>
-		<th>생년월일</th>
-		<td><%=memberDto.getMemberBirth()%></td>
-	</tr>
-	<tr>
-		<th>전화번호</th>
-		<td><%=memberDto.getMemberPhone()%></td>
-	</tr>
-    <tr>
-		<th>이메일</th>
-		<td><%=memberDto.getMemberEmail()%></td>
-	</tr>
-	<tr>
-		<th>주소</th>
-		<td>
-			<%=memberDto.getMemberPostString()%>
-			<%=memberDto.getMemberBasicAddressString()%>
-			<%=memberDto.getMemberDetailAddressString()%>
-		</td>
-	</tr>
-	<tr>
-		<th>가입일</th>
-		<td><%=memberDto.getMemberJoindate()%></td>
-	</tr>
-	<tr>
-		<th>최종 접속일</th>
-		<td><%=memberDto.getMemberLogindate()%></td>
-	</tr>
-</table>
 
-<h2><a href="/pay/list.jsp">결제내역 목록보기</a></h2>
-<h2><a href="password.jsp">비밀번호 변경</a></h2>
-<h2><a href="information.jsp">개인정보 변경</a></h2>
-<h2><a href="exit.jsp">탈퇴하기</a></h2>
-</body>
-</html>
+ <jsp:include page="/template/footer.jsp"></jsp:include>
