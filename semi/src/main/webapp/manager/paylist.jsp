@@ -12,11 +12,14 @@
 	boolean search = start != null && end != null;
 	
 	List<PayDto> list;
+	long totalPrice;
 	if(search){
 		list = payDao.selectList(start, end);
+		totalPrice = payDao.totalPrice(start, end);
 	}
 	else{
 		list = payDao.totalPayList();
+		totalPrice = payDao.totalPrice();
 	}
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -28,6 +31,16 @@
 		<input type="date" name="end" required>
 		<button type="submit" class="btn btn-primary">검색</button>
 	</form>
+</div>
+
+<div class="container row center">
+	<div>
+	<%if(search){ %>
+	총 결제 금액 : <%=totalPrice %>
+	<%} else{%>
+	총 결제 금액 : <%=totalPrice %>
+	<%} %>
+	</div>
 </div>
 
 <div class="container center">
