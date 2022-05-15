@@ -810,6 +810,12 @@
 	
 	.middle-text-left{
 	margin-top:20px;
+	text-align: left;
+	color : rgb(139, 140, 137);
+	}
+	
+		.middle-text-center{
+	margin-top:20px;
 	text-align: center;
 	color : rgb(139, 140, 137);
 	}
