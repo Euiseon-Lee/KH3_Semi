@@ -49,56 +49,57 @@
 
 <div class="container w850 m10 center">
 
-	<div>
-		<h1>결제내역 상세페이지</h1>
+	<div class="row center m40">
+		<h1 class="title-text">결제내역 상세페이지</h1>
 	</div>
 	
-	<div>
-		<table border ="1">
+	
+	<div class="row center">
+		<table class="table table-underline table-hover">
 			<tr>
-				<th>주문번호 [결제 상태]</th>
-				<td><%=payDto.getPayOrderNo() %>번 [<%=status %>]</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">주문번호 [결제 상태]</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayOrderNo() %>번 [<%=status %>]</td>
 			</tr>
 			<tr>
-				<th>고객 아이디</th>
-				<td><%=payDto.getPayMemberId() %></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">고객 아이디</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayMemberId() %></td>
 			</tr>
 			<tr>
-				<th>객실타입 [객실번호]</th>
-				<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo()%>호]</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">객실타입 [객실번호]</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo()%>호]</td>
 			</tr>
 		    <tr>
-				<th>체크인</th>
-				<td><%=payDto.getPayCheckIn()%></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">체크인</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayCheckIn()%></td>
 			</tr>
 			<tr>
-				<th>체크아웃</th>
-				<td><%=payDto.getPayCheckOut()%></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">체크아웃</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayCheckOut()%></td>
 			</tr>
 			<tr>
-				<th>인원</th>
-				<td><%=payDto.getPayPeople()%>명</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">인원</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayPeople()%>명</td>
 			</tr>
 			<tr>
-				<th>결제 금액</th>
-				<td><%=payDto.getPayTotalPrice()%>원</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">결제 금액</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayTotalPrice()%>원</td>
 			</tr>
 			<tr>
-				<th>결제 일자</th>
-				<td><%=payDto.getPayDate()%></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">결제 일자</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayDate()%></td>
 			</tr>
 			<tr>
-				<td>
-					<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">목록으로 돌아가기</a>
+				<td style=" color: rgb(39, 76, 119)">
+					<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link">목록으로 돌아가기</a>
 				</td>
 				
-				<td>
+				<td style=" color: rgb(39, 76, 119)">
 					<%if(paymentCheck){ %>
-						<a href="<%=request.getContextPath()%>/mypage/pay/cancel.jsp?payOrderNo=<%=payOrderNo%>">결제취소</a>
+						<a href="<%=request.getContextPath()%>/mypage/pay/cancel.jsp?payOrderNo=<%=payOrderNo%>" class="link link-btn">결제취소</a>
 					<%} else if (reviewCheck) {%>
-						<a href="<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payOrderNo%>">리뷰작성</a>
+						<a href="<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payOrderNo%>" class="link link-btn">리뷰작성</a>
 					<%} else {%>
-						<a href="#">현재 투숙 중입니다</a>
+						<a href="#" class="link">현재 투숙 중입니다</a>
 					<%} %>
 				</td>
 			</tr>

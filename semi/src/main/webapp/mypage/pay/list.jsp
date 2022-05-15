@@ -67,12 +67,12 @@
 
 
 <div class="container w850 m10 center">
-	<div class="row center">
-		<h1>결제 내역</h1>
+	<div class="row center m40"">
+		<h1 class="title-text">결제 내역</h1>
 	</div>
 
 	<div class="row center m50">	
-		<table class="table table-underline">
+		<table class="table table-underline table-hover">
 			<thead>
 				<tr>
 					<th width="10%" class="middle-text-center" style="font-weight: bold">주문번호</th>
@@ -87,7 +87,7 @@
 				<%for(PayDto payDto: list){ %>
 					<tr>
 						<td style=" color: rgb(39, 76, 119)">
-							<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>">
+							<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>" class="link link-btn">
 								<%=payDto.getPayOrderNo() %>번
 							</a>
 						</td>
