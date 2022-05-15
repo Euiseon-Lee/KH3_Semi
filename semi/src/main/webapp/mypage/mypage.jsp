@@ -60,7 +60,7 @@
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberJoindate()%></td>  
         </tr>
         <tr>
-            <th width="20%" class="middle-text-center" style="font-weight: bold">최종 접속일</th>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">최종 접속일</th>  
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberLogindate()%></td>
         </tr>
     </table>
