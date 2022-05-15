@@ -5,23 +5,19 @@
     <%
     int qaNo = Integer.parseInt(request.getParameter("qaNo"));
     int groupNo= Integer.parseInt(request.getParameter("groupNo"));
-    QaDao qaDao = new QaDao(); 
+    QaDao qaDao = new QaDao();
 	QaDto qaDto = qaDao.selectOne(qaNo);
     %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<jsp:include page="/template/header.jsp"></jsp:include>
+
+ <div class="container w500 m50 center">
  <h1>비밀번호를 입력해주세요</h1>
  <form action="checkpw.kh?qaNo=<%=qaNo %>&groupNo=<%=groupNo %>" method="post">
- <input type="password" name="memberPwCheck">
- <button type="submit">확인</button>
+ <input type="password" name="memberPwCheck" class="form-input input-round">
+ <button type="submit" class="btn btn-primary">확인</button>
  </form>
- <div>
- 	<a href="list.jsp">목록</a>
  </div>
-</body>
-</html>
+ <div class="container w500 m50 center">
+ 	<a href="list.jsp" class="link link-btn center">목록으로</a>
+ </div>
+<jsp:include page="/template/footer.jsp"></jsp:include>

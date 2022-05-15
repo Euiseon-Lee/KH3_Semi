@@ -12,28 +12,34 @@
 	payDto = payDao.showPayDetail(payOrderNo);
 	
 %>        
+<script type="text/javascript">
+            function lengthCount(){
+                //준비
+                var textarea = document.querySelector("textarea[name=reviewContent]");
+                var span = document.querySelector(".len");
 
+                //처리
+                var text = textarea.value;
+                var count = text.length;
 
-<%
-	//필터 만들면 삭제할 인코딩 코드
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=utf-8");
-%>      
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>후기 게시판 글작성(디자인 전)</title>
-</head>
-<body>
+                while(count>1000){
+                    textarea.value = textarea.value.substring(0, count-1);
+                    count --;
+                }
+                //출력
+                span.textContent = count;
+              
+            }
+        </script>
+
+<jsp:include page="/template/header.jsp"></jsp:include>
 	<form action = "write.kh" method ="post">
 	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
-		<div>
+	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
+		<div class="container w850 m10 center">
 		
 			<div>
-				<h1>후기 게시판 글작성(디자인 전)</h1>
+				<h1>후기 게시판 글작성</h1>
 			</div>
 			
 			<div>
@@ -44,7 +50,7 @@
 			<div>
 				<input type="text" name="reviewTitle" 
 					placeholder="제목을 입력해주세요"
-					autocomplete="off" required>	
+					autocomplete="off" required class="form-input fill input-round">	
 			</div>
 			
 			<div>
@@ -61,19 +67,18 @@
 			<div>
 				<textarea name="reviewContent" rows = "15"
 					placeholder="내용을 입력해주세요"
-					autocomplete="off" required></textarea>
+					autocomplete="off" required class="form-input fill input-round" rows="12" oninput="lengthCount();"></textarea>
+					<div class="row"><span class="len">0</span>/1000</div>
 			</div>
 
 			<div>
-				<button type="submit">등록</button>
+				<button type="submit" class="btn btn-primary fill">등록</button>
 			</div>
 			
 			<div>
-				<a href="<%=request.getContextPath()%>/review/list.jsp">목록</a>
+				<a href="<%=request.getContextPath()%>/review/list.jsp" class="link link-btn fill center">목록</a>
 			</div>
 					
 		</div>
 	</form>
-
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
