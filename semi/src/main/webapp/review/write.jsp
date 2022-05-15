@@ -38,24 +38,17 @@
 	<form action = "write.kh" method ="post">
 		<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
 
-		<div class="container w850 m10 center">
+		<div class="container w850 m40 center">
 		
-			<div class="container w850 m10 center">
+			<div class="row center m30">
 				<h1>후기 게시판 글작성</h1>
 			</div>
 			
-			<div>
-				<div>주문번호: <%=payOrderNo %>번</div>
-				<div>객실타입: <%=payDto.getPayRoomtype()%></div>
+			<div class="row center m20">
+				<div>주문번호: <%=payOrderNo %>번	/	객실타입: <%=payDto.getPayRoomtype()%></div>
 			</div>
 			
-			<div>
-				<input type="text" name="reviewTitle" 
-					placeholder="제목을 입력해주세요"
-					autocomplete="off" required class="form-input fill input-round">	
-			</div>
-			
-			<div>
+			<div class="row center">
 				<label>별점</label>
 					<select name = "reviewStar">
 						<option value="5">5점</option>
@@ -66,18 +59,24 @@
 					</select>
 			</div>
 			
-			<div>
+			<div class="row center">
+				<input type="text" name="reviewTitle" 
+					placeholder="제목을 입력해주세요"
+					autocomplete="off" required class="form-input fill input-round">	
+			</div>
+			
+			<div class="row center">
 				<textarea name="reviewContent" rows = "15"
 					placeholder="내용을 입력해주세요"
 					autocomplete="off" required class="form-input fill input-round" rows="12" oninput="lengthCount();"></textarea>
 					<div class="row"><span class="len">0</span>/1000</div>
 			</div>
 
-			<div>
+			<div class="row center">
 				<button type="submit" class="btn btn-primary fill">등록</button>
 			</div>
 			
-			<div>
+			<div class="row center">
 				<a href="<%=request.getContextPath()%>/review/list.jsp" class="link link-btn fill center">목록</a>
 			</div>			
 		</div>
