@@ -63,10 +63,6 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-	
-	<h1>memberId = <%=memberId %></h1><!-- (한석)세션id확인해보려고 만들어놓은 코드입니다. 추후에 삭제할게요~ -->
-
-
 <div class="container w850 m10 center">	
 	<div class="row center">
 		<h1><%=reviewDto.getReviewNo()%>번 게시글</h1>
