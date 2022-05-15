@@ -790,3 +790,29 @@
         height:100%;
         object-fit:cover;
     }
+    
+    /*앞에 han이라고 붙여놓은것들 한석*/
+     #han1{
+        color: rgba(15, 11, 11, 0.5);
+    }
+    #han{
+        font-weight: bold;
+    }
+    .han2{
+        height: 40px;
+        width: 180px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        
+    }
+    .han-button{
+        height: 40px;
+        width: 180px;
+        background-color: white;
+        font-weight: bold;
+}
+    .han-button:hover{
+        background-color: rgb(39, 76, 119);
+        color: white;
+    }
