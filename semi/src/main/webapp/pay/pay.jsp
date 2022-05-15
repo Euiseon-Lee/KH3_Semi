@@ -57,6 +57,8 @@
 	<h3>login = <%=login %></h3>
 	<h3>memberId = <%=memberId %></h3>
 
+
+<div class="container w850 m10 center">
 	<h1>예약내역 확인</h1>
 	
 		
@@ -95,6 +97,7 @@
 		<div>
 			<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>">결제하기</a>
 		</div>
+</div>		
 
 </body>
 </html>
