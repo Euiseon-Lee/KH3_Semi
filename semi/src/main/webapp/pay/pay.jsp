@@ -1,4 +1,3 @@
-
 <%@page import="semi.beans.SeasonDao"%>
 <%@page import="semi.beans.BookingsDao"%>
 <%@page import="semi.beans.BookingsDto"%>
