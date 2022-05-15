@@ -72,8 +72,11 @@
 			<div>
                 <a href="<%=request.getContextPath()%>/member/logout.kh" class="link link-header link3">로그아웃</a>
             </div>
+			<div>
+                <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
+            </div>
             <div>
-                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link2">관리자</a>
+                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
             </div>
 		<%} %>
 	</header>
