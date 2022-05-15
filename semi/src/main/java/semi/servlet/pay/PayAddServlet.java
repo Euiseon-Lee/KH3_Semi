@@ -2,6 +2,7 @@ package semi.servlet.pay;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +18,7 @@ import semi.beans.PayDto;
 @WebServlet(urlPatterns = "/pay/add.kh")
 public class PayAddServlet extends HttpServlet{
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
 			  
@@ -34,7 +35,12 @@ public class PayAddServlet extends HttpServlet{
 			BookingsDao bookingsDao = new BookingsDao();
 			bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingsMemberId);
 			
-
+			
+			
+	         //String -> Date로 변환
+	         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	         Date payCheckIn = (Date) simpleDateFormat.parse(bookingsDto.getBookingCheckin());
+	         Date payCheckOut = (Date) simpleDateFormat.parse(bookingsDto.getBookingCheckout());
 			
 
 			
@@ -44,8 +50,8 @@ public class PayAddServlet extends HttpServlet{
 			payDto.setPayRoomNo(bookingsDto.getBookingRoomNo());
 			payDto.setPayPeople(bookingsDto.getBookingPeople());
 			payDto.setPayRoomtype(bookingsDto.getBookingRoomType());
-			payDto.setPayCheckIn(Date.valueOf(bookingsDto.getBookingCheckin()));
-			payDto.setPayCheckOut(Date.valueOf(bookingsDto.getBookingCheckout()));
+			payDto.setPayCheckIn(payCheckIn);
+			payDto.setPayCheckOut(payCheckOut);
 			payDto.setPayDate(null);
 			payDto.setPayTotalPrice(Integer.parseInt(req.getParameter("payTotalPrice")));
 			
