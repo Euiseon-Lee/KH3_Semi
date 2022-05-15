@@ -74,7 +74,7 @@
 		<tr>
 			<td>
 					<div align="left">
-						<h1><%=reviewDto.getReviewTitle() %></h1>
+						<h2><%=reviewDto.getReviewTitle() %></h2>
 					</div>
 			</td>
 		</tr>
