@@ -123,10 +123,10 @@
                         <li>
                         <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">시즌수정</a></li>
-                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">가격수정</a></li>
-                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">매출목록</a></li>
-                            <li><a href="<%=request.getContextPath()%>/manager/#.jsp">회원목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/season.jsp">시즌수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/rooms.jsp">가격수정</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/paylist.jsp">매출목록</a></li>
+                            <li><a href="<%=request.getContextPath()%>/manager/memberlist.jsp">회원목록</a></li>
                         </ul>
                     </li>
                     		<%} %>
