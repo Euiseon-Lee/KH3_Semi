@@ -1,7 +1,6 @@
 package semi.beans;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -280,5 +279,69 @@ public class PayDao {
 		con.close();
 		
 		return list;
+	}
+	
+	//날짜 검색 리스트
+	public List<PayDto> selectList(String start, String end) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT * FROM pay WHERE pay_date BETWEEN to_date(?,'YYYY-MM-DD') AND to_date(?,'YYYY-MM-DD')";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, start);
+		ps.setString(2, end);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
+			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayDate(rs.getDate("pay_date"));
+			payDto.setPayTotalPrice(rs.getInt("pay_total_price"));
+			
+			list.add(payDto);
+		}
+		
+		con.close();
+		
+		return list;
+	}
+	
+	//총 결제 금액
+	public long totalPrice() throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT sum(pay_total_price) FROM pay";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		long totalPrice = rs.getLong(1);
+		
+		con.close();
+		
+		return totalPrice;
+	}
+	//날짜별 총 결제 금액
+	public long totalPrice(String start, String end) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT sum(pay_total_price) FROM pay WHERE pay_date BETWEEN to_date(?,'YYYY-MM-DD') AND to_date(?,'YYYY-MM-DD')";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, start);
+		ps.setString(2, end);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		long totalPrice = rs.getLong(1);
+		
+		con.close();
+		
+		return totalPrice;
 	}
 }

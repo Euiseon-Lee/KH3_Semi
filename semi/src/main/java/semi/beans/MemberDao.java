@@ -3,6 +3,8 @@ package semi.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MemberDao {
 
@@ -242,6 +244,39 @@ public class MemberDao {
 			return count > 0;
 		}
 		
-
+//관리자의 아이디 전체 조회
+		public List<MemberDto> selectList() throws Exception{
+			Connection con = JdbcUtils.getConnection();
+			
+			String sql = "SELECT * FROM MEMBER ORDER BY MEMBER_JOINDATE ASC";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			List<MemberDto> list = new ArrayList<>();
+			while(rs.next()) {
+				MemberDto memberDto = new MemberDto();
+				
+				memberDto.setMemberId(rs.getString("member_id"));
+				memberDto.setMemberPw(rs.getString("member_pw"));
+				memberDto.setMemberBirth(rs.getString("member_birth"));
+				memberDto.setMemberName(rs.getString("member_name"));
+				memberDto.setMemberFname(rs.getString("member_fname"));
+				memberDto.setMemberLname(rs.getString("member_lname"));
+				memberDto.setMemberPhone(rs.getString("member_phone"));
+				memberDto.setMemberEmail(rs.getString("member_email"));
+				memberDto.setMemberEmail(rs.getString("member_grade"));
+				memberDto.setMemberPost(rs.getString("member_post"));
+				memberDto.setMemberBasicAddress(rs.getString("member_basic_address"));
+				memberDto.setMemberDetailAddress(rs.getString("member_detail_address"));
+				memberDto.setMemberJoindate(rs.getDate("member_joindate"));
+				memberDto.setMemberLogindate(rs.getDate("member_logindate"));
+				
+				list.add(memberDto);
+			}
+			
+			con.close();
+			
+			return list;
+		}
 	}
 
