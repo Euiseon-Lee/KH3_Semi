@@ -116,7 +116,9 @@
                         <a href="<%=request.getContextPath()%>/review/list.jsp">이용후기</a>
                     </li>
                     <li class="reserve">
-                        <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
+
+                        <a href="<%=request.getContextPath()%>/bookings/add.jsp">예약하기</a>
+                   
                     </li>
                     	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 

@@ -13,16 +13,25 @@
 		
 	
 	%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-		<h1 align = "center">내 예약 내역</h1>
+<jsp:include page="/template/header.jsp"></jsp:include>
+	<style>
+	 .han2-button{
+        height: 30px;
+        width: 50px;
+        background-color: rgb(39, 76, 119);
+		color:white;
+}
+    .han2-button:hover{
+        background-color: rgb(39, 76, 119);
+        color: white;
+    }
+	</style>
+	<div class ="container w850 m40">
+		<div class = "row center">
+		<h1>내 예약 내역</h1>
+		</div>
 		
-		<table border = "1" width = "600" height = "100" align = "center">
+		<table class="table table-underline table-hover">
 		
 			<thead>
 				<tr>
@@ -44,7 +53,7 @@
 					<td><%=bookingsDto.getBookingRoomType() %></td>
 					<td><%=bookingsDto.getBookingRoomNo() %></td>
 					<td><%=bookingsDto.getBookingPeople() %></td>
-					<td><a href = "<%=request.getContextPath()%>/pay/pay.jsp?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>결제</button></a></td>
+					<td><a href = "<%=request.getContextPath()%>/pay/pay.jsp?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button class = "han2-button">결제</button></a></td>
 					<td><a href = "<%=request.getContextPath() %>/bookings/delete.kh?bookingOrderNo=<%=bookingsDto.getBookingOrderNo() %>"><button>예약 취소</button></a></td>
 					</tr>
 			<%} %>
@@ -53,5 +62,5 @@
 		</table>
 		<h3>테스트용으로 아이디 testuser로 넣어놈(수정해야함)</h3>
 		<h3>예약취소는 확인창 띄워줄까?</h3>
-</body>
-</html>
+	</div>
+<jsp:include page="/template/footer.jsp"></jsp:include>
