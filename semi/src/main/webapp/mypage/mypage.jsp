@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <th width="20%" class="middle-text-center" style="font-weight: bold">가입일</th>
-            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberJoindate()%></td>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberJoindate()%></td>  
         </tr>
         <tr>
             <th width="20%" class="middle-text-center" style="font-weight: bold">최종 접속일</th>
