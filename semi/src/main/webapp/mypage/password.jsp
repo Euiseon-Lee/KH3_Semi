@@ -53,11 +53,15 @@
        </form>
 
 	<%if (case1) {%>
-		<h3>현재와 같은 비밀번호로 변경할 수 없습니다</h3>
+		<div class="row center">
+		<h3 style="color:red;">현재와 같은 비밀번호로 변경할 수 없습니다</h3>
+		</div>
 	<%} %>
 		
 	<%if(case2){ %>
-		<h3>비밀번호가 일치하지 않습니다</h3>
+			<div class="row center">
+		<h3 style="color:red;">비밀번호가 일치하지 않습니다</h3>
+				</div>
 	<%} %>
 
  <jsp:include page="/template/footer.jsp"></jsp:include>
