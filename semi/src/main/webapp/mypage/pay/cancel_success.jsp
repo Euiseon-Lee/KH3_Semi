@@ -5,15 +5,17 @@
 
 <div class="container w850 m10 center">
 	<div class="row center">
-		<h3>결제취소가 완료되었습니다.</h3>
+		<h2 class="title-text m50">결제취소가 완료되었습니다.</h2>
 	</div>
 	
 	<div class="row center">
-		<h2>이용해주셔서 감사합니다!</h2>
+		<h3 class="title-text m30">이용해주셔서 감사합니다!</h3>
 	</div>
 	
-	<div class="row center">
-		<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제내역 목록으로 이동</a>
+	<div class="row center m50">
+		<h1>
+			<a href="<%=request.getContextPath()%>/bookings/add.jsp" class="link link-btn">새로운 예약하러 가기</a>
+		</h1>
 	</div>
 </div>
 
