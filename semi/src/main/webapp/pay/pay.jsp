@@ -16,7 +16,7 @@
 	//준비
 	//예약번호를 기반으로 방 번호 뽑기
 	int bookingOrderNo = Integer.parseInt(request.getParameter("bookingOrderNo"));
-	//int bookingOrderNo = 8;
+
 	BookingsDto bookingsDto = new BookingsDto();
 	BookingsDao bookingsDao = new BookingsDao();
 	bookingsDto = bookingsDao.showDetail(bookingOrderNo);

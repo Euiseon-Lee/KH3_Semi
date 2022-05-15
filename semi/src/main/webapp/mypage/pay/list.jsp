@@ -90,7 +90,6 @@
 				<th>체크아웃</th>
 				<th>인원</th>
 				<th>결제 금액</th>
-				<th>리뷰 작성하러가기</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -106,9 +105,6 @@
 					<td><%=payDto.getPayCheckOut() %></td>
 					<td><%=payDto.getPayPeople() %></td>
 					<td><%=payDto.getPayTotalPrice() %></td>
-					<td>
-						<a href = "<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payDto.getPayOrderNo()%>" >리뷰 작성하러가기</a>	
-					</td>
 				</tr>
 			<%} %>
 		</tbody>
