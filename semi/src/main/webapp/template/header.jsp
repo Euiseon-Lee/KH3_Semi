@@ -77,6 +77,7 @@
             </div>
             <div>
                 <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
+                
             </div>
 		<%} %>
 	</header>
