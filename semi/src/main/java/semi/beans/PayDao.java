@@ -162,7 +162,7 @@ public class PayDao {
 		String sql = "insert into pay(pay_order_no, pay_member_id, pay_room_no,"
 	            +"pay_people, pay_roomtype, pay_checkin, pay_checkout,"
 	            +"pay_date, pay_total_price)"
-				+"values(?,?,?,?,?,?,?,?,?)";
+				+"values(?,?,?,?,?,?,?,sysdate,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
@@ -173,8 +173,7 @@ public class PayDao {
 		ps.setString(5, payDto.getPayRoomtype());
 		ps.setDate(6, payDto.getPayCheckIn());
 		ps.setDate(7, payDto.getPayCheckOut());
-		ps.setDate(8, payDto.getPayDate());
-		ps.setInt(9, payDto.getPayTotalPrice());
+		ps.setInt(8, payDto.getPayTotalPrice());
 		
 		ps.execute();
 	
@@ -186,7 +185,7 @@ public class PayDao {
 	public boolean paymentCancel(int payOrderNo) throws Exception{
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "delete where pay_order_no = ?";
+		String sql = "delete pay where pay_order_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, payOrderNo);
 		int count = ps.executeUpdate();

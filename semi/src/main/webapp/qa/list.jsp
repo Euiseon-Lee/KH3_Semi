@@ -75,10 +75,6 @@
 		<h1>Q/A 게시판</h1>
 	</div>
 	
-	<div align="right" >
-		<a class="link link-btn" href="write.jsp">글작성</a>
-	</div>
-	
 	<div>
 		<table class="table table-underline table-hover">
 			<thead>

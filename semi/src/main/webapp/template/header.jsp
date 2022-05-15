@@ -62,7 +62,7 @@
 			<div>
                 <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
-		<%}else{ %>
+		<%} else { %>
 			<div>
                 <a href="<%=request.getContextPath()%>/member/login.jsp" class="link link-header link2">로그인</a>
             </div>
@@ -117,9 +117,6 @@
                     </li>
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
-                        <ul>
-                            <li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a></li>
-                          </ul>
                     </li>
                     	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 

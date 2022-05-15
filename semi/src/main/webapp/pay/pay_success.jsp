@@ -7,26 +7,25 @@
 	
 	String payMemberId = (String)request.getSession().getAttribute("id");
 %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>결제 완료창</title>
-</head>
-<body>
 
-<div>
-<h3>결제가 완료되었습니다.</h3>
+
+<jsp:include page="/template/header.jsp"></jsp:include>
+
+<div class="container w850 m10 center">
+	<div class="row center">
+		<h2 class="title-text m50">결제가 완료되었습니다.</h2>
+	</div>
+	
+	<div class="row center">
+		<h3 class="title-text m30">이용해주셔서 감사합니다!</h3>
+	</div>
+	
+	<div class="row center m50">
+		<h3>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link link-btn">결제내역 목록으로 이동</a>
+		</h3>
+	</div>
 </div>
 
-<div>
-	<h2>감사합니다!</h2>
-</div>
 
-<div>
-	<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제내역 목록으로 이동</a>
-</div>
-
-
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
