@@ -47,57 +47,55 @@
 	int payTotalPrice = price * stayPeriod;
 %>    
     
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>결제확인 페이지</title>
-</head>
-<body>
+<jsp:include page="/template/header.jsp"></jsp:include>
+
+
 	<h3>login = <%=login %></h3>
 	<h3>memberId = <%=memberId %></h3>
 
 
 <div class="container w850 m10 center">
-	<h1>예약내역 확인</h1>
+
+	<div>
+		<h1>예약내역 확인</h1>	
+	</div>
+
 	
-		
-	<table border ="1">
-		<tr>
-			<th>예약번호</th>
-			<td><%=bookingsDto.getBookingOrderNo() %>번</td>
-		</tr>
-		<tr>
-			<th>고객 아이디</th>
-			<td><%=bookingsDto.getBookingMemberId() %></td>
-		</tr>
-		<tr>
-			<th>객실타입 [객실번호]</th>
-			<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
-		</tr>
-	    <tr>
-			<th>체크인</th>
-			<td><%=bookingsDto.getBookingCheckin()%></td>
-		</tr>
-		<tr>
-			<th>체크아웃</th>
-			<td><%=bookingsDto.getBookingCheckout()%></td>
-		</tr>
-		<tr>
-			<th>인원</th>
-			<td><%=bookingsDto.getBookingPeople()%>명</td>
-		</tr>
-		<tr>
-			<th>결제될 금액</th>
-			<td><%=payTotalPrice %>원</td>
-		</tr>
-		
-	</table>
-	
-		<div>
-			<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>">결제하기</a>
-		</div>
+	<div>
+		<table border ="1">
+			<tr>
+				<th>예약번호</th>
+				<td><%=bookingsDto.getBookingOrderNo() %>번</td>
+			</tr>
+			<tr>
+				<th>고객 아이디</th>
+				<td><%=bookingsDto.getBookingMemberId() %></td>
+			</tr>
+			<tr>
+				<th>객실타입 [객실번호]</th>
+				<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
+			</tr>
+		    <tr>
+				<th>체크인</th>
+				<td><%=bookingsDto.getBookingCheckin()%></td>
+			</tr>
+			<tr>
+				<th>체크아웃</th>
+				<td><%=bookingsDto.getBookingCheckout()%></td>
+			</tr>
+			<tr>
+				<th>인원</th>
+				<td><%=bookingsDto.getBookingPeople()%>명</td>
+			</tr>
+			<tr>
+				<th>결제될 금액</th>
+				<td><%=payTotalPrice %>원</td>
+			</tr>	
+		</table>
+	</div>	
+	<div>
+		<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>">결제하기</a>
+	</div>
 </div>		
 
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

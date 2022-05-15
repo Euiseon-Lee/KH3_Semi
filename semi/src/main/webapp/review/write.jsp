@@ -33,12 +33,14 @@
         </script>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+
+<div>
 	<form action = "write.kh" method ="post">
-	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
-	<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
+		<input type ="hidden" name="payOrderNo" value="<%=payOrderNo %>">
+
 		<div class="container w850 m10 center">
 		
-			<div>
+			<div class="container w850 m10 center">
 				<h1>후기 게시판 글작성</h1>
 			</div>
 			
@@ -77,8 +79,8 @@
 			
 			<div>
 				<a href="<%=request.getContextPath()%>/review/list.jsp" class="link link-btn fill center">목록</a>
-			</div>
-					
+			</div>			
 		</div>
 	</form>
+</div>	
 <jsp:include page="/template/footer.jsp"></jsp:include>

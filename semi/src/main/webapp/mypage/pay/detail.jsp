@@ -43,67 +43,67 @@
 	
 
 	
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>결제 상세 페이지</title>
-</head>
-<body>
-	<!-- 확인용 세션 찍기 -->
-	<h3>login = <%=login %></h3>
-	<h3>memberId = <%=memberId %></h3>
+<jsp:include page="/template/header.jsp"></jsp:include>
 
-	<h1>결제내역 상세페이지</h1>
+
+
+<div class="container w850 m10 center">
+
+	<div>
+		<h1>결제내역 상세페이지</h1>
+	</div>
 	
-<table border ="1">
-	<tr>
-		<th>주문번호 [결제 상태]</th>
-		<td><%=payDto.getPayOrderNo() %>번 [<%=status %>]</td>
-	</tr>
-	<tr>
-		<th>고객 아이디</th>
-		<td><%=payDto.getPayMemberId() %></td>
-	</tr>
-	<tr>
-		<th>객실타입 [객실번호]</th>
-		<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo()%>호]</td>
-	</tr>
-    <tr>
-		<th>체크인</th>
-		<td><%=payDto.getPayCheckIn()%></td>
-	</tr>
-	<tr>
-		<th>체크아웃</th>
-		<td><%=payDto.getPayCheckOut()%></td>
-	</tr>
-	<tr>
-		<th>인원</th>
-		<td><%=payDto.getPayPeople()%>명</td>
-	</tr>
-	<tr>
-		<th>결제 금액</th>
-		<td><%=payDto.getPayTotalPrice()%>원</td>
-	</tr>
-	<tr>
-		<th>결제 일자</th>
-		<td><%=payDto.getPayDate()%></td>
-	</tr>
-	<tr>
-		<td>
-			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">목록으로 돌아가기</a>
-		</td>
-		
-		<td>
-			<%if(paymentCheck){ %>
-				<a href="<%=request.getContextPath()%>/mypage/pay/cancel.jsp?payOrderNo=<%=payOrderNo%>">결제취소</a>
-			<%} else if (reviewCheck) {%>
-				<a href="<%=request.getContextPath()%>/review.write.jsp">리뷰작성</a>
-			<%} else {%>
-				<a href="#">현재 투숙 중입니다</a>
-			<%} %>
-		</td>
-	</tr>
-</table>
-</body>
-</html>
+	<div>
+		<table border ="1">
+			<tr>
+				<th>주문번호 [결제 상태]</th>
+				<td><%=payDto.getPayOrderNo() %>번 [<%=status %>]</td>
+			</tr>
+			<tr>
+				<th>고객 아이디</th>
+				<td><%=payDto.getPayMemberId() %></td>
+			</tr>
+			<tr>
+				<th>객실타입 [객실번호]</th>
+				<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo()%>호]</td>
+			</tr>
+		    <tr>
+				<th>체크인</th>
+				<td><%=payDto.getPayCheckIn()%></td>
+			</tr>
+			<tr>
+				<th>체크아웃</th>
+				<td><%=payDto.getPayCheckOut()%></td>
+			</tr>
+			<tr>
+				<th>인원</th>
+				<td><%=payDto.getPayPeople()%>명</td>
+			</tr>
+			<tr>
+				<th>결제 금액</th>
+				<td><%=payDto.getPayTotalPrice()%>원</td>
+			</tr>
+			<tr>
+				<th>결제 일자</th>
+				<td><%=payDto.getPayDate()%></td>
+			</tr>
+			<tr>
+				<td>
+					<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">목록으로 돌아가기</a>
+				</td>
+				
+				<td>
+					<%if(paymentCheck){ %>
+						<a href="<%=request.getContextPath()%>/mypage/pay/cancel.jsp?payOrderNo=<%=payOrderNo%>">결제취소</a>
+					<%} else if (reviewCheck) {%>
+						<a href="<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payOrderNo%>">리뷰작성</a>
+					<%} else {%>
+						<a href="#">현재 투숙 중입니다</a>
+					<%} %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<jsp:include page="/template/footer.jsp"></jsp:include>

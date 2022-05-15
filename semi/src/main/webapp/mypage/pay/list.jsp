@@ -63,55 +63,48 @@
     %>
 
 	 	
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>결제내역 목록 페이지</title>
-</head>
-<body>
+<jsp:include page="/template/header.jsp"></jsp:include>
 
 	<!-- 확인용 세션찍기 -->
 	<h3>login = <%= login %></h3>
 	<h3>memberId = <%= payMemberId %></h3>
 
+<div class="container w850 m10 center">
+	<div>
+		<h1>결제 내역</h1>
+	</div>
 
-<div>
-	<h1>결제 내역</h1>
-</div>
-
-<div>	
-	<table border ="1">
-		<thead>
-			<tr>
-				<th>주문번호</th>
-				<th>객실유형</th>
-				<th>체크인</th>
-				<th>체크아웃</th>
-				<th>인원</th>
-				<th>결제 금액</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%for(PayDto payDto: list){ %>
+	<div>	
+		<table border ="1">
+			<thead>
 				<tr>
-					<td>
-						<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>">
-							<%=payDto.getPayOrderNo() %>번
-						</a>
-					</td>
-					<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo() %>호]</td>
-					<td><%=payDto.getPayCheckIn() %></td>
-					<td><%=payDto.getPayCheckOut() %></td>
-					<td><%=payDto.getPayPeople() %></td>
-					<td><%=payDto.getPayTotalPrice() %></td>
+					<th>주문번호</th>
+					<th>객실유형</th>
+					<th>체크인</th>
+					<th>체크아웃</th>
+					<th>인원</th>
+					<th>결제 금액</th>
 				</tr>
-			<%} %>
-		</tbody>
+			</thead>
+			<tbody>
+				<%for(PayDto payDto: list){ %>
+					<tr>
+						<td>
+							<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>">
+								<%=payDto.getPayOrderNo() %>번
+							</a>
+						</td>
+						<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo() %>호]</td>
+						<td><%=payDto.getPayCheckIn() %></td>
+						<td><%=payDto.getPayCheckOut() %></td>
+						<td><%=payDto.getPayPeople() %></td>
+						<td><%=payDto.getPayTotalPrice() %></td>
+					</tr>
+				<%} %>
+			</tbody>
 		</table>
 	</div>
 	
-	<!-- 페이지 -->
 	<div>
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
@@ -142,5 +135,6 @@
 	<div>
 		<a href="<%=request.getContextPath()%>/index.jsp">메인으로 이동</a>
 	</div>
-</body>
-</html>
+</div>
+
+<jsp:include page="/template/footer.jsp"></jsp:include>

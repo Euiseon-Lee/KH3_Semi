@@ -113,5 +113,4 @@
 	</div>
 </form>
 
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

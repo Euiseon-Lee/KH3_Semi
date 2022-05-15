@@ -65,9 +65,13 @@
 
 	
 	<h1>memberId = <%=memberId %></h1><!-- (한석)세션id확인해보려고 만들어놓은 코드입니다. 추후에 삭제할게요~ -->
+
+
+<div class="container w850 m10 center">	
+	<div class="row center">
+		<h1><%=reviewDto.getReviewNo()%>번 게시글</h1>
+	</div>
 	
-	<h1><%=reviewDto.getReviewNo()%>번 게시글</h1>
-<div class="container w850 m10 center">
 	<table class="table table-underline">
 	
 		<!-- 글제목, 작성자, 작성일시 및 조회수 출력 -->
@@ -100,12 +104,9 @@
 		
 		<!-- 여기부터는 방 타입, 별점 및 글내용 출력 -->
 		<tr>
-			<td>객실타입 [payDto.getPayRoomtype()]</td>
+			<td>[객실 타입: <%=reviewDto.getReviewRoomtype() %>] 별점 <%=reviewDto.getReviewStar() %>점</td>
 		</tr>
 		
-		<tr>
-			<td>별점 <%=reviewDto.getReviewStar() %>점</td>
-		</tr>
 		</table>
 		<table class="table">
 		<tr height="250">
@@ -213,12 +214,13 @@
 					<% } %>
 				</table>
 			</td>
-			
 
-		</tr>				
-</div>
+		</tr>
 		<!-- jquery이용해서 수정,취소버튼 누를시 화면 변경되게 구현 -->
 
 
-		<!-- 여기까지(댓글관련 코드-한석) -->
+		<!-- 여기까지(댓글관련 코드-한석) -->				
+</div>
+
+		
 <jsp:include page="/template/footer.jsp"></jsp:include>
