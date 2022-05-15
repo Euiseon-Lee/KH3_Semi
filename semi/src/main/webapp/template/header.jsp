@@ -109,7 +109,7 @@
                         <a href="<%=request.getContextPath()%>/review/list.jsp">이용후기</a>
                     </li>
                     <li class="reserve">
-                        <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
+                        <a href="<%=request.getContextPath()%>/bookings/add.jsp">예약하기</a>
                         <ul>
                             <li><a href="<%=request.getContextPath()%>/pay/list.jsp">결제목록</a></li>
                           </ul>
