@@ -86,23 +86,23 @@
 			<tbody>
 				<%for(PayDto payDto: list){ %>
 					<tr>
-						<td>
+						<td style=" color: rgb(39, 76, 119)">
 							<a href="detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>">
 								<%=payDto.getPayOrderNo() %>번
 							</a>
 						</td>
-						<td><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo() %>호]</td>
-						<td><%=payDto.getPayCheckIn() %></td>
-						<td><%=payDto.getPayCheckOut() %></td>
-						<td><%=payDto.getPayPeople() %></td>
-						<td><%=payDto.getPayTotalPrice() %></td>
+						<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayRoomtype()%> [<%=payDto.getPayRoomNo() %>호]</td>
+						<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayCheckIn() %></td>
+						<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayCheckOut() %></td>
+						<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayPeople() %></td>
+						<td style=" color: rgb(39, 76, 119)"><%=payDto.getPayTotalPrice() %></td>
 					</tr>
 				<%} %>
 			</tbody>
 		</table>
 	</div>
 	
-	<div>
+	<div class="row center pagination">
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
 			<a href="list.jsp?p=1&s=<%=s %>">&laquo;</a>
@@ -129,9 +129,6 @@
 		<%} %>
 	</div>
 
-	<div>
-		<a href="<%=request.getContextPath()%>/index.jsp">메인으로 이동</a>
-	</div>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
