@@ -156,6 +156,7 @@ public class BookingsDao {
 			con.close();
 			return count>0;
 					
+
 		}
         //의선: 예약번호와 아이디로 해당 예약 정보를 추출하는 코드
         public BookingsDto showDetail(int bookingOrderNo, String bookingMemberId) throws Exception {
@@ -190,5 +191,9 @@ public class BookingsDao {
             
             return bookingsDto;
 
-         }
+
+		}
+		
+		
+       
 }
