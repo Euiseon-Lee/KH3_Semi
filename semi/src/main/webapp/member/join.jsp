@@ -139,10 +139,10 @@
      });
 </script>
 
-
+    
 
 <form action="login.kh" method="post">
-
+  
 <!-- required 항목은 * 표시 -->
 <!-- jquery 약관동의 전체 동의 체크박스 선택 시 모두 선택되게 구현 예정 : .select-all -->
 <!-- jquery 아이디, 이메일 중복검사, 형식검사 예정 : 아이디는 "영문소문자, 숫자 8~20자" -->
