@@ -18,7 +18,7 @@
 	left: 1%;
 	float: left;
 	margin: 2%;
-	background: mintcream;
+	background: rgb(39, 76, 119);
 	border: 1px solid grey;
 }
 
@@ -30,12 +30,13 @@
 	padding-left: 1%;
 	border-collapse: separate;
 	border-spacing: 0 20px;
+	color: white;
 }
 
 .tablej th {
 	height: 10%;
 	font-size: xx-large;
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 	border-width: 60%;
 	font-weight: bolder;
 }
@@ -45,7 +46,7 @@
 	height: 2%;
 	font-size: large;
 	font-weight: 900;
-	color: black;
+	color: white;
 }
 
 .tablej a:link {
@@ -54,7 +55,7 @@
 }
 
 .tablej a:visited {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
@@ -72,7 +73,7 @@
 	position: absolute;
 	border: none;
 	background-color: black;
-	color: black;;
+	color: black;
 	font-weight: 900;
 	font-size: 14px;
 	
