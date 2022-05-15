@@ -177,6 +177,7 @@
 		<form action="list.jsp" method="get">
 			<select name ="type" class="form-input input-round">
 				<option value ="qa_title">제목</option>
+				<option value="qa_content">내용</option>
 			</select>
 			<input type ="search" name="keyword" required autocomplete="off">
 			<button type ="submit" class="btn btn-primary">검색</button>

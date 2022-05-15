@@ -53,12 +53,12 @@ $(function(){
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                               <div class="image-box image-thumbnail">
+                            	<div class="image-box image-thumbnail">
                                 <img src="<%=request.getContextPath()%>/image/main_image1.jpg" width="100%" height="100%">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                               <div class="image-box image-thumbnail">
+                            	<div class="image-box image-thumbnail">
                               <img src="<%=request.getContextPath()%>/image/main_image2.jpg" width="100%" height="100%">
                                    </div>
                             </div>
@@ -111,11 +111,13 @@ $(function(){
 
             <!--객실 이미지 소개 영역-->
             <setion>
+            	<div class="row left m10">
                 <div>
                     <h1>ROOM</h1>
                 </div>
                 <div>
-                    <a href="#" class="link">> VIEW MORE</a>
+                    <a href="<%=request.getContextPath()%>/roomintroduce/list.jsp"  class="link">> VIEW MORE</a>
+                </div>
                 </div>
                 <div class="container w500" m20></div>
                 <div class="row">
@@ -125,7 +127,7 @@ $(function(){
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="<%=request.getContextPath()%>/image/standard.jpg" width="120%" height="120%">
-                            <a href="<%=request.getContextPath()%>/booking/list.jsp" class="link zindex">view more</a>
+                            <a href="<%=request.getContextPath()%>/hotelintroduce/list.jsp" class="link zindex">view more</a>
                         </div>
                         <div class="swiper-slide">
                           <img src="<%=request.getContextPath()%>/image/deluxe.jpg" width="120%" height="120%">
@@ -149,7 +151,7 @@ $(function(){
         <!--이벤트 표시 영역-->
         <section>
             <div class="row">
-            <h1>EVENT</h1>
+            <h1>AMENITIES</h1>
             </div>
             <div>
                 <a href="#" class="link">> VIEW MORE</a>

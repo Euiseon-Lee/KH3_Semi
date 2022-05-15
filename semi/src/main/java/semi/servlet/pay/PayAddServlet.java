@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.beans.BookingsDao;
+import semi.beans.BookingsDto;
 import semi.beans.PayDao;
 import semi.beans.PayDto;
 
@@ -18,24 +20,35 @@ public class PayAddServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			
+			  
 			req.setCharacterEncoding("UTF-8");
 			resp.setCharacterEncoding("UTF-8");
 			resp.setContentType("text/html; charset=utf-8");
 			
 			// ID 불러오기
-			String memberId = (String) req.getSession().getAttribute("login");
+			String bookingMemberId = (String)req.getSession().getAttribute("id");
+			
+			//예약내역 불러오기
+			int bookingOrderNo = Integer.parseInt(req.getParameter("bookingOrderNo"));
+			BookingsDto bookingsDto = new BookingsDto();
+			BookingsDao bookingsDao = new BookingsDao();
+			bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingMemberId);
+			
+
+			
+
 			
 			PayDto payDto = new PayDto();
 			
-			payDto.setPayOrderNo(Integer.parseInt(req.getParameter("payOrderNo")));
-			payDto.setPayMemberId(req.getParameter("payMemberId"));
-			payDto.setPayRoomNo(Integer.parseInt(req.getParameter("payRoomNo")));
-			payDto.setPayPeople(Integer.parseInt(req.getParameter("payPeopleNum")));
-			payDto.setPayRoomtype(req.getParameter("payRoomType"));
-			payDto.setPayCheckIn(Date.valueOf(req.getParameter("payCheckIn")));
-			payDto.setPayCheckOut(Date.valueOf(req.getParameter("payCheckOut")));
-			//더 추가 필요
+			payDto.setPayMemberId(bookingsDto.getBookingMemberId());
+			payDto.setPayRoomNo(bookingsDto.getBookingRoomNo());
+			payDto.setPayPeople(bookingsDto.getBookingPeople());
+			payDto.setPayRoomtype(bookingsDto.getBookingRoomType());
+			payDto.setPayCheckIn(Date.valueOf(bookingsDto.getBookingCheckin()));
+			payDto.setPayCheckOut(Date.valueOf(bookingsDto.getBookingCheckout()));
+			payDto.setPayDate(Date.valueOf(req.getParameter("payDate")));
+			payDto.setPayTotalPrice(Integer.parseInt(req.getParameter("payTotalPrice")));
+			
 			
 			PayDao payDao = new PayDao();
 			payDto.setPayOrderNo(payDao.getSequence());
@@ -43,7 +56,6 @@ public class PayAddServlet extends HttpServlet{
 			payDao.addPaymentHistory(payDto);
 			
 			// 주문번호 받을 시 사용
-//			resp.sendRedirect("pay_success.jsp?PayOrderNo="+payDto.getPayOrderNo());
 			resp.sendRedirect("pay_success.jsp");
 		}
 		

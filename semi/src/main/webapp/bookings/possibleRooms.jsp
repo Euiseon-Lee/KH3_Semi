@@ -1,3 +1,4 @@
+
 <%@page import="semi.beans.RoomsDto"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.BookingsDao"%>
@@ -83,4 +84,3 @@ section, article, aside, nav, a , ul, ol, li {
        		</div>
 	</div>
 <jsp:include page="/template/footer.jsp"></jsp:include>
-

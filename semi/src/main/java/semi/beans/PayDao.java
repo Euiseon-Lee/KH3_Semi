@@ -8,66 +8,7 @@ import java.util.List;
 
 public class PayDao {
 	
-	// 결제 등록 (pay.jsp)
-	// 1.시퀀스 생성
-	public int getSequence() throws Exception {
-		Connection con = JdbcUtils.getConnection();
-		
-		String sql = "select pay_seq.nextval from dual";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		rs.next();
-		int number = rs.getInt("nextval");
-		
-		con.close();
-		
-		return number;
-	}
-	
-	
-	// 2. 입력 sql
-	public void addPaymentHistory(PayDto payDto) throws Exception {
-		Connection con = JdbcUtils.getConnection();
-		
-		String sql = "insert into pay(pay_order_no, pay_member_id, pay_room_no,"
-	            +"pay_people, pay_roomtype, pay_checkin, pay_checkout,"
-	            +"pay_date, pay_total_price)"
-				+"values(?,?,?,?,?,?,?,?,?)";
-		
-		PreparedStatement ps = con.prepareStatement(sql);
-		
-		ps.setInt(1, payDto.getPayOrderNo());
-		ps.setString(2, payDto.getPayMemberId());
-		ps.setInt(3, payDto.getPayRoomNo());
-		ps.setInt(4, payDto.getPayPeople());
-		ps.setString(5, payDto.getPayRoomtype());
-		ps.setDate(6, payDto.getPayCheckIn());
-		ps.setDate(7, payDto.getPayCheckOut());
-		ps.setDate(8, payDto.getPayDate());
-		ps.setInt(9, payDto.getPayTotalPrice());
-		
-		ps.execute();
-	
-		con.close();
-	}
-	
-	
-	// 결제 취소 => delete.jsp
-	public boolean paymentCancel(int payOrderNo) throws Exception{
-		Connection con = JdbcUtils.getConnection();
-		
-		String sql = "delete where pay_order_no = ?";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, payOrderNo);
-		int count = ps.executeUpdate();
-		
-		con.close();
-		
-		return count > 0;
 
-	}
-
-	
 	// 결제 목록 => list.jsp (본인 아이디로 결제내역 검색하는 형태, 아이디는 세션에서 가져온다)
 	public List<PayDto> showPayList(String payMemberId) throws Exception {
 		Connection con = JdbcUtils.getConnection();
@@ -196,4 +137,211 @@ public class PayDao {
 		return count;
 	}
 	
+	
+	// 결제 등록 (pay.jsp)
+	// 1.시퀀스 생성
+	public int getSequence() throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select pay_seq.nextval from dual";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int number = rs.getInt("nextval");
+		
+		con.close();
+		
+		return number;
+	}
+	
+	
+	// 2. 입력 sql
+	public void addPaymentHistory(PayDto payDto) throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "insert into pay(pay_order_no, pay_member_id, pay_room_no,"
+	            +"pay_people, pay_roomtype, pay_checkin, pay_checkout,"
+	            +"pay_date, pay_total_price)"
+				+"values(?,?,?,?,?,?,?,?,?)";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ps.setInt(1, payDto.getPayOrderNo());
+		ps.setString(2, payDto.getPayMemberId());
+		ps.setInt(3, payDto.getPayRoomNo());
+		ps.setInt(4, payDto.getPayPeople());
+		ps.setString(5, payDto.getPayRoomtype());
+		ps.setDate(6, payDto.getPayCheckIn());
+		ps.setDate(7, payDto.getPayCheckOut());
+		ps.setDate(8, payDto.getPayDate());
+		ps.setInt(9, payDto.getPayTotalPrice());
+		
+		ps.execute();
+	
+		con.close();
+	}
+	
+	
+	// 결제 취소 => delete.jsp
+	public boolean paymentCancel(int payOrderNo) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "delete where pay_order_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, payOrderNo);
+		int count = ps.executeUpdate();
+		
+		con.close();
+		
+		return count > 0;
+
+	}
+
+	
+	
+	//체크인 날짜 비교해서 결제 취소 가능하게 하는 구문
+	public boolean paymentCheck (String payMemberId, int payOrderNo) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay where pay_member_id = ? and pay_order_no = ? and pay_checkin - sysdate > 0";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, payMemberId);
+		ps.setInt(2, payOrderNo);
+		ResultSet rs = ps.executeQuery();
+		
+		boolean paymentCheck;
+		
+		if (rs.next()) {
+			paymentCheck = true;
+		}
+		else {
+			paymentCheck = false;
+		}
+		
+		con.close();
+		
+		return paymentCheck;
+		
+	}
+	
+	
+	
+	
+	//체크아웃 날짜 비교해서 후기 쓸수있게 하는 구문
+	public boolean reviewCheck (String payMemberId, int payOrderNo) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay where pay_member_id = ? and pay_order_no = ? and pay_checkout - sysdate < 0";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, payMemberId);
+		ps.setInt(2, payOrderNo);
+		ResultSet rs = ps.executeQuery();
+		
+		boolean reviewCheck;
+		
+		if (rs.next()) {
+			reviewCheck = true;
+		}
+		else {
+			reviewCheck = false;
+		}
+		
+		con.close();
+		
+		return reviewCheck;
+		
+	}
+	
+	// 관리자가 볼 전체 리스트
+	public List<PayDto> totalPayList() throws Exception {
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "select * from pay order by pay_order_no desc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
+			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayDate(rs.getDate("pay_date"));
+			payDto.setPayTotalPrice(rs.getInt("pay_total_price"));
+			
+			list.add(payDto);
+		}
+		con.close();
+		
+		return list;
+	}
+	
+	//날짜 검색 리스트
+	public List<PayDto> selectList(String start, String end) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT * FROM pay WHERE pay_date BETWEEN to_date(?,'YYYY-MM-DD') AND to_date(?,'YYYY-MM-DD')";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, start);
+		ps.setString(2, end);
+		ResultSet rs = ps.executeQuery();
+		
+		List<PayDto> list = new ArrayList<>();
+		while(rs.next()) {
+			PayDto payDto = new PayDto();
+			
+			payDto.setPayOrderNo(rs.getInt("pay_order_no"));
+			payDto.setPayMemberId(rs.getString("pay_member_id"));
+			payDto.setPayRoomNo(rs.getInt("pay_room_no"));
+			payDto.setPayPeople(rs.getInt("pay_people"));
+			payDto.setPayRoomtype(rs.getString("pay_roomtype"));
+			payDto.setPayCheckIn(rs.getDate("pay_checkin"));
+			payDto.setPayCheckOut(rs.getDate("pay_checkout"));
+			payDto.setPayDate(rs.getDate("pay_date"));
+			payDto.setPayTotalPrice(rs.getInt("pay_total_price"));
+			
+			list.add(payDto);
+		}
+		
+		con.close();
+		
+		return list;
+	}
+	
+	//총 결제 금액
+	public long totalPrice() throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT sum(pay_total_price) FROM pay";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		long totalPrice = rs.getLong(1);
+		
+		con.close();
+		
+		return totalPrice;
+	}
+	//날짜별 총 결제 금액
+	public long totalPrice(String start, String end) throws Exception{
+		Connection con = JdbcUtils.getConnection();
+		
+		String sql = "SELECT sum(pay_total_price) FROM pay WHERE pay_date BETWEEN to_date(?,'YYYY-MM-DD') AND to_date(?,'YYYY-MM-DD')";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, start);
+		ps.setString(2, end);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		long totalPrice = rs.getLong(1);
+		
+		con.close();
+		
+		return totalPrice;
+	}
 }

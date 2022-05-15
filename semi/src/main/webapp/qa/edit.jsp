@@ -2,7 +2,25 @@
 <%@page import="semi.beans.QaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript">
+            function lengthCount(){
+                //준비
+                var textarea = document.querySelector("textarea[name=qaContent]");
+                var span = document.querySelector(".len");
 
+                //처리
+                var text = textarea.value;
+                var count = text.length;
+
+                while(count>1000){
+                    textarea.value = textarea.value.substring(0, count-1);
+                    count --;
+                }
+                //출력
+                span.textContent = count;
+              
+            }
+        </script>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 	<%
@@ -19,7 +37,7 @@
 				<h1>게시글 수정</h1>
 					<div class="row">
 						<label>제목</label>
-						<input type="text" name="qaTitle" class="form-input fill input-round" value="<%=qaDto.getQaTitle() %>">
+						<input type="text" name="qaTitle" class="form-input fill input-round" value="<%=qaDto.getQaTitle() %>" autocomplete="off" required>
 					</div>
 					<div class="row">
 						<%if(qaDto.getQaPublic() != null){ %>
@@ -33,7 +51,8 @@
 					</div>
 					<div class="row"> 
 						<label>내용</label>
-						<textarea class="textarea form-input fill input-round"name="qaContent" rows="12"><%=qaDto.getQaContent() %></textarea>
+						<textarea class="textarea form-input fill input-round" name="qaContent" rows="12" oninput="lengthCount();"><%=qaDto.getQaContent() %></textarea>
+						<div class="row"><span class="len">0</span>/1000</div>
 					</div>
 					<div class="row">
 						<button type="submit" class="btn btn-primary fill">등록</button>
@@ -43,4 +62,3 @@
 					</div> 
 			</div>
 	</form>
-<jsp:include page="/template/footer.jsp"></jsp:include>

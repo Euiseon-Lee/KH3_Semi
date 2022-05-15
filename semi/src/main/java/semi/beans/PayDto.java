@@ -14,6 +14,9 @@ public class PayDto {
 	  private Date payDate;			// 결제완료된 날짜
 	  private int payTotalPrice;	// 총 금액
 	  
+	  //payDate String용
+	  private String payDateString;
+	  
 	  
 	public int getPayOrderNo() {
 		return payOrderNo;
@@ -68,6 +71,12 @@ public class PayDto {
 	}
 	public void setPayTotalPrice(int payTotalPrice) {
 		this.payTotalPrice = payTotalPrice;
+	}
+	public String getPayDateString() {
+		return payDateString;
+	}
+	public void setPayDateString(String payDateString) {
+		this.payDateString = payDateString;
 	}
 
 	  

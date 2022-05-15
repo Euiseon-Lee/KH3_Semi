@@ -8,6 +8,7 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <head>
+<<<<<<< HEAD
 	<style>
 	div, span, label, p, header, footer,  
 section, article, aside, nav, a , ul, ol, li {

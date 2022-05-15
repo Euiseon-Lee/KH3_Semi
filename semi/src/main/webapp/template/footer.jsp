@@ -33,8 +33,8 @@
 
                             <div class="row">
                              이용약관  &nbsp;&nbsp; &nbsp;&nbsp;<a harf ="#" class="link">개인정보처리방침</a>&nbsp;&nbsp;
-                                |&nbsp;&nbsp;<a harf ="#" class="link">홈페이지이용약관</a>&nbsp;&nbsp;
-                                |&nbsp;&nbsp;<a harf ="#" class="link">숙박약관</a>
+                                |&nbsp;&nbsp;<a href ="#" class="link">홈페이지이용약관</a>&nbsp;&nbsp;
+                                |&nbsp;&nbsp;<a href ="#" class="link">숙박약관</a>
                             </div>
                 
                         <div class="row">
@@ -47,9 +47,9 @@ TEL 064-735-5114 FAX. 064-753-5415
 
 © 2022 AZURE HOTELS & RESORTS CO., LTD All rights reserved.
                                 </pre>
-                        </div>
+                        </div>  
                     </div>
-            </footer>
+            </footer>  
             
 </main>
 </body>
