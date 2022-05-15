@@ -50,10 +50,6 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 
-	<h3>login = <%=login %></h3>
-	<h3>memberId = <%=memberId %></h3>
-
-
 <div class="container w850 m10 center">
 
 	<div>
