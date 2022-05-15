@@ -43,12 +43,7 @@
 			<h1>게시글 수정</h1>
 		</div>
 		
-		<div class="row">
-			<label>제목</label>
-			<input type="text" name="reviewTitle" autocomplete="off" required value = "<%=reviewDto.getReviewTitle()%>" class="form-input fill input-round"> 
-		</div>
-				
-		<div class="row">
+		<div class="row m10">
 			<label>별점</label>
 			<%
 			int star = reviewDto.getReviewStar();
@@ -95,20 +90,27 @@
 			<%} %>
 		</div>
 		
-		<div class="row">
+					
+		<div class="row m10">
+			<label>제목</label>
+			<input type="text" name="reviewTitle" autocomplete="off" required value = "<%=reviewDto.getReviewTitle()%>" class="form-input fill input-round"> 
+		</div>
+				
+
+		<div class="row m10">
 			<label>내용</label>
 			<textarea name="reviewContent" class="textarea form-input fill input-round" rows="12" autocomplete="off" required oninput="lengthCount();"><%=reviewDto.getReviewContent()%></textarea>
 			<div class="row"><span class="len">0</span>/1000</div>
 		</div>
 
-		<div class="row">
+		<div class="row m10">
 			<button type="submit" class="btn btn-primary fill">수정</button>
 		</div>
 		
 		<div>
 		</div>
 		
-		<div>
+		<div class="m10">
 			<a href="list.jsp" class="link link-btn fill">글목록</a>
 		</div>
 		
