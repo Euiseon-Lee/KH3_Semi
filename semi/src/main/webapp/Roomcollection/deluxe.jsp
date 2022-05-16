@@ -387,7 +387,8 @@ footer {
 				
 			</div>
 		</div >
-		
+	
+	<div class = "container_room">
 		<div class="contentInfoj">
 			<div class="roomContentj">
 				<h1 style="color:black;">&nbsp;Deluxe</h1><br>
@@ -483,7 +484,7 @@ footer {
 				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none" colr = "black">이용후기 보기</div>
 
 </div>
-
+</div>
    
 </body>
 
