@@ -32,11 +32,20 @@
         <input type="password" name="memberPw" class="underline fill" required >
         </div>
          
+         <!-- 비밀번호 틀릴 경우 출력할 메세지 -->
+         <% if(request.getParameter("error") != null) { %>
+		<div class="row center m20">
+			<h4 style="color:red;">비밀번호가 일치하지 않습니다</h4>	
+		</div>
+		<% } %>  		
+         	
         <!-- 탈퇴하기 버튼 -->
         <div class="row  center m20">
         <button type="submit" class="btn fill">탈퇴하기</button>
         </div>
         </div>
         
+        
+        	
     </form>
  <jsp:include page="/template/footer.jsp"></jsp:include>

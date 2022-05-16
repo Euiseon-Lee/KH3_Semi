@@ -883,3 +883,16 @@
 	    color: red;
 	}
 	
+	
+	.warning {
+		text-align: center;
+		font-weight: bold;
+		color: rgb(186, 0, 0)
+	}
+	
+	.rejoin {
+		text-align: center;
+		font-weight: bold;
+		color: rgb(100, 100, 100)
+	}
+	
