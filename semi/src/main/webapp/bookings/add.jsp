@@ -1,37 +1,59 @@
+<%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%
+//현재 날짜 구하기
+	LocalDate today = LocalDate.now();
+	
+%>
+<jsp:include page="/template/header.jsp"></jsp:include>
 <head>
-<meta charset="UTF-8">
-<title>예약 정보 받는 jsp(타입,체크인아웃)</title>
+<<<<<<< HEAD
+	<style>
+	div, span, label, p, header, footer,  
+section, article, aside, nav, a , ul, ol, li {
+    border:none;
+}
+	</style>
 </head>
-<body>
-	<h1>원하시는 객실 타입, 체크in-out날짜를 입력해주세요</h1>
-	<form action = "add.kh">
-	<div>
-		<label>객실 타입</label>
-		<select name = "bookingRoomType">
-			<option>스탠다드</option>
-			<option>디럭스</option>
-			<option>프리미어</option>
-			<option>스위트</option>
-		</select>
-	</div>
-	
-	<div>
-			<label>체크인</label>
-		<input type = "date" name = "bookingCheckIn">		 
-	</div>
-	
-	<div>
-		<label>체크아웃</label>
-		<input type = "date" name = "bookingCheckOut">		 
-	</div>
-	<div>
-		<input type ="submit" value = "다음">
-	</div>
-	</form>
-	<h3>지난 날짜는 입력안되게 하는 기능 해야한다</h3>
-</body>
-</html>
+
+	 <div class="container w850 m40">
+       <div class = "row center">
+           <h1>BOOKING</h1>
+       </div>
+       <div class = "row center m30">
+           <span id="han" style="font-size:17px">01객실타입 선택</span>&nbsp;&nbsp;
+           <span id="han1" style="font-size:17px">02호실,인원 선택</span>&nbsp;&nbsp;
+           <span id="han1" style="font-size:17px">03예약정보 확인</span>
+       </div>
+       <div class = "row center m30">
+        <form action = "possibleRooms.jsp" method = "get">
+            <span>
+                <select name = "bookingRoomType" class = "han2">
+                    <option value = "">객실타입을 선택해주세요.</option>
+                    <option>스탠다드</option>
+                    <option>디럭스</option>
+                    <option>프리미어</option>
+                    <option>스위트</option>
+                </select>
+            </span>&nbsp;&nbsp;&nbsp;
+            
+            <span>
+                <input type = "date" class ="han2" name = "bookingCheckIn" required min = "<%=today%>" value = "<%=today%>">		 
+            </span>&nbsp;&nbsp;&nbsp;
+            
+            <span>
+                <input type = "date" class ="han2" name = "bookingCheckOut" required min = "<%=today%>" value = "<%=today%>">		 
+            </span>&nbsp;
+            <span>
+                <input type ="submit" value = "다음" class ="han-button">
+            </span>
+            </form>
+             <div class="row center m50">
+         
+            	<img src = "<%=request.getContextPath() %>/image/hansoek1.png" width = "700px">
+           
+        </div>
+       </div>
+    </div>
+<jsp:include page="/template/footer.jsp"></jsp:include>

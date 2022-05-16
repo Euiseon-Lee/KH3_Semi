@@ -14,35 +14,36 @@
 	ReviewDao reviewDao = new ReviewDao();
 	reviewDto = reviewDao.showDetail(reviewNo);
 %>
+    <script type="text/javascript">
+            function lengthCount(){
+                //준비
+                var textarea = document.querySelector("textarea[name=reviewContent]");
+                var span = document.querySelector(".len");
 
+                //처리
+                var text = textarea.value;
+                var count = text.length;
 
-<%
-	//필터 만들면 삭제할 인코딩 코드
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=utf-8");
-%>  
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>후기 게시판 글수정(디자인 전)</title>
-</head>
-<body>
+                while(count>1000){
+                    textarea.value = textarea.value.substring(0, count-1);
+                    count --;
+                }
+                //출력
+                span.textContent = count;
+              
+            }
+        </script>
+<jsp:include page="/template/header.jsp"></jsp:include>
 
 <form action="edit.kh" method="post">
 	<input type="hidden" name="reviewNo" value="<%=reviewDto.getReviewNo() %>">
 	
-	<div>
-		<div>게시글 수정</div>
-		
-		<div>
-			<label>제목</label>
-			<input type="text" name="reviewTitle" autocomplete="off" required value = <%=reviewDto.getReviewTitle()%>>
+	<div class="container w850 m10 center">
+		<div class="row center m40">
+			<h1>게시글 수정</h1>
 		</div>
-				
-		<div>
+		
+		<div class="row m10">
 			<label>별점</label>
 			<%
 			int star = reviewDto.getReviewStar();
@@ -89,24 +90,31 @@
 			<%} %>
 		</div>
 		
-		<div>
+					
+		<div class="row m10">
+			<label>제목</label>
+			<input type="text" name="reviewTitle" autocomplete="off" required value = "<%=reviewDto.getReviewTitle()%>" class="form-input fill input-round"> 
+		</div>
+				
+
+		<div class="row m10">
 			<label>내용</label>
-			<textarea name="reviewContent" autocomplete="off" required><%=reviewDto.getReviewContent()%></textarea>
+			<textarea name="reviewContent" class="textarea form-input fill input-round" rows="12" autocomplete="off" required oninput="lengthCount();"><%=reviewDto.getReviewContent()%></textarea>
+			<div class="row"><span class="len">0</span>/1000</div>
 		</div>
 
-		<div>
-			<button type="submit">수정</button>
+		<div class="row m10">
+			<button type="submit" class="btn btn-primary fill">수정</button>
 		</div>
 		
 		<div>
 		</div>
 		
-		<div>
+		<div class="m10">
 			<a href="list.jsp" class="link link-btn fill">글목록</a>
 		</div>
 		
 	</div>
 </form>
 
-</body>
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

@@ -56,7 +56,19 @@
 		<url-pattern>/review/edit.kh</url-pattern>
 		<url-pattern>/review/delete.kh</url-pattern>
 		<url-pattern>/mypage/*</url-pattern>
+		<url-pattern>/bookings/*</url-pattern>
+		<url-pattern>/manager/*</url-pattern>
     </filter-mapping>
+    
+    <filter>
+    	<filter-name>managerFilter</filter-name>
+    	<filter-class>semi.filter.ManagerFilter</filter-class>
+    </filter>
+
+	<filter-mapping>
+		<filter-name>managerFilter</filter-name>
+		<url-pattern>/manager/*</url-pattern>
+	</filter-mapping>
     
     <filter>
     	<filter-name>boardOwnerFilter</filter-name>

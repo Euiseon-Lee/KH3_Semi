@@ -75,10 +75,6 @@
 		<h1>Q/A 게시판</h1>
 	</div>
 	
-	<div align="right" >
-		<a class="link link-btn" href="write.jsp">글작성</a>
-	</div>
-	
 	<div>
 		<table class="table table-underline table-hover">
 			<thead>
@@ -177,6 +173,7 @@
 		<form action="list.jsp" method="get">
 			<select name ="type" class="form-input input-round">
 				<option value ="qa_title">제목</option>
+				<option value="qa_content">내용</option>
 			</select>
 			<input type ="search" name="keyword" required autocomplete="off">
 			<button type ="submit" class="btn btn-primary">검색</button>
