@@ -624,8 +624,9 @@
         }
 
         ul.menu>li.reserve{ /*예약메뉴 크게*/
-            width: 200px; /*(4)*/
-            float: left;
+            width: 450px; /*(4)*/
+            background-color: rgb(231, 236, 239);
+            float: right;
         }
 
         /*(5) 2차이상의 메뉴를 숨긴다*/
@@ -667,6 +668,7 @@
             color: white;
         }
 
+
         ul.menu a:hover{
             font-weight: bold;
             color: rgb(125, 125, 125);
@@ -686,6 +688,7 @@
         ul.menu>li.right-menu{
             float: right;
         }
+        
 
         /*(12) 3차메뉴 이상을 선택*/
         ul.menu > li > ul ul{
