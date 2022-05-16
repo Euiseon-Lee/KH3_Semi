@@ -101,7 +101,15 @@
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">객실소개</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">Standard</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/deluxe.jsp">Deluxe</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/premier.jsp">Premier</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/Suite.jsp">Suite</a></li>
+                            
+                        </ul>
                     </li>  
+  
                     <li>
                         <a href="#">부대시설</a>
                         <ul>

@@ -49,7 +49,7 @@
 }
 
 .tablej a:link {
-	color: blue;
+	color: white;
 	text-decoration: none; /*밑줄 제거*/
 }
 
@@ -59,7 +59,7 @@
 }
 
 .tablej a:hover { /*객실 hover 처리 */
-	color: blue;
+	color: black;
 	text-decoration: none;
 }
 
