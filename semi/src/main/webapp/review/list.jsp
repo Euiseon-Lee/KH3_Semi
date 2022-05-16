@@ -75,9 +75,6 @@
 			<h1>후기게시판 글목록</h1>
 		</div>
 		
-		<div align="right">
-			<a href ="write.jsp" class="link link-btn">글 작성</a>	<!-- 추후 주문내역 상세페이지에 붙일 예정 -->
-		</div>
 		
 		<div>
 			<table class="table table-underline table-hover">	
