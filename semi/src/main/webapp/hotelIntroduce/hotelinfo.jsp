@@ -46,7 +46,7 @@
 }
 
 .tablej a:link {
-	color: blue;
+	color: white;
 	text-decoration: none; /*밑줄 제거*/
 }
 
@@ -56,7 +56,7 @@
 }
 
 .tablej a:hover { /*객실 hover 처리 */
-	color: blue;
+	color: black;
 	text-decoration: none;
 }
 
@@ -111,20 +111,21 @@
     }
 
    .hotel_info{
-       padding: 10px;
-       position: relative;
-       width: 1000px;
-       font-size: 20px;
-       right: -2px
-       
+     padding: 10px;
+    position: relative;
+    width: 1000px;
+    font-size: 20px;
+    right: -51px;
+    top: 45px;
    }
 
     .hotelintro_img{
-    position: relative;
+   position: relative;
     width: 909px;
-    left: 209px;
+    left: 266px;
     padding: 73px;
-    top: -45px;
+    top: -7px;
+
     }
 
 
@@ -169,6 +170,7 @@
       꾸며진 Azure 호텔은 세계 유명작가들의 <br>
       예술작품과 아열대정원, 그리고 싱그러운 미소와 정성 어린 서비스가 어우러진 고급 호텔입니다.  
   </div>
+  </div>
   
 
  <table class="hotel_info" >
@@ -184,10 +186,6 @@
     <tr>
         <td style = "color: white; background-color: rgb(39, 76, 119);">대표전화</td>
         <td>064-735-5114, 팩스 : 064-735-5414</td>
-    </tr>
-    <tr>
-        <td style = "color: white; background-color: rgb(39, 76, 119);">홈페이지</td>
-        <td>주소 넣어주세요</td>
     </tr>
     <tr>
         <td style = "color: white; background-color: rgb(39, 76, 119);">부지면적</td>
@@ -229,8 +227,9 @@
         <td style = "color: white; background-color: rgb(39, 76, 119);">제휴호텔</td>
         <td>일본 오꾸라 호텔, 인도 Taj호텔 제휴</td>
     </tr>
-</div>
+	 </div>
  </table>
+
 
   <div class = hotelintro_img>
     <div> <img src= "<%=request.getContextPath()%>/image/info.jpg" width= "100%" height= "100%"></div>

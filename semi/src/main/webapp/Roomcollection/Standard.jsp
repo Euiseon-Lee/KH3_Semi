@@ -85,7 +85,7 @@ footer {
 }
 
 .tablej a:link {
-	color: blue;
+	color: white;
 	text-decoration: none; /*밑줄 제거*/
 }
 
@@ -95,7 +95,7 @@ footer {
 }
 
 .tablej a:hover { /*객실 hover 처리 */
-	color: blue;
+	color: black;
 	text-decoration: none;
 }
 
@@ -146,6 +146,7 @@ footer {
 	left: 330px;
 	margin-bottom: 300px;
 	font-size: large;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .roomContentj {
@@ -155,7 +156,6 @@ footer {
 	top: 49px;
 	left: 59px;
 	font-family: 'Noto Sans KR', sans-serif;
-
 }
 
 .infoContentj {
@@ -164,18 +164,20 @@ footer {
     left: 10px;
     font-size: small;
     line-height: 18px;
-    top: 102px;
-    background: mintcream;
-    border: 1px solid black;
+    top: 122px;
+    background: rgb(250, 249, 247);
+    font-family: 'Noto Sans KR', sans-serif;
+  
     
 }
 }
 
 .use_room{
 	border: 1px solid black;
-	background: mintcream;
+	background: rgb(250, 249, 247);
 	height: 10px; 
-	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 5px;
 	
 }
 
@@ -190,14 +192,16 @@ footer {
 }
 
 .hotelInfoj {
-	width: 436px;
+    width: 436px;
     height: 657px;
     position: relative;
     bottom: -111px;
     left: 152%;
-    background-color: mintcream;
-    box-shadow: 1px 2px 1px #000;
-    border: 1px solid grey;
+    background-color: rgb(250, 249, 247);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size : 30px;
+
+  
 }
 
 .hotelTablej {
@@ -226,7 +230,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(250, 249, 247);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -256,7 +260,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(250, 249, 247);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -286,7 +290,7 @@ footer {
 	padding: 14px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(250, 249, 247);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -316,18 +320,18 @@ footer {
 	top: 183px;
 	left: 10px;
 	color: black;
-	background: mintcream;
-	border: 1px solid black;
+	background: rgb(250, 249, 247);
+	
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
 
 .roomcentent1 {
 	
-background: mintcream;
+	background: rgb(250, 249, 247);
     margin: 10px;
     padding: 10px;
-    border: 1px solid black;
+  
     font-family: 'Noto Sans KR', sans-serif;
     width: 471px;
 }
@@ -341,7 +345,10 @@ background: mintcream;
     width: 945px;
     height: 857px;
   
+.hotel_info{
 
+	text: center;
+}
 
 </style>
 
@@ -383,13 +390,14 @@ background: mintcream;
 		
 		<div class="contentInfoj">
 			<div class="roomContentj">
-				<h1 style="color:grey;">&nbsp;Standard</h1><br>
-				<div class ="roomcentent1"> &nbsp;&nbsp; - 제주의 푸른 하늘과 안락한 풍경을 제공하는 &nbsp;&nbsp;&nbsp;&nbsp;스탠다드 룸 <br>
-				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - Azure호텔의 가장 기본 객실로 2~3층에 <br>&nbsp;&nbsp;&nbsp;&nbsp;위치하고 있습니다
+				<h1 style="color:black;">&nbsp;Standard</h1><br>
+				<div class ="roomcentent1"> &nbsp;&nbsp; - 제주의 푸른 하늘과 안락한 풍경을 제공하는 스탠다드 룸 <br> 
+				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - Azure호텔의 가장 기본 객실로 2~3층에 위치하고 <br> &nbsp;&nbsp; &nbsp; 있습니다
+				
 				</div>
 				
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br> &nbsp;&nbsp;기본 타입 룸
-				<div><br>&nbsp;&nbsp; - 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br> &nbsp;&nbsp; - 기본 타입 룸
+				<div><br>&nbsp;&nbsp; - 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
 				</div>
 		
 					
@@ -429,9 +437,11 @@ background: mintcream;
 		
 		<div class="hotelInfoj">
 			<table class="hotelTablej">
+				
 				<tr>
-					<td text-align="center"><h2>Hotel Info</h2></td>
+					<td><h2>Hotel Info</h2></td>
 				</tr>
+			
 				<tr>
 					<td>
 						<br><h4>조식/석식 이용 안내</h4>
@@ -468,10 +478,9 @@ background: mintcream;
 			</table>
 		</div >
 		
-		<div class="rooms__button">예약하기 </div>
-		<div class="rooms__button1">문의하기 </div>
-		<div class="rooms__button2">객실 어매니티 보기</div>
-	
+		<div class="rooms__button" ><a href=<%=request.getContextPath()%>/bookings/add.jsp" style="text-decoration:none" >예약하기</a></div>
+		<div class="rooms__button1"><a href="<%=request.getContextPath()%>/qa/list.jsp" style="text-decoration:none" >문의하기</a></div>
+		<div class="rooms__button2"><a href="<%=request.getContextPath()%>/" style="text-decoration:none">객실 어매니티 보기</div>
 
 </div>
 
@@ -480,5 +489,3 @@ background: mintcream;
 
  <!-- footer -->
 <jsp:include page="/template/footer.jsp"></jsp:include>
-	
-	
