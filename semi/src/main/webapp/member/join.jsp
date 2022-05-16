@@ -256,7 +256,7 @@
 
 <form action="join.kh" method="post"  onsubmit="return formCheck();">
   
-<!-- jquery 약관동의 전체 동의 체크박스 선택 시 모두 선택되게 구현 예정 : .select-all -->
+
 <!-- jquery 아이디, 이메일 중복검사, 형식검사 예정 : 아이디는 "영문소문자, 숫자 8~20자" -->
 <!-- 비밀번호 확인 기능 추가 예정 -->  
 
@@ -371,7 +371,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
     <div class="row">
 	<label>아이디</label>
 	<span class="star">*</span> 
-    <input type="button" value="중복확인">
+<!--     <input type="button" value="중복확인"> -->
     </div>
 	<input type="text" name="memberId" class="input underline fill " required autocomplete="off" onblur="memberIdCheck();">
 	                <span class="correct">사용가능한 아이디입니다</span>
@@ -432,7 +432,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 <div class="row cneter m20">
 	<label>이메일</label>
 	<span class="star">*</span> 
-    <input type="button" value="중복확인">  
+<!--     <input type="button" value="중복확인">   -->
 	<input type="email" name="memberEmail" class="underline fill" required autocomplete="off">
 </div>
 

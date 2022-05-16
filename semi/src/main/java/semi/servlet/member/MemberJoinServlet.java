@@ -36,9 +36,12 @@ public class MemberJoinServlet extends HttpServlet {
 			// 처리
 			MemberDao memberDao = new MemberDao();
 			memberDao.join(memberDto);
+			
+		
 
 			// 출력
 			//resp.sendRedirect("join_finish.jsp");
+			
 			resp.sendRedirect(req.getContextPath()+"/member/join_finish.jsp");
 
 		} catch (Exception e) {  

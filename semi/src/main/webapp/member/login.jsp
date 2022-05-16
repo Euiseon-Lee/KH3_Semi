@@ -27,11 +27,11 @@
 	<input type="password" name="memberPw" required  class="underline fill" placeholder="비밀번호">
 </div>
 
-<!-- 아이디 기억하기 체크박스 -->
-<div class="row left m20">  
-	<input type="checkbox" name="idSave" class="input">
-	<span>아이디 저장</span>
-</div>
+<!-- <!-- 아이디 기억하기 체크박스 -->
+<!-- <div class="row left m20">   -->
+<!-- 	<input type="checkbox" name="idSave" class="input"> -->
+<!-- 	<span>아이디 저장</span> -->
+<!-- </div> -->
 
 <!-- 로그인 버튼 -->
  <div class="row center m20">
