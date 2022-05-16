@@ -73,7 +73,7 @@
         </div>
         	<% if(request.getParameter("error") != null){ %>
 		<div class="row center">
-			<h3 style="color:red;">비밀번호가 일치하지 않습니다</h3>		
+			<h3 style="color:red">비밀번호가 일치하지 않습니다</h3>		
 		</div>	    
 	<%} %>
         
