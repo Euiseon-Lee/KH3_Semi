@@ -480,7 +480,7 @@ footer {
 		
 		<div class="rooms__button" ><a href=<%=request.getContextPath()%>/bookings/add.jsp" style="text-decoration:none" >예약하기</a></div>
 		<div class="rooms__button1"><a href="<%=request.getContextPath()%>/qa/list.jsp" style="text-decoration:none" >문의하기</a></div>
-		<div class="rooms__button2"><a href="<%=request.getContextPath()%>/" style="text-decoration:none">객실 어매니티 보기</div>
+				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none">이용후기 보기</div>
 
 </div>
 
