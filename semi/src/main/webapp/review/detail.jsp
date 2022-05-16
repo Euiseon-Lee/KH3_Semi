@@ -120,12 +120,16 @@
 			
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
-				<%if(isAdmin || isOwner){ %>
+				<%if(isOwner){ %>
 				<a class="link link-btn" href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
 				<a class="link link-btn" href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
 				</div>
 				<%} %>
 
+				<%if(isAdmin){ %>
+				<a class="link link-btn" href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				</div>
+				<%} %>
 		
 		
 		<!-- 여기부터(댓글관련 코드-한석) 뒤에 코드끝지점 표시해놓음-->
