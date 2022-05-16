@@ -56,11 +56,11 @@
 <div class="container w850 m10 center">
 
 	<div class="row center m40">
-		<h1 class="title-text">결제내역 상세페이지</h1>
+		<h1 class="title-text m10">결제내역 상세페이지</h1>
 	</div>
 	
 	
-	<div class="row center">
+	<div class="row center m30">
 		<table class="table table-underline table-hover">
 			<tr>
 				<th width="40%" class="middle-text-center" style="font-weight: bold">주문번호 [결제 상태]</th>

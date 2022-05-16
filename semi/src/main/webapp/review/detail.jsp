@@ -1,4 +1,4 @@
-<%@page import="semi.beans.PayDto"%>
+g<%@page import="semi.beans.PayDto"%>
 <%@page import="semi.beans.PayDao"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.ReviewReplyDao"%>
@@ -132,18 +132,19 @@
 		<!-- 댓글 작성 영역: 한석 -->
 		<tr>
 			<td align = "right">
-			<%--작성할 때 공개or비공개 선택해서 나오게끔 구현(시간남으면) --%>
+			<%--작
+			성할 때 공개or비공개 선택해서 나오게끔 구현(시간남으면) --%>
 			<%if(isLogin){ %>
 			<form action = "reply_insert.kh" method = "post">
 				<input type = "hidden" name= "replyTarget" value = "<%=reviewDto.getReviewNo()%>"> 
-				<textarea class="form-input fill input-round" name = "replyContent" rows ="4" cols = "95"></textarea><br>
+				<textarea class="form-input fill input-round" name = "replyContent" rows ="4" cols = "95" required></textarea><br>
 				<div 	align="right">
 				<button type = "submit"  class="btn btn-primary">댓글 작성</button>
 				</div>
 			</form>
 			<%}else{ %>
 				
-					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능" l></textarea>
+					<textarea rows = "4" cols = "70" disabled placeholder = "로그인 후 댓글 입력 가능" ></textarea>
 					<input type = "submit" value = "댓글 작성" disabled>
  				
 			<%}%>
@@ -200,8 +201,8 @@
 						<form action = "reply_edit.kh" method = "post">
 								<input type = "hidden"  name = "replyNo" value = "<%=reviewReplyDto.getReplyNo() %>">
 								<input type = "hidden" name= "replyTarget" value = "<%=reviewReplyDto.getReplyTarget()%>"> 
-								<textarea name = "replyContent" rows ="2" cols = "50"><%=reviewReplyDto.getReplyContent() %></textarea><br>
-								<input type ="button" value = "변경 취소">
+								<textarea name = "replyContent" rows ="2" cols = "100"><%=reviewReplyDto.getReplyContent() %></textarea><br>
+								<input type ="button" value = "변경 취소" class = "cancel-btn"> 
 								<input type = "submit" value = "댓글 수정">
 						</form>
 						</td>
@@ -213,7 +214,25 @@
 
 		</tr>
 		<!-- jquery이용해서 수정,취소버튼 누를시 화면 변경되게 구현 -->
-
+			<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	$(function(){
+		//class="edit-btn"를 클릭하면 class="show-row"를 숨기고 class="show-row" 뒷부분을 보여준다.
+		$(".edit-btn").click(function(){
+			$(this).parents(".show").hide();
+			$(this).parents(".show").next().show();
+		});
+		
+		//class="cancel-btn"를 클릭하면 class="edit-row"를 숨기고 class="edit-row" 앞부분을 보여준다.
+		$(".cancel-btn").click(function(){
+			$(this).parents(".edit").hide();
+			$(this).parents(".edit").prev().show();
+		});
+		
+		//최초에 class="edit-row"는 숨긴다.
+		$(".edit").hide();
+	});
+</script>
 
 		<!-- 여기까지(댓글관련 코드-한석) -->				
 </div>
