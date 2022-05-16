@@ -72,7 +72,7 @@
     <a href="<%=request.getContextPath()%>/bookings/bookingsList.jsp" class="link link-btn" >예약내역 목록보기</a>
     <a href="<%=request.getContextPath()%>/mypage/password.jsp" class="link link-btn" >비밀번호 변경</a>
     <a href="<%=request.getContextPath()%>/mypage/information.jsp" class="link link-btn" >개인정보 변경</a>
-    <a href="<%=request.getContextPath()%>/mypage/exit.jsp" class="link link-btn" >탈퇴하기</a>  
+    <a href="<%=request.getContextPath()%>/mypage/exit.jsp" class="link link-btn" >탈퇴하기</a>   
     </div>
 </div>
 
