@@ -40,13 +40,6 @@ g<%@page import="semi.beans.PayDto"%>
 
 	String reviewWriterGrade = memberDto.getMemberGrade();
 	
-	
-	//작성자 주문 조회 코드 => 객실타입 출력
-	
-	
-	
-
-	
 
 	
 	//관리자인지 판정하기 위한 코드 (이걸로 댓글 수정을 관리자만 가능하게 구현)
@@ -191,7 +184,7 @@ g<%@page import="semi.beans.PayDto"%>
 						</a>
 						<%} %>
 						<%-- 댓글 삭제 이미지(본인이 쓴 댓글일때만 나오게)--%>
-						<%if(isMyReply){ %>
+						<%if(isMyReply || isAdmin){ %>
 						<a href = "reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
 						<img src = "<%=request.getContextPath() %>/image/delete.png" width = "20">
 						</a>
