@@ -34,7 +34,7 @@
          
         <!-- 탈퇴하기 버튼 -->
         <div class="row  center m20">
-        <input type="submit" value="탈퇴하기" class="btn fill">
+        <button type="submit" class="btn fill">탈퇴하기</button>
         </div>
         </div>
         

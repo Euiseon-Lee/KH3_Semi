@@ -83,7 +83,7 @@ $(function(){
 
             <!--예약/검색 바 영역-->
            
-            <div class="container w800 m30">
+            <div class="container w800 m50">
                 <div class="row float-container">
                     <div class="float-left layer-4">
                         <select name="roomtype" class="form-input fill">
@@ -110,24 +110,22 @@ $(function(){
      
 
             <!--객실 이미지 소개 영역-->
-            <setion>
-            	<div class="row left m10">
-                <div>
-                    <h1>ROOM</h1>
+            <section>         
+            <div class="container m50">
+            	<div class="row">
+                    <h1>&nbsp;&nbsp;&nbsp;ROOM</h1>
+                    </div>
+                    <div class="row">
+                    <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp"  class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
                 </div>
-                <div>
-                    <a href="<%=request.getContextPath()%>/roomintroduce/list.jsp"  class="link">> VIEW MORE</a>
-                </div>
-                </div>
-                <div class="container w500" m20></div>
-                <div class="row">
+                
                         <!--객실 이미지 에니메이션 영역-->
             <!--슬라이드 이미지 변경 예정-->
                 <div class="swiper swiper_mainroom back-box">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="<%=request.getContextPath()%>/image/standard.jpg" width="120%" height="120%">
-                            <a href="<%=request.getContextPath()%>/hotelintroduce/list.jsp" class="link zindex">view more</a>
+                            <a href="<%=request.getContextPath()%>/hotelintroduce/list.jsp" class="link zindex">view more ></a>
                         </div>
                         <div class="swiper-slide">
                           <img src="<%=request.getContextPath()%>/image/deluxe.jpg" width="120%" height="120%">
@@ -144,17 +142,15 @@ $(function(){
                         <div class="swiper-button-next"></div>
                     </div>
                 </div>
-                </div>
-            </div>
         </section>
 
-        <!--이벤트 표시 영역-->
+        <!--부대시설 표시 영역-->
         <section>
-            <div class="row">
-            <h1>AMENITIES</h1>
+            <div class="row m10">
+            <h1>&nbsp;&nbsp;&nbsp;AMENITIES</h1>
             </div>
             <div>
-                <a href="#" class="link">> VIEW MORE</a>
+                <a href="<%=request.getContextPath()%>" class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
             </div>
 
             <div class="row float-container">

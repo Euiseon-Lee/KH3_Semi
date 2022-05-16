@@ -68,7 +68,7 @@
          </div>
          
          <div class="row center m20">
-             <input type="submit" class="btn" value="정보 수정">
+             <button type="submit" class="btn" >정보 수정</button>
          </div>
         </div>
         	<% if(request.getParameter("error") != null){ %>
