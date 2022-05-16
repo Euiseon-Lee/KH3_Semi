@@ -16,7 +16,7 @@
 	%>
 
       <form action="information.kh" method="post">
-        <div class="container w800 m40 ">
+        <div class="container w800 m40 ">  
             <div class="row center m30">
             <h1 class="title-text">회원 정보변경</h1>
         </div>
