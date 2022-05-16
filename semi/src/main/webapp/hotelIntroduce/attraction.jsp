@@ -131,7 +131,7 @@
 				<td><a href="attraction.jsp">주변관광지</a></td>
 			</tr>
 			<tr>
-				<td><a href="away">오시는길</a></td>
+				<td><a href="away.jsp">오시는길</a></td>
 			</tr>
 		</table>
 	</div>
