@@ -152,7 +152,7 @@ footer {
 }
 
 .roomContentj {
-	position: absolute;
+     	position: absolute;
 	width: 408px;
 	height: 17%;
 	top: 49px;
