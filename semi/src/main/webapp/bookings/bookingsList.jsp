@@ -9,7 +9,7 @@
 		String memberId = (String)request.getSession().getAttribute("login");
 		//예약목록 메소드 불러오기	
 		BookingsDao bookingsDao = new BookingsDao();
-		List<BookingsDto> list = bookingsDao.selectList("testuser");
+		List<BookingsDto> list = bookingsDao.selectList(memberId);
 		
 	
 	%>
@@ -60,7 +60,5 @@
 			</tbody>	
 				
 		</table>
-		<h3>테스트용으로 아이디 testuser로 넣어놈(수정해야함)</h3>
-		<h3>예약취소는 확인창 띄워줄까?</h3>
 	</div>
 <jsp:include page="/template/footer.jsp"></jsp:include>

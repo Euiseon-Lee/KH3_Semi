@@ -79,7 +79,7 @@
                 <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
             <div>
-                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
+                <a href="#" class="link link-header link1">관리자</a>
                 
             </div>
 		<%} %>
@@ -119,7 +119,7 @@
                     <!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 
                         <li>
-                        <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
+                        <a href="#">관리자페이지</a>
                         <ul>
                             <li><a href="<%=request.getContextPath()%>/manager/season.jsp">시즌수정</a></li>
                             <li><a href="<%=request.getContextPath()%>/manager/rooms.jsp">가격수정</a></li>
