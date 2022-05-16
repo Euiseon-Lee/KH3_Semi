@@ -4,6 +4,30 @@
 <!-- header -->
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+    <style>
+        .correct, .incorrect {
+            
+        }
+        .correct { 
+            color:gray;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+            display: none;
+        }
+
+        /* 입력창의 상태에 따라 다른 메세지가 출력되도록 설정 */
+
+        /* 입력창에 ok라는 클래스가 붙으면 그 뒤에 있는 .correct라는 span을 보여주겠다 */
+        .input.ok ~ .correct {
+            display: inline;
+        }
+        /* 입력창에 nok라는 클래스가 붙으면 그 뒤에 있는 .incorrect라는 span을 보여주겠다 */
+        .input.nok ~ .incorrect {
+            display:inline;
+        }
+    </style>
 
 <!--jquery cdn-->
  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -63,51 +87,97 @@
         }
      }
 
-    //아이디 검사
-    //1. 형식 검사 --> 2.중복검사
- $(function(){
-    //상태를 일일이 관리하기 힘드니 각각의 입력창의 상태를 저장하는 객체를 구현
-    //-> form 전송 시 status의 모든 항목이 true라면 전송, 아니면 차단
-    var status={ //-> 안쪽에 만드는게 좋다, 밖에 만들면 조작이 가능하게 됨
-        id:false,
-        nickname:false
-    };
+	
+         function memberIdCheck(){
+             //준비 : 아이디 입력창 , 아이디 검사식
+             var target = document.querySelector("input[name=memberId]");
+             var regex = /^[a-z][a-z0-9-_]{7,19}$/;
+             
+             //처리
+             var memberId = target.value;
+             var judge = regex.test(memberId);
 
-    //아이디 형식검사 
-    $("input[name=memberId").blur(function(){
-    var regex = /[a-z][a-z0-9]{7,19}/;
-    var memberId=$(this).val();
+             //출력
+             target.classList.remove("ok", "nok");//ok, nok 클래스를 모두 제거
+             if(judge){
+                 //클래스 항목에 ok라는 클래스를 추가(classList는 태그에 내장된 내장객체)
+                 target.classList.add("ok");
+                 return true;
+             }
+             else {
+                 target.classList.add("nok");
+                 return false;
+             }
+         }
+         function memberPwCheck(){
+             //준비 : 비밀번호 입력창 , 비밀번호 검사식, 출력대상
+             var target = document.querySelector("input[name=memberPw]");
+             var regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[a-zA-Z0-9!@#$]{8,16}$/;
 
-    var judge = regex.test(memberId);
-    if(!judge){
-        $(this).next("span").text("아이디를 형식에 맞게 작성하세요");
-        status.id=false;
-    }
+             //처리
+             var memberPw = target.value;
+             var judge = regex.test(memberPw);
 
-    var that=this;
+             //출력
+             target.classList.remove("ok", "nok");
+             if(judge){
+                 target.classList.add("ok");
+                 return true;
+             }
+             else {
+                 target.classList.add("nok");
+                 return false;
+             }
+         }
+         function memberPw2Check(){
+             //준비 : 비밀번호 입력창 , 확인창 , 출력대상
+             var target = document.querySelector("#password-check");
+             var origin = document.querySelector("input[name=memberPw]");
+             
+             //처리
+             //1. origin에 값이 없는 경우에는 target을 검사하지 않는다.
+             //2. origin에 값이 있는 경우에는 target의 값과 비교하여 같은지 판정한다.
+             var judge1 = origin.value.length > 0;
+             var judge2 = origin.value == target.value;
 
-    //아이디 중복검사 
-    $.ajax({
-        url:"<%=request.getContextPath()%>/semi/ajax/id.kh?memberId=?"+memberId,
-        type:"get",
-        success:function(resp){
-            if(resp=="NNNNN"){
-                $(that).next("span").text("이미 사용중인 아이디입니다.");
-                status.id=false;
-            }
-            else if(resp=="NNNNY"){
-                $(that).next("span").text("사용 가능한 아이디입니다.");
-                status.id=true;
-            }
-        }
+             //출력
+             target.classList.remove("ok", "nok");
+             if(judge1){
+                 if(judge2){
+                     target.classList.add("ok");
+                     return true;
+                 }
+                 else {
+                     target.classList.add("nok");
+                     return false;
+                 }
+             }
+             else {
+                 target.classList.add("nok");
+                 return false;
+             }
+         }
+       
+         //폼 검사 함수
+         //(1-순차적 실행)
+         function formCheck(){
+             //넷 다 true면 true
+             return memberIdCheck()&&memberPwCheck()
+                     &&memberPw2Check();
+         }
 
-    });
-});
-});
+          //(2-일괄 실행)
+         function formCheck2(){
+             var judge1 = memberIdCheck();
+             var judge2 = memberPwCheck();
+             var judge3 = memberPw2Check();
+             return judge1&&judge2&&judge3;
+         }
+     </script>
     
     
     
-</script>
+
 
 <script>
     function findAddress() {
@@ -184,9 +254,9 @@
     }
   </script>
 
-<form action="join.kh" method="post">
+<form action="join.kh" method="post"  onsubmit="return formCheck();">
   
-<!-- jquery 약관동의 전체 동의 체크박스 선택 시 모두 선택되게 구현 예정 : .select-all -->
+
 <!-- jquery 아이디, 이메일 중복검사, 형식검사 예정 : 아이디는 "영문소문자, 숫자 8~20자" -->
 <!-- 비밀번호 확인 기능 추가 예정 -->  
 
@@ -288,7 +358,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 		</div>
 	
 
-
+ 
 <!-- 회원 정보입력 영역 -->
 <div class="container w800 m40 page">
 <div class="row center m30">
@@ -301,17 +371,11 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
     <div class="row">
 	<label>아이디</label>
 	<span class="star">*</span> 
-    <input type="button" value="중복확인">
+<!--     <input type="button" value="중복확인"> -->
     </div>
-	<input type="text" name="memberId" class="underline fill" required autocomplete="off">
-</div>
-
-<div class="row m20">
-    <div class="row">
-	<label>비밀번호</label>
-	<span class="star">*</span> 
-    </div>
-	<input type="password" class="underline fill" name="memberPw" required placeholder="8자 이상 영문, 숫자, 특수 문자중 3가지 이상 조합">
+	<input type="text" name="memberId" class="input underline fill " required autocomplete="off" onblur="memberIdCheck();">
+	                <span class="correct">사용가능한 아이디입니다</span>
+                <span class="incorrect">형식에 맞게 입력하세요</span>
 </div>
 
 <div class="row m20">
@@ -322,13 +386,25 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 	<input type="date" name="memberBirth" class="underline fill" required placeholder="YYYY-MM-DD" autocomplete="off">
 </div>
 
+<div class="row m20">
+    <div class="row">
+	<label>비밀번호</label>
+	<span class="star">*</span> 
+    </div>
+	<input type="password" class=" input underline fill" name="memberPw" required placeholder="8자 이상 영문, 숫자, 특수 문자중 3가지 이상 조합" onblur="memberPwCheck();">
+	                <span class="correct">사용가능한 비밀번호입니다</span>
+                <span class="incorrect">형식에 맞게 입력하세요</span>
+</div>
+
 
 <div class="row m20">
     <div class="row">
 <label>비밀번호 확인</label>
 <span class="star">*</span>
 </div>
-<input type="password" name="memberPw-check" class="underline fill" required>
+<input type="password" id="password-check" class="input underline fill " required onblur="memberPw2Check();">
+                <span class="correct">비밀번호가 일치합니다</span>
+                <span class="incorrect">비밀번호가 일치하지 않습니다</span>
 </div>
 
 <div class="row m20">
@@ -356,7 +432,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 <div class="row cneter m20">
 	<label>이메일</label>
 	<span class="star">*</span> 
-    <input type="button" value="중복확인">  
+<!--     <input type="button" value="중복확인">   -->
 	<input type="email" name="memberEmail" class="underline fill" required autocomplete="off">
 </div>
 

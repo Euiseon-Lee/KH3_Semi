@@ -19,11 +19,16 @@ public class MypagePasswordServlet extends HttpServlet{
 			req.setCharacterEncoding("UTF-8");
 			String currentPw = req.getParameter("currentPw");
 			String changePw = req.getParameter("changePw");
-			String changePw_check = req.getParameter("changePw-check");
+			String changePw_check = req.getParameter("changePw_check");
+			
+			
 			
 			String memberId = (String) req.getSession().getAttribute("login");
 			
+			
 			//처리
+			
+			
 			boolean isSamePassword = currentPw == null || changePw == null || currentPw.equals(changePw);
 			if(isSamePassword) {
 				resp.sendRedirect("password.jsp?error=1");
@@ -38,17 +43,24 @@ public class MypagePasswordServlet extends HttpServlet{
 				resp.sendRedirect("password.jsp?error=2");
 				return;
 			}
-			memberDao.changePassword(memberId, changePw);
 			
-			boolean isSamePassword_check = changePw == null || changePw_check == null || changePw_check.equals(changePw);
+			//변경할 비밀번호 적합한지 검사 추가 
+			boolean isSamePassword_check = changePw != null && changePw_check != null && changePw_check!=changePw;
 			if(isSamePassword_check) {
 				resp.sendRedirect("password.jsp?error=3");
 				return;
 			}
-			memberDao.changePassword(memberId, changePw);
 			
 			//출력
-			resp.sendRedirect(req.getContextPath()+"/member/logout.kh");
+			//로그아웃 시키기 
+			if(!(isSamePassword_check&&isSamePassword&&isCorrectPassword)) {
+				memberDao.changePassword(memberId, changePw);
+				resp.sendRedirect(req.getContextPath()+"/member/login.jsp");
+			}
+			else {
+				resp.sendRedirect("password.jsp");
+			
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
