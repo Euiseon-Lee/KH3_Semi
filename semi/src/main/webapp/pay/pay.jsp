@@ -13,7 +13,7 @@
     
 <%
 	//준비
-	//예약번호를 기반으로 방 번호 뽑기
+	//예약번호를 기반으로 방 번호 뽑기  
 	int bookingOrderNo = Integer.parseInt(request.getParameter("bookingOrderNo"));
 
 	BookingsDto bookingsDto = new BookingsDto();
@@ -75,7 +75,7 @@
 <div class="container w850 m10 center">
 
 	<div class="row center m50">
-		<h1 class="title-text">예약내역 확인</h1>	
+		<h1 class="title-text">결제내역 확인</h1>	
 	</div>
 
 	
@@ -95,11 +95,11 @@
 			</tr>
 		    <tr>
 				<th width="40%" class="middle-text-center" style="font-weight: bold">체크인</th>
-				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckin()%></td>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckin().substring(0, 10)%></td>
 			</tr>
 			<tr>
 				<th width="40%" class="middle-text-center" style="font-weight: bold">체크아웃</th>
-				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckout()%></td>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckout().substring(0, 10)%></td>
 			</tr>
 			<tr>
 				<th width="40%" class="middle-text-center" style="font-weight: bold">인원</th>

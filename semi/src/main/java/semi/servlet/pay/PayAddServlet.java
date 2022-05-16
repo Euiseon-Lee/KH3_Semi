@@ -56,6 +56,7 @@ public class PayAddServlet extends HttpServlet{
 			payDto.setPayOrderNo(payDao.getSequence());
 			
 			payDao.addPaymentHistory(payDto);
+			bookingsDao.delete(bookingOrderNo);
 			
 			// 주문번호 받을 시 사용
 			resp.sendRedirect(req.getContextPath()+"/pay/pay_success.jsp?payOrderNo="+payDto.getPayOrderNo());

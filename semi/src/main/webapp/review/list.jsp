@@ -170,7 +170,9 @@
 			</div>
 		</div>
 		
-		<div class="row center m10">	<!-- 검색창 구현 -->
+		
+		<!-- 검색창 구현 -->
+		<!-- <div class="row center m10">	
 			<form action="showList.jsp" method="get">
 				<select name="type" class="form-input input-round">
 					<option value="review_title">제목</option>
@@ -178,10 +180,10 @@
 					<option value="review_member_id">작성자</option>
 				</select>
 				
-				<input type="search" name="keyword" placeholder="검색어를 입력해주세요" required>
-				<button type="submit" class="btn btn-primary">검색</button>
-			</form>
-		</div>
+				 <input type="search" name="keyword" placeholder="검색어를 입력해주세요" required>
+				<!-- <button type="submit" class="btn btn-primary">검색</button> 
+			</form> 
+		</div> -->
 	
 	</div>
 	
