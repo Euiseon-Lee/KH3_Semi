@@ -36,13 +36,7 @@
 
     */
    
-  
-   .rooms__container {
-   	 
-   	 justify-content: center;
-   	     
-       
-    }
+
   
     .rooms__img {
         width: 25rem;
@@ -92,19 +86,16 @@
       }
         
      .rooms__standard{
-       
         float:left;
   	    
       }
 
       .rooms__deluxe{
-        
         float: right;
 	 
       }
 
       .rooms__suite{
-       
         float: right;
        
       }
@@ -115,10 +106,6 @@
         
       }
       
-      .hotel{
-      justify-content: right;
-      }
-     
     </style>
     
 </head>
@@ -137,7 +124,7 @@
             <div>
             <img
               class="rooms__img"
-              src="/image/standard.jpg"
+              src="<%=request.getContextPath()%>/image/standard.jpg"
             />
             <h3>스탠다드</h3>
             <p>
@@ -151,7 +138,7 @@
             <div>
             <img
               class="rooms__img"
-              src="/image/deluxe.jpg"
+              src="<%=request.getContextPath()%>/image/deluxe.jpg"
             />
             <h3>디럭스</h3>
             <p>
@@ -164,7 +151,7 @@
           <div class="rooms__premier rooms__container">
             <img
               class="rooms__img"
-              src="/image/premier.jpg"
+              src="<%=request.getContextPath()%>/image/premier.jpg"
             />
             <h3>프리미어</h3>
             <p>
@@ -176,7 +163,7 @@
           <div class="rooms__suite rooms__container">
             <img
               class="rooms__img"
-              src="/image/suite.jpg"
+              src="<%=request.getContextPath()%>/image/suite.jpg"
             />
             <h3>스위트</h3>
             <p>
