@@ -6,8 +6,6 @@
 
 
   <style>
-
- 
     /*roomInfo.jsp*/
 .roomListj {
 	width: 230px;

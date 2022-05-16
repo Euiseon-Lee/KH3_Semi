@@ -4,7 +4,7 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<head>
+
 
 <style>
 html, body {
@@ -55,8 +55,9 @@ footer {
 	left: 1%;
 	float: left;
 	margin: 2%;
-	background: mintcream;
+	background: rgb(39, 76, 119);
 	border: 1px solid grey;
+	color: white;
 }
 
 .tablej {
@@ -72,7 +73,7 @@ footer {
 .tablej th {
 	height: 10%;
 	font-size: xx-large;
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 	border-width: 60%;
 	font-weight: bolder;
 }
@@ -91,7 +92,7 @@ footer {
 }
 
 .tablej a:visited {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
@@ -147,6 +148,7 @@ footer {
 	left: 330px;
 	margin-bottom: 300px;
 	font-size: large;
+	
 }
 
 .roomContentj {
@@ -155,6 +157,7 @@ footer {
 	height: 17%;
 	top: 49px;
 	left: 59px;
+	color: #274c77;
 }
 
 .infoContentj {
@@ -164,9 +167,9 @@ footer {
     font-size: small;
     line-height: 18px;
     top: 102px;
-    background: mintcream;
+    background: rgb(39, 76, 119);
     border: 1px solid black;
-    
+    color: white;
 }
 }
 
@@ -190,11 +193,13 @@ footer {
 
 .hotelInfoj {
 	width: 436px;
-	height: 430px;
+	height: 654px;
 	position: relative;
+	font-size: 25px;
 	bottom: -111px;
 	left: 152%;
-	background-color: mintcream;
+	color: white;
+	background-color: rgb(39, 76, 119);
 	box-shadow: 1px 2px 1px #000;
 	border: 1px solid grey;
 }
@@ -225,7 +230,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(39, 76, 119);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -233,7 +238,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	left: 100p;
+	color: white;
 	left: 910px;
 }
 
@@ -255,7 +260,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(39, 76, 119);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -263,7 +268,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	left: 100p;
+	color: white;
 	left: 785px;
 }
 
@@ -285,7 +290,7 @@ footer {
 	padding: 14px;
 	font-size: 17px;
 	font-weight: bold;
-	background: azure;
+	background: rgb(39, 76, 119);
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -293,7 +298,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	left: 100p;
+	color: white;
 	left: 574px;
 }
 
@@ -315,7 +320,8 @@ footer {
 	top: 183px;
 	left: 10px;
 	color: black;
-	background: mintcream;
+	background: rgb(39, 76, 119);
+	color: white;
 	border: 1px solid black;
 	font-family: 'Noto Sans KR', sans-serif;
 }
@@ -323,11 +329,13 @@ footer {
 
 .roomcentent1 {
 	
-	background: mintcream;
+	background: rgb(39, 76, 119);
+	color: white;
 	margin: 10px;
 	padding: 10px;
 	border: 1px solid black;
 	font-family: 'Noto Sans KR', sans-serif;
+	width: 471px;
 }
 
  .select_all{
@@ -342,10 +350,6 @@ footer {
 
 </style>
 
-
-   
-
-</head>
 
 
 <body>
@@ -383,7 +387,7 @@ footer {
 		
 		<div class="contentInfoj">
 			<div class="roomContentj">
-				<h1 style="color:black;">&nbsp;Deluxe</h1><br>
+				<h1 style="color:#274c77;">&nbsp;Deluxe</h1><br>
 				<div class ="roomcentent1"> &nbsp;&nbsp; - 고급스러운 별장의 게스트 룸과 같은 매력을 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지닌 디럭스룸<br>
 				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - 시원한 제주 바다와 안락한 산의 풍경이 펼쳐 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;져 있는 5~6층에 위치하고 있습니다
 				</div>
