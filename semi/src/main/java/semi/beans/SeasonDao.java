@@ -86,7 +86,7 @@ public class SeasonDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "select season_type from season "
-				+"where season_start-(select booking_checkin from bookings where booking_order_no = ?) < 0";
+				+ "where season_start - (select booking_checkin from bookings where booking_order_no = ?) < 0";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, bookingOrderNo);
 		ResultSet rs = ps.executeQuery();
@@ -113,7 +113,7 @@ public class SeasonDao {
 		Connection con = JdbcUtils.getConnection();
 		
 		String sql = "select season_type from season "
-				+"where season_end-(select booking_checkout from bookings where booking_order_no = ?) > 0";
+				+ "where season_start - (select booking_checkout from bookings where booking_order_no = ?) < 0";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, bookingOrderNo);
 		ResultSet rs = ps.executeQuery();
