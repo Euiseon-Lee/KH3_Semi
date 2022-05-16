@@ -45,7 +45,13 @@
 	
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
+<style>
+    .link-euiseon{
+        text-decoration: none;
+        font-weight: bold;
+        color: rgb(71, 71, 71);
+    }
+</style>
 
 <div class="container w850 m10 center">
 
@@ -90,7 +96,7 @@
 			</tr>
 			<tr>
 				<td style=" color: rgb(39, 76, 119)">
-					<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link">목록으로 돌아가기</a>
+					<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link-euiseon">&lt;&lt; 목록으로 돌아가기</a>
 				</td>
 				
 				<td style=" color: rgb(39, 76, 119)">
@@ -99,7 +105,7 @@
 					<%} else if (reviewCheck) {%>
 						<a href="<%=request.getContextPath()%>/review/write.jsp?payOrderNo=<%=payOrderNo%>" class="link link-btn">리뷰작성</a>
 					<%} else {%>
-						<a href="#" class="link">현재 투숙 중입니다</a>
+						<a href="#" class="link-euiseon">❤❤ 현재 투숙 중입니다 ❤❤</a>
 					<%} %>
 				</td>
 			</tr>
