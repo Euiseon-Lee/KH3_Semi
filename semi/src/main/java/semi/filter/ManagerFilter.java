@@ -23,7 +23,7 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 			chain.doFilter(request, response);
 		}
 		else {
-			resp.sendRedirect("block.jsp");
+			resp.sendRedirect(req.getContextPath()+"/qa/block.jsp");
 		}
 	}
 	catch(Exception e) {

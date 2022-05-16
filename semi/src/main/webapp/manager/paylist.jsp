@@ -44,7 +44,7 @@
 </div>
 
 <div class="container center">
-	<table class="table table-border center w800 m20">
+	<table class="table table-border center w800 m20 table-hover">
 		<thead>
 			<tr>
 				<th>결제번호</th>

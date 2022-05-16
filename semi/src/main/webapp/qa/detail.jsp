@@ -35,8 +35,12 @@
 			<tr>
 				<td>
 			<div align="right">
+			<%if(qaDto.getQaWriter() == null){ %>
+				탈퇴한 회원
+			<%} else{%>
 					작성자 <%=qaDto.getQaWriter() %>
 					(<%=memberDto.getMemberGrade() %>)
+					<%} %>
 			</div>
 				</td>
 			</tr>
