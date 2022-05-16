@@ -68,7 +68,7 @@
 
     <div class="row center">  
 
-    <a href="<%=request.getContextPath()%>/pay/list.jsp" class="link link-btn" >결제내역 목록보기</a>
+    <a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link link-btn" >결제내역 목록보기</a>
     <a href="<%=request.getContextPath() %>/bookings/bookingsList.jsp" class = "link link-btn">예약내역 보기</a>
 
     <a href="<%=request.getContextPath()%>/mypage/password.jsp" class="link link-btn" >비밀번호 변경</a>

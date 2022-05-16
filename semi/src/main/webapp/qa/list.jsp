@@ -71,11 +71,15 @@
  
 <jsp:include page="/template/header.jsp"></jsp:include>
 <div class="container w850 m10">
-	<div class="row center">
+	<div class="row center m40">
 		<h1>Q/A 게시판</h1>
 	</div>
 	
-	<div>
+	<div class="right m10">
+		<a href="<%=request.getContextPath() %>/qa/write.jsp" class="link link-btn link-btn:hover">문의하기</a>
+	</div>
+	
+	<div class="row center">
 		<table class="table table-underline table-hover">
 			<thead>
 				<tr>
@@ -117,7 +121,7 @@
 	</div>
 	
 	<!-- 페이지 -->
-	<div class="row center pagination">
+	<div class="row center m20 pagination">
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
 			<%if(search){ %>
@@ -169,13 +173,13 @@
 		
 	</div>
 	<!-- 검색창 -->
-	<div class="row center">
+	<div class="row center m10">
 		<form action="list.jsp" method="get">
 			<select name ="type" class="form-input input-round">
 				<option value ="qa_title">제목</option>
 				<option value="qa_content">내용</option>
 			</select>
-			<input type ="search" name="keyword" required autocomplete="off">
+			<input type ="search" name="keyword" placeholder="검색어를 입력해주세요" required autocomplete="off">
 			<button type ="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>

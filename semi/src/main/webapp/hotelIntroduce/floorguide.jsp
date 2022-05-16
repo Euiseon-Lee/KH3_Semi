@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- header -->
+<jsp:include page="/template/header.jsp"></jsp:include>
+    
+ <style>
+
+ 
+    /*roomInfo.jsp*/
+.roomListj {
+	width: 230px;
+	height: 300px;
+	position: relative;
+	top: 50%;
+	left: 1%;
+	float: left;
+	margin: 2%;
+	background: rgb(39, 76, 119);
+	border: 1px solid grey;
+}
+
+.tablej {
+	margin: 1% auto;
+	width: 90%;
+	height: 100%;
+	text-align: left;
+	padding-left: 1%;
+	border-collapse: separate;
+	border-spacing: 0 20px;
+	color: white;
+}
+
+.tablej th {
+	height: 10%;
+	font-size: xx-large;
+	border-bottom: 4px solid white;
+	border-width: 60%;
+	font-weight: bolder;
+}
+
+.tablej td {
+	margin: 2% auto;
+	height: 2%;
+	font-size: large;
+	font-weight: 900;
+	color: white;
+}
+
+.tablej a:link {
+	color: blue;
+	text-decoration: none; /*밑줄 제거*/
+}
+
+.tablej a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.tablej a:hover { /*객실 hover 처리 */
+	color: blue;
+	text-decoration: none;
+}
+
+.selectj { /*글씨 눌렀을때 hover 배경 */
+	background-color: none;
+}
+
+.nextj {
+	right: 30px;
+	position: absolute;
+	border: none;
+	background-color: black;
+	color: black;
+	font-weight: 900;
+	font-size: 14px;
+	
+}
+
+
+    .azure_intro{
+    position: relative;
+    top: 33px;
+    left: 47px;
+
+    }
+    
+    
+
+    h1.azure_intro:after {
+      content: "";
+      display: block;
+      width: 1000px;
+      border-bottom: 3px solid black;
+      margin: 30px 0px;
+      position: relative;
+      left: 290px;
+    }
+
+
+    .hotelintro_img{
+    position: relative;
+    top: -230px;
+    left: 330px;
+    text-align: center;
+    width: 487px;
+    }
+
+  </style>
+</head>
+
+<body>
+	<div class="roomListj">
+		<table class="tablej">
+			<tr>
+				<th>호텔소개</th>
+			</tr>
+			<tr>
+				<td><a href="#">호텔소개</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">호텔정보</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">층별안내도</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">주변관광지</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">오시는길</a></td>
+			</tr>
+		</table>
+	</div>
+	
+
+  <h1 class="azure_intro">
+    층별안내도
+  </h1>
+	
+  <div class = hotelintro_img>
+    <div> <img src= "<%=request.getContextPath()%>/image/floor.png" width= "100%" height= "100%"></div>
+  </div>
+
+
+</body>
+
+
+    
+ <!-- footer -->
+<jsp:include page="/template/footer.jsp"></jsp:include>
