@@ -14,11 +14,6 @@
 %>
 
 
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
