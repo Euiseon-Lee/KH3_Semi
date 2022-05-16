@@ -358,7 +358,7 @@ Azure 호텔앤리조트㈜의 온라인 회원 서비스 관련 정보, 혜택,
 		</div>
 	
 
-
+ 
 <!-- 회원 정보입력 영역 -->
 <div class="container w800 m40 page">
 <div class="row center m30">
