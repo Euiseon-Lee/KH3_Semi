@@ -37,12 +37,16 @@ public class MemberJoinServlet extends HttpServlet {
 			MemberDao memberDao = new MemberDao();
 			memberDao.join(memberDto);
 			
-		
+			boolean isCorrect = memberDto != null;
 
 			// 출력
 			//resp.sendRedirect("join_finish.jsp");
-			
-			resp.sendRedirect(req.getContextPath()+"/member/join_finish.jsp");
+			if(isCorrect) {
+				resp.sendRedirect(req.getContextPath()+"/member/join_finish.jsp");
+			}
+			else {
+				resp.sendRedirect(req.getContextPath()+"/member/join_fail.jsp");
+			}
 
 		} catch (Exception e) {  
 			e.printStackTrace();
