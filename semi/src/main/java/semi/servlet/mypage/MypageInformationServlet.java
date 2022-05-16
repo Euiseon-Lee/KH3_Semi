@@ -18,9 +18,11 @@ public class MypageInformationServlet extends HttpServlet {
 		//준비
 		req.setCharacterEncoding("UTF-8");
 		MemberDto memberDto = new MemberDto();
-		memberDto.setMemberId((String)req.getAttribute("login")); //로그인 정보 가져오기 
 		
-		String memberId = (String)req.getSession().getAttribute("login");
+		
+		memberDto.setMemberId((String)req.getSession().getAttribute("login"));
+		String memberId = (String) req.getSession().getAttribute("login");
+		
 		
 		//파라미터 가져오기;
 		memberDto.setMemberBirth(req.getParameter("memberBirth"));
@@ -34,7 +36,7 @@ public class MypageInformationServlet extends HttpServlet {
 		//처리
 		MemberDao memberDao = new MemberDao();
 		
-		MemberDto findDto = memberDao.selectOneId(memberId);
+		MemberDto findDto = memberDao.selectOneId(memberDto.getMemberId());
 		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto.getMemberPw());
 		
 		if(!isPasswordCorrect) {  

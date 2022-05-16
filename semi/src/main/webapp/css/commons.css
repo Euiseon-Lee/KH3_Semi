@@ -228,6 +228,21 @@
         background-color: rgb(231, 236, 239);
         border-color: transparent;
     }
+    
+        .form-input.underline{
+        outline: none;
+        padding: 0.5em;
+        border-left-width:0;
+        border-right-width:0;
+        border-top-width:0;
+        border-bottom-width:1;
+        border-color: rgb(231, 236, 239);
+    }
+    
+    .form-input.underline:focus{
+        border-color: rgb(148, 168, 184);
+        border-width: 0.1em;
+    }
 
     input.underline {
         outline: none;

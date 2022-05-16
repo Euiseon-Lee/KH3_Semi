@@ -27,7 +27,7 @@
             <div class="row">
             <label class="middle-text-center">생년월일</label>
             </div>
-            <input type="text" name="memberBirth" placeholder="YYYY-MM-DD" autocomplete="off" class="underline fill" value="<%=memberDto.getMemberBirth()%>">
+            <input type="date" name="memberBirth" placeholder="YYYY-MM-DD" autocomplete="off" class="underline fill" value="<%=memberDto.getMemberBirth()%>">
         </div>
         
         <div class="row m20">

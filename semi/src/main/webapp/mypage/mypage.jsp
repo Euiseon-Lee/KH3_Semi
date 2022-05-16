@@ -40,7 +40,7 @@
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberBirth()%></td>
         </tr>
         <tr>
-            <th width="20%" class="middle-text-center" style="font-weight: bold">전화번호</th>
+            <th width="20%" class="middle-text-center" style="font-weight: bold">전화번호</th>  
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberPhone()%></td>  
         </tr>
         <tr>
