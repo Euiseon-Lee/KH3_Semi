@@ -117,9 +117,6 @@
                     </li>
                     <li class="reserve">
                         <a href="<%=request.getContextPath()%>/booking/add.jsp">예약하기</a>
-                        <ul>
-                            <li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a></li>
-                          </ul>
                     </li>
                     	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 
