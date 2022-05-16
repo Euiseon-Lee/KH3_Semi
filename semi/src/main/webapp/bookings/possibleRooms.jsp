@@ -20,7 +20,7 @@
 	Date checkIn = new Date(sdf.parse(bookingCheckIn).getTime());
 	Date checkOut = new Date(sdf.parse(bookingCheckOut).getTime());
 
-	boolean overDay = checkIn.getTime()>checkOut.getTime();
+	boolean overDay = checkIn.getTime()>=checkOut.getTime();
 %>
 
 
