@@ -12,13 +12,13 @@
 %>
 
 
-    <div class="container w350">
+    <div class="container w500">
 <!-- 아이디 확인문구 -->
 <div>
     <div class="row center m60">
 	<h2 class="title-text m40"> 아이디를 확인해주세요</h2>
 
-	 <h3 class="middle-text-left"> <%=memberFname%><%=memberLname%>고객님의 아이디는 <%=memberId%>입니다.
+	 <h3 class="middle-text-center"> <%=memberFname%><%=memberLname%>고객님의 아이디는 <%=memberId%>입니다.
     </div>
 </div>
 

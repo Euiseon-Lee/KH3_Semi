@@ -90,23 +90,24 @@
                 <!-- 디자인이 이루어지도록 ul로 메뉴를 구현 -->
                 <ul class="menu">
                     <li>
-                        <a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp">호텔소개</a>
+                        <a href="<%=request.getContextPath()%>/hotelIntroduce/hotelintro.jsp">호텔소개</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=1">호텔소개</a></li>
-                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=2">호텔정보</a></li>
-                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=3">층별안내도</a></li>
-                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=4">주변관광지</a></li>
-                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/list.jsp"detail.jsp?hotelIntroduceNo=5">오시는길</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelintro.jsp">호텔소개</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelinfo.jsp">호텔정보</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/floorguide.jsp">층별안내도</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/attraction.jsp">주변관광지</a></li>
+                            <li><a href="<%=request.getContextPath()%>/hotelIntroduce/away.jsp">오시는길</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp">객실소개</a>
+                        <a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">객실소개</a>
                     </li>  
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>  
-                            <li><a href="<%=request.getContextPath()%>#">헬스센터</a></li>
+                            <li><a href="<%=request.getContextPath()%>#">POOL</a></li>  
+                            <li><a href="<%=request.getContextPath()%>#">피트니스</a></li>  
+                            <li><a href="<%=request.getContextPath()%>#">레스토랑</a></li>
                         </ul>
                     </li>
                     <li>
@@ -115,12 +116,7 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/review/list.jsp">이용후기</a>
                     </li>
-                    <li class="reserve">
-
-                        <a href="<%=request.getContextPath()%>/bookings/add.jsp">예약하기</a>
-
-                    </li>
-                    	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
+                    <!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 
                         <li>
                         <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
@@ -132,6 +128,10 @@
                         </ul>
                     </li>
                     		<%} %>
+                    <li class="reserve">
+                        <a href="<%=request.getContextPath()%>/bookings/add.jsp" style="color: rgb(39, 76, 119);">예약하기</a>
+                    </li>
+
                 </ul> 
             </nav>
 <section>

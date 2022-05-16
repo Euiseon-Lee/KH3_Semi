@@ -6,7 +6,6 @@
 
 
   <style>
-    /*roomInfo.jsp*/
 .roomListj {
 	width: 230px;
 	height: 300px;
@@ -76,7 +75,6 @@
 	
 }
 
-
     .azure_intro{
     position: relative;
     top: 33px;
@@ -84,7 +82,9 @@
 
     }
     
-      h1.azure_intro:after {
+    
+
+    h1.azure_intro:after {
       content: "";
       display: block;
       width: 1000px;
@@ -93,7 +93,7 @@
       position: relative;
       left: 290px;
     }
-    
+
     
     .Hotel_intro_all{
       position: relative;
@@ -140,22 +140,23 @@
 				<th>호텔소개</th>
 			</tr>
 			<tr>
-				<td><a href="#">호텔소개</a></td>
+				<td><a href="hotelintro.jsp">호텔소개</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">호텔정보</a></td>
+				<td><a href="hotelinfo.jsp">호텔정보</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">층별안내도</a></td>
+				<td><a href="floorguide.jsp">층별안내도</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">주변관광지</a></td>
+				<td><a href="attraction.jsp">주변관광지</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">오시는길</a></td>
+				<td><a href="away.jsp">오시는길</a></td>
 			</tr>
 		</table>
 	</div>
+	
 	
 
   <h1 class="azure_intro">
