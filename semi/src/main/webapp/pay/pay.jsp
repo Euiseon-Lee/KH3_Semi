@@ -49,6 +49,28 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<style>
+    .link-btn-euiseon{
+    	text-decoration: none;
+		border: 2px solid;
+        padding: 0.5em;
+        display: inline-block;
+
+        background-color: white;
+        color: rgb(39, 76, 119);
+        
+        height: 40px;
+        width: 180px;
+        font-weight: bold;
+	}
+    .link-btn-euiseon:hover{
+        background-color: rgb(39, 76, 119);
+        color: white;
+    }
+    
+
+}
+</style>
 
 <div class="container w850 m10 center">
 
@@ -90,7 +112,7 @@
 		</table>
 	</div>	
 	<div>
-		<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>" class="link link-btn">
+		<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>" class="link-btn-euiseon link-btn-euiseon:hover">
 			결제하기
 		</a>
 	</div>

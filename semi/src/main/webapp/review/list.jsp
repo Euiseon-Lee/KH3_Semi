@@ -76,7 +76,7 @@
 		</div>
 		
 		
-		<div>
+		<div class="row center">
 			<table class="table table-underline table-hover">	
 				<thead>
 					<tr>
@@ -115,7 +115,7 @@
 			</table>
 		</div>
 
-		<div>
+		<div class="row center m20 pagination">
 			<!--  페이지네이션 구현 완료 -->
 			<%if(p > 1){ %> 	<!-- 첫번째 페이지가 아닌 경우 -->
 				<%if(search){ %>
@@ -170,7 +170,7 @@
 			</div>
 		</div>
 		
-		<div class="row center">	<!-- 검색창 구현 -->
+		<div class="row center m10">	<!-- 검색창 구현 -->
 			<form action="showList.jsp" method="get">
 				<select name="type" class="form-input input-round">
 					<option value="review_title">제목</option>
