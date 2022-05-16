@@ -13,7 +13,7 @@
     
 <%
 	//준비
-	//예약번호를 기반으로 방 번호 뽑기
+	//예약번호를 기반으로 방 번호 뽑기  
 	int bookingOrderNo = Integer.parseInt(request.getParameter("bookingOrderNo"));
 
 	BookingsDto bookingsDto = new BookingsDto();
