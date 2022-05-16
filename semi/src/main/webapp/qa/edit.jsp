@@ -41,7 +41,7 @@
 					</div>
 					<div class="row">
 						<%if(qaDto.getQaPublic() != null){ %>
-  	  					<input type="checkbox"  name="qaPublic" checked>
+  	  					<input type="checkbox"  value="Y" name="qaPublic" checked>
   	  					<label>비공개</label>
   	  					<%} else{%>
   	  					<input type="checkbox" value="Y" name="qaPublic">
