@@ -356,19 +356,16 @@ footer {
 				<th>객실</th>
 			</tr>
 			<tr>
-				<td><a href="#">Standard</a></td>
+				<td><a href="Standard.jsp">Standard</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Deluxe</a></td>
+				<td><a href="deluxe.jsp">Deluxe</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Premier</a></td>
+				<td><a href="premier.jsp">Premier</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Suite</a></td>
-			</tr>
-			<tr>
-				<td><a href="#"> 객실 전체보기</a>
+				<td><a href="Suite.jsp">Suite</a></td>
 			</tr>
 		</table>
 	</div>
