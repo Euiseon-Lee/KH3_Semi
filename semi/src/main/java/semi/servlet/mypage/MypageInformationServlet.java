@@ -20,6 +20,8 @@ public class MypageInformationServlet extends HttpServlet {
 		MemberDto memberDto = new MemberDto();
 		memberDto.setMemberId((String)req.getAttribute("login")); //로그인 정보 가져오기 
 		
+		String memberId = (String)req.getSession().getAttribute("login");
+		
 		//파라미터 가져오기;
 		memberDto.setMemberBirth(req.getParameter("memberBirth"));
 		memberDto.setMemberPhone(req.getParameter("memberPhone"));
@@ -32,7 +34,7 @@ public class MypageInformationServlet extends HttpServlet {
 		//처리
 		MemberDao memberDao = new MemberDao();
 		
-		MemberDto findDto = memberDao.selectOneId(memberDto.getMemberId());
+		MemberDto findDto = memberDao.selectOneId(memberId);
 		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto.getMemberPw());
 		
 		if(!isPasswordCorrect) {  
