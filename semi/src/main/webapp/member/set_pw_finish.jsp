@@ -11,7 +11,7 @@
 <div class="container w550 m50">
 <div>
     <h2  class="title-text m10">비밀번호 변경이 완료되었습니다</h2>
-    <h4  class="middle-text-left">변경된 비밀번호로 로그인해주세요.</h4>
+    <h4  class="middle-text-center">변경된 비밀번호로 로그인해주세요.</h4>
     </div>
     
     <!-- 로그인 페이지 이동 -->

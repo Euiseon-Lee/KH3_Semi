@@ -30,6 +30,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		}
 		memberDao.delete(memberId); //아이디삭제
 		
+		
+		
 		//로그아웃 처리(세션에서 정보 삭세하기)
 		req.getSession().removeAttribute("login"); //로그인 정보 삭제 
 		req.getSession().removeAttribute("auth"); //로그인 권한 삭제

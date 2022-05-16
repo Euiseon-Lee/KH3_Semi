@@ -12,11 +12,11 @@
 
 	<%
 	MemberDao memberDao = new MemberDao();
-	MemberDto memberDto = memberDao.selectOneId(memberId);
+	MemberDto memberDto = memberDao.selectOneId(memberId);    
 	%>
 
       <form action="information.kh" method="post">
-        <div class="container w800 m40 ">
+        <div class="container w800 m40 ">  
             <div class="row center m30">
             <h1 class="title-text">회원 정보변경</h1>
         </div>
@@ -68,11 +68,13 @@
          </div>
          
          <div class="row center m20">
-             <input type="submit" class="btn" value="정보 수정">
+             <button type="submit" class="btn" >정보 수정</button>
          </div>
         </div>
         	<% if(request.getParameter("error") != null){ %>
-		<h3>비밀번호가 일치하지 않습니다</h3>
+		<div class="row center">
+			<h3 style="color:red">비밀번호가 일치하지 않습니다</h3>		
+		</div>	    
 	<%} %>
         
         </form>

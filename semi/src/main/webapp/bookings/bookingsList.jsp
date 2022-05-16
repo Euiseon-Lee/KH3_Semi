@@ -31,7 +31,7 @@
 		<h1>내 예약 내역</h1>
 		</div>
 		
-		<table class="table table-underline table-hover">
+		<table class="table table-underline table-hover m30">
 		
 			<thead>
 				<tr>

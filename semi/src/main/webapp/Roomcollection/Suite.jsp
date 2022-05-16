@@ -46,7 +46,6 @@ footer {
 	width: 100%;
 }
 
-/*roomInfo.jsp*/
 .roomListj {
 	width: 230px;
 	height: 300px;
@@ -55,7 +54,7 @@ footer {
 	left: 1%;
 	float: left;
 	margin: 2%;
-	background: mintcream;
+	background: rgb(39, 76, 119);
 	border: 1px solid grey;
 }
 
@@ -67,12 +66,13 @@ footer {
 	padding-left: 1%;
 	border-collapse: separate;
 	border-spacing: 0 20px;
+	color: white;
 }
 
 .tablej th {
 	height: 10%;
 	font-size: xx-large;
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid white;
 	border-width: 60%;
 	font-weight: bolder;
 }
@@ -82,7 +82,7 @@ footer {
 	height: 2%;
 	font-size: large;
 	font-weight: 900;
-	color: black;
+	color: white;
 }
 
 .tablej a:link {
@@ -91,7 +91,7 @@ footer {
 }
 
 .tablej a:visited {
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
@@ -109,7 +109,7 @@ footer {
 	position: absolute;
 	border: none;
 	background-color: black;
-	color: black;;
+	color: black;
 	font-weight: 900;
 	font-size: 14px;
 	
@@ -189,14 +189,14 @@ footer {
 }
 
 .hotelInfoj {
-	width: 436px;
-	height: 430px;
-	position: relative;
-	bottom: -111px;
-	left: 152%;
-	background-color: mintcream;
-	box-shadow: 1px 2px 1px #000;
-	border: 1px solid grey;
+	    width: 436px;
+    height: 657px;
+    position: relative;
+    bottom: -111px;
+    left: 152%;
+    background-color: mintcream;
+    box-shadow: 1px 2px 1px #000;
+    border: 1px solid grey;
 }
 
 .hotelTablej {
@@ -324,10 +324,12 @@ footer {
 .roomcentent1 {
 	
 	background: mintcream;
-	margin: 10px;
-	padding: 10px;
-	border: 1px solid black;
-	font-family: 'Noto Sans KR', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 471px;
+}
 }
 
  .select_all{
@@ -356,19 +358,16 @@ footer {
 				<th>객실</th>
 			</tr>
 			<tr>
-				<td><a href="#">Standard</a></td>
+				<td><a href="Standard.jsp">Standard</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Deluxe</a></td>
+				<td><a href="deluxe.jsp">Deluxe</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Premier</a></td>
+				<td><a href="premier.jsp">Premier</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Suite</a></td>
-			</tr>
-			<tr>
-				<td><a href="#"> 객실 전체보기</a>
+				<td><a href="Suite.jsp">Suite</a></td>
 			</tr>
 		</table>
 	</div>
