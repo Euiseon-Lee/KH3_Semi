@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="semi.beans.RoomsDto"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.BookingsDao"%>
@@ -12,6 +14,13 @@
 	BookingsDao bookingsDao = new BookingsDao();
 	List<RoomsDto> list = bookingsDao.selectPossibleRooms(bookingRoomType, bookingCheckIn, bookingCheckOut);
 	
+	//String -> Date 
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	//체크인-아웃 날짜를 date로 변환해서 뽑음
+	Date checkIn = new Date(sdf.parse(bookingCheckIn).getTime());
+	Date checkOut = new Date(sdf.parse(bookingCheckOut).getTime());
+
+	boolean overDay = checkIn.getTime()>checkOut.getTime();
 %>
 
 
@@ -38,9 +47,18 @@ section, article, aside, nav, a , ul, ol, li {
 		<input type = "hidden" name = "bookingRoomType" value = "<%=bookingRoomType%>">
 		<input type = "hidden" name = "bookingCheckIn" value = "<%=bookingCheckIn%>">
 		<input type = "hidden" name = "bookingCheckOut" value = "<%=bookingCheckOut%>">
+		<!-- 만약 체크아웃이 체크인보다 클때 화면 설정 -->
 		
-		
+	
+		<%if(overDay){ %>
+			<h3>체크인의 이전날짜를 체크아웃날짜로 설정할 수 없습니다!!</h3><br>
+			<a href = "add.jsp">
+			<h3>날짜 설정을 다시해주세요.</h3>
+			</a>
+			
+		<%}else{ %>		
 		<select name = "bookingRoomNo" class = "han2">
+			
 			<option value ="">호실 선택</option>
 		<%for(RoomsDto roomsDto : list){ %>
 		
@@ -74,7 +92,8 @@ section, article, aside, nav, a , ul, ol, li {
 		</select>&nbsp;&nbsp;&nbsp;
 		<input type = "submit" value = "입력" class = "han-button">
 		<%} %>
-		
+		<!-- overDay if문 마지막 괄호 -->
+		<%} %>
 		</form>
 		    <div class="row center m50">
          
