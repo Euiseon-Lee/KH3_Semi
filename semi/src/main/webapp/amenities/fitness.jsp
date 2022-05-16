@@ -115,10 +115,10 @@
 				<td><a href="pool.jsp">POOL</a></td>
 			</tr>
 			<tr>
-				<td><a href="fitness.jsp">피트니스</a></td>
+				<td><a href="fitness.jsp">FITNESS</a></td>
 			</tr>
 			<tr>
-				<td><a href="restaurant.jsp">레스토랑</a></td>
+				<td><a href="restaurant.jsp">RESTAURANT</a></td>
 			</tr>
 		</table>
 	</div>

@@ -81,55 +81,31 @@ public class SeasonDao {
 	}
 	
 	
-	//의선: 체크인날짜 비교해서 season type 가져오는 dao
-	public String CheckinSeasonType (int bookingOrderNo) throws Exception {
+	
+	
+	
+	//의선: 체크아웃&체크인 날짜 비교해서 season type 가져오는 dao
+	public String CheckSeasonType (int bookingOrderNo) throws Exception {
 		Connection con = JdbcUtils.getConnection();
 		
-		String sql = "select season_type from season "
-				+"where season_start-(select booking_checkin from bookings where booking_order_no = ?) < 0";
+		String sql =  "select season_type from season where season_end - (select booking_checkout from bookings where booking_order_no = ?) > 0 and season_start - (select booking_checkin from bookings where booking_order_no = ?) < 0";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, bookingOrderNo);
+		ps.setInt(2, bookingOrderNo);
 		ResultSet rs = ps.executeQuery();
 		
-		String checkinSeasonType;
-		if (rs.next()) {
-			checkinSeasonType = rs.getString("season_type");
-		}
-		else {
-			checkinSeasonType = null;
-		}
-		
-
-		con.close();
-		
-		return checkinSeasonType;
-		
-	}
-	
-	
-	
-	//의선: 체크아웃날짜 비교해서 season type 가져오는 dao
-	public String CheckoutSeasonType (int bookingOrderNo) throws Exception {
-		Connection con = JdbcUtils.getConnection();
-		
-		String sql = "select season_type from season "
-				+"where season_end-(select booking_checkout from bookings where booking_order_no = ?) > 0";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, bookingOrderNo);
-		ResultSet rs = ps.executeQuery();
-		
-		String checkoutSeasonType;
+		String checkSeasonType;
 		if(rs.next()) {
-			checkoutSeasonType = rs.getString("season_type");
+			checkSeasonType = rs.getString("season_type");
 		}
 		else {
-			checkoutSeasonType = null;
+			checkSeasonType = null;
 		}
 		
 		
 		con.close();
 		
-		return checkoutSeasonType;
+		return checkSeasonType;
 		
 	}
 	

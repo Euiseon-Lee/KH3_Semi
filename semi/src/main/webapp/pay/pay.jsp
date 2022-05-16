@@ -24,14 +24,15 @@
 	
 	//체크인&체크아웃날짜 기반으로 성수기/비성수기 찾기
 	SeasonDao seasonDao = new SeasonDao();
-	String checkinSeasonType = seasonDao.CheckinSeasonType(bookingOrderNo);
-	String checkoutSeasonType = seasonDao.CheckoutSeasonType(bookingOrderNo);
+	String checkSeasonType = seasonDao.CheckSeasonType(bookingOrderNo);
 	
 	
 	//1일 금액 산정 = 체크인 또는 체크아웃 중 하나라도 성수기에 포함되면
 	//해당 객실의 성수기 가격을 받는다
-	int price;
-	if (checkinSeasonType == "peak" || checkoutSeasonType == "peak") {
+	int price; 
+	//=  seasonDao.PeakSeasonPrice(bookingRoomNo);
+
+	if (checkSeasonType.equals("peak")) {
 		price = seasonDao.PeakSeasonPrice(bookingRoomNo);
 	}
 	else {
@@ -44,7 +45,7 @@
 	
 	
 	//총 금액처리
-	int payTotalPrice = price * stayPeriod;
+	int payTotalPrice = price*stayPeriod;
 %>    
     
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -78,7 +79,6 @@
 		<h1 class="title-text">결제내역 확인</h1>	
 	</div>
 
-	
 	<div class="row center m30">
 		<table class="table table-underline table-hover">
 			<tr>

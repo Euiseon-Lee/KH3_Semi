@@ -114,8 +114,8 @@
                         <a href="#">부대시설</a>
                         <ul>
                             <li><a href="<%=request.getContextPath()%>/amenities/pool.jsp">POOL</a></li>  
-                            <li><a href="<%=request.getContextPath()%>/amenities/fitness.jsp">피트니스</a></li>  
-                            <li><a href="<%=request.getContextPath()%>/amenities/restaurant.jsp">레스토랑</a></li>
+                            <li><a href="<%=request.getContextPath()%>/amenities/fitness.jsp">FITNESS</a></li>  
+                            <li><a href="<%=request.getContextPath()%>/amenities/restaurant.jsp">RESTAURANT</a></li>
                         </ul>
                     </li>
                     <li>

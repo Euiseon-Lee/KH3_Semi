@@ -125,7 +125,7 @@ $(function(){
                     <h1>&nbsp;&nbsp;&nbsp;ROOM</h1>
                     </div>
                     <div class="row">
-                    <a href="<%=request.getContextPath()%>/roomIntroduce/list.jsp"  class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
+                    <a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp"  class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
                 </div>
                 
                         <!--객실 이미지 에니메이션 영역-->
@@ -159,7 +159,7 @@ $(function(){
             <h1>&nbsp;&nbsp;&nbsp;AMENITIES</h1>
             </div>
             <div>
-                <a href="<%=request.getContextPath()%>" class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
+                <a href="<%=request.getContextPath()%>/amenities/pool.jsp" class="link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIEW MORE ></a>
             </div>
 
             <div class="row float-container">
