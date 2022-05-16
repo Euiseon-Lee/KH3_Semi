@@ -52,45 +52,47 @@
 
 <div class="container w850 m10 center">
 
-	<div>
-		<h1>예약내역 확인</h1>	
+	<div class="row center m50">
+		<h1 class="title-text">예약내역 확인</h1>	
 	</div>
 
 	
-	<div>
-		<table border ="1">
+	<div class="row center m30">
+		<table class="table table-underline table-hover">
 			<tr>
-				<th>예약번호</th>
-				<td><%=bookingsDto.getBookingOrderNo() %>번</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">예약번호</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingOrderNo() %>번</td>
 			</tr>
 			<tr>
-				<th>고객 아이디</th>
-				<td><%=bookingsDto.getBookingMemberId() %></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">고객 아이디</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingMemberId() %></td>
 			</tr>
 			<tr>
-				<th>객실타입 [객실번호]</th>
-				<td><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">객실타입 [객실번호]</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingRoomType()%> [<%=bookingsDto.getBookingRoomNo()%>호]</td>
 			</tr>
 		    <tr>
-				<th>체크인</th>
-				<td><%=bookingsDto.getBookingCheckin()%></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">체크인</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckin()%></td>
 			</tr>
 			<tr>
-				<th>체크아웃</th>
-				<td><%=bookingsDto.getBookingCheckout()%></td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">체크아웃</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingCheckout()%></td>
 			</tr>
 			<tr>
-				<th>인원</th>
-				<td><%=bookingsDto.getBookingPeople()%>명</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">인원</th>
+				<td style=" color: rgb(39, 76, 119)"><%=bookingsDto.getBookingPeople()%>명</td>
 			</tr>
 			<tr>
-				<th>결제될 금액</th>
-				<td><%=payTotalPrice %>원</td>
+				<th width="40%" class="middle-text-center" style="font-weight: bold">결제될 금액</th>
+				<td style=" color: rgb(39, 76, 119)"><%=payTotalPrice %>원</td>
 			</tr>	
 		</table>
 	</div>	
 	<div>
-		<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>">결제하기</a>
+		<a href = "<%=request.getContextPath()%>/pay/add.kh?bookingOrderNo=<%=bookingOrderNo %>&payTotalPrice=<%=payTotalPrice%>" class="link link-btn">
+			결제하기
+		</a>
 	</div>
 </div>		
 
