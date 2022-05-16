@@ -156,8 +156,9 @@ public class BookingsDao {
 			con.close();
 			return count>0;
 					
-
 		}
+		
+		
         //의선: 예약번호와 아이디로 해당 예약 정보를 추출하는 코드
         public BookingsDto showDetail(int bookingOrderNo, String bookingMemberId) throws Exception {
             Connection con = JdbcUtils.getConnection();
@@ -181,7 +182,7 @@ public class BookingsDao {
                bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
                bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
                bookingsDto.setBookingDate(rs.getString("booking_date"));
-          
+    
             }
             else {
                bookingsDto = null;
@@ -190,10 +191,40 @@ public class BookingsDao {
             con.close();
             
             return bookingsDto;
+         }
+        
+        //의선: 예약번호와 아이디로 해당 예약 정보를 추출하는 코드
+        public BookingsDto showDetail(int bookingOrderNo) throws Exception {
+            Connection con = JdbcUtils.getConnection();
+            
+            String sql = "select * from bookings where booking_order_no = ?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, bookingOrderNo);
+            ResultSet rs = ps.executeQuery();
+            
+            BookingsDto bookingsDto = new BookingsDto();
+            
+            if(rs.next()) {
+               
+               bookingsDto.setBookingOrderNo(rs.getInt("booking_order_no"));
+               bookingsDto.setBookingMemberId(rs.getString("booking_member_id"));
+               bookingsDto.setBookingRoomNo(rs.getInt("booking_room_no"));
+               bookingsDto.setBookingRoomType(rs.getString("booking_room_type"));
+               bookingsDto.setBookingPeople(rs.getInt("booking_people"));
+               bookingsDto.setBookingCheckin(rs.getString("booking_checkin"));
+               bookingsDto.setBookingCheckout(rs.getString("booking_checkout"));
+               bookingsDto.setBookingDate(rs.getString("booking_date"));
+    
+            }
+            else {
+               bookingsDto = null;
+            }
+            
+            con.close();
+            
+            return bookingsDto;
+         }
 
-
-		}
 		
-		
-       
 }
