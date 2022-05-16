@@ -12,8 +12,8 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div class="container w850 m10 center">
-	<div class="row center">
-		<h2 class="title-text m50">결제가 완료되었습니다.</h2>
+	<div class="row center m50">
+		<h2 class="title-text m30">결제가 완료되었습니다.</h2>
 	</div>
 	
 	<div class="row center">
