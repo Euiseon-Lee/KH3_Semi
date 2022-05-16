@@ -13,8 +13,10 @@
  <div class="container w500 m50 center">
  <h1>비밀번호를 입력해주세요</h1>
  <form action="checkpw.kh?qaNo=<%=qaNo %>&groupNo=<%=groupNo %>" method="post">
+  <div class="m30">
  <input type="password" name="memberPwCheck" class="form-input input-round">
- <button type="submit" class="btn btn-primary">확인</button>
+  <button type="submit" class="btn btn-primary">확인</button>
+ </div>
  </form>
   <% if(request.getParameter("error") != null) { %>
 		<div class="row center m20">
