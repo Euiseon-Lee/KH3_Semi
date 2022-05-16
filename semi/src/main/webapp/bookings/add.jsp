@@ -8,7 +8,7 @@
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <head>
-<<<<<<< HEAD
+
 	<style>
 	div, span, label, p, header, footer,  
 section, article, aside, nav, a , ul, ol, li {
@@ -29,7 +29,7 @@ section, article, aside, nav, a , ul, ol, li {
        <div class = "row center m30">
         <form action = "possibleRooms.jsp" method = "get">
             <span>
-                <select name = "bookingRoomType" class = "han2">
+                <select name = "bookingRoomType" class = "han2" required>
                     <option value = "">객실타입을 선택해주세요.</option>
                     <option>스탠다드</option>
                     <option>디럭스</option>

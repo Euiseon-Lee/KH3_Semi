@@ -18,7 +18,7 @@
 
 	BookingsDto bookingsDto = new BookingsDto();
 	BookingsDao bookingsDao = new BookingsDao();
-	bookingsDto = bookingsDao.showDetail(bookingOrderNo);
+	bookingsDto = bookingsDao.showDetail(bookingOrderNo, bookingMemberId);
 	int bookingRoomNo = bookingsDto.getBookingRoomNo();
 	
 	
