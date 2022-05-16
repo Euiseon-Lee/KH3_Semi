@@ -64,7 +64,7 @@
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberLogindate()%></td>
         </tr> 
     </table>
-    </div>
+    </div>  
 
     <div class="row center">  
   
