@@ -12,7 +12,7 @@
 
 	<%
 	MemberDao memberDao = new MemberDao();
-	MemberDto memberDto = memberDao.selectOneId(memberId);
+	MemberDto memberDto = memberDao.selectOneId(memberId);    
 	%>
 
       <form action="information.kh" method="post">
