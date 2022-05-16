@@ -19,6 +19,7 @@ public class MypagePasswordServlet extends HttpServlet{
 			req.setCharacterEncoding("UTF-8");
 			String currentPw = req.getParameter("currentPw");
 			String changePw = req.getParameter("changePw");
+			String changePw_check = req.getParameter("changePw-check");
 			
 			String memberId = (String) req.getSession().getAttribute("login");
 			
@@ -39,8 +40,15 @@ public class MypagePasswordServlet extends HttpServlet{
 			}
 			memberDao.changePassword(memberId, changePw);
 			
+			boolean isSamePassword_check = changePw == null || changePw_check == null || changePw_check.equals(changePw);
+			if(isSamePassword_check) {
+				resp.sendRedirect("password.jsp?error=3");
+				return;
+			}
+			memberDao.changePassword(memberId, changePw);
+			
 			//출력
-			resp.sendRedirect("mypage.jsp");
+			resp.sendRedirect(req.getContextPath()+"/member/logout.kh");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -21,6 +21,13 @@
 	//관리자인지
 	String memberGrade = (String)session.getAttribute("auth");
 	boolean isAdmin = memberGrade != null && memberGrade.equals("관리자");
+	
+	String memberId = (String)session.getAttribute("login");
+	boolean isLogin = memberId != null;
+	
+	
+	//세션이용해서 내 글인지 판단하는 코드 => 구현 완료
+	boolean isOwner = memberId != null && memberId.equals(qaDto.getQaWriter());
 %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <div class="container w850 m10 center">
@@ -35,8 +42,12 @@
 			<tr>
 				<td>
 			<div align="right">
+			<%if(qaDto.getQaWriter() == null){ %>
+				탈퇴한 회원
+			<%} else{%>
 					작성자 <%=qaDto.getQaWriter() %>
 					(<%=memberDto.getMemberGrade() %>)
+					<%} %>
 			</div>
 				</td>
 			</tr>
@@ -71,7 +82,9 @@
 			<%if(isAdmin){ %>
 			<a class="link link-btn" href="write.jsp?superNo=<%=qaNo%>">답글</a>
 			<%} %>
+			<%if(isOwner){ %>
 			<a class="link link-btn" href="edit.jsp?qaNo=<%=qaNo%>&groupNo=<%=groupNo%>">수정</a>
+			<%} %>
 			<a class="link link-btn" href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
 			<a class="link link-btn" href="list.jsp">목록</a>
 			</div>

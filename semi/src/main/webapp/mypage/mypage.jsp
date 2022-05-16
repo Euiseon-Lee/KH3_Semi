@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <th width="20%" class="middle-text-center" style="font-weight: bold">전화번호</th>
-            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberPhone()%></td>
+            <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberPhone()%></td>  
         </tr>
         <tr>
             <th width="20%" class="middle-text-center" style="font-weight: bold">이메일</th>
@@ -62,18 +62,17 @@
         <tr>
             <th width="20%" class="middle-text-center" style="font-weight: bold">최종 접속일</th>  
             <td style=" color: rgb(39, 76, 119)"><%=memberDto.getMemberLogindate()%></td>
-        </tr>
+        </tr> 
     </table>
     </div>
 
     <div class="row center">  
-
+  
     <a href="<%=request.getContextPath()%>/mypage/pay/list.jsp" class="link link-btn" >결제내역 목록보기</a>
-    <a href="<%=request.getContextPath() %>/bookings/bookingsList.jsp" class = "link link-btn">예약내역 보기</a>
-
+    <a href="<%=request.getContextPath()%>/bookings/bookingsList.jsp" class="link link-btn" >예약내역 목록보기</a>
     <a href="<%=request.getContextPath()%>/mypage/password.jsp" class="link link-btn" >비밀번호 변경</a>
     <a href="<%=request.getContextPath()%>/mypage/information.jsp" class="link link-btn" >개인정보 변경</a>
-    <a href="<%=request.getContextPath()%>/mypage/exit.jsp" class="link link-btn" >탈퇴하기</a>
+    <a href="<%=request.getContextPath()%>/mypage/exit.jsp" class="link link-btn" >탈퇴하기</a>   
     </div>
 </div>
 

@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/reset.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css"> --%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
 
@@ -79,7 +79,7 @@
                 <a href="<%=request.getContextPath()%>/mypage/mypage.jsp" class="link link-header link2">마이페이지</a>
             </div>
             <div>
-                <a href="<%=request.getContextPath()%>/manager/#" class="link link-header link1">관리자</a>
+                <a href="#" class="link link-header link1">관리자</a>
                 
             </div>
 		<%} %>
@@ -113,8 +113,9 @@
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>#">수영장</a></li>  
-                            <li><a href="<%=request.getContextPath()%>#">헬스센터</a></li>
+                            <li><a href="<%=request.getContextPath()%>#">POOL</a></li>  
+                            <li><a href="<%=request.getContextPath()%>#">피트니스</a></li>  
+                            <li><a href="<%=request.getContextPath()%>#">레스토랑</a></li>
                         </ul>
                     </li>
                     <li>
@@ -123,15 +124,10 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/review/list.jsp">이용후기</a>
                     </li>
-                    <li class="reserve">
-
-                        <a href="<%=request.getContextPath()%>/bookings/add.jsp">예약하기</a>
-
-                    </li>
-                    	<!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
+                    <!-- 관리자일 시 관리자페이지(상위메뉴)추가됨 -->
                     		<%if(admin){ %> 
                         <li>
-                        <a href="<%=request.getContextPath()%>/manager/#.jsp">관리자페이지</a>
+                        <a href="#">관리자페이지</a>
                         <ul>
                             <li><a href="<%=request.getContextPath()%>/manager/season.jsp">시즌수정</a></li>
                             <li><a href="<%=request.getContextPath()%>/manager/rooms.jsp">가격수정</a></li>
@@ -140,6 +136,10 @@
                         </ul>
                     </li>
                     		<%} %>
+                    <li class="reserve">
+                        <a href="<%=request.getContextPath()%>/bookings/add.jsp" style="color: rgb(39, 76, 119);">예약하기</a>
+                    </li>
+
                 </ul> 
             </nav>
 <section>

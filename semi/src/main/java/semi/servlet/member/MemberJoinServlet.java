@@ -38,7 +38,8 @@ public class MemberJoinServlet extends HttpServlet {
 			memberDao.join(memberDto);
 
 			// 출력
-			resp.sendRedirect("join_finish.jsp");
+			//resp.sendRedirect("join_finish.jsp");
+			resp.sendRedirect(req.getContextPath()+"/member/join_finish.jsp");
 
 		} catch (Exception e) {  
 			e.printStackTrace();

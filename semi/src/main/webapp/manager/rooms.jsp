@@ -9,7 +9,7 @@
 	List<RoomsDto> list = roomsDao.selectList();
 %>
 <div class="container center">
-	<table class="table table-border center w700 m20">
+	<table class="table table-border center w700 m20 table-hover">
 		<thead>
 			<tr>
 				<th>룸 타입</th>
