@@ -193,7 +193,7 @@ public class BookingsDao {
             return bookingsDto;
          }
         
-        //의선: 예약번호와 아이디로 해당 예약 정보를 추출하는 코드
+        //의선: 예약번호로 해당 예약 정보를 추출하는 코드
         public BookingsDto showDetail(int bookingOrderNo) throws Exception {
             Connection con = JdbcUtils.getConnection();
             
