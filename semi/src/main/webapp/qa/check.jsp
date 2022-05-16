@@ -16,6 +16,11 @@
  <input type="password" name="memberPwCheck" class="form-input input-round">
  <button type="submit" class="btn btn-primary">확인</button>
  </form>
+  <% if(request.getParameter("error") != null) { %>
+		<div class="row center m20">
+			<h4 style="color:red;">비밀번호가 일치하지 않습니다</h4>	
+		</div>
+		<% } %>  	
  </div>
  <div class="container w500 m50 center">
  	<a href="list.jsp" class="link link-btn center">목록으로</a>
