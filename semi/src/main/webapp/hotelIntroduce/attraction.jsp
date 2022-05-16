@@ -3,7 +3,8 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>   
    
-   
+ <head>
+ 	<title> Hotel Intro</title>
   <style>
 
  
@@ -109,8 +110,8 @@
     left: 350px;
     width: 790px;
     
-   
     </style>
+   </head>  
     
  <body>
 	<div class="roomListj">

@@ -6,7 +6,6 @@
 
 
   <style>
-    /*roomInfo.jsp*/
 .roomListj {
 	width: 230px;
 	height: 300px;
@@ -76,7 +75,6 @@
 	
 }
 
-
     .azure_intro{
     position: relative;
     top: 33px;
@@ -84,7 +82,9 @@
 
     }
     
-      h1.azure_intro:after {
+    
+
+    h1.azure_intro:after {
       content: "";
       display: block;
       width: 1000px;
@@ -93,7 +93,7 @@
       position: relative;
       left: 290px;
     }
-    
+
     
     .Hotel_intro_all{
       position: relative;
@@ -156,6 +156,7 @@
 			</tr>
 		</table>
 	</div>
+	
 	
 
   <h1 class="azure_intro">

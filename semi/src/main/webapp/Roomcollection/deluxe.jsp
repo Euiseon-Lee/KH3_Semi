@@ -157,7 +157,7 @@ footer {
 	height: 17%;
 	top: 49px;
 	left: 59px;
-	color: #274c77;
+	color: black;
 }
 
 .infoContentj {
@@ -167,9 +167,9 @@ footer {
     font-size: small;
     line-height: 18px;
     top: 102px;
-    background: rgb(39, 76, 119);
+    background: mintcream;
     border: 1px solid black;
-    color: white;
+    color: black;
 }
 }
 
@@ -193,15 +193,13 @@ footer {
 
 .hotelInfoj {
 	width: 436px;
-	height: 654px;
-	position: relative;
-	font-size: 25px;
-	bottom: -111px;
-	left: 152%;
-	color: white;
-	background-color: rgb(39, 76, 119);
-	box-shadow: 1px 2px 1px #000;
-	border: 1px solid grey;
+    height: 657px;
+    position: relative;
+    bottom: -111px;
+    left: 152%;
+    background-color: mintcream;
+    box-shadow: 1px 2px 1px #000;
+    border: 1px solid grey;
 }
 
 .hotelTablej {
@@ -230,7 +228,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: rgb(39, 76, 119);
+	background: mintcream;
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -238,7 +236,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	color: white;
+	color: black;
 	left: 910px;
 }
 
@@ -260,7 +258,7 @@ footer {
 	padding: 13px;
 	font-size: 17px;
 	font-weight: bold;
-	background: rgb(39, 76, 119);
+	background: mintcream;
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -268,7 +266,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	color: white;
+	color: black;
 	left: 785px;
 }
 
@@ -290,7 +288,7 @@ footer {
 	padding: 14px;
 	font-size: 17px;
 	font-weight: bold;
-	background: rgb(39, 76, 119);
+	background: mintcream;
 	border: 1px solid black;
 	box-shadow: 1px 2px 2px #000;
 	cursor: pointer;
@@ -298,7 +296,7 @@ footer {
 	transition: all 0.12s ease-in-out;
 	text-align: center;
 	position: absolute;
-	color: white;
+	color: black;
 	left: 574px;
 }
 
@@ -320,8 +318,8 @@ footer {
 	top: 183px;
 	left: 10px;
 	color: black;
-	background: rgb(39, 76, 119);
-	color: white;
+	background: mintcream;
+	color: black;
 	border: 1px solid black;
 	font-family: 'Noto Sans KR', sans-serif;
 }
@@ -329,13 +327,13 @@ footer {
 
 .roomcentent1 {
 	
-	background: rgb(39, 76, 119);
-	color: white;
-	margin: 10px;
-	padding: 10px;
-	border: 1px solid black;
-	font-family: 'Noto Sans KR', sans-serif;
-	width: 471px;
+	background: mintcream;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 471px;
+}
 }
 
  .select_all{

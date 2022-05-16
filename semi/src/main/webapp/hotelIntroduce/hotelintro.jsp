@@ -3,9 +3,8 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<head>
-	<title> Hotel Intro</title>
-  
+ <head>
+ 	<title> Hotel Intro</title>
   <style>
 
  
@@ -78,7 +77,6 @@
 	font-size: 14px;
 	
 }
-
 
     .azure_intro{
     position: relative;
