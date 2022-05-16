@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/reset.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css"> --%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
 
