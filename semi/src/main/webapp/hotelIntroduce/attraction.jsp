@@ -103,6 +103,11 @@
    max-height: 100px;
    } 
     
+    .attraction_imgorder{
+    position: relative;
+    top: -238px;
+    left: 350px;
+    width: 790px;
     
    
     </style>
@@ -136,6 +141,11 @@
     주변 관광지
   </h1>
   
+  <div class = "attraction_imgorder">
+    <div> <img src= "<%=request.getContextPath()%>/image/Firstimg.png" width= "100%" height= "100%"></div>
+    <div> <img src= "<%=request.getContextPath()%>/image/secondimg.png"width= "100%"  height= "100%"></div>
+  	<div> <img src= "<%=request.getContextPath()%>/image/thirdimg.png"width= "100%"  height= "100%"></div>
+  </div>
  
 
  
