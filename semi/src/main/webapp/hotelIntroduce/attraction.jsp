@@ -3,7 +3,8 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>   
    
-   
+ <head>
+ 	<title> Hotel Intro</title>
   <style>
 
  
@@ -103,9 +104,14 @@
    max-height: 100px;
    } 
     
+    .attraction_imgorder{
+    position: relative;
+    top: -238px;
+    left: 350px;
+    width: 790px;
     
-   
     </style>
+   </head>  
     
  <body>
 	<div class="roomListj">
@@ -114,19 +120,19 @@
 				<th>호텔소개</th>
 			</tr>
 			<tr>
-				<td><a href="#">호텔소개</a></td>
+				<td><a href="hotelintro.jsp">호텔소개</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">호텔정보</a></td>
+				<td><a href="hotelinfo.jsp">호텔정보</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">층별안내도</a></td>
+				<td><a href="floorguide.jsp">층별안내도</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">주변관광지</a></td>
+				<td><a href="attraction.jsp">주변관광지</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">오시는길</a></td>
+				<td><a href="away.jsp">오시는길</a></td>
 			</tr>
 		</table>
 	</div>
@@ -136,6 +142,11 @@
     주변 관광지
   </h1>
   
+  <div class = "attraction_imgorder">
+    <div> <img src= "<%=request.getContextPath()%>/image/Firstimg.png" width= "100%" height= "100%"></div>
+    <div> <img src= "<%=request.getContextPath()%>/image/secondimg.png"width= "100%"  height= "100%"></div>
+  	<div> <img src= "<%=request.getContextPath()%>/image/thirdimg.png"width= "100%"  height= "100%"></div>
+  </div>
  
 
  
