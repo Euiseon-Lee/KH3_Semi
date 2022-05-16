@@ -11,20 +11,6 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<style>
-	.warning {
-		text-align: center;
-		font-weight: bold;
-		color: rgb(186, 0, 0)
-	}
-	
-	.rejoin {
-		text-align: center;
-		font-weight: bold;
-		color: rgb(100, 100, 100)
-	}
-</style>
-
 
 <div class="container w850 m10 center">
 	<div class="row center m50">
