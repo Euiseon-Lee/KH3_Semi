@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/reset.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css">
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/test.css"> --%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/layout.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/commons.css">
 
@@ -101,13 +101,21 @@
                     </li>
                     <li>
                         <a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">객실소개</a>
+                        <ul>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">Standard</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/deluxe.jsp">Deluxe</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/premier.jsp">Premier</a></li>
+                            <li><a href="<%=request.getContextPath()%>/Roomcollection/Suite.jsp">Suite</a></li>
+                            
+                        </ul>
                     </li>  
+  
                     <li>
                         <a href="#">부대시설</a>
                         <ul>
-                            <li><a href="<%=request.getContextPath()%>#">POOL</a></li>  
-                            <li><a href="<%=request.getContextPath()%>#">피트니스</a></li>  
-                            <li><a href="<%=request.getContextPath()%>#">레스토랑</a></li>
+                            <li><a href="<%=request.getContextPath()%>/amenities/pool.jsp">POOL</a></li>  
+                            <li><a href="<%=request.getContextPath()%>/amenities/fitness.jsp">피트니스</a></li>  
+                            <li><a href="<%=request.getContextPath()%>/amenities/restaurant.jsp">레스토랑</a></li>
                         </ul>
                     </li>
                     <li>

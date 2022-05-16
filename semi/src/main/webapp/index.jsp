@@ -166,21 +166,21 @@ $(function(){
                 <div class="float-left layer-3">
             <div class="container w500 m20 box-container box">
                 <div class="imagebox image-thumbnail">
-                <img src="<%=request.getContextPath()%>/image/event1.jpg" width="500px" height="300px">
+                <img src="<%=request.getContextPath()%>/image/main_image11.jpg" width="500px" height="300px">
                 </div>
                 </div>
             </div>
                 <div class="float-left layer-3">
             <div class="container w500 m20 box-container box">
                 <div class="imagebox image-thumbnail">
-                <img src="<%=request.getContextPath()%>/image/event4.jpg"width="500px" height="300px">
+                <img src="<%=request.getContextPath()%>/image/main_image22.jpg"width="500px" height="300px">
                 </div>
                 </div>
             </div> 
                 <div class="float-left layer-3">
             <div class="container w500 m20 box-container box">
                 <div class="imagebox image-thumbnail">
-                <img src="<%=request.getContextPath()%>/image/event3.jpg" width="500px" height="300px">
+                <img src="<%=request.getContextPath()%>/image/main_image33.jpg" width="500px" height="300px">
                 </div>
                 </div>
             </div>

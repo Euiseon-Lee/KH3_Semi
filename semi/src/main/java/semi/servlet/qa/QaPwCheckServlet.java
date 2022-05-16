@@ -42,7 +42,7 @@ public class QaPwCheckServlet extends HttpServlet{
 				resp.sendRedirect("detail.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
 			}
 			else {
-				resp.sendRedirect("check.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
+				resp.sendRedirect("check.jsp?error"+"&qaNo="+qaNo+"&groupNo="+groupNo);
 			}
 		}
 		catch(Exception e) {

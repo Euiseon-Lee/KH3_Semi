@@ -82,6 +82,18 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.m60{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.m70{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.m80{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
 
 
 /* 모든 이미지에 대한 공용 스타일*/
@@ -227,6 +239,21 @@
         padding: 0.5em;
         background-color: rgb(231, 236, 239);
         border-color: transparent;
+    }
+    
+        .form-input.underline{
+        outline: none;
+        padding: 0.5em;
+        border-left-width:0;
+        border-right-width:0;
+        border-top-width:0;
+        border-bottom-width:1;
+        border-color: rgb(231, 236, 239);
+    }
+    
+    .form-input.underline:focus{
+        border-color: rgb(148, 168, 184);
+        border-width: 0.1em;
     }
 
     input.underline {
