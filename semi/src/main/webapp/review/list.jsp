@@ -71,7 +71,7 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 	<div class="container w850 w10">
-		<div class="row center">
+		<div class="row center m40">
 			<h1>후기게시판 글목록</h1>
 		</div>
 		

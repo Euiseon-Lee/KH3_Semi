@@ -25,7 +25,7 @@ public class PayCencelServlet extends HttpServlet{
 			
 			//출력
 			if(success) {
-				resp.sendRedirect("list.jsp");	
+				resp.sendRedirect(req.getContextPath()+"/mypage/pay/cancel_success.jsp");	
 			}
 			else {
 				resp.sendError(404);
