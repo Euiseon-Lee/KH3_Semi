@@ -110,8 +110,8 @@
             </div>
 			<ul>
 				<li><a href="/semi/amenities/pool.jsp">POOL</a>
-				<li><a href="/semi/amenities/fitness.jsp">피트니스</a>
-				<li><a href="/semi/amenities/restaurant.jsp">레스토랑</a>
+				<li><a href="/semi/amenities/fitness.jsp">FITNESS</a>
+				<li><a href="/semi/amenities/restaurant.jsp">RESTAURANT</a>
 			</ul>
 		</li>
 		<li>
