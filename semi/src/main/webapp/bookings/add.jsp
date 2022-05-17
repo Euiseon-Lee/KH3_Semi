@@ -37,7 +37,7 @@ section, article, aside, nav, a , ul, ol, li {
                     <option>스위트</option>
                 </select>
             </span>&nbsp;&nbsp;&nbsp;
-            
+             
             <span>
                 <input type = "date" class ="han2" name = "bookingCheckIn" required min = "<%=today%>" value = "<%=today%>">		 
             </span>&nbsp;&nbsp;&nbsp;
