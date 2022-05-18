@@ -51,7 +51,7 @@ section, article, aside, nav, a , ul, ol, li {
 		
 	
 		<%if(overDay){ %>
-			<h3>체크인의 이전날짜를 체크아웃날짜로 설정할 수 없습니다!!</h3><br>
+			<h3>잘못된 예약 기간을 선택하셨습니다!!</h3><br>
 			<a href = "add.jsp">
 			<h3>날짜 설정을 다시해주세요.</h3>
 			</a>

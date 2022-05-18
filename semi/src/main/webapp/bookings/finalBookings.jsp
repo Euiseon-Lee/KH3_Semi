@@ -196,7 +196,7 @@ section, article, aside, nav, a , ul, ol, li {
 			<tbody  align = "center">
 				<tr>
 					<td colspan = "2" align = "center"><%=bookingCheckIn %> ~
-					<%=bookingCheckOut %> ( <%=roomDay %>박/ <%=roomDay+1 %>일 )
+					<%=bookingCheckOut %> ( <%=roomDay %>박 / <%=roomDay+1 %>일 )
 					</td>
 					<td><%=bookingRoomType %>룸</td>
 					<td><%=bookingRoomNo %>호</td>
