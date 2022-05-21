@@ -39,10 +39,10 @@ public class QaPwCheckServlet extends HttpServlet{
 			if(isPasswordCorrect) {//일치할 경우
 				//세션에 비밀번호 저장
 				req.getSession().setAttribute("password", memberDto.getMemberPw());
-				resp.sendRedirect("detail.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
+				resp.sendRedirect(req.getContextPath()+"/qa/detail.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
 			}
 			else {
-				resp.sendRedirect("check.jsp?error"+"&qaNo="+qaNo+"&groupNo="+groupNo);
+				resp.sendRedirect(req.getContextPath()+"/qa/check.jsp?error"+"&qaNo="+qaNo+"&groupNo="+groupNo);
 			}
 		}
 		catch(Exception e) {

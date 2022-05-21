@@ -37,7 +37,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 			resp.sendRedirect(req.getContextPath()); //메인페이지 이동
 		}
 		else { //실패 시 
-			resp.sendRedirect("login.jsp?error");
+			resp.sendRedirect(req.getContextPath()+"/member/login.jsp?error");
 		}
 		
 	} catch (Exception e) {

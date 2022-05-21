@@ -29,7 +29,7 @@ public class HotelIntroduceEditServlet extends HttpServlet {
 				boolean success = hotelIntroduceDao.update(hotelIntroduceDto);
 				
 				if(success) {
-					resp.sendRedirect("detail.jsp?hotelIntroduceNo="+hotelIntroduceDto.getHotelIntroduceNo());
+					resp.sendRedirect(req.getContextPath()+"/hotelIntroduce/detail.jsp?hotelIntroduceNo="+hotelIntroduceDto.getHotelIntroduceNo());
 					
 				}else {
 					resp.sendError(404);

@@ -42,7 +42,7 @@ public class BoardOwnerFilter implements Filter{
 				chain.doFilter(request, response);
 			}
 			else {
-				resp.sendRedirect("block.jsp");}
+				resp.sendRedirect(req.getContextPath()+"/qa/block.jsp");}
 		}
 		catch(Exception e) {
 			e.printStackTrace();

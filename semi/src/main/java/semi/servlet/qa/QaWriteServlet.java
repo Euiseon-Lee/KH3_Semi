@@ -43,7 +43,7 @@ public class QaWriteServlet extends HttpServlet{
 			
 			qaDao.insert(qaDto);
 			
-			resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo()+"&groupNo="+qaDto.getGroupNo());
+			resp.sendRedirect(req.getContextPath()+"/qa/detail.jsp?qaNo="+qaDto.getQaNo()+"&groupNo="+qaDto.getGroupNo());
 			
 		}
 		catch(Exception e) {

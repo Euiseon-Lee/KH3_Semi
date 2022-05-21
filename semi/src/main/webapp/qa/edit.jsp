@@ -58,7 +58,7 @@
 						<button type="submit" class="btn btn-primary fill">등록</button>
 					</div>
 					<div>
-						<a href="list.jsp" class="link link-btn center fill">목록</a>
+						<a href="<%=request.getContextPath()%>/qa/list.jsp" class="link link-btn center fill">목록</a>
 					</div> 
 			</div>
 	</form>

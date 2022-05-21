@@ -112,13 +112,13 @@
 				<th>부대시설</th>
 			</tr>
 			<tr>
-				<td><a href="pool.jsp">POOL</a></td>
+				<td><a href="<%=request.getContextPath()%>/amenities/pool.jsp">POOL</a></td>
 			</tr>
 			<tr>
-				<td><a href="fitness.jsp">FITNESS</a></td>
+				<td><a href="<%=request.getContextPath()%>/amenities/fitness.jsp">FITNESS</a></td>
 			</tr>
 			<tr>
-				<td><a href="restaurant.jsp">RESTAURANT</a></td>
+				<td><a href="<%=request.getContextPath()%>/amenities/restaurant.jsp">RESTAURANT</a></td>
 			</tr>
 		</table>
 	</div>

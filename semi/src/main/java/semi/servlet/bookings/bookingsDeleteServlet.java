@@ -25,7 +25,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			
 			//출력
 			if(success) {
-				resp.sendRedirect("bookingsList.jsp");
+				resp.sendRedirect(req.getContextPath()+"/bookings/bookingsList.jsp");
 			}else {
 				resp.sendError(404);
 			}

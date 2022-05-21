@@ -24,7 +24,7 @@
 				<td><%=roomsDto.getRoomType() %></td>
 				<td><%=roomsDto.getPeakSeason() %></td>
 				<td><%=roomsDto.getOffSeason() %></td>
-				<td><a class="link link-btn" href="roomsedit.jsp?roomType=<%=roomsDto.getRoomType() %>">수정</a></td>
+				<td><a class="link link-btn" href="<%=request.getContextPath()%>/manager/roomsedit.jsp?roomType=<%=roomsDto.getRoomType() %>">수정</a></td>
 			</tr>
 			<%} %>
 		</tbody>

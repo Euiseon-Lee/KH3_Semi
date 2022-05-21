@@ -111,7 +111,7 @@
 		</div>
 		
 		<div class="m10">
-			<a href="list.jsp" class="link link-btn fill">글목록</a>
+			<a href="<%=request.getContextPath()%>/review/list.jsp" class="link link-btn fill">글목록</a>
 		</div>
 		
 	</div>

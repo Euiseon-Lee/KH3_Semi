@@ -36,7 +36,7 @@ public class ReplyInsertServlet extends HttpServlet {
 			reviewDao.updateReplycount(reviewReplyDto.getReplyTarget());
 			
 			//출력
-			resp.sendRedirect("detail.jsp?reviewNo="+reviewReplyDto.getReplyTarget());
+			resp.sendRedirect(req.getContextPath()+"/review/detail.jsp?reviewNo="+reviewReplyDto.getReplyTarget());
 			
 			
 			

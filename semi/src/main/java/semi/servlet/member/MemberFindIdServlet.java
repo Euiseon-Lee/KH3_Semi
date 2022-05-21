@@ -31,10 +31,10 @@ public class MemberFindIdServlet extends HttpServlet {
 
 			// 출력
 			if(memberId != null) {
-				resp.sendRedirect("find_id_result.jsp?memberFname="+memberFname+"&memberLname="+memberLname +"&memberId="+memberId);
+				resp.sendRedirect(req.getContextPath()+"/member/find_id_result.jsp?memberFname="+memberFname+"&memberLname="+memberLname +"&memberId="+memberId);
 			}
 			else {
-				resp.sendRedirect("find_id.jsp?error");
+				resp.sendRedirect(req.getContextPath()+"/member/find_id.jsp?error");
 			}
 
 		} catch (Exception e) {

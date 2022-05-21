@@ -95,7 +95,7 @@
 						<td><%=reviewDto.getReviewNo() %></td>	<!-- 글번호 출력 칸 -->
 							<td>	<!-- 글제목 링크 및 제목 출력 칸 -->
 						<div align="left">
-								<a class="link link-hover" href="detail.jsp?reviewNo=<%=reviewDto.getReviewNo()%>">
+								<a class="link link-hover" href="<%=request.getContextPath()%>/review/detail.jsp?reviewNo=<%=reviewDto.getReviewNo()%>">
 									<%=reviewDto.getReviewTitle() %>
 								</a>
 									<!-- 댓글 수 출력 -->
@@ -119,17 +119,17 @@
 			<!--  페이지네이션 구현 완료 -->
 			<%if(p > 1){ %> 	<!-- 첫번째 페이지가 아닌 경우 -->
 				<%if(search){ %>
-					<a href="list.jsp?p=1&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&laquo;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=1&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&laquo;</a>
 				<%} else { %>
-					<a href="list.jsp?p=1&s=<%=s%>">&laquo;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=1&s=<%=s%>">&laquo;</a>
 				<%} %>
 			<%} %>
 			
 			<%if(startBlock > 1){ %> <!-- 첫번째 블록 구간이 아닌 경우 -->
 				<%if(search){ %>
-					<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&lt;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=startBlock-1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&lt;</a>
 				<%} else { %>
-					<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
 				<%} %>
 			<%} %>
 			
@@ -138,15 +138,15 @@
 			<%for(int i=startBlock; i <= endBlock; i++){ %>
 				<%if(search){ %>
 					<%if(i == p){ %>
-					<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
+					<a class="active" href="<%=request.getContextPath()%>/review/list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
 					<%} else { %>
-					<a href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
 					<%} %>
 				<%} else { %>
 					<%if(i == p){ %>
 					<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
 					<%} else { %>
-					<a href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
 					<%} %>
 				<%} %>
 			<%} %>
@@ -154,17 +154,17 @@
 			<!-- 다음 버튼 영역 -->
 			<%if(endBlock < lastPage){ %>
 				<%if(search){ %>
-					<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&gt;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=endBlock+1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&gt;</a>
 				<%} else { %>
-					<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
 				<%} %>
 			<%} %>
 		
 			<%if(p < lastPage){ %>
 				<%if(search){ %>
-					<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&raquo;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=lastPage%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&raquo;</a>
 				<%} else { %>
-					<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
+					<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
 				<%} %>
 			<%} %>
 			</div>

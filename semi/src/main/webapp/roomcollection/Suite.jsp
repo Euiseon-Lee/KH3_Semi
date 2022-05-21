@@ -366,16 +366,16 @@ footer {
 				<th>객실</th>
 			</tr>
 			<tr>
-				<td><a href="Standard.jsp">Standard</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/Standard.jsp">Standard</a></td>
 			</tr>
 			<tr>
-				<td><a href="deluxe.jsp">Deluxe</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/deluxe.jsp">Deluxe</a></td>
 			</tr>
 			<tr>
-				<td><a href="premier.jsp">Premier</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/premier.jsp">Premier</a></td>
 			</tr>
 			<tr>
-				<td><a href="Suite.jsp">Suite</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/Suite.jsp">Suite</a></td>
 			</tr>
 		</table>
 	</div>
@@ -478,9 +478,9 @@ footer {
 			</table>
 		</div >
 		
-			<div class="rooms__button" ><a href=<%=request.getContextPath()%>/bookings/add.jsp style="text-decoration:none" >예약하기</a></div>
+			<div class="rooms__button" ><a href="<%=request.getContextPath()%>/bookings/add.jsp" style="text-decoration:none" >예약하기</a></div>
 		<div class="rooms__button1"><a href="<%=request.getContextPath()%>/qa/list.jsp" style="text-decoration:none" >문의하기</a></div>
-				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none" colr = "black">이용후기 보기</div>
+				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none" color = "black">이용후기 보기</div>
 		
 </div>
 

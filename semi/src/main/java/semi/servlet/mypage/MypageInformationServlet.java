@@ -40,13 +40,13 @@ public class MypageInformationServlet extends HttpServlet {
 		boolean isPasswordCorrect = memberDto.getMemberPw().equals(findDto.getMemberPw());
 		
 		if(!isPasswordCorrect) {  
-			resp.sendRedirect("information.jsp?error");  
+			resp.sendRedirect(req.getContextPath()+"/mypage/information.jsp?error");  
 					return;
 		}
 		memberDao.changeInformation(memberDto); //정보변경Dao 호출
 		
 		//출력
-		resp.sendRedirect("mypage.jsp");
+		resp.sendRedirect(req.getContextPath()+"/mypage/mypage.jsp");
 		
 	} catch (Exception e) {
 		e.printStackTrace();

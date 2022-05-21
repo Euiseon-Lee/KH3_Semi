@@ -25,7 +25,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		boolean success = seasonDao.update(seasonDto);
 		
 		if(success) {
-			resp.sendRedirect("season.jsp");
+			resp.sendRedirect(req.getContextPath()+"/manager/season.jsp");
 		}
 		else {
 			resp.sendError(404);

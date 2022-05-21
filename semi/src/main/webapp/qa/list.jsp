@@ -104,10 +104,10 @@
 						<img src="<%=request.getContextPath()%>/image/reply.png" width="20" height="20">
 						<%} %>
 						<%if(qaDto.getQaPublic()==null){ %>
-					<a class="link link-hover" href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
+					<a class="link link-hover" href="<%=request.getContextPath()%>/qa/detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
 					<%}else{ %>
 					<img src="<%=request.getContextPath() %>/image/locked.png" width="20" height="20">
-					<a class="link link-hover" href="detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
+					<a class="link link-hover" href="<%=request.getContextPath()%>/qa/detail.jsp?qaNo=<%=qaDto.getQaNo()%>&groupNo=<%=qaDto.getGroupNo()%>"><%=qaDto.getQaTitle() %></a>
 					<%} %>
 					</td>
 					</div>
@@ -125,31 +125,31 @@
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
 			<%if(search){ %>
-				<a href="list.jsp?p=1&s=<%=s %>&type=<%=type %>&keyword=<%=keyword %>">&laquo;</a>
+				<a href="<%=request.getContextPath()%>/qa/list.jsp?p=1&s=<%=s %>&type=<%=type %>&keyword=<%=keyword %>">&laquo;</a>
 			<%}else{ %>
-				<a href="list.jsp?p=1&s=<%=s %>">&laquo;</a>
+				<a href="<%=request.getContextPath()%>/qa/list.jsp?p=1&s=<%=s %>">&laquo;</a>
 			<%} %>
 		<%} %>
 		<%if(startBlock > 1){ %>
 			<%if(search){ %>
-			<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&lt;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=startBlock-1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&lt;</a>
 			<%} else { %>
-			<a href="list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
 			<%} %>
 		<%} %>
 		<!-- 숫자 링크 영역 -->
 		<%for(int i=startBlock; i <= endBlock; i++){ %>
 			<%if(search){ %>
 				<%if(i == p){ %>
-				<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
+				<a class="active" href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>	
 				<%} else { %>
-				<a href="list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
+				<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=i%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>"><%=i%></a>
 				<%} %>
 			<%} else { %>
 				<%if(i == p){ %>
-				<a class="active" href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
+				<a class="active" href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
 				<%} else { %>
-				<a href="list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
+				<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
 				<%} %>
 			<%} %>
 		<%} %>
@@ -157,17 +157,17 @@
 		<!-- 다음 버튼 -->
 		<%if(endBlock < lastPage){ %>
 			<%if(search){ %>
-			<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&gt;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=endBlock+1%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&gt;</a>
 			<%} else { %>
-			<a href="list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
 			<%} %>
 		<%} %>
 		
 		<%if(p < lastPage){ %>
 			<%if(search){ %>
-			<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&raquo;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=lastPage%>&s=<%=s%>&type=<%=type%>&keyword=<%=keyword%>">&raquo;</a>
 			<%} else { %>
-			<a href="list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
+			<a href="<%=request.getContextPath()%>/qa/list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
 			<%} %>
 		<%} %>
 		

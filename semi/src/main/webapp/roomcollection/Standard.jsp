@@ -164,7 +164,7 @@ footer {
     left: 10px;
     font-size: small;
     line-height: 18px;
-    top: 102px;
+    top: 122px;
     background: rgb(250, 249, 247);
     font-family: 'Noto Sans KR', sans-serif;
   
@@ -366,23 +366,23 @@ footer {
 				<th>객실</th>
 			</tr>
 			<tr>
-				<td><a href="Standard.jsp">Standard</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/Standard.jsp">Standard</a></td>
 			</tr>
 			<tr>
-				<td><a href="deluxe.jsp">Deluxe</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/deluxe.jsp">Deluxe</a></td>
 			</tr>
 			<tr>
-				<td><a href="premier.jsp">Premier</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/premier.jsp">Premier</a></td>
 			</tr>
 			<tr>
-				<td><a href="Suite.jsp">Suite</a></td>
+				<td><a href="<%=request.getContextPath()%>/roomcollection/Suite.jsp">Suite</a></td>
 			</tr>
 		</table>
 	</div>
 	
 		<div class="roomImgj">
 			<div class="Imgj">
-				<img src="<%=request.getContextPath()%>/image/premier.jpg">
+				<img src="<%=request.getContextPath()%>/image/standard.jpg">
 			
 				
 			</div>
@@ -390,13 +390,14 @@ footer {
 		
 		<div class="contentInfoj">
 			<div class="roomContentj">
-				<h1 style="color:black;">&nbsp;Premier</h1><br>
-				<div class ="roomcentent1"> &nbsp;&nbsp; - 고급스러운 별장의 게스트 룸과 같은 매력을 지닌 <br> &nbsp;&nbsp;&nbsp;&nbsp; 프리미어룸<br>
-				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - 이국적인 리조트 느낌의 화사한 인테리어로 스탠다드룸<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보다 넓은 객실입니다 
+				<h1 style="color:black;">&nbsp;Standard</h1><br>
+				<div class ="roomcentent1"> &nbsp;&nbsp; - 제주의 푸른 하늘과 안락한 풍경을 제공하는 스탠다드 룸 <br> 
+				&nbsp;&nbsp;&nbsp; <br> &nbsp;&nbsp; - Azure호텔의 가장 기본 객실로 2~3층에 위치하고 <br> &nbsp;&nbsp; &nbsp; 있습니다
+				
 				</div>
 				
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br> &nbsp;&nbsp; - 스튜디오 타입의 디자인
-				<div><br>&nbsp;&nbsp; - 블루 패턴의 카페트와 화이트 패브릭 소파가 세련된 느낌을 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자아내며 휴식을 취할 수 있는 다이닝 테이블과 체어를 완비 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;한 객실로 7~8층에 위치해 멋진 자연 풍광을 감상할 수 있는 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;룸입니다. </div>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class = "standard_des"> <br> &nbsp;&nbsp; - 기본 타입 룸
+				<div><br>&nbsp;&nbsp; - 스튜디오 타입의 파스텔 톤 객실에 휴식을 취할 수 있는 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블과 체어, Azure의 가장 기본적인 룸입니다. </div>
 				</div>
 		
 					
@@ -476,9 +477,9 @@ footer {
 				
 			</table>
 		</div >
-			<div class="rooms__button" ><a href=<%=request.getContextPath()%>/bookings/add.jsp style="text-decoration:none" >예약하기</a></div>
+			<div class="rooms__button" ><a href="<%=request.getContextPath()%>/bookings/add.jsp" style="text-decoration:none" >예약하기</a></div>
 		<div class="rooms__button1"><a href="<%=request.getContextPath()%>/qa/list.jsp" style="text-decoration:none" >문의하기</a></div>
-				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none" colr = "black">이용후기 보기</div>
+				<div class="rooms__button2"><a href="<%=request.getContextPath()%>/review/list.jsp" style="text-decoration:none" color = "black">이용후기 보기</div>
 		
 </div>
 

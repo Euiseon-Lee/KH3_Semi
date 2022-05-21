@@ -35,7 +35,7 @@ public class ReviewEditServlet extends HttpServlet {
 			boolean isOwner = memberId != null && memberId.equals(reviewDto.getReviewMemberId());
 			
 			if(!isOwner) {
-				resp.sendRedirect("detail.jsp?reviewNo="+reviewNo);
+				resp.sendRedirect(req.getContextPath()+"/review/detail.jsp?reviewNo="+reviewNo);
 				return;
 			}
 
@@ -44,7 +44,7 @@ public class ReviewEditServlet extends HttpServlet {
 			
 			
 			if(success) {
-				resp.sendRedirect("detail.jsp?reviewNo="+reviewDto.getReviewNo());
+				resp.sendRedirect(req.getContextPath()+"/review/detail.jsp?reviewNo="+reviewDto.getReviewNo());
 			}
 			else {
 				resp.sendError(404);

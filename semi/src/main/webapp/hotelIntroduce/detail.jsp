@@ -25,7 +25,7 @@
 	<h1>제목 : <%=hotelIntroduceDto.getHotelIntroduceHead()%></h1>
 	<h1>내용 : <%=hotelIntroduceDto.getHotelIntroduceContent() %></h1>
 	
-	<a href = "edit.jsp?hotelIntroduceNo=<%= hotelIntroduceNo%>">수정하기</a>
+	<a href = "<%=request.getContextPath()%>/hotelIntroduce/edit.jsp?hotelIntroduceNo=<%= hotelIntroduceNo%>">수정하기</a>
 
 </body>
 </html>

@@ -25,6 +25,6 @@
 		<% } %>  	
  </div>
  <div class="container w500 m50 center">
- 	<a href="list.jsp" class="link link-btn center">목록으로</a>
+ 	<a href="<%=request.getContextPath()%>/qa/list.jsp" class="link link-btn center">목록으로</a>
  </div>
 <jsp:include page="/template/footer.jsp"></jsp:include>

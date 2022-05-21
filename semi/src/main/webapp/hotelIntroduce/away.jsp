@@ -171,19 +171,19 @@
 				<th>호텔소개</th>
 			</tr>
 			<tr>
-				<td><a href="hotelintro.jsp">호텔소개</a></td>
+				<td><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelintro.jsp">호텔소개</a></td>
 			</tr>
 			<tr>
-				<td><a href="hotelinfo.jsp">호텔정보</a></td>
+				<td><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelinfo.jsp">호텔정보</a></td>
 			</tr>
 			<tr>
-				<td><a href="floorguide.jsp">층별안내도</a></td>
+				<td><a href="<%=request.getContextPath()%>/hotelIntroduce/floorguide.jsp">층별안내도</a></td>
 			</tr>
 			<tr>
-				<td><a href="attraction.jsp">주변관광지</a></td>
+				<td><a href="<%=request.getContextPath()%>/hotelIntroduce/attraction.jsp">주변관광지</a></td>
 			</tr>
 			<tr>
-				<td><a href="away.jsp">오시는길</a></td>
+				<td><a href="<%=request.getContextPath()%>/hotelIntroduce/away.jsp">오시는길</a></td>
 			</tr>
 		</table>
 	</div>

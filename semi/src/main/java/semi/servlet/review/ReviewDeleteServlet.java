@@ -30,7 +30,7 @@ public class ReviewDeleteServlet extends HttpServlet {
 			boolean success = reviewDao.delete(reviewNo);
 			
 			if(success) {
-				resp.sendRedirect("list.jsp");
+				resp.sendRedirect(req.getContextPath()+"/review/list.jsp");
 			}
 			else {
 				resp.sendError(404);

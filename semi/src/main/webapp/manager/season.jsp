@@ -24,7 +24,7 @@
 				<td><%=seasonDto.getSeasonType() %></td> 
 				<td><%=seasonDto.getSeasonStartString() %></td> 
 				<td><%=seasonDto.getSeasonEndString() %></td>
-				<td><a class="link link-btn" href="seasonedit.jsp?seasonNo=<%=seasonDto.getSeasonNo() %>">수정</a>
+				<td><a class="link link-btn" href="<%=request.getContextPath()%>/manager/seasonedit.jsp?seasonNo=<%=seasonDto.getSeasonNo() %>">수정</a>
 			</tr>
 			<%} %>
 		</tbody>

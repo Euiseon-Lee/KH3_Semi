@@ -25,7 +25,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		boolean success = roomsDao.update(roomsDto);
 		
 		if(success) {
-			resp.sendRedirect("rooms.jsp");
+			resp.sendRedirect(req.getContextPath()+"/manager/rooms.jsp");
 		}
 		else {
 			resp.sendError(404);

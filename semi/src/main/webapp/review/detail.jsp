@@ -1,4 +1,4 @@
-g<%@page import="semi.beans.PayDto"%>
+<%@page import="semi.beans.PayDto"%>
 <%@page import="semi.beans.PayDao"%>
 <%@page import="java.util.List"%>
 <%@page import="semi.beans.ReviewReplyDao"%>
@@ -109,18 +109,18 @@ g<%@page import="semi.beans.PayDto"%>
 
 
 			<div class="right">
-				<a class="link link-btn" href="list.jsp">글목록</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/review/list.jsp">글목록</a>
 			
 
 				<!-- 작성자 본인 또는 관리자면 수정 및 삭제 버튼 출력되도록 수정필요 !-->
 				<%if(isOwner){ %>
-				<a class="link link-btn" href="edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
-				<a class="link link-btn" href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/review/edit.jsp?reviewNo=<%=reviewNo%>">글수정</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/review/delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
 				</div>
 				<%} %>
 
 				<%if(isAdmin){ %>
-				<a class="link link-btn" href="delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/review/delete.kh?reviewNo=<%=reviewNo%>">글삭제</a>
 				</div>
 				<%} %>
 		
@@ -185,7 +185,7 @@ g<%@page import="semi.beans.PayDto"%>
 						<%} %>
 						<%-- 댓글 삭제 이미지(본인이 쓴 댓글일때만 나오게)--%>
 						<%if(isMyReply || isAdmin){ %>
-						<a href = "reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
+						<a href = "<%=request.getContextPath()%>/review/reply_delete.kh?replyNo=<%=reviewReplyDto.getReplyNo()%>&replyTarget=<%=reviewReplyDto.getReplyTarget()%>">
 						<img src = "<%=request.getContextPath() %>/image/delete.png" width = "20">
 						</a>
 						<%} %>

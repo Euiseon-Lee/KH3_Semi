@@ -55,9 +55,9 @@ public class QaBoardFilter implements Filter {
 //					qaDto.getQaWriter()
 				}else if(memberId != null && memberId.equals(firstWriter)){
 					// 비밀번호 입력 페이지로 이동 -> 세션에 비밀번호를 저장
-					resp.sendRedirect("check.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
+					resp.sendRedirect(req.getContextPath()+"/qa/check.jsp?qaNo="+qaNo+"&groupNo="+groupNo);
 				} else {
-					resp.sendRedirect("block.jsp");
+					resp.sendRedirect(req.getContextPath()+"/qa/block.jsp");
 				}
 				
 			} 

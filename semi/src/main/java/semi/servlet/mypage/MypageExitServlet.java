@@ -25,7 +25,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		MemberDto memberDto = memberDao.selectOneId(memberId);
 		boolean isPasswordCorrect = memberPw != null && memberPw.equals(memberDto.getMemberPw());
 		if(!isPasswordCorrect) {
-			resp.sendRedirect("exit.jsp?error");
+			resp.sendRedirect(req.getContextPath()+"/mypage/exit.jsp?error");
 			return;
 		}
 		memberDao.delete(memberId); //아이디삭제
@@ -38,7 +38,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		
 		
 		//출력
-		resp.sendRedirect("exit_finish.jsp");
+		resp.sendRedirect(req.getContextPath()+"/mypage/exit_finish.jsp");
 		
 		
 	} catch (Exception e) {

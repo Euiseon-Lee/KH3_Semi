@@ -42,11 +42,11 @@
  <div class="row center m10">
  <div class="flex-container">
  <div class="display-right">
-     <a href="find_id.jsp" class="link " >아이디 찾기</a>
+     <a href="<%=request.getContextPath()%>/member/find_id.jsp" class="link " >아이디 찾기</a>
 </div>
 &nbsp;&nbsp;&nbsp;&nbsp;
  <div class="display-right">
-     <a href="find_pw.jsp" class="link " >비밀번호 찾기</a>
+     <a href="<%=request.getContextPath()%>/member/find_pw.jsp" class="link " >비밀번호 찾기</a>
  </div>
 </div>
 </div>

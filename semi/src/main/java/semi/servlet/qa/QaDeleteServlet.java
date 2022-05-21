@@ -21,7 +21,7 @@ public class QaDeleteServlet extends HttpServlet{
 			boolean success = qaDao.delete(qaNo);
 			
 			if(success) { 
-				resp.sendRedirect("list.jsp");
+				resp.sendRedirect(req.getContextPath()+"/qa/list.jsp");
 			}
 			else {
 				resp.sendError(404);

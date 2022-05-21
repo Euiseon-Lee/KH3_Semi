@@ -29,7 +29,7 @@ public class ReplyDeleteServlet extends HttpServlet {
 					
 					ReviewDao reviewDao = new ReviewDao();
 					reviewDao.updateReplycount(replyTarget);//댓글 수 갱신해야함
-					resp.sendRedirect("detail.jsp?reviewNo="+replyTarget);
+					resp.sendRedirect(req.getContextPath()+"/review/detail.jsp?reviewNo="+replyTarget);
 					
 				}else {//잘못된 번호 입력하셨어요 고객님
 					resp.sendError(404);

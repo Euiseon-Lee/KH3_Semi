@@ -31,7 +31,7 @@ public class MypagePasswordServlet extends HttpServlet{
 			
 			boolean isSamePassword = currentPw == null || changePw == null || currentPw.equals(changePw);
 			if(isSamePassword) {
-				resp.sendRedirect("password.jsp?error=1");
+				resp.sendRedirect(req.getContextPath()+"/mypage/password.jsp?error=1");
 				return;
 			}
 			
@@ -40,14 +40,14 @@ public class MypagePasswordServlet extends HttpServlet{
 			
 			boolean isCorrectPassword = currentPw.equals(memberDto.getMemberPw());
 			if(!isCorrectPassword) {
-				resp.sendRedirect("password.jsp?error=2");
+				resp.sendRedirect(req.getContextPath()+"/mypage/password.jsp?error=2");
 				return;
 			}
 			
 			//변경할 비밀번호 적합한지 검사 추가 
 			boolean isSamePassword_check = changePw != null && changePw_check != null && changePw_check!=changePw;
 			if(isSamePassword_check) {
-				resp.sendRedirect("password.jsp?error=3");
+				resp.sendRedirect(req.getContextPath()+"/mypage/password.jsp?error=3");
 				return;
 			}
 			
@@ -58,7 +58,7 @@ public class MypagePasswordServlet extends HttpServlet{
 				resp.sendRedirect(req.getContextPath()+"/member/login.jsp");
 			}
 			else {
-				resp.sendRedirect("password.jsp");
+				resp.sendRedirect(req.getContextPath()+"/mypage/password.jsp");
 			
 			}
 			

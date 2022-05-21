@@ -78,15 +78,15 @@
 
 			
 			<div class="right">
-			<a  class="link link-btn" href="write.jsp">글쓰기</a>
+			<a  class="link link-btn" href="<%=request.getContextPath()%>/qa/write.jsp">글쓰기</a>
 			<%if(isAdmin){ %>
-				<a class="link link-btn" href="write.jsp?superNo=<%=qaNo%>">답글</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/qa/write.jsp?superNo=<%=qaNo%>">답글</a>
 			<%} %>
 			<%if(isOwner){ %>
-				<a class="link link-btn" href="edit.jsp?qaNo=<%=qaNo%>&groupNo=<%=groupNo%>">수정</a>
-				<a class="link link-btn" href="delete.kh?qaNo=<%=qaNo%>">삭제</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/qa/edit.jsp?qaNo=<%=qaNo%>&groupNo=<%=groupNo%>">수정</a>
+				<a class="link link-btn" href="<%=request.getContextPath()%>/qa/delete.kh?qaNo=<%=qaNo%>">삭제</a>
 			<%} %>
-			<a class="link link-btn" href="list.jsp">목록</a>
+			<a class="link link-btn" href="<%=request.getContextPath()%>/qa/list.jsp">목록</a>
 			</div>
 	
 

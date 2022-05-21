@@ -30,7 +30,7 @@ public class ReplyEditServlet extends HttpServlet{
 			
 			//출력 코드
 			if(success) {
-				resp.sendRedirect("detail.jsp?reviewNo="+reviewReplyDto.getReplyTarget());
+				resp.sendRedirect(req.getContextPath()+"/review/detail.jsp?reviewNo="+reviewReplyDto.getReplyTarget());
 				
 			}else {
 				resp.sendError(404);

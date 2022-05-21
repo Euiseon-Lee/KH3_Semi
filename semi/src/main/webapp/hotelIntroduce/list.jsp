@@ -25,9 +25,9 @@
 	<%-- for each 써서 쓰는법 --%>
 	<%for(HotelIntroduceDto hotelIntroduceDto : list){ %>
 		<h3>
-		<a href = "detail.jsp?hotelIntroduceNo=<%=hotelIntroduceDto.getHotelIntroduceNo()%>">
-		<%=hotelIntroduceDto.getHotelIntroduceHead() %>
-		</a>
+			<a href = "<%=request.getContextPath()%>/hotelIntroduce/detail.jsp?hotelIntroduceNo=<%=hotelIntroduceDto.getHotelIntroduceNo()%>">
+			<%=hotelIntroduceDto.getHotelIntroduceHead() %>
+			</a>
 		</h3>
 	<%} %>
 		

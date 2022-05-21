@@ -75,10 +75,10 @@
 			<a href="#">회원정보</a>
             </div>
 			<ul>
-				<li><a href="/semi/member/join.jsp">회원가입</a>
-				<li><a href="/semi/member/login.jsp">로그인</a>
-				<li><a href="/semi/member/find_id.jsp">ID찾기</a>
-				<li><a href="/semi/member/find_pw.jsp">PW찾기</a>
+				<li><a href="<%=request.getContextPath()%>/member/join.jsp">회원가입</a>
+				<li><a href="<%=request.getContextPath()%>/member/login.jsp">로그인</a>
+				<li><a href="<%=request.getContextPath()%>/member/find_id.jsp">ID찾기</a>
+				<li><a href="<%=request.getContextPath()%>/member/find_pw.jsp">PW찾기</a>
 			</ul>
 		</li>
 		<li>
@@ -86,11 +86,11 @@
 			<a href="#">호텔소개</a>
             </div>
 			<ul>
-				<li><a href="/semi/hotelIntroduce/hotelintro.jsp">호텔소개</a>
-				<li><a href="/semi/hotelIntroduce/hotelinfo.jsp">호텔정보</a>
-				<li><a href="/semi/hotelIntroduce/floorguide.jsp">층별안내도</a>
-				<li><a href="/semi/hotelIntroduce/attraction.jsp">주변관광지</a>
-				<li><a href="/semi/hotelIntroduce/away.jsp">오시는길</a>
+				<li><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelintro.jsp">호텔소개</a>
+				<li><a href="<%=request.getContextPath()%>/hotelIntroduce/hotelinfo.jsp">호텔정보</a>
+				<li><a href="<%=request.getContextPath()%>/hotelIntroduce/floorguide.jsp">층별안내도</a>
+				<li><a href="<%=request.getContextPath()%>/hotelIntroduce/attraction.jsp">주변관광지</a>
+				<li><a href="<%=request.getContextPath()%>/hotelIntroduce/away.jsp">오시는길</a>
 			</ul>
 		</li>
 		<li>
@@ -98,10 +98,10 @@
 			<a href="#">객실소개</a>
             </div>
 			<ul>
-				<li><a href="/semi/Roomcollection/Standard.jsp">Standard</a>
-				<li><a href="/semi/Roomcollection/deluxe.jsp">Deluxe</a>
-				<li><a href="/semi/Roomcollection/premier.jsp">Premier</a>
-				<li><a href="/semi/Roomcollection/Suite.jsp">Suite</a>
+				<li><a href="<%=request.getContextPath()%>/Roomcollection/Standard.jsp">Standard</a>
+				<li><a href="<%=request.getContextPath()%>/Roomcollection/deluxe.jsp">Deluxe</a>
+				<li><a href="<%=request.getContextPath()%>/Roomcollection/premier.jsp">Premier</a>
+				<li><a href="<%=request.getContextPath()%>/Roomcollection/Suite.jsp">Suite</a>
 			</ul>
 		</li>
 		<li>
@@ -109,9 +109,9 @@
 			<a href="#">부대시설</a>
             </div>
 			<ul>
-				<li><a href="/semi/amenities/pool.jsp">POOL</a>
-				<li><a href="/semi/amenities/fitness.jsp">FITNESS</a>
-				<li><a href="/semi/amenities/restaurant.jsp">RESTAURANT</a>
+				<li><a href="<%=request.getContextPath()%>/amenities/pool.jsp">POOL</a>
+				<li><a href="<%=request.getContextPath()%>/amenities/fitness.jsp">FITNESS</a>
+				<li><a href="<%=request.getContextPath()%>/amenities/restaurant.jsp">RESTAURANT</a>
 			</ul>
 		</li>
 		<li>
@@ -119,8 +119,8 @@
 			<a href="#">고객문의</a>
             </div>
 			<ul>
-				<li><a href="/semi/qa/list.jsp">Q/A 게시판</a>
-				<li><a href="/semi/qa/write.jsp">Q/A 작성</a>
+				<li><a href="<%=request.getContextPath()%>/qa/list.jsp">Q/A 게시판</a>
+				<li><a href="<%=request.getContextPath()%>/qa/write.jsp">Q/A 작성</a>
 			</ul>
 		</li>
 		<li>
@@ -128,7 +128,7 @@
 			<a href="#">이용후기</a>
             </div>
 			<ul>
-				<li><a href="/semi/review/list.jsp">후기 게시판</a>
+				<li><a href="<%=request.getContextPath()%>/review/list.jsp">후기 게시판</a>
 			</ul>
 		</li>	
 		<li>
@@ -136,8 +136,8 @@
 			<a href="#">예약</a>
             </div>
 			<ul>
-				<li><a href="/semi/bookings/add.jsp">예약하기</a>
-				<li><a href="/semi/mypage/pay/list.jsp">결제목록</a>
+				<li><a href="<%=request.getContextPath()%>/bookings/add.jsp">예약하기</a>
+				<li><a href="<%=request.getContextPath()%>/mypage/pay/list.jsp">결제목록</a>
 			</ul>
 		</li>	
 	</ul>

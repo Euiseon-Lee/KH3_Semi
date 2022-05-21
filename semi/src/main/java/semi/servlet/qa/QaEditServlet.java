@@ -27,7 +27,7 @@ public class QaEditServlet extends HttpServlet{
 			boolean success = qaDao.update(qaDto);
 			
 			if(success) {
-				resp.sendRedirect("detail.jsp?qaNo="+qaDto.getQaNo()+"&groupNo="+qaDto.getGroupNo());
+				resp.sendRedirect(req.getContextPath()+"/qa/detail.jsp?qaNo="+qaDto.getQaNo()+"&groupNo="+qaDto.getGroupNo());
 			}
 			else {
 				resp.sendError(404);
