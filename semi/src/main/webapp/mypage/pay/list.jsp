@@ -87,7 +87,7 @@
 				<%for(PayDto payDto: list){ %>
 					<tr>
 						<td style=" color: rgb(39, 76, 119)">
-							<a href="<%=request.getContextPath()%>/review/detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>" class="link link-btn">
+							<a href="<%=request.getContextPath()%>/mypage/pay/detail.jsp?payOrderNo=<%=payDto.getPayOrderNo() %>" class="link link-btn">
 								<%=payDto.getPayOrderNo() %>번
 							</a>
 						</td>
@@ -105,27 +105,27 @@
 	<div class="row center pagination">
 	<!-- 이전 버튼 -->
 		<%if(p>1){ %>
-			<a href="<%=request.getContextPath()%>/review/list.jsp?p=1&s=<%=s %>">&laquo;</a>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=1&s=<%=s %>">&laquo;</a>
 		<%} %>
 		<%if(startBlock > 1){ %>
-			<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=<%=startBlock-1%>&s=<%=s%>">&lt;</a>
 		<%} %>
 		<!-- 숫자 링크 영역 -->
 		<%for(int i=startBlock; i <= endBlock; i++){ %>
 			<%if(i == p){ %>
-				<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
+				<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>	
 			<%} else { %>
-				<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
+				<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=<%=i%>&s=<%=s%>"><%=i%></a>
 			<%} %>
 		<%} %>
 		
 		<!-- 다음 버튼 -->
 		<%if(endBlock < lastPage){ %>
-			<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=<%=endBlock+1%>&s=<%=s%>">&gt;</a>
 		<%} %>
 		
 		<%if(p < lastPage){ %>
-			<a href="<%=request.getContextPath()%>/review/list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
+			<a href="<%=request.getContextPath()%>/mypage/pay/list.jsp?p=<%=lastPage%>&s=<%=s%>">&raquo;</a>
 		<%} %>
 	</div>
 
