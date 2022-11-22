@@ -1,4 +1,4 @@
-# KH3_S
+# KH3_SEMI
 ### 세미 프로젝트 - 호텔 예약 사이트
 http://sysout.co.kr/azurehotel  <br>
 https://www.sysout.co.kr/azurehotel/
